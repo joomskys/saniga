@@ -1,0 +1,51 @@
+.cms-ac-content{
+	display: none;
+}
+.cms-ac-title{
+	[class*="cms-ac-title-icon-"]{
+		font-size: 20px;
+	}
+	.cms-ac-title-icon-close{
+		font-size: 14px;
+	}
+}
+
+// Layout 1
+.cms-accordion-layout1{
+	.cms-accordion-item{
+		padding: 22px 30px;
+		border: 2px solid $border-color;
+		@include border-radius(8px);
+		@include transition();
+		margin-bottom: 30px;
+		cursor: pointer;
+		&:last-child{
+			margin-bottom: 0;
+		}
+		&:hover,
+		&.active{
+			border-color: $accent-color;
+			.cms-ac-title-text,
+			.cms-ac-title-icon{
+				color: $accent-color;
+			}
+		}
+		.cms-ac-title-icon-open{
+			display: none;
+		}
+		&.active{
+			.cms-ac-title-icon-close{
+				display: none;
+			}
+			.cms-ac-title-icon-open{
+				display: inline-block;
+			}
+		}
+	}
+	.cms-ac-title-text{
+		font-size: 16px;
+	}
+	.cms-ac-content{
+		padding: 10px 0 0;
+	}
+}

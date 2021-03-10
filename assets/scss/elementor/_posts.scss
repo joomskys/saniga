@@ -1,0 +1,277 @@
+/*
+ * All style for post item layout 
+*/
+.cms-post-item-title{
+	position: relative;
+	&.has-line{
+		&:before,
+		&:after{
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			height: 1px;
+			[dir="rtl"] &{
+				left: auto;
+				right: 0;
+			}
+		}
+		&:before{
+			width: 103px;
+			background: #c8c8c8;
+		}
+		&:after{
+			width: 36px;
+			background: $secondary_color;
+		}
+	}
+}
+// layout 1
+.cms-post-layout-1{
+	.cms-item-content-excerpt{
+		min-height: 100px;
+		max-height: 100px;
+		overflow: hidden;
+	}
+	.cms-post-feature-cat{
+		background-color: $accent-color;
+		color: $white;
+		font-size: 13px;
+		padding: 5px 10px;
+		@include border-radius(6px);
+		position: absolute;
+		bottom: -15px;
+		left: 40px;
+		a{
+			color: $white;
+			&:hover{
+				color: $white;
+			}
+		}
+	}
+	.cms-item-content{
+		position: relative;
+		&:after{
+			content: '';
+			position: absolute;
+			left: 40px;
+			bottom: 0;
+			width: 0;
+			height: 4px;
+			background-color: $accent-color;
+			@include transition();
+		}
+		&:hover{
+			&:after{
+				width: calc(100% - 80px);
+			}
+		}
+	}
+}
+// Layout 2
+.cms-post-layout-2{
+}
+
+// Layout 3
+.cms-post-layout-3 {
+	.cms-item-content-title{
+		height: 56px;
+		overflow: hidden;
+	}
+	.cms-item-content-excerpt{
+		height: 50px;
+		overflow: hidden;
+	}
+	@media (min-width: $screen-xl-min){
+		.cms-item-content{
+			padding-bottom: 157px;
+		}
+		.cms-item-content-inner{
+			position: absolute;
+			bottom: -144px;
+			left: 0;
+			right: 0;
+		}
+		.cms-item-content-excerpt{
+			padding-top: 10px;
+		}
+		.cms-item-content:hover{
+			.cms-item-content-inner{
+				bottom: 0;
+				background-color: $white;
+			}
+			.cms-item-content-excerpt{
+				padding-top: 0;
+			}
+		}
+		a[data-other-link]{
+			display: block!important;
+			position: absolute;
+			left: -46px;
+			bottom: 0;
+			font-weight: 700;
+			padding-right: 40px;
+			bottom: 100px;
+		    font-weight: 700;
+		    @include transform(rotate(90deg));
+			span{
+				display: none;
+			}
+			[dir="rtl"] &{
+				left: auto;
+				right: -46px;
+			}
+		}
+	}
+	a[data-other-link]{
+		display: none;
+	}
+}
+// Layout 4
+.cms-post-layout-4{
+	.cms-grid-item{
+		margin-bottom: 10px;
+	}
+	.cms-item-content{
+		.cms-item-content-inner{
+			position: absolute;
+			left: 40px;
+			bottom: 0;
+			margin-bottom: -43px;
+			@include border-radius(8px 0 8px 8px); 
+		}
+		&:hover{
+			.cms-img{
+				@include transform(scale(1.1));
+			}
+			.cms-item-content-inner{
+				margin-bottom: -20px;
+				background-color: $accent-color;
+				color: $white;
+				* {
+					color: $white;
+				}
+			}
+		}
+	}
+	.cms-item-content-title{
+		max-height: 56px;
+		overflow: hidden;
+	}
+}
+// layout 5
+.cms-post-layout-5{
+	.cms-item-content{
+		&:hover{
+			background-color: $accent-color;
+			color: $white;
+			*{
+				color: $white;
+			}
+		}
+	}
+	.cms-item-content-title{
+		max-height: 56px;
+		overflow: hidden;
+	}
+}
+// layout 6
+.cms-post-layout-6 {
+	.cms-item-content{
+		&:after{
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			height: 4px;
+			background-color: $accent-color;
+			@include transition();
+			width: 0;
+		}
+		&:hover{
+			&:after{
+				left: 40px;
+				width: calc(100% - 80px);
+			}
+		}
+	}
+}
+// layout 7
+.cms-post-layout-7{
+	.cms-social-layout-5{
+		@include border-radius(8px 8px 0 0);
+	}
+	.cms-item-content-inner{
+		&:before,
+		&:after{
+			content: '';
+			height: 2px;
+			position: absolute;
+			bottom: 0;
+			@include transition();
+		}
+		&:before{
+			left: 40px;
+			right: 40px;
+			background-color: $primary-color;
+		}
+		&:after{
+			left: 50%;
+			right: 50%;
+			background-color: $accent-color;
+		}
+	}
+	.cms-item-content{
+		&:hover{
+			.cms-item-content-inner{
+				&:after{
+					left: 40px;
+					right: 40px;
+				}
+				&:before{
+					left: 50%;
+					right: 50%;
+				}
+			}
+		}
+	}
+}
+// layout 8
+.cms-post-layout-8{
+	.cms-service-icon.icon{
+		width: 114px;
+		height: 114px;
+		border: 5px solid #d0f3f8;
+		line-height: 104px;
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+		> span:before{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			@include transform(translate(-50%, -50%));
+		}
+	}
+	.cms-grid-item:hover{
+		.cms-service-icon{
+			&.icon{
+				background-color: var(--color-e7f9fc);
+				border-color: var(--color-e7f9fc);
+				color: $accent-color;
+			}
+			img{
+				@include transform(scale(1.05));
+			}
+		}
+		.btn{
+			background-color: $accent-color;
+			border-color: $accent-color;
+			color: $white;
+			.hover-icon{
+				visibility: visible;
+				right: 0;
+			}
+		}
+	}
+}

@@ -1,0 +1,28 @@
+.cms-counter-number{
+	white-space: nowrap;
+	overflow: hidden;
+}
+// layout 1
+.cms-counter-layout1{
+	.cms-counter-image img{
+		max-width: 37px;
+	}
+}
+// layout 2
+.cms-counter-layout2{
+	.cms-counter-wrap:after{
+		content: '';
+		width: 28px;
+		height: 2px;
+		display: block;
+		background-color: $border-color;
+		margin-top: 22px;
+	}
+}
+
+.cms-counter-links .cms-link{
+	padding-bottom: 5px;
+	&:last-child{
+		padding-bottom: 0;
+	}
+}

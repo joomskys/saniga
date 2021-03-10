@@ -1,0 +1,79 @@
+.cms-grid{
+	position: relative;
+}
+.cms-grid-sizer{
+	width: 0;
+	height: 0;
+	visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.cms-grid-gutter{
+	width: 0;
+}
+
+// Filter 
+$filter_color: $primary_color;
+$filter_active: $accent_color;
+.cms-grid-filter-wrap{
+	margin-bottom: 30px;
+	.cms-filter-item{
+	    max-width: 100%;
+	    font-weight: 700;
+	    cursor: pointer;
+	    position: relative;
+	    color: $filter_color;
+	    @include transition(all 300ms linear 0ms);
+	    &:after{
+	    	content: '';
+		    height: 4px;
+		    position: absolute;
+		    background-color: $filter_active;
+		    left: 7.5px;
+		    right: 100%;
+		    margin: auto;
+		    bottom: -1px;
+		    opacity: 0;
+		    @include transition();
+	    }
+	    &.active, 
+	    &:hover {
+	      color: $filter_active;
+	      &:after {
+	        opacity: 1;
+	        right: 7.5px;
+	      }
+	    }
+	}
+	&.outline{
+		.cms-filter-item:after{
+			display: none;
+			&:hover,
+		    &.active{
+		    	.cms-filter-item-inner{
+		    		border-color: $filter_active;
+		    		color: $filter_active;
+		    	}
+		    }
+		}
+		.cms-filter-item-inner{
+			border: 2px solid filter_color;
+		    color: $filter_color;
+		    margin-left: 5px;
+		    margin-right: 5px;
+		    padding: 10px 20px;
+		    @include transition();
+		}
+	}
+}
+// loading
+.cms-grid-overlay.loader{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(255,255,255,0.5);
+	z-index: 10;
+}

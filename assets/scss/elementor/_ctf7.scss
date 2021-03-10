@@ -1,0 +1,46 @@
+// All style
+.wpcf7-submit-icon{
+}
+.wpcf7 .wpcf7-form .cms-input.time-wrap,
+.wpcf7 .wpcf7-form .cms-input.date-wrap{
+    &:before {
+        position: absolute;
+        top: calc(50% + 11px);
+        transform: translateY(-50%);
+        right: 26px;
+        color: #091d3e;
+        font-weight: bold;
+        font-size: 14px;
+        pointer-events: none;
+        z-index: 1;
+        [dir="rtl"] &{
+            right: auto;
+            left: 26px;
+        }
+    }
+    input{
+        position: relative;
+    }
+}
+.wpcf7 .wpcf7-form .cms-input.time-wrap:before {
+    @include font-cmsi('\f017');
+}
+.wpcf7 .wpcf7-form .cms-input.date-wrap:before {
+    @include font-cmsi('\f783');
+}
+
+.cms-cf7-layout-3{
+    .cms-form-desc{
+        padding-bottom: 13px;
+    }
+}
+
+.cms-submit{
+    position: relative;
+    .ajax-loader{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%,-50%));
+    }
+}

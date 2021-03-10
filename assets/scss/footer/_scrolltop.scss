@@ -1,0 +1,51 @@
+$scoll_top_size: 110px;
+$scoll_top_size_small: 40px;
+$scoll_top_radius: 0;
+
+.cms-scroll-top {
+	height: $scoll_top_size;
+    width: $scoll_top_size;
+    background: $accent_color;
+    color: $white;
+    border: none;
+    position: fixed;
+    right: 0;
+    bottom: -55px;
+    font-size: 18px;
+    line-height: $scoll_top_size;
+    font-weight: bold;
+    text-transform: uppercase;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    z-index: 999;
+    visibility: hidden;
+    @include border-radius($scoll_top_radius);
+    @include box-shadow(5px 0 5px rgba(0, 0, 0, 0.1));
+    @include opacity(0);
+	&:hover, &:focus, &:active {
+		color: $white;
+		background: $primary-color;
+	}
+	&.on {
+		bottom: 0;
+		visibility: visible;
+		@include opacity(1);
+	}
+	.cms-scroll-top-arrow{
+		display: block;
+	    width: 100%;
+	    position: relative;
+	    @include animation(vibrate 2s linear 0s infinite);
+	}
+	[dir="rtl"] &{
+		right: auto;
+		left: 0;
+	}
+	@media (max-width: 1400px){
+		height: $scoll_top_size_small;
+    	width: $scoll_top_size_small;
+    	line-height: $scoll_top_size_small;
+	}
+}
+#cms-footer.scroll-off:after{display: none;}

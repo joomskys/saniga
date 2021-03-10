@@ -1,0 +1,91 @@
+// Container 
+.container{
+	@media (min-width: 1366px){
+		max-width: 1310px;
+	}
+	&.container-wide{
+		@media (min-width: 1400px){
+			max-width: 84%;
+		}
+	}
+	&.container-full{
+		max-width: 100%;
+	}
+}
+// Gutters 
+$theme-gutters: (
+	0:0,
+	5: 5px,
+	10: 10px,
+	15: 15px,
+	20 : 20px,
+	25 : 25px,
+	30 : 30px,
+	40 : 40px,
+	50 : 50px,
+	60 : 60px,
+	70 : 70px,
+	80 : 80px,
+	90 : 90px,
+	100 : 100px
+);
+.row{
+	@each $breakpoint in map-keys($grid-breakpoints) {
+		@include media-breakpoint-up($breakpoint) {
+			$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+			@each $gutter, $value in $theme-gutters{
+				&.gutters#{$infix}-#{$gutter}{
+					margin: 0 $value/-2;
+					> [class*='col']{
+						padding: 0 $value/2;
+					}
+					&.gutters-grid{
+						margin: $value/-2;
+						> [class*='col']{
+							padding: $value/2;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+// Hidden
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@include media-breakpoint-down($breakpoint) {
+		$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+		.cms-hidden#{$infix}{
+			display: none!important;
+		}
+	}
+	@include media-breakpoint-up($breakpoint) {
+		$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+		.cms-hidden-n#{$infix}{
+			display: none!important;
+		}
+	}
+}
+// max widh
+$theme-width: (
+	40,
+	60,
+	90
+);
+@each $width in $theme-width{
+	.maxw-#{$width}{
+		&.init{
+			max-width: #{$width}px;
+			+ .depend-maxw{
+				max-width: calc( 100% - #{$width}px);
+			}
+		}
+		&.percent{
+			max-width: $width/100*100%;
+		}
+	}
+}
+
+// Call default boostrap style
+@import "_bootstrap/mixins/deprecate";
+// Custom 
+@import "_bootstrap_theme/custom_grid";

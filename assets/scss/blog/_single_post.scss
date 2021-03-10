@@ -1,0 +1,57 @@
+.cms-post-content{
+}
+.post-password-form{
+	input[name="post_password"]{
+		margin-bottom: 20px;
+	}
+}
+
+.cms-single-post{
+	.cms-featured-inner .cms-post-date{
+		top: 40px;
+		left: 40px;
+		bottom: auto;
+		right: auto;
+		[dir="rtl"] &{
+			left: auto;
+			right: 40px;
+		}
+	}
+	.cms-post-meta{
+		position: relative;
+		&:before{
+			content: '';
+			position: absolute;
+			left: -40px;
+			background-color: $white;
+			top: 0;
+			bottom: 0;
+			width: 200px;
+		}
+	}
+	.cms-post-tags .custom {
+		color: $accent-color;
+		> a{
+			color: $accent-color;
+			&:hover{
+				color: $primary-color;
+			}
+		}
+	}
+	.cms-post-content{
+		font-size: 16px;
+		p:not(last-child){
+			margin-bottom: 25px;
+		}
+	}
+	.cms-post-author-avatar img{
+		@include border-radius(8px);
+	}
+}
+body.single-post:not(.elementor-default){
+	.cms-post-title{
+		//font-size: 19px;
+		//font-weight: 500!important;
+		//line-height: normal!important;
+	}
+}	

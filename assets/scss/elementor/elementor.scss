@@ -1,0 +1,49 @@
+$gap-narrow: 20px;
+$gap-default : 30px;
+$gap-extended: 40px;
+$gap-wide: 50px;
+$gap-wider: 80px;
+
+@import 'accordion';
+@import 'careers';
+@import 'clients';
+@import 'company_history';
+@import 'countdown';
+@import 'counter';
+@import 'cta';
+@import 'features';
+@import 'heading';
+@import 'headline';
+@import 'howitwork';
+@import 'icon_box';
+@import 'image_gallery';
+@import 'list';
+@import 'locate_pointer';
+@import 'menu';
+@import 'page_title';
+@import 'post_featured';
+@import 'posts';
+@import 'post_grid';
+@import 'post_list';
+@import 'pricing_table';
+@import 'process';
+@import 'progressbar';
+@import 'quick_contact';
+@import 'rating';
+@import 'search';
+@import 'service';
+@import 'socials';
+@import 'single_product';
+@import 'tabs';
+@import 'teams';
+@import 'testimonial';
+@import 'toggle';
+@import 'video';
+// custom some default elementor element
+@import 'custom';
+// 3rd extenstions
+@import 'ctf7';
+@import 'language_switcher';
+
+// Default
+.elementor-widget-spacer{margin-bottom: 0!important;}

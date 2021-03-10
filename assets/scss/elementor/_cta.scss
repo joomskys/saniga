@@ -1,0 +1,34 @@
+// divider
+.cms-cta-bottom-divider{
+	position: absolute;
+	left: 40px;
+	right: 40px;
+	bottom: 0;
+	height: 3px;
+}
+// layout 1
+.cms-cta-layout-1{
+	.text-underline{
+		text-decoration: none;
+		border-bottom: 2px solid;
+		&:not([class="text-white"]):not([class="text-fff"]):hover{
+			color: $white;
+			border-bottom-color: $white;
+		}
+	}
+	a.text-underline.text-accent:hover{
+		color: $primary-color!important;
+		border-bottom-color: $primary-color!important;
+	}
+}
+// layout 2
+.cms-cta-layout-2{
+	.cms-cta-wrap{
+		background-color: #f4f4f4;
+		@include border-radius(8px);
+		padding: 40px;
+	}
+	.cms-btn-content{
+		justify-content: space-between;
+	}
+}

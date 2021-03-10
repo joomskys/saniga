@@ -1,0 +1,34 @@
+.text-uppercase{
+  text-transform: uppercase;
+}
+.text-capitalize{
+  text-transform: capitalize!important;
+}
+.text-ellipsis{
+  @include text-ellipsis();
+}
+.text-underline{
+  text-decoration: underline;
+}
+.text-border-bottom{
+  border-bottom: 2px solid $accent-color;
+  padding-bottom: 3px;
+}
+// Responsive alignment
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .text#{$infix}-center   { text-align: center!important; }
+    .text#{$infix}-start   { text-align: start!important; }
+    .text#{$infix}-end  { text-align: end!important; }
+    .text#{$infix}-justify  { text-align: justify!important; }
+  }
+
+  @include media-breakpoint-down($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .text-max#{$infix}-center   { text-align: center!important; }
+    .text-max#{$infix}-start   { text-align: start!important; }
+    .text-max#{$infix}-end  { text-align: end!important; }
+    .text-max#{$infix}-justify  { text-align: justify!important; }
+  }
+}

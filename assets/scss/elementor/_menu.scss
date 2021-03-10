@@ -1,0 +1,39 @@
+.cms-menu{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+// Menu Horizontal
+.cms-menu-horz{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -10px;
+	li{
+		flex: 0 0 auto;
+		width: auto;
+		max-width: 100%;
+		padding: 0 10px;
+	}
+}
+.cms-menu-separator{
+	li{
+		position: relative;
+		&:after{
+			content: '';
+			width: 4px;
+			height: 1px;
+			background-color: #9b9b9b;
+			display: inline-block;
+			position: absolute;
+			top: 50%;
+			right: -2px;
+			[dir="rtl"] &{
+				right: auto;
+				left: -2px;
+			}
+		}
+		&:last-child:after{
+			display: none;
+		}
+	}
+}

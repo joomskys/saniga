@@ -1,0 +1,12 @@
+.widget_recent_entries{
+	a{
+		padding: 7px 0;
+		display: block;
+	}
+	li:first-child a{
+		padding-top: 0;
+	}
+	li:last-child a{
+		padding-bottom: 0;
+	}
+}

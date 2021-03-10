@@ -1,0 +1,126 @@
+.navigation,
+.woocommerce-pagination{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: -5px;
+	&:empty{
+		display: none;
+	}
+	.page-numbers,
+	.post-page-numbers{
+		flex: 0 0 auto;
+		margin: 5px;
+		display: inline-block;
+		vertical-align: top;
+		text-align: center;
+		@include box-shadow(0 0 0 2px $border-color);
+		font-size: 20px;
+		font-weight: 700;
+		background: $white;
+		&:hover,
+		&.current{
+			@include box-shadow(0 0 0 2px $accent-color);
+			background: $accent-color;
+			color: $white;
+		}
+	}
+	.page-numbers{
+		min-width: 60px;
+		height: 60px;
+		line-height: 60px;
+	}
+	.post-page-numbers{
+		min-width: 30px;
+		height: 30px;
+		line-height: 26px;
+	}
+	.nav-next-icon{
+		&:before{
+			@include font-cmsi("\f108");
+			[dir="rtl"] &{
+				@include font-cmsi("\f107");
+			}
+		}
+	}
+	.nav-prev-icon{
+		&:before{
+			@include font-cmsi("\f107");
+			[dir="rtl"] &{
+				@include font-cmsi("\f108");
+			}
+		}
+	}
+	&.cms-page-links{
+		justify-content: start;
+	}
+}
+.posts-pagination{
+	padding-top: 37px;
+}
+// Single post next/preview
+.cms-single-next-prev-navigation{
+	.cms-single-nav-inner {
+		> a{
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 2;
+		}
+	}
+	.cms-nav-label {
+		text-transform: capitalize;
+	}
+	.cms-nav-title {
+		max-height: 44px;
+		overflow: hidden;
+	}
+	.post-image{
+		overflow: hidden;
+		position: relative;
+		@include border-radius(8px);
+		&:before,
+		&:after{
+			position: absolute;
+			@include transition();
+		}
+		&:before{
+			content: '';
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: $accent-color;
+			@include scale(0);
+			@include opacity(0.9);
+		}
+		&:after{
+			top: 50%;
+			left: 50%;
+			color: $white;
+			@include transform(scale(0) translate(-50%, -50%));
+		}
+	}
+	.cms-single-next .post-image{
+		&:after{
+			@include font-cmsi("\f108");
+		}
+	}
+	.cms-single-prev .post-image{
+		&:after{
+			@include font-cmsi("\f107");
+		}
+	}
+	.cms-single-next-prev:hover{
+		.post-image{
+			&:before{
+				@include scale(1);
+			}
+			&:after{
+				@include transform(scale(1) translate(-50%, -50%));
+			}
+		}
+	}
+}

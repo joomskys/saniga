@@ -1,0 +1,18 @@
+.cms-featured-inner{
+	.cms-post-date-on-media{
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		min-width: 114px;
+		line-height: 29px;
+		padding: 0 20px;
+		[dir="rtl"] &{
+			right: auto;
+			left: 0;
+		}
+	}
+}
+.thumbnai-is-bg .cms-img{
+	@include opacity(0);
+	visibility: hidden;
+}

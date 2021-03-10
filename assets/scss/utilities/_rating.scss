@@ -1,0 +1,114 @@
+$star_icon_font: "font-cmsi";
+$star_icon: "\f110";
+$star_icon_filled: "\f111";
+$star_icon_color: $primary-color;
+$star_icon_filled_color: $rating-color;
+
+.comments-rating {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+.rating-container {
+	display: inline-block;
+	height: 24px;
+	vertical-align: top;
+	/* remove inline-block whitespace */
+	font-size: 0;
+	/* flip the order so we can use the + and ~ combinators */
+	unicode-bidi: bidi-override;
+	direction: rtl;
+}
+
+.rating-container * {
+	font-size: 1.4rem;
+}
+
+.rating-container > input {
+	display: none;
+}
+
+.rating-container > input + label {
+	/* only enough room for the star */
+	font-family: $star_icon_font;
+	display: inline-block;
+	overflow: hidden;
+	width: 1em;
+	white-space: nowrap;
+	cursor: pointer;
+	margin: 0;
+}
+
+.rating-container > input + label:before {
+	display: inline-block;
+	content: $star_icon;
+	color: $star_icon_color;
+}
+
+.rating-container > input:checked ~ label:before,
+.rating-container > input + label:hover ~ label:before,
+.rating-container > input + label:hover:before,
+.cms-rating-icon-filled:before {
+	content: $star_icon_filled;
+	color: $star_icon_filled_color;
+}
+.rating-container > .star-cb-clear + label {
+}
+.rating-container > .star-cb-clear + label:before {
+}
+
+.rating-container:hover > input + label:before,
+.cms-rating-icon-empty:before{
+	content: $star_icon;
+	color: $star_icon_color;
+	text-shadow: none;
+}
+
+.rating-container:hover > input + label:hover ~ label:before,
+.rating-container:hover > input + label:hover:before {
+	content: $star_icon_filled;
+	color: $star_icon_filled_color;
+}
+
+.comment-respond .rating-container > .star-cb-clear + label, .comment-respond .rating-container > input + label:before {
+	//text-indent: 9999px;
+}
+
+.comment-respond .rating-container > input + label {
+	//text-indent: -9999px;
+}
+
+.cms-rating-icon-filled,
+.cms-rating-icon-empty{
+	font-family: $star_icon_font;
+	display: inline-block;
+	overflow: hidden;
+	width: 1em;
+	white-space: nowrap;
+	cursor: pointer;
+	margin: 0;
+}
+.cms-rating-icon-empty{
+	z-index: -1;
+}
+
+// Star rated
+.cms-star-rating {
+	width: 90px;
+	height: 14px;
+	display: inline-block;
+	letter-spacing: 3px;
+	&:before{
+		font-family: $star_icon_font;
+		content: '\f110\f110\f110\f110\f110';
+		color: $star_icon_color;
+	}
+	.cms-star-rated{
+		top: 0;
+		color: $star_icon_filled_color;
+		&:before{
+			font-family: $star_icon_font;
+			content: '\f111\f111\f111\f111\f111';
+		}
+	}
+}

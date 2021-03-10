@@ -1,0 +1,55 @@
+// Column hozirontal align
+$alignment : (
+	'start'  : 'flex-start',
+	'end'    : 'flex-end',
+	'center' : 'center',
+	'between': 'space-between',
+	'around' : 'space-around',
+);
+@each $name, $align in $alignment{
+	.cms-justify-content-#{$name} {
+		> .elementor-container > .elementor-row{
+			justify-content: #{$align};
+		}
+	}
+}
+@media (min-width: 1600px){
+	.cms-justify-content-xxl-between {
+		> .elementor-container > .elementor-row{
+			justify-content: space-between;
+		}
+	}
+}
+.elementor-background-overlay{
+	[dir="rtl"] &{
+		@include flip();
+	}
+}
+
+.cms-section-boxed-bg{
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: $primary-color;
+	@include border-radius(16px);
+	@media (min-width: $desktop-screen){
+		left: 40px;
+		right: 40px;
+	}
+	.cms-boxed-bg-true > &{
+		display: block;
+	}
+}
+@import 'custom_column';
+@import 'custom_inner_section';
+@import 'custom_section';
+//@import 'el_image';
+//@import 'el_list';
+//@import 'el_text_editor';
+//@import 'el_video';

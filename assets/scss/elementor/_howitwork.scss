@@ -1,0 +1,79 @@
+.cms-howitwork{
+	.cms-howitwork-img{
+		position: absolute;
+		left: 0;
+		right: 0;
+	}
+	.cms-howitwork-content{
+		@media (min-width: $screen-lg-min){
+			max-width: 95%;
+		}
+		@media (min-width: $desktop-screen){
+			max-width: 70.625%;
+			padding-bottom: 55px;
+		}
+	}
+	.cms-howitwork-item-img{
+		@media (min-width: $screen-md-min){
+			width: 66.371681415929204%;
+		}
+	}
+	.cms-howitwork-item-content{
+		margin: 0 auto;
+		position: relative;
+		&:before{
+			content: '';
+			height: 4px;
+			background-color: $accent_color;
+			position: absolute;
+			top: 0;
+			left: 0;
+			[dir="rtl"] &{
+				left: auto;
+				right: 0;
+			}
+			width: 124px;
+			@media (max-width: 1600px){
+				width: 34.482758620689655%;
+			}
+		}
+		@media (min-width: $screen-lg-min){
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			max-width: 90%;
+		}
+		@media (min-width: $desktop-screen){
+			max-width: 75%;
+		}
+		@media (min-width: 1400px){
+			//max-width: 51.327433628318584%;
+			max-width: 580px;
+		}
+	}
+	.cms-howitwork-rating{
+		@media(min-width: 1601px){
+			margin-right: 166px!important;
+		}
+		@media(min-width: $screen-lg-min){
+			max-width: 815px;
+			margin-right: 8.849557522123894%;
+		}
+	}
+
+	.cms-howitwork-rated{
+		border-bottom: 2px solid;
+	}
+	.cms-howitwork-star{
+		font-size: 14px;
+		color: $accent_color;
+		letter-spacing: 5px;
+		&:before{
+			content: "\6f\6f\6f\6f\6f";
+		}
+	}
+	.cms-howitwork-r-img,
+	.cms-howitwork-item-img{
+		background-position: center;
+	}
+}

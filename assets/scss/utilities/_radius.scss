@@ -1,0 +1,10 @@
+@each $name, $radius in $cms_theme_radius{
+	.cms-radius-#{$name},
+	.elementor .cms-radius-#{$name},
+	.elementor .cms-radius-#{$name} > .elementor-column-wrap{
+		@include border-radius(#{$radius});
+		[dir="rtl"] &{
+			//@include border-radius(#{$radius});
+		}
+	}
+}

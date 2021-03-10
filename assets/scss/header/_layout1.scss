@@ -1,0 +1,8 @@
+.header-layout1.is-ontop.header-ontop,
+.header-layout1.is-sticky.header-sticky{
+	border-bottom: 1px solid rgba($border-color, 0.2);
+	.header-separator span{
+		background-color: $border-color;
+		@include opacity(0.2);
+	}
+}

@@ -1,0 +1,28 @@
+.cms-breadcrumb{
+	display: flex;
+	flex-wrap: wrap;
+	.breadcrumb-item{
+		flex: 0 0 auto;
+		max-width: 100%;
+		&:last-child{
+			.breadcrumb-divider{
+				display: none;
+			}
+		}
+	}
+	.breadcrumb-divider{
+		padding: 0 10px;
+		font-size: 80%;
+	}
+}
+
+// color
+.cms-pagetitle-breadcrumb{
+	color: var(--ptitle-breadcrumb-regular);
+	a{
+		color: var(--ptitle-breadcrumb-active);
+		&:hover{
+			color: var(--ptitle-breadcrumb-hover);
+		}
+	}
+}

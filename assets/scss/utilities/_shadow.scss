@@ -1,0 +1,35 @@
+@each $name, $shadow in $theme_shadow{
+	.cms-shadow-#{$name}{
+		@include box-shadow($shadow);
+	}
+	.cms-shadow-active-#{$name}{
+		&.active,
+		&:hover,
+		&.current,
+		&[class*="current"]{
+			@include box-shadow($shadow);
+		}
+	}
+	.active,
+	[class*="current"]{
+		.cms-shadow-active-#{$name}{
+			@include box-shadow($shadow);
+		}
+	}
+	.cms-shadow-hover-#{$name}{
+		&:hover{
+			@include box-shadow($shadow);
+		}
+	}
+}
+// Responsive shadow
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-down($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @each $name, $shadow in $theme_shadow{
+    	.cms#{$infix}-shadow-#{$name}   { 
+    		@include box-shadow($shadow);
+    	}
+    }
+  }
+}

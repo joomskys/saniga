@@ -1,0 +1,93 @@
+//
+$wg_list_indent : 15px;
+
+.cms-widget-title{
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.cms-widget{
+    position: relative;
+    overflow: hidden;
+    ul, ol{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        ul, ol{
+            padding-left: $wg_list_indent;
+            [dir="rlt"] &{
+                padding-left: 0;
+                padding-right: $wg_list_indent;
+            }
+        }
+    }
+    .count{
+        min-width: 25px;
+        height: 25px;
+        line-height: 25px;
+        background: $secondary-color;
+        color: $white;
+        display: inline-block;
+        text-align: center;
+        font-size: 12px;
+        @include border-radius(12px);
+        @include transition();
+    }
+    .cms-list-item > a,
+    .wc-layered-nav-term > a{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: -7.5px;
+        margin-right: -7.5px;
+        > .title{
+            flex-basis: 0;
+            flex-grow: 1;
+            max-width: 100%;
+            padding-left: 7.5px;
+            padding-right: 7.5px;
+        }
+        > .count{
+            flex: 0 0 auto;
+            max-width: 100%;
+            margin-left: 7.5px;
+            margin-right: 7.5px;
+            justify-content: space-between;
+        }
+    }
+}
+.cms-widget-inner {
+    > *{
+        position: relative;
+        z-index: 1;
+    }
+    > .cms-wg-bg{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 0;
+    }
+}
+
+// 
+@import "archive";
+@import "calendar";
+@import "categories";
+@import "menu";
+@import "newsletter";
+@import "recent_comments";
+@import "recent_entries";
+@import "rss";
+@import "search";
+@import "tagcloud";
+// theme widget 
+@import "cms_recent_post";
+// 3rd extensions
+@import "newsletter";
+@import "newsletter_minimal";

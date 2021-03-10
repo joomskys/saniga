@@ -1,0 +1,23 @@
+@import 'header_top';
+@import 'header_logo';
+@import 'header_menu';
+@import 'header_attrs';
+@import 'header_secondary_menu';
+@import 'header_hidden_sidebar';
+@import 'header_main';
+@import 'header_ontop';
+@import 'header_sticky';
+@import 'header_mobile';
+@import 'header_separator';
+@import 'layout1';
+@import 'layout2';
+@import 'layout3';
+// Header Main
+//--------------------------------------------------
+.cms-header-wraps{
+	z-index: 2;
+	position: relative;
+}
+#cms-header{
+	@include transition(all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) 0s);
+}

@@ -1,0 +1,23 @@
+.cms-page-title-layout10{
+	&#cms-pagetitle{
+		background: none;
+		color: $body-color;
+		padding: 40px 0;
+		a{
+			color: $primary-color;
+			&:hover{
+				color: $accent-color;
+			}
+		}
+		+ #cms-main{
+			padding-top: 0;
+		}
+	}
+	.cms-page-title-overlay{
+		display: none;
+		opacity: 0;
+	}
+	.cms-pagetitle-breadcrumb{
+		color: $body-color;
+	}
+}

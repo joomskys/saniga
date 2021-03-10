@@ -1,0 +1,54 @@
+$s-btn-width: 50px;
+.cms-e-search-layout-1{
+	.cms-e-search-form{
+		padding-left: $s-btn-width;
+		[dir="rtl"] &{
+			padding-left: 0;
+			padding-right: $s-btn-width;	
+		}
+	}
+	.cms-e-search-submit{
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: $s-btn-width;
+		border:none;
+		background: none;
+		[dir="rtl"] &{
+			left: auto;
+			right: 0;
+		}
+	}
+	.cms-e-search-field{
+		min-width: 160px;
+		border: none;
+		height: $s-btn-width;
+		line-height: $s-btn-width;
+		padding: 7px 0 0 0;
+		@include border-radius(0);
+		&:hover{
+			@include box-shadow(none);
+		}
+	}
+	.cms-e-search-field::-moz-placeholder{
+		color: $body-font-color;
+		font-size: 13px;
+		font-style: italic;
+	}
+	.cms-e-search-field::-webkit-input-placeholder{
+		color: $body-font-color;
+		font-size: 13px;
+		font-style: italic;
+	}
+	.cms-e-search-field::-o-placeholder{
+		color: $body-font-color;
+		font-size: 13px;
+		font-style: italic;
+	}
+	.cms-e-search-field::-ms-placeholder{
+		color: $body-font-color;
+		font-size: 13px;
+		font-style: italic;
+	}
+}

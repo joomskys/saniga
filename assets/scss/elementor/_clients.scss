@@ -1,0 +1,17 @@
+.cms-clients-layout-1{
+	.cms-client-img{
+		min-height: 50px;
+		line-height: 50px;
+		img{
+			vertical-align: middle;
+		}
+	}
+	.cms-client-item{
+		border-top: 3px solid transparent;
+		padding: 70px 0;
+		&.slick-current,
+		&:hover{
+			border-color: $accent_color;
+		}
+	}
+}

@@ -1,0 +1,54 @@
+$place_holder_color: #616161;
+
+@mixin saniga_form_placeholder(){
+    color: $place_holder_color;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    opacity: 1;
+    text-overflow: ellipsis;
+    line-height: inherit;
+}
+
+input::-moz-placeholder, 
+textarea::-moz-placeholder {
+    @include saniga_form_placeholder();
+}
+input::-webkit-input-placeholder, 
+textarea::-webkit-input-placeholder {
+    @include saniga_form_placeholder();
+}
+input::-o-placeholder, 
+textarea::-o-placeholder {
+    @include saniga_form_placeholder();
+}
+input::-ms-placeholder, 
+textarea::-ms-placeholder {
+    @include saniga_form_placeholder();
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    @include css3-prefix('appearance', 'none');
+    margin: 0; 
+}
+input::-webkit-calendar-picker-indicator{
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 2;
+    text-align: start;
+    padding: 0;
+    margin: 0;
+}
+input::-webkit-datetime-edit{
+    text-align: start;
+    width: 100%;
+}

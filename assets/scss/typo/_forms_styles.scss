@@ -1,0 +1,65 @@
+.cms-label-active{
+	position: relative;
+	padding-top: 23px;
+	> label{
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: $accent-color;
+		color: $white;
+		font-size: 14px;
+		font-weight: 700;
+		line-height: 23px;
+		padding: 0 10px;
+		@include border-radius(8px 8px 0 0);
+		@include transition();
+		@include transform(translateX(-25px));
+		@include opacity(0);
+		visibility: hidden;
+	}
+	&:hover,
+	&:active,
+	&:focus{
+		> label{
+			visibility: visible;
+			@include opacity(1);
+			@include transform(translateX(0px));
+		}
+	}
+}
+
+// Form style 1
+.cms-form-style-1{
+	> div:not(:last-child) {
+		margin-bottom: 12px;
+	}
+	select,
+	textarea,
+	input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]){
+		color: $primary-color;
+		font-size: 14px;
+		border: 2px solid var(--color-e6f8fb);
+		background-color: var(--color-e6f8fb);
+		@include border-radius(0 8px 8px 8px);
+		&:hover,
+		&:active,
+		&:focus{
+			border-color: $accent-color;
+			background-color: $white;
+		}
+	}
+	select,
+	input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]){
+		line-height: 56px;
+		height: 60px;
+	}
+	input[type="submit"],
+	input[type="button"]{
+		line-height: 70px;
+	}
+}
+.cms-form-space-30{
+	> div:not(:last-child){
+		margin-bottom: 7px;
+	}
+}

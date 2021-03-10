@@ -1,0 +1,11 @@
+.cms-page-title-layout2{
+	text-align: center;
+	.cms-page-title-inner{
+		@media (min-width: $screen-xl-min){
+			width: 40%;
+			padding-bottom: 135px;
+			margin-left: auto;
+			margin: auto;
+		}
+	}
+}

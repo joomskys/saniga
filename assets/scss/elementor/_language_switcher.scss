@@ -1,0 +1,118 @@
+.cms-language-switcher{
+	.trp-language-switcher{
+		margin: -15px;
+		vertical-align: top;
+		> div{
+			border: none;
+			background: transparent;
+			@include border-radius(0);
+			@include transition();
+			padding: 15px;
+			vertical-align: top;
+			width: auto!important;
+			> a{
+				padding: 0;
+				@include border-radius(0);
+				color: inherit;
+				display: flex;
+				align-items: center;
+				color: $primary-color;
+				white-space: nowrap;
+				> img{
+					width: 35px;
+					height: auto;
+					margin: 0 10px 0 0;
+					[dir="rtl"] &{
+						margin: 0 0 0 10px;
+					}
+				}
+				&:hover{
+					background: transparent;
+					color: $accent-color;
+				}
+			}
+		}
+		.trp-ls-shortcode-language{
+			display: block !important;
+			position: absolute;
+			top: 0;
+			height: unset;
+			@include border-radius(6px);
+			@include box-shadow(0px 5px 83px 0px rgba(9, 29, 62, 0.5));
+			visibility: hidden;
+			@include opacity(0);
+			overflow: visible;
+			@include transition();
+			> a{
+				margin-bottom: 15px;
+				&:last-child{
+					margin-bottom: 0;
+				}
+				&:hover{
+					color: $accent-color;
+				}
+			}
+		}
+		&:hover{
+			.trp-ls-shortcode-current-language{
+				visibility: hidden;
+				opacity: 0;
+			}
+			.trp-ls-shortcode-language{
+				background: $white;
+				visibility: visible;
+				@include opacity(1);
+			}
+		}
+	}
+	&.cms-hidden-text{
+		a{
+			font-size: 0;
+			img{
+				margin: 0!important;
+			}
+		}
+	}
+}
+
+// layout 01
+.cms-ls-layout-1{
+	.cms-language-switcher {
+		.trp-language-switcher {
+			color: $body-font-color;
+			font-size: 13px;
+			> div {
+				padding: 15px 30px 15px 15px;
+				[dir="rtl"] &{
+					padding: 15px 15px 15px 30px;
+				}
+			}
+			> div > a{
+				color: $body-font-color;
+				&:hover{
+					color: $accent-color;
+				}
+			}
+			&:hover{
+				color: $primary-color;
+				> div > a{
+					color: $primary-color;
+					&:hover{
+						color: $accent-color;
+					}
+				}
+			}
+		}
+		&:after{
+			@include font-cmsi("\f089", 14px);
+			position: absolute;
+			right: 15px;
+			top: 2px;
+			z-index: 1;
+			[dir="rtl"] &{
+				left: 15px;
+				right: auto;
+			}
+		}
+	}
+} 

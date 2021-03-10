@@ -1,0 +1,16 @@
+.cms-features-section{
+	padding: 19px 50px;
+	@include border-radius(8px 8px 0 8px);
+	@media (max-width: $screen-sm-max){
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+.cms-feature-item{
+	&:not(:last-child){
+		padding-bottom: 13px;
+	}
+	.cms-icon-wrap{
+		padding-right: 5px;
+	}
+}

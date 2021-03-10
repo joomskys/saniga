@@ -1,0 +1,64 @@
+/**
+ * woocommerce-smallscreen.scss
+ * Optimises the default WooCommerce frontend layout when viewed on smaller screens.
+ */
+
+/**
+ * Style begins
+ */
+@media(max-width: $screen-md-max){
+	table.shop_table_responsive {
+		thead {
+			display: none;
+		}
+		tbody {
+			tr:first-child {
+				td:first-child {
+				}
+			}
+			th {
+				display: none;
+			}
+		}
+		tr {
+			display: block;
+			td {
+				display: block;
+				text-align: right !important; // Important to overwrite order status inline styling
+				border-right: 1px solid #ddd;
+				&.order-actions {
+					text-align: left !important; // This must always align left on handheld
+				}
+
+				&::before {
+					content: attr(data-title) ': ';
+					font-weight: 700;
+					float: left;
+				}
+
+				&.product-remove,
+				&.actions {
+					&::before {
+						display: none;
+					}
+				}
+				&.actions{
+					display: table;
+				}
+			}
+			&:nth-child( 2n ) {
+				td {
+					background-color: rgba(0, 0, 0, 0.025);
+				}
+			}
+		}
+	}
+	/**
+	 * Cart
+	 */
+	table.cart {
+		.product-thumbnail {
+			display: none;
+		}
+	}
+}

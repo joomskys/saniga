@@ -1,0 +1,205 @@
+/* CMS Button */
+.btn,
+button,
+.button,
+input[type="submit"],
+input[type="button"]{
+  position: relative;
+  display: inline-block;
+  font-family: $button-font-family;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
+  color: $button-font-color;
+  line-height: 1;
+  letter-spacing: $button-letter-spacing;
+  padding: 18px 20px;
+  background-color: $primary-color;
+  outline: none;
+  cursor: pointer;
+  text-transform: capitalize;
+  vertical-align: top;
+  border: $button-border;
+  @include border-radius($button-radius);
+  @include transition();
+  .cms-btn-icon{
+    font-size: 20px;
+    //@include transform(translateY(3px));
+  }
+  &:hover, 
+  &:focus {
+    background: $accent_color;
+    border-color: $accent_color;
+    color: $white;
+    outline: none;
+    .cms-btn-icon{
+      @include animation(readmoreIcon 300ms linear 0s);
+      [dir="rtl"] &{
+        @include animation(readmoreIcon-rtl 300ms linear 0s);
+      }
+    }
+  }
+  // outline
+  &.btn-outline{
+    background: transparent;
+    border-color: $button-border-color;
+    @each $name, $color in $cms_theme_colors{
+      &.btn-#{$name} {
+        color: #{$color}
+      }    
+    }
+    &.btn-white{
+      &:hover{
+        color: $primary-color!important;
+      }
+    }
+  }
+  @each $name, $color in $cms_theme_colors{
+    &.btn-hover-#{$name}{
+      &:hover{
+        color: $white;
+        border-color: #{$color};
+        background-color: #{$color};
+      }
+    }
+  }
+  &.btn-hover-white{
+      &:hover{
+        color: $accent_color;
+      }
+    }
+  [dir="rtl"] &{
+    @include border-radius($button-radius-rtl);
+  }
+  // Alignment
+  &.text-justify{
+    display: block;
+  }
+}
+// button text
+.cms-btn-content{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0 -5px;
+  > span{
+    flex: 0 0 auto;
+    position: relative;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.cms-loading-icon,
+.cms-added-icon{
+  display: none;
+}
+.loading{
+  .cms-loading-icon{
+    display: inline-block;
+  }
+  .cms-default-icon,
+  .cms-added-icon{
+    display: none;
+  }
+}
+.added{
+  .cms-added-icon{
+    display: inline-block;
+  }
+  .cms-default-icon,
+  .cms-loading-icon{
+    display: none;
+  }
+}
+
+// Button Color
+@each $name, $color in $cms_theme_colors{
+  .btn-#{$name} {
+    background-color: #{$color};
+    border-color: #{$color};
+    color: $white-color;
+  }
+}
+.btn-white{
+  color: $accent-color;
+}
+// Button Size Spacing
+//button size: 48, 51, 58,  68, 78
+$cms_theme_btn_spacing : (
+  'xs' : 11px 15px, // 32
+  'sm' : 13.5px 20px, //40
+  '' : 16.5px 20px, //48
+  'md' : 18px 20px, //51
+  'lg' : 21.5px, // 58
+  'xl' : 26.5px, // 68
+  'xxl' : 30px // 78
+);
+@each $name, $spacing in $cms_theme_btn_spacing{
+  .btn-#{$name} {
+    padding: $spacing;
+  }
+}
+// Button Font Size
+//button size: 48, 51, 58,  68, 78
+$cms_theme_btn_font_sizes : (
+  'xs' : 12px, // 32
+  'sm' : 13px, //40
+  '' : $button-font-size, //48
+  'md' : 15px, //51
+  'lg' : 15px, // 58
+  'xl' : 15px, // 68
+  'xxl' : 15px // 78
+);
+@each $name, $size in $cms_theme_btn_font_sizes{
+  .btn-#{$name} {
+    font-size: $size;
+  }
+}
+// Video 
+.btn-video{
+  width: 105px;
+  height: 105px;
+  line-height: 73px;
+  font-size: 33px;
+  position: relative;
+  color: $primary_color;
+  display: block;
+  text-align: center;
+  border: 16px solid rgba($white, 0.5);
+  @include border-radius(50%);
+  &:before,
+  &:after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 65px;
+    width: 65px;
+    @include transform(translate(-50%,-50%));
+    @include border-radius(50%);
+    @include box-shadow(0 0 0 0 rgba(255, 255, 255, .3));
+    @include animation(ripple 3s infinite);
+  }
+  &:before {
+    @include css3-prefix('animation-delay', .9s);
+  }
+  &:after {
+    @include css3-prefix('animation-delay', .6s);
+  }
+  .cms-play-video-icon{
+    width: 73px;
+    height: 73px;
+    line-height: 73px;
+    display: block;
+    background: $white;
+    @include border-radius(50%);
+    &:before{
+      @include font-cmsi('\f3aa');
+    }
+  }
+
+  &.rev-btn{
+    border:none!important;
+  }
+}

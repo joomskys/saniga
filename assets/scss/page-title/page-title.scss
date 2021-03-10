@@ -1,0 +1,40 @@
+.cms-pagetitle{
+	background-color: var(--ptitle-background-color);
+	background-image: var(--ptitle-background-image);
+    background-size: var(--ptitle-background-size);
+    background-position: var(--ptitle-background-position);
+    background-repeat: var(--ptitle-background-repeat);
+    background-attachment: var(--ptitle-background-attachment);
+    color: var(--ptitle-color);
+    padding: 50px 0 70px;
+    .container{
+    	z-index: 1;
+    }
+    .cms-scroll{
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        z-index: 1;
+        @include transform(translate(-50%, 50%));
+    }
+}
+.cms-page-title-overlay{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: var(--ptitle-overlay-rgba);
+    //background: -moz-linear-gradient(top,  rgba(27,26,26,1) 0%, rgba(29,42,53,1) 7%, rgba(41,137,216,0.02) 50%, rgba(32,124,202,0) 51%, rgba(27,26,26,0) 82%);
+    //background: -webkit-linear-gradient(top,  rgba(27,26,26,1) 0%,rgba(29,42,53,1) 7%,rgba(41,137,216,0.02) 50%,rgba(32,124,202,0) 51%,rgba(27,26,26,0) 82%);
+    //background: linear-gradient(to bottom,  rgba(27,26,26,1) 0%,rgba(29,42,53,1) 7%,rgba(41,137,216,0.02) 50%,rgba(32,124,202,0) 51%,rgba(27,26,26,0) 82%);
+    //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b1a1a', endColorstr='#001b1a1a',GradientType=0 );
+}
+
+@import "title";
+@import "breadcrumb";
+@import "layout1";
+@import "layout2";
+@import "layout10";
+@import "layout11";
+@import "layout12";

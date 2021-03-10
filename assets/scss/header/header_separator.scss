@@ -1,0 +1,15 @@
+.header-separator{
+	height: $header-height;
+	span{
+		width: 1px;
+		height: 100%;
+		display: block;
+		background: $border-color;
+	}
+}
+.header-layout2 .header-separator{
+	height: 41px;
+	span{
+		width: 2px;
+	}
+}

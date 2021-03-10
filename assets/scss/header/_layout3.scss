@@ -1,0 +1,19 @@
+.header-layout3{
+	> .header-container{
+		@media (min-width: 1200px){
+			padding-right: 0!important;
+			[dir="rtl"] &{
+				padding-right: 45px!important;
+				padding-left: 0!important;
+			}
+		}
+	}
+}
+.header-layout3.is-ontop.header-ontop,
+.header-layout3.is-sticky.header-sticky{
+	border-bottom: 1px solid rgba($border-color, 0.2);
+	.header-separator span{
+		background-color: $border-color;
+		@include opacity(0.2);
+	}
+}

@@ -1,0 +1,19 @@
+.wpcf7{
+	[dir="rtl"] &{
+		direction: rtl!important;
+	}
+	.wpcf7-submit + .ajax-loader{
+		position: absolute;
+		display: none;
+		&.is-active{
+			display: block;
+		}
+	}
+	span.wpcf7-list-item{
+		margin-left: 28px;
+		&.first,
+		&:first-child{
+			margin-left: 0;
+		}
+	}
+}

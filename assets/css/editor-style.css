@@ -1,0 +1,7 @@
+.elementor-control-input-wrapper .icons-selector .selector-popup{
+	max-width: 215px;
+}
+.elementor-control-input-wrapper .icons-selector .selector-popup .icons-search-input,
+.elementor-control-input-wrapper .icons-selector .selector-popup .icon-category-select{
+	color: white;		
+}

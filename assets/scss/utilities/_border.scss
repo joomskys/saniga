@@ -1,0 +1,104 @@
+//border color
+// styled in utilities/_color.scss
+$border-style: (
+	'solid',
+	'dashed',
+	'dotted',
+	'double',
+	'groove',
+	'inset',
+	'outset',
+	'ridge'
+);
+@each $name in $border-style{
+	.bdr-#{$name}{
+		border-style: #{$name};
+	}
+	.bdr-t-#{$name} {
+	  	border-top-style: #{$name};
+	}
+	.bdr-r-#{$name} {
+	  	border-right-style: #{$name};
+	}
+	.bdr-b-#{$name} {
+	  	border-bottom-style: #{$name};
+	}
+	.bdr-l-#{$name} {
+	  	border-left-style: #{$name};
+	}
+}
+//border width
+$border-width: (
+	0,
+	1,
+	2,
+	3,
+	4,
+	5,
+	6,
+	7,
+	8,
+	9,
+	10
+);
+@each $width in $border-width{
+	.bdr-#{$width}{
+		border-width: #{$width}px;
+	}
+	.bdr-t-#{$width} {
+	  	border-top-width: #{$width}px;
+	}
+	.bdr-r-#{$width} {
+	  	border-right-width: #{$width}px;
+	}
+	.bdr-b-#{$width} {
+	  	border-bottom-width: #{$width}px;
+	}
+	.bdr-l-#{$width} {
+	  	border-left-width: #{$width}px;
+	}
+	.bdr-lr-#{$width} {
+	  	border-left-width: #{$width}px;
+	  	border-right-width: #{$width}px;
+	}
+	.bdr-tb-#{$width} {
+		border-top-width: #{$width}px;
+		border-bottom-width: #{$width}px;
+	}
+}
+
+
+$border-radius: (
+	5: 5px,
+	10: 10px,
+	15: 15px,
+	20: 20px,
+	24: 24px,
+	25: 25px,
+	40: 40px
+);
+@each $name, $radius in $border-radius{
+	.bdr-radius-#{$name}{
+		@include border-radius($radius!important);
+	}
+}
+[class*="bdr-radius-"]{
+	overflow: hidden;
+}
+
+.circle,
+.cms-circle,
+.elementor img.circle{
+	@include border-radius(50%);
+}
+
+.bdr-main{
+	border-color: $border-color;
+}
+[data-other-link="other-link"],
+.cms-bdr-b{
+	border-bottom: 2px solid;
+}
+.cms-hover-bdr-b:hover{
+	border-bottom: 2px solid $accent-color;
+}

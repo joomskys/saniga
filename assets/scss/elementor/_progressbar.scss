@@ -1,0 +1,32 @@
+// Progress Bar
+.cms-progress-wrapper {
+    .elementor-title {
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 12px;
+        color: var(--color-26365e);
+    }
+    .elementor-progress-wrapper {
+        height: 2px;
+        background-color: #dcdee2;
+    }
+    .elementor-progress-bar {
+        background-color: var(--color-435ba1);
+        @include border-radius(3px);
+        height: 5px;
+        position: relative;
+        bottom: 7px;
+    }
+    .elementor-progress-percentage {
+        position: absolute;
+        top: -30px;
+        padding: 0;
+        right: 0;
+        font-size: 15px;
+        color: #848e9f;
+        font-weight: 700;
+    }
+    + .cms-progress-wrapper {
+        margin-top: 26px;
+    }
+}

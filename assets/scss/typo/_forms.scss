@@ -1,0 +1,260 @@
+@import "forms_placeholder";
+@import "forms_styles";
+
+$FF_Color: $body-font-color;
+$FF_Height: 65px;
+$FF_Padding: 0 20px;
+$FF_Border: 0 0 0 1px $border-color;
+$FF_Border_Radius: 0;
+$FF_Border_Radius_rtl: 0;
+$FF_Shadow: $shadow-1;
+$FF_Background: #fff;
+
+input,
+textarea, select,
+.select2-container.select2-container--default .select2-selection--single {
+    background-color: $FF_Background;
+    @include box-shadow($FF_Border);
+    color: $FF_Color;
+    padding: $FF_Padding;
+    line-height: $FF_Height;
+    height: $FF_Height;
+    font-size: 100%;
+    text-align: start;
+    @include border-radius($FF_Border_Radius);
+    @include box-shadow(none);
+    @include transition();
+    outline: none;
+    &:hover,
+    &:focus, 
+    &:active {
+        border-color: $accent-color;
+        color: $primary_color;
+        @include box-shadow($FF_Shadow);
+    }
+    &:not([type="submit"]):not([type="checkbox"]):not([type="radio"]){
+        width: 100%;
+    }
+    [dir="rtl"] &{
+        @include border-radius($FF_Border_Radius_rtl);
+    }
+}
+select {
+    height: $FF_Height;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(../images/select-arrow.png);
+    background-position: calc(100% - 20px) 50%;
+    background-repeat: no-repeat;
+    padding-right: 40px;
+    [dir="rtl"] &{
+        background-position: 10px 50%;
+        padding-right: 22px;
+        padding-left: 40px;
+    }
+}
+textarea {
+    padding-top: 15px;
+    line-height: normal;
+    min-height: 110px;
+}
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea, select {
+}
+input,
+select, 
+textarea{
+    vertical-align: top;
+    position: relative;
+}
+.cms-select {
+    form {
+        position: relative;
+        background-color: #fff;
+        @include border-radius(4px);
+    }
+    select {
+        height: $FF_Height;
+        line-height: 37px;
+        font-size: 15px;
+        background-color: transparent;
+        position: relative;
+        z-index: 99;
+          -webkit-appearance:  none; 
+          -khtml-appearance: none;
+          -moz-appearance: none;
+          -ms-appearance: none;
+          -o-appearance: none;
+          appearance: none;
+    }
+    i {
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        @include transform(translate(0px, -50%));
+    }
+}
+// Checkbox + Radio
+.cms-custom-checkbox,
+.cms-custom-radio{
+    position: relative;
+    margin-right: 5px;
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    [dir="rtl"] &{
+        margin-right: 0;
+        margin-left: 5px;
+    }
+    input[type="checkbox"],
+    .cms-checkmark{
+        width: 17px;
+        height: 17px;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+    }
+    input{
+        @include opacity(0);
+        &:checked + .cms-checkmark:after{
+            @include opacity(1);
+        }
+    }
+    .cms-checkmark{
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 2px solid $border-color;
+        @include border-radius(4px);
+        &:after{
+            content: "";
+            background-color: $accent-color;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 7px;
+            height: 7px;
+            @include border-radius(4px);
+            @include opacity(0);
+        }
+    }
+    + label{
+        display: inline-block;
+    }
+}
+// Radio
+.cms-custom-radio{
+    input{
+        &:checked + .cms-checkmark{
+            border-color: $accent-color;
+            &:after{
+                background-color: $accent-color;
+            }
+        }
+    }
+    .cms-checkmark{
+        margin-top: 3px;
+        @include border-radius(50%);
+        &:after{
+            background-color: $border-color;
+            @include border-radius(50%);
+            @include opacity(1);
+        }
+    }
+}
+// Checkbox 
+.cms-custom-checkbox{
+    @include transform(translate(0, 3px));
+}
+
+#ui-datepicker-div {
+    padding: 22px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    @include border-radius(6px);
+    @include box-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+    position: absolute;
+    top: -9999px;
+    min-width: 300px;
+    z-index: 10001 !important;
+    .ui-datepicker-header {
+        position: relative;
+        .ui-corner-all {
+            display: block;
+            height: 30px;
+            width: 30px;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            padding: 0;
+            &:before {
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            span {
+                display: none;
+            }
+            &.ui-datepicker-prev {
+                left: 0;
+            }
+            &.ui-datepicker-next {
+                right: 0;
+            }
+        }
+        .ui-datepicker-title {
+            line-height: 30px;
+            margin-bottom: 10px;
+            min-height: 40px;
+            text-align: center;
+            text-transform: uppercase;
+            span {
+                display: inline-block;
+                vertical-align: middle;
+                line-height: 1;
+            }
+        }
+    }
+    .ui-datepicker-calendar {
+        margin: 0;
+        width: 100%;
+        th {
+            text-align: center;
+        }
+        td {
+            text-align: center;
+            padding: 6px;
+            &.ui-state-disabled {
+                color: rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+    top: 15px !important;
+    right: 15px !important;
+    [dir="rtl"] &{
+        right: auto!important;
+        left: 15px!important;
+    }
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    line-height: $FF_Height - 2px !important;
+}

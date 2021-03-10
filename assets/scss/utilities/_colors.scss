@@ -1,0 +1,59 @@
+// Theme Colors
+@each $name, $color in $cms_theme_colors {
+	// link color
+	.link-#{$name} {
+		color: #{$color};
+		*{
+			color: inherit;
+		}
+	}
+	.link-hover-#{$name}{
+		&:hover{
+			color: #{$color};
+			*{
+				color: inherit;
+			}
+		}
+	}
+	// text color
+	.text-#{$name}{
+		color: #{$color};
+		a{
+			color: inherit;
+		}
+	}
+	body *.text-hover-#{$name}:hover{
+		color: #{$color}!important;
+		*{
+			color: inherit;
+		}
+	}
+	// background color
+	.bg-#{$name}{
+		background-color: #{$color};
+	}
+	.bg-hover-#{$name}{
+		&:hover{
+			background-color: #{$color};
+		}
+	}
+	// border color
+	.bdr-#{$name} {
+		border-color: #{$color};
+	}
+	.bdr-hover-#{$name}:hover{
+		border-color: #{$color};
+	}
+}
+.bg-light-accent {
+	background-color: #e4f2e2;
+}
+// Gradient
+@each $name, $gradient in $cms_theme_gradient{
+	.bg-gradient-#{$name},
+	.cms-gradient-#{$name},
+	.cms-overlay-gradient-#{$name} > .elementor-background-overlay,
+	.cms-overlay-gradient-#{$name} > .elementor-column-wrap > .elementor-background-overlay{
+		@include background-gradient($gradient)
+	}
+}

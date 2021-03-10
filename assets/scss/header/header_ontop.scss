@@ -1,0 +1,51 @@
+.header-ontop{
+	position: absolute;
+	left: 0;
+	right: 0;
+	background: var(--ontop-bg);
+	//  menu
+	@media (min-width: $desktop-screen){
+		.cms-primary-menu{
+			// level 1
+			> li {
+				> a,
+				> .main-menu-toggle:before{
+					color: var(--ontop-regular);
+					&:hover{
+						color: var(--ontop-hover);
+					}
+				}
+				&:before{
+					background-color: var(--ontop-hover);
+				}
+
+				&:hover{
+					&:before{
+						background-color: var(--ontop-hover);
+					}
+					> a,
+					> .main-menu-toggle:before{
+						color: var(--ontop-hover);
+					}
+				}
+
+				&.current-menu-item,
+				&.current-menu-ancestor {
+					> a,
+					.main-menu-toggle:before{
+						color: var(--ontop-active);
+					}
+					&:before{
+						background-color: var(--ontop-active);
+					}
+				}
+			}
+		}
+		.menu-color{
+			color: var(--ontop-regular);
+			&:hover{
+				color: var(--ontop-hover);
+			}
+		}
+	}
+}

@@ -1,0 +1,98 @@
+// Headings
+//--------------------------------------------------
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.cms-heading {
+  clear: both;
+  font-family: var(--heading-font-family);
+  line-height: 1.25;
+  *{
+    color: inherit;
+  }
+  &:hover{
+    //color: $heading-font-color-hover;
+    *{
+      //color: inherit;
+    }
+  }
+  @each $weight, $name in $custom-font-weight {
+    &.font-#{$weight}{
+      body.cms-heading-font-default &{
+        @if $name != '' {
+          font-family: $name !important;
+          font-weight: normal!important;
+          font-style: normal!important;
+        }
+      }
+    }
+  }
+}
+h1, .h1 {
+  color: $heading-h1-typo-font-color;
+  font-family: $heading-h1-typo-font-family;
+  font-weight: $heading-h1-typo-font-weight;
+  font-size: $heading-h1-typo-font-size;
+  line-height: $heading-h1-typo-line-height;
+  letter-spacing: $heading-h1-typo-letter-spacing;
+  margin: 0.67rem 0;
+}
+
+h2, .h2 {
+  color: $heading-h2-typo-font-color;
+  font-family: $heading-h2-typo-font-family;
+  font-weight: $heading-h2-typo-font-weight;
+  font-size: $heading-h2-typo-font-size;
+  line-height: $heading-h2-typo-line-height;
+  letter-spacing: $heading-h2-typo-letter-spacing;
+  margin: 0.57rem 0;
+}
+
+h3, .h3 {
+  color: $heading-h3-typo-font-color;
+  font-family: $heading-h3-typo-font-family;
+  font-weight: $heading-h3-typo-font-weight;
+  font-size: $heading-h3-typo-font-size;
+  line-height: $heading-h3-typo-line-height;
+  letter-spacing: $heading-h3-typo-letter-spacing;
+  margin: 0.47rem 0;
+}
+
+h4, .h4 {
+  color: $heading-h4-typo-font-color;
+  font-family: $heading-h4-typo-font-family;
+  font-weight: $heading-h4-typo-font-weight;
+  font-size: $heading-h4-typo-font-size;
+  line-height: $heading-h4-typo-line-height;
+  letter-spacing: $heading-h4-typo-letter-spacing;
+  margin: 0.37rem 0;
+}
+
+h5, .h5 {
+  color: $heading-h5-typo-font-color;
+  font-family: $heading-h5-typo-font-family;
+  font-weight: $heading-h5-typo-font-weight;
+  font-size: $heading-h5-typo-font-size;
+  line-height: $heading-h5-typo-line-height;
+  letter-spacing: $heading-h5-typo-letter-spacing;
+  margin: 0.27rem 0;
+}
+
+h6, .h6 {
+  color: $heading-h6-typo-font-color;
+  font-family: $heading-h6-typo-font-family;
+  font-weight: $heading-h6-typo-font-weight;
+  font-size: $heading-h6-typo-font-size;
+  line-height: $heading-h6-typo-line-height;
+  letter-spacing: $heading-h6-typo-letter-spacing;
+  margin: 0.17rem 0;
+}
+
+.cms-heading{
+  color: var(--heading-font-color);
+  font-weight: var(--heading-font-weight);
+}
+
+.cms-heading2{
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}

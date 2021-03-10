@@ -1,0 +1,46 @@
+.cms-badge{}
+
+.cms-badge-1{
+	height: 18px;
+	min-width: 46px;
+	position: relative;
+	background-color: $accent-color;
+	color: $white;
+	padding: 0 10px;
+	&:before,
+	&:after{
+		content: '';
+		display: block;
+		position: absolute;
+	}
+	&:before{
+		width: 1px;
+		height: 1px;
+		top: -1px;
+		left: 0;
+		background-color: inherit;
+		[dir="rtl"] &{
+			left: auto;
+			right: 0;
+		}
+	}
+	&:after{
+		top: 0;
+		right: 0;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 9px 6px 9px 0;
+		border-color: transparent #fff transparent transparent;
+		[dir = 'rtl'] &{
+			right: auto;
+			left: 0;
+			border-width: 9px 0 9px 6px;
+			border-color: transparent transparent transparent #fff;
+		}
+	}
+	.cms-badge-text{
+		line-height: 18px;
+		font-size: 80%;
+	}
+}

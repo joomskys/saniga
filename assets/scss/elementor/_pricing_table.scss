@@ -1,0 +1,63 @@
+.cms-pricing-badge{
+	position: absolute;
+	top: -1px;
+	right: -20px;
+    transform-origin: 0 0;
+    transform: rotate(90deg);
+	[dir="rtl"] &{
+		right: auto;
+		left: -20px;
+		transform-origin: 100% 0;
+    	transform: rotate(270deg);
+	}
+}
+
+// layout 1
+.cms-pricing-layout-1{
+	.cms-pricing-divider-top{
+		position: absolute;
+		top: 0;
+		height: 2px;
+		background: $accent-color;
+	}
+	.cms-pricing-separator{
+		height: 2px;
+		background-color: $border-color;
+		margin: 43px -50px 53px;
+	}
+	.cms-heading-feature-item .cms-icon{
+		font-size: 20px;
+	}
+}
+// Layout 2
+.cms-pricing-layout-2,
+.cms-pricing-layout-4{
+	.cms-price-feature-item{
+		border-bottom: 1px solid #dcdee2;
+		padding: 13px 0;
+		&:last-child{
+			border-bottom: 0;
+			padding-bottom: 0;
+		}
+	}
+	.cms-price-feature-price > span{
+		padding: 0 10px;
+	    border-radius: 4px 4px 0 4px;
+	    line-height: 27px;
+	    display: block;
+	}
+}
+// Layout 3
+.cms-pricing-layout-3{
+	@media (min-width: $screen-md-min){
+		.cms-heading-features{
+			display: flex;
+			flex-wrap: wrap;
+			.cms-heading-feature-item {
+				flex: 0 0 50%;
+				width: 50%;
+				max-width: 50%;
+			}
+		}
+	}
+}

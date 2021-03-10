@@ -1,0 +1,199 @@
+// Block shadow 
+.cms-block-shadow{
+    @include css3-prefix('box-shadow', '0 10px 30px 0 rgba(50, 50, 50, .16)');
+    @include transition(all 0.5s linear);
+}
+// Box Shadow 
+.cms-box-shadow{
+    @include box-shadow('0 0px 0px 0 rgba(50, 50, 50, .16)');
+}
+// height
+.h-100{
+	height: 100%;
+}
+// width
+.w-100{
+	width: 100%;
+}
+.overflow-hidden{
+	overflow: hidden;
+}
+.overflow-visible{
+	overflow: visible;
+}
+// empty none
+.empty-none:empty{
+	display: none;
+}
+// Flip on RTL
+.rtl-flip{
+	[dir="rtl"] &{
+		@include flip();
+	}
+}
+// Center 
+.d-center{
+	position: relative;
+	left: 50%;
+	@include transform(translate(-50%, 0));
+}
+// clearfix
+.clearfix {
+	clear: both;
+	&:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+// Divider
+.cms-bottom-divider{
+	position: relative;
+	&:after{
+	    content: '';
+	    display: block;
+	    height: 3px;
+	    background: $accent-color;
+	    position: absolute;
+	    left: 40px;
+	    right: 40px;
+	    bottom: 0;
+	}
+	&.cms-bottom-divider-primary{
+		background: $primary-color; 
+	}
+}
+.elementor-section.cms-bottom-divider:after{
+	left: 70px;
+	right: 70px;
+}
+// background style
+.cms-bg-cover{
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+// Ripple
+.cms-ripple{
+	width: 70px;
+	height: 70px; 
+	line-height: 70px;
+	font-size: 20px;
+	position: relative;
+	display: block;
+	text-align: center;
+	background-color: $white;
+	color: $accent-color;
+	@include box-shadow(0 0 0 15px rgba($white_color_hex, 0.5));
+	@include border-radius(50%);
+	&:before,
+	&:after{
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		height: 65px;
+		width: 65px;
+		@include transform(translate(-50%,-50%));
+		@include border-radius(50%);
+		@include animation(ripple 3s infinite);
+		@include box-shadow(0 0 0 0 rgba($white_color_hex, .3));
+	}
+	&:before {
+		@include css3-prefix('animation-delay', .9s);
+	}
+	&:after {
+		@include css3-prefix('animation-delay', .6s);
+	}
+	// Colors
+	&.cms-ripple-accent{
+		background-color: $accent-color;
+		color: $white;
+		@include box-shadow(0 0 0 15px rgba($accent_color_hex, 0.15));
+		&:before,
+		&:after{
+			@include box-shadow(0 0 0 0 #{$accent-color});
+			@include opacity(0.3);
+		}
+	}
+	&.locate-point{
+		background-color: #aeaeae;
+		&:before,
+		&:after{
+			//@include box-shadow(0 0 0 0 #{$accent-color});
+			@include opacity(0.5);
+		}
+		.cms-ripple-inner{
+			width: 8px;
+			height: 8px;
+			background-color: $primary-color;
+			@include border-radius(50%);
+			position: absolute;
+			top: calc(50% - 4px);
+			left: calc(50% - 4px);
+		}
+	}
+	// Size
+	&.size-22{
+		width: 22px;
+		height: 22px;
+		line-height: 22px;
+		font-size: 14px;
+		@include box-shadow(0 0 0 0 rgba($white_color_hex, 0.5));
+		&:before,
+		&:after{
+			width: 20px;
+			height: 20px;
+		}
+	}
+	&.size-42{
+		width: 42px;
+		height: 42px;
+		line-height: 42px;
+		font-size: 14px;
+		@include box-shadow(0 0 0 10px rgba($white_color_hex, 0.5));
+	}
+	&.size-90{
+		width: 90px;
+		height: 90px;
+		line-height: 90px;
+	}
+	// Move
+	&.cms-vibrate span{
+		position: relative;
+		@include animation(vibrate 2s linear 0s infinite);
+	}
+}
+// image
+.cms-img{
+	@include transition();
+	.cms-hover-img-scale:hover &{
+		@include transform(scale(1.1));
+	}
+}
+// ontop
+.z-ontop{
+	z-index: 1;
+}
+//Rating
+.cms-rating-star:before{
+	content: "\6f\6f\6f\6f\6f";
+}
+
+// overlay link
+.cms-link-overlay{
+	> a{
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+}
+// fix font
+[class^="cmsi-"],
+[class*=" cmsi-"] {
+  vertical-align: middle;
+}
