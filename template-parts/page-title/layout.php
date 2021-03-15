@@ -1,5 +1,9 @@
 <?php
-$ptitle_layout        = saniga_get_opts( 'ptitle_layout', saniga_configs('ptitle')['layout'] );
+if(is_singular('post')){
+    $ptitle_layout =  saniga_configs('single_post')['title_layout'];
+} else {
+    $ptitle_layout   = saniga_get_opts( 'ptitle_layout', saniga_configs('ptitle')['layout'] );
+}
 $icon_dir             = is_rtl() ? 'left' : 'right';
 $breadcrumb_separator = '<span class="breadcrumb-divider cmsi-chevron-'.$icon_dir.'"></span>';
 $breadcrumb_class     = 'cms-pagetitle-breadcrumb';
