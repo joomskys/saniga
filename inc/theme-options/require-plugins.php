@@ -23,7 +23,7 @@ function saniga_register_required_plugins() {
      * If the source is NOT from the .org repo, then source is also required.
      */
     $default_path = 'https://cmssuperheroes.com/plugins/elementor/';
-    $auto_active = true;
+    $auto_active = false;
     $plugins = array(
         /* CMS Plugin */
         array(
