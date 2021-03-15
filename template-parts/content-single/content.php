@@ -54,11 +54,11 @@ if(has_post_thumbnail() || saniga_configs('default_post_thumbnail') === '1'){
     <div class="<?php echo esc_attr($padding_class);?>">
         <?php
             saniga_post_meta([
-                'show_date'   => '0',
+                'show_date'   => saniga_get_opts('post_date_on','1'),
                 'show_cat'    => saniga_get_opts('post_categories_on','1'),
                 'show_author' => saniga_get_opts('post_author_on','1'),
                 'show_cmt'    => saniga_get_opts('post_comments_on','1'),
-                'show_icon'   => false,
+                'show_icon'   => true,
                 'class'       => '',
                 'separator' => '<div class="col-auto"><span class="cms-meta-separator"></span></div>'
             ]);
