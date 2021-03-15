@@ -188,56 +188,6 @@ if(!function_exists('saniga_post_edit_link')){
 }
 
 /**
- * Ajax paginate links
-*/
-if(!function_exists('saniga_ajax_paginate_links')){
-    function saniga_ajax_paginate_links($link){
-        $parts = parse_url($link);
-        parse_str($parts['query'], $query);
-        if(isset($query['page']) && !empty($query['page'])){
-            return '#' . $query['page'];
-        }
-        else{
-            return '#1';
-        }
-    }
-}
-
-/**
- * AJAX HTML for pagination
-*/
-if(!function_exists('saniga_get_pagination_html')){
-    add_action( 'wp_ajax_saniga_get_pagination_html', 'saniga_get_pagination_html' );
-    add_action( 'wp_ajax_nopriv_saniga_get_pagination_html', 'saniga_get_pagination_html' );
-    function saniga_get_pagination_html(){
-        try{
-            if(!isset($_POST['query_vars'])){
-                throw new Exception(__('Something went wrong while requesting. Please try again!', 'saniga'));
-            }
-            $query = new WP_Query($_POST['query_vars']);
-            ob_start();
-            saniga_posts_pagination( $query,  true );
-            $html = ob_get_clean();
-            wp_send_json(
-                array(
-                    'status'  => true,
-                    'message' => esc_html__('Load Pagination Successfully!', 'saniga'),
-                    'data'    => array(
-                        'html'       => $html,
-                        'query_vars' => $_POST['query_vars'],
-                        'post'       => $query->have_posts()
-                    ),
-                )
-            );
-        }
-        catch (Exception $e){
-            wp_send_json(array('status' => false, 'message' => $e->getMessage()));
-        }
-        die;
-    }
-}
-
-/**
  * Prints posts pagination based on query
  *
  * @param  WP_Query $query     Custom query, if left blank, this will use global query ( current query )

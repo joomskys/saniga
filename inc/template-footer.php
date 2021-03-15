@@ -34,17 +34,29 @@ if(!function_exists('saniga_footer_css_class')){
 /**
  * Footer Copyright
 **/
+if(!function_exists('saniga_default_copyright_text')){
+    function saniga_default_copyright_text($text = '', $args = []){
+        $args = wp_parse_args($args, [
+            'link_color'       => '',
+            'link_hover_color' => ''
+        ]);
+        if(!empty($text)){
+            $default_copyright_text = $text;
+        } else {
+            $default_copyright_text = sprintf( esc_html__('&copy;%s %s, All Rights Reserved. With Love by %s ','saniga'), date('Y') , get_bloginfo('name'), '<a href="'.esc_url('https://themeforest.net/user/cmssuperheroes').'" target="_blank" rel="nofollow" class="'.$args['link_color'].' '.$args['link_hover_color'].'">'.esc_html__('CMSSuperHeroes','saniga').'</a>');
+        }
+        return $default_copyright_text;
+    }
+}
 if(!function_exists('saniga_footer_copyright')){
     function saniga_footer_copyright($args = []){
         $args = wp_parse_args($args, [
             'class' => ''
         ]);
-        $classes = ['cms-footer-copyright', $args['class']];
-
-        $default_copyright_text = sprintf( esc_html__('&copy; %s %s by %s. All Rights Reserved.','saniga'), date('Y') , get_bloginfo('name'), '<a href="'.esc_url('https://themeforest.net/user/cmssuperheroes').'" target="_blank">'.esc_html__('CMSSuperHeroes','saniga').'</a>');
+        $classes = ['cms-copyright-text cms-footer-copyright', $args['class']];
     ?>
     <div class="<?php echo trim(implode(' ', $classes));?>">
-        <?php echo saniga_get_opts('footer_copyright', $default_copyright_text); ?>
+        <?php echo saniga_get_opts('footer_copyright', saniga_default_copyright_text()); ?>
     </div>
     <?php
     }

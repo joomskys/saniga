@@ -18,7 +18,8 @@ input[type="button"]{
   cursor: pointer;
   text-transform: capitalize;
   vertical-align: top;
-  border: $button-border;
+  border: none;
+  @include box-shadow(none);
   @include border-radius($button-radius);
   @include transition();
   .cms-btn-icon{

@@ -1,0 +1,11 @@
+<?php
+
+class ETC_CmsCopyright_Widget extends Elementor_Theme_Core_Widget_Base{
+    protected $name = 'cms_copyright';
+    protected $title = 'CMS Copyright';
+    protected $icon = 'eicon-menu-bar';
+    protected $categories = array( 'elementor-theme-core' );
+    protected $params = '{"sections":[{"name":"layout_section","label":"Layout","tab":"layout","controls":[{"name":"layout","label":"Templates","type":"layoutcontrol","default":"1","options":{"1":{"label":"Layout 1","image":"http:\/\/localhost\/Saniga\/wp-content\/themes\/saniga\/elementor\/templates\/widgets\/cms_copyright\/layout-images\/1.png"}},"prefix_class":"cms-copyright-layout-"}]},{"name":"setting_section","label":"Settings","tab":"content","controls":[{"name":"copyright_text","label":"Copyright Text","type":"textarea","label_block":true},{"name":"copyright_color","label":"Text Color","type":"select","options":{"":"Default","accent":"Accent (#16bae1)","primary":"Primary (#161616)","secondary":"Secondary (#ffbe2e)","rating":"Rating (#16bae1)","body":"Body (#9b9b9b)","white":"White (#ffffff)","custom":"Custom"},"condition":{"copyright_text!":""}},{"name":"copyright_custom_color","label":"Custom Text Color","type":"color","condition":{"copyright_text!":"","copyright_color":"custom"},"selectors":{"{{WRAPPER}} .cms-copyright-text":"color:{{VALUE}};"}},{"name":"link_color","label":"Link Color","type":"select","options":{"":"Default","accent":"Accent (#16bae1)","primary":"Primary (#161616)","secondary":"Secondary (#ffbe2e)","rating":"Rating (#16bae1)","body":"Body (#9b9b9b)","white":"White (#ffffff)","custom":"Custom"}},{"name":"link_hover_color","label":"Link Hover Color","type":"select","options":{"":"Default","accent":"Accent (#16bae1)","primary":"Primary (#161616)","secondary":"Secondary (#ffbe2e)","rating":"Rating (#16bae1)","body":"Body (#9b9b9b)","white":"White (#ffffff)","custom":"Custom"}},{"name":"text-align","label":"Text Align","label_block":false,"type":"choose","control_type":"responsive","options":{"start":{"title":"Left","icon":"eicon-text-align-left"},"center":{"title":"Center","icon":"eicon-text-align-center"},"end":{"title":"Right","icon":"eicon-text-align-right"},"justify":{"title":"Justified","icon":"eicon-text-align-justify"}},"default":""}]}]}';
+    protected $styles = array(  );
+    protected $scripts = array(  );
+}

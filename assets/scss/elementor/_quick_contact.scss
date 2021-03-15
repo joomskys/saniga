@@ -1,110 +1,30 @@
-// Timetable
-.cms-qc-timetable-wrap{
-	.cms-qc-timetable{
-		border-bottom: $border-main;
-		padding: 7px 0;
-	}
-}
-// Layout 2
 .cms-quick-contact-layout-2{
-	.btn-outline:after{
-		display: none;
-	}
-	.cms-phone-icon{
-		font-size: 18px;
-		margin-top: -2px;
-	}
-}
-.cms-quick-contact-layout-5,
-.cms-quick-contact-layout-8{
-	.cms-phone-icon{
-		width: 42px;
-	    height: 42px;
-	    line-height: 42px;
-	    text-align: center;
-	    background: var(--color-435ba1);
-	    color: $white;
-	    font-size: 20px;
-	    @include border-radius(6px 6px 0 6px);
-	}
-}
-
-// Layout 3
-.cms-quick-contact-layout-3{
-	.cms-qc-content{
-		&:after{
-		    content: '';
-		    position: absolute;
-		    left: 40px;
-		    right: 40px;
-		    bottom: 0;
-		    height: 3px;
-		    background-color: var(--color-435ba1);
-		}
-	}
-}
-// layout 4
-.cms-quick-contact-layout-4{
-	.btn.btn-outline.btn-white{
-		border-color: #7284b9;
-	}
-}
-// layout 6
-.cms-quick-contact-layout-6 .cms-qc-timetable-wrap{
-	.cms-qc-timetable{
-		border-bottom-color: #687baa;
-		&:last-child{
-			padding-bottom: 0;
-			border-bottom: 0;
-		}
-	}
-}
-// layout 8
-.cms-qc-dropdown{
-	.dropdown-heading{
-		padding: 15px;
-	}
-	.cms-qc-dropdown-content{
-		visibility: hidden;
-		@include opacity(0);
-		position: absolute;
-		top: calc(100% + 30px);
-		left: 0;
-		width: 290px;
-		z-index: 1;
-		@media (min-width: 1024px) and (max-width: 1200px){
-			left: auto;
-			right: 0;
-		}
-		[dir="rtl"] &{
-			left: auto;
-			right: 0;
-			@media (min-width: 1024px) and (max-width: 1200px){
-				left: 0;
-				right: auto;
+	.cms-qc-scroll-top{
+		width: 60px;
+		display: block;
+		.cms-scroll-top-arrow{
+			width: 60px;
+			height: 60px;
+			line-height: 60px;
+			font-size: 20px;
+			color: $white;
+			display: block;
+			@include box-shadow(0 0 0 2px $secondary-color inset);
+			&:hover{
+				background: $secondary-color;
 			}
 		}
 	}
-	&:hover{
-		background-color: var(--color-1d2a4d);
-		color: $white;
-		.cms-qc-dropdown-content {
-			visibility: visible;
-			@include opacity(1);
-			top: 100%;
+	.cms-qc-scroll{
+		@media (max-width: $screen-lg-min){
+			display: none;
 		}
 	}
-}
-// layout 10
-.cms-quick-contact-layout-10{
-	.cms-qc-inner{
-		background-color: #e4f2e2;
-		border-radius: 8px;
+	.cms-scroll-top-icon > span{
+		position: relative;
+		@include animation(vibrate 2s linear 0s infinite);
 	}
-	.cms-qc-list{
-		padding-bottom: 23px;
-	}
-	.cms-contact-title{
-		padding-bottom: 5px;
+	.cms-scroll-top-text{
+		color: $white;
 	}
 }

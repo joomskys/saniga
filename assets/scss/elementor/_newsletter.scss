@@ -1,0 +1,50 @@
+.cms-newsletter-layout-1{
+	.cms-newsletter{
+		z-index: 1;
+		background: $white;
+		padding: 16px 20px 20px;
+		@media (min-width: $screen-lg-min){
+			padding: 36px 40px 40px;
+		}
+		&:before{
+			content: '';
+			height: 4px;
+			width: 100%;
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: repeating-linear-gradient(
+			    to right,
+			    $secondary-color ,
+			    $secondary-color 5%,
+			    $accent-color 0,
+			    $accent-color 10%
+			);
+		}
+	}
+	.cms-newsletter-stamp{
+		left: -50px;
+		top: -50px;
+		[dir="rtl"] &{
+			left: auto;
+			right: -50px;
+		}
+	}
+	.tnp-subscription{
+		display: flex;
+		flex-wrap: wrap;
+		margin: -15px;
+		.tnp-field{
+			flex: 0 0 auto;
+		    width: auto;
+		    max-width: 100%;
+		    margin: 15px;
+		    &:not(.tnp-field-button){
+		    	@media (min-width: $screen-lg-min){
+		    		width: 265px;
+		    	}
+		    }
+		}
+	}
+}

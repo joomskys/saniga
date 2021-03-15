@@ -6,7 +6,11 @@ if(!function_exists('saniga_page_title_layout')){
     function saniga_page_title_layout($args = []) {
         if(is_singular('cms-header-top') || is_singular('cms-footer') || is_404()) return;
 		$show_pagetitle  = saniga_get_opts( 'pagetitle', '1' );
-        $ptitle_layout   = saniga_get_opts( 'ptitle_layout', saniga_configs('ptitle')['layout'] );
+        if(is_singular('post')){
+            $ptitle_layout =  saniga_get_opts( 'ptitle_layout', saniga_configs('single_post')['title_layout'] );
+        } else {
+            $ptitle_layout   = saniga_get_opts( 'ptitle_layout', saniga_configs('ptitle')['layout'] );
+        }
 		$show_title      = saniga_get_opts( 'ptitle_title_on', '1');
 		$show_breadcrumb = saniga_get_opts( 'ptitle_breadcrumb_on', '1' );
         $show_scroll     = saniga_get_opts( 'ptitle_scroll_on', '0' );

@@ -6,7 +6,7 @@
 
     var WidgetPostMasonryHandler = function( $scope, $ ) {
         $('.cms-grid-masonry').imagesLoaded(function(){
-            $._sep_grid_refresh();
+            $.sep_grid_refresh();
         });
     };
 

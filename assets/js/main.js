@@ -28,7 +28,7 @@
         // background image moving
         saniga_background_moving();
         // custom html checkbox and radio
-        //saniga_html_input_checkbox();
+        saniga_html_input_checkbox();
         // Smooth Scroll
         saniga_smooth_scroll()
         // full
@@ -82,7 +82,160 @@
         saniga_elementor_section_full_width_with_space();
     });
 
-    
+    $.sep_grid_refresh = function (){
+        $('.cms-grid-masonry').each(function () {
+            var iso = new Isotope(this, {
+                itemSelector: '.cms-grid-item',
+                layoutMode: $(this).data('layout'),
+                //percentPosition: true,
+                masonry: {
+                    columnWidth: '.cms-grid-sizer',
+                },
+                containerStyle: null,
+                stagger: 30,
+                sortBy : 'name'
+            });
+            var filtersElem = $(this).parent('.cms-grid').find('.cms-grid-filter-wrap');
+            filtersElem.on('click', function (event) {
+                var filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({filter: filterValue});
+            });
+
+            var filterItem = $(this).parent('.cms-grid').find('.cms-filter-item');
+            filterItem.on('click', function (e) {
+                filterItem.removeClass('active');
+                $(this).addClass('active');
+            });
+
+            var filtersSelect = $(this).parent().find('.cms-select-filter-wrap');
+            filtersSelect.change(function() {
+                var filters = $(this).val();
+                iso.arrange({filter: filters});
+            });
+
+            var orderSelect = $(this).parent().find('.cms-select-order-wrap');
+            orderSelect.change(function() {
+                var e_order = $(this).val();
+                if(e_order == 'asc') {
+                    iso.arrange({sortAscending: false});
+                }
+                if(e_order == 'des') {
+                    iso.arrange({sortAscending: true});
+                }
+            });
+
+        });
+    }
+    // load more
+    $(document).on('click', '.cms-load-more', function(){
+        var loadmore    = $(this).data('loadmore');
+        var _this       = $(this).parents(".cms-grid");
+        var layout_type = _this.data('layout');
+        var loading_text = $(this).data('loading-text');
+        loadmore.paged  = parseInt(_this.data('start-page')) +1;
+        _this.find('.cms-grid-overlay').addClass('loader');
+        $(this).addClass('loading');
+        $(this).find('.cms-btn-icon').addClass('loading');
+        $(this).find('.cms-btn-text').text(loading_text);
+        $.ajax({
+            url: main_data.ajax_url,
+            type: 'POST',
+            beforeSend: function () {
+
+            },
+            data: {
+                action: 'saniga_load_more_post_grid',
+                settings: loadmore
+            }
+        })
+        .done(function (res) {
+            if(res.status == true){
+                _this.find('.cms-grid-inner').append(res.data.html);
+                _this.data('start-page', res.data.paged);
+                _this.find('.cms-grid-overlay').removeClass('loader');
+                _this.find('.cms-load-more').removeClass('loading');
+                _this.find('.cms-btn-icon').removeClass('loading');
+                _this.find('.cms-btn-text').text('Load More');
+                if(layout_type == 'masonry'){
+                    $.sep_grid_refresh();
+                }
+            } else if (res.status == false){
+                _this.find('.cms-load-more').addClass('no-more');
+            }
+        })
+        .fail(function (res) {
+            _this.find('.cms-load-more').addClass('d-none d-none1');
+            return false;
+        })
+        .always(function () {
+            return false;
+        });
+    });
+
+    // pagination
+    $(document).on('click', '.cms-grid-pagination .ajax a.page-numbers', function(){
+        var _this = $(this).parents(".cms-grid");
+        var loadmore = _this.find(".cms-grid-pagination").data('loadmore');
+        var query_vars = _this.find(".cms-grid-pagination").data('query');
+        var layout_type = _this.data('layout');
+        var paged = $(this).attr('href');
+        paged = paged.replace('#', '');
+        loadmore.paged = parseInt(paged);
+        query_vars.paged = parseInt(paged);
+        _this.find('.cms-grid-overlay').addClass('loader');
+        $('html,body').animate({scrollTop: _this.offset().top - 100}, 750);
+        // reload pagination
+        $.ajax({
+            url: main_data.ajax_url,
+            type: 'POST',
+            beforeSend: function () {
+
+            },
+            data: {
+                action: 'saniga_get_pagination_html',
+                query_vars: query_vars
+            }
+        }).done(function (res) {
+            if(res.status == true){
+                _this.find(".cms-grid-pagination").html(res.data.html);
+                _this.find('.cms-grid-overlay').removeClass('loader');
+            }
+            else if(res.status == false){
+            }
+        }).fail(function (res) {
+            return false;
+        }).always(function () {
+            return false;
+        });
+        // load post
+        $.ajax({
+            url: main_data.ajax_url,
+            type: 'POST',
+            beforeSend: function () {
+
+            },
+            data: {
+                action: 'saniga_load_more_post_grid',
+                settings: loadmore
+            }
+        }).done(function (res) {
+            if(res.status == true){
+                _this.find('.cms-grid-inner .cms-grid-item').remove();
+                _this.find('.cms-grid-inner').append(res.data.html);
+                _this.data('start-page', res.data.paged);
+                if(layout_type == 'masonry'){
+                    $.sep_grid_refresh();
+                }
+            }
+            else if(res.status == false){
+            }
+        }).fail(function (res) {
+            return false;
+        }).always(function () {
+            return false;
+        });
+        return false;
+    });
 
     $(document).ready(function () {
         /* ===================
@@ -102,7 +255,7 @@
         /* ====================
          Scroll To Top
          ====================== */
-        $('.cms-scroll-top').click(function () {
+        $('.cms-scroll').click(function () {
             $('html, body').animate({scrollTop: 0}, 800);
             return false;
         });
@@ -153,31 +306,6 @@
         $(document).on('click', '.owl-active-click .owl-item > div', function () {
             $owl_item.trigger('to.owl.carousel', $(this).data('position'));
         });
-
-        /* Newsletter */
-        var email_text = $('.tnp-field-email label').text();
-        $('.tnp-field-email label').remove();
-        $('.tnp-field-email').find(".tnp-email").each(function (ev) {
-            if (!$(this).val()) {
-                $(this).attr("placeholder", email_text);
-            }
-        });
-        var firstname_text = $('.tnp-field-firstname label').text();
-        $('.tnp-field-firstname label').remove();
-        $('.tnp-field-firstname').find(".tnp-firstname").each(function (ev) {
-            if (!$(this).val()) {
-                $(this).attr("placeholder", firstname_text);
-            }
-        });
-        var lastname_text = $('.tnp-field-lastname label').text();
-        $('.tnp-field-lastname label').remove();
-        $('.tnp-field-lastname').find(".tnp-lastname").each(function (ev) {
-            if (!$(this).val()) {
-                $(this).attr("placeholder", lastname_text);
-            }
-        });
-
-        
 
         /* Modal */
         $(document).on('click', function (e) {
@@ -477,7 +605,7 @@
         'use strict';
         $('.h-btn-cart').on('click', function (e) {
             e.preventDefault();
-            var shoppingCart = $(this).parents('#cms-header').find('.widget_shopping_cart');
+            var shoppingCart = $(this).next('.widget_shopping_cart');
                 if ( $( "#wpadminbar" ).length ) {
                     var adminBarHeight = $('#wpadminbar').outerHeight();
                 } else {
@@ -493,8 +621,8 @@
                 } else {
                     var headerHeight = 0;
                 }
-            var offsetTop =  headerTopHeight + headerHeight;
-            shoppingCart.toggleClass('open');
+            var offsetTop = adminBarHeight + headerTopHeight + headerHeight;
+            $(this).next('.widget_shopping_cart').toggleClass('open');
             shoppingCart.css({'top': offsetTop});
             if(saniga_is_rtl()){
                 if (shoppingCart.offset().left + shoppingCart.outerWidth() > $(window).width()) {
@@ -762,157 +890,5 @@
             }
         });
     }
-
-
-
-    $.sep_grid_refresh = function (){
-        $('.cms-grid-masonry').each(function () {
-            var iso = new Isotope(this, {
-                itemSelector: '.grid-item',
-                percentPosition: true,
-                masonry: {
-                    columnWidth: '.grid-sizer',
-                },
-                containerStyle: null,
-                stagger: 30,
-                sortBy : 'name',
-            });
-
-            var filtersElem = $(this).parent().find('.grid-filter-wrap');
-            filtersElem.on('click', function (event) {
-                var filterValue = event.target.getAttribute('data-filter');
-                iso.arrange({filter: filterValue});
-            });
-
-            var filterItem = $(this).parent().find('.filter-item');
-            filterItem.on('click', function (e) {
-                filterItem.removeClass('active');
-                $(this).addClass('active');
-            });
-
-            var filtersSelect = $(this).parent().find('.select-filter-wrap');
-            filtersSelect.change(function() {
-                var filters = $(this).val();
-                iso.arrange({filter: filters});
-            });
-
-            var orderSelect = $(this).parent().find('.select-order-wrap');
-            orderSelect.change(function() {
-                var e_order = $(this).val();
-                if(e_order == 'asc') {
-                    iso.arrange({sortAscending: false});
-                }
-                if(e_order == 'des') {
-                    iso.arrange({sortAscending: true});
-                }
-            });
-
-        });
-    }
-    // load more
-    $(document).on('click', '.cms-load-more', function(){
-        var loadmore = $(this).data('loadmore');
-        var _this = $(this).parents(".cms-grid");
-        var layout_type = _this.data('layout');
-        loadmore.paged = parseInt(_this.data('start-page')) +1;
-        $.ajax({
-            url: main_data.ajax_url,
-            type: 'POST',
-            beforeSend: function () {
-
-            },
-            data: {
-                action: 'elementorframe_load_more_post_grid',
-                settings: loadmore
-            }
-        })
-            .done(function (res) {
-                if(res.status == true){
-                    console.log(res.data);
-                    _this.find('.cms-grid-inner').append(res.data.html);
-                    _this.data('start-page', res.data.paged);
-                    if(layout_type == 'masonry'){
-                        $.sep_grid_refresh();
-                    }
-                }
-                else if(res.status == false){
-                    console.log(res.message);
-                }
-            })
-            .fail(function (res) {
-                console.log(res);
-                return false;
-            })
-            .always(function () {
-                return false;
-            });
-    });
-
-    // pagination
-    $(document).on('click', '.cms-grid-pagination .ajax a.page-numbers', function(){
-        var _this = $(this).parents(".cms-grid");
-        var loadmore = _this.find(".cms-grid-pagination").data('loadmore');
-        var query_vars = _this.find(".cms-grid-pagination").data('query');
-        var layout_type = _this.data('layout');
-        var paged = $(this).attr('href');
-        paged = paged.replace('#', '');
-        loadmore.paged = parseInt(paged);
-        query_vars.paged = parseInt(paged);
-        // reload pagination
-        $.ajax({
-            url: main_data.ajax_url,
-            type: 'POST',
-            beforeSend: function () {
-
-            },
-            data: {
-                action: 'elementorframe_get_pagination_html',
-                query_vars: query_vars
-            }
-        }).done(function (res) {
-            if(res.status == true){
-                _this.find(".cms-grid-pagination").html(res.data.html);
-            }
-            else if(res.status == false){
-                console.log(res.message);
-            }
-        }).fail(function (res) {
-            console.log(res);
-            return false;
-        }).always(function () {
-            return false;
-        });
-        // load post
-        $.ajax({
-            url: main_data.ajax_url,
-            type: 'POST',
-            beforeSend: function () {
-
-            },
-            data: {
-                action: 'elementorframe_load_more_post_grid',
-                settings: loadmore
-            }
-        }).done(function (res) {
-            console.log(res.data.html);
-            if(res.status == true){
-                _this.find('.cms-grid-inner .grid-item').remove();
-                _this.find('.cms-grid-inner').append(res.data.html);
-                _this.data('start-page', res.data.paged);
-                if(layout_type == 'masonry'){
-                    $.sep_grid_refresh();
-                }
-            }
-            else if(res.status == false){
-                console.log(res.message);
-            }
-        }).fail(function (res) {
-            console.log(res);
-            return false;
-        }).always(function () {
-            return false;
-        });
-        return false;
-    });
 
 })(jQuery);

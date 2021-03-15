@@ -32,6 +32,14 @@ etc_add_custom_widget(
                                 '1' => [
                                     'label' => esc_html__( 'Layout 1', 'saniga' ),
                                     'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_menu/layout-images/1.png'
+                                ],
+                                '2' => [
+                                    'label' => esc_html__( 'Layout 2', 'saniga' ),
+                                    'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_menu/layout-images/2.png'
+                                ],
+                                '3' => [
+                                    'label' => esc_html__( 'Layout 3', 'saniga' ),
+                                    'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_menu/layout-images/3.png'
                                 ]
                             ],
                             'prefix_class' => 'cms-menu-layout-'
@@ -49,7 +57,7 @@ etc_add_custom_widget(
                             'type'        => \Elementor\Controls_Manager::TEXTAREA,
                             'label_block' => true,
                             'condition'   => [
-                                'layout'  => []
+                                'layout'  => ['2']
                             ]
                         ),
                         array(
@@ -85,15 +93,20 @@ etc_add_custom_widget(
                             'name'        => 'link_color',
                             'label'       => esc_html__( 'Link Color', 'saniga' ),
                             'type'        => \Elementor\Controls_Manager::SELECT,
-                            'options'     => saniga_elementor_theme_color_opts(),  
-                            'default'     => '',
+                            'options'     => saniga_elementor_theme_color_opts([
+                                'custom'   => false
+                            ]),
+                            'selectors'   => [
+                                '{{WRAPPER}} .cms-menu > li:not(:last-child):after' => 'background-color:var(--color-{{VALUE}});'
+                            ]
                         ),
                         array(
                             'name'        => 'link_hover_color',
                             'label'       => esc_html__( 'Link Hover Color', 'saniga' ),
                             'type'        => \Elementor\Controls_Manager::SELECT,
-                            'options'     => saniga_elementor_theme_color_opts(),  
-                            'default'     => '',
+                            'options'     => saniga_elementor_theme_color_opts([
+                                'custom'   => false
+                            ]),
                         ),
                         saniga_elementor_row_align([
                             'label'     => esc_html__('Text Align','saniga'),

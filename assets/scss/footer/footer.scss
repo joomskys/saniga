@@ -6,22 +6,5 @@
 		bottom: 0;
 		z-index: -1;
 	}
-	@media (min-width: $screen-xxl-min){
-		&:after{
-			content: '';
-			border-left: 1px solid #353535;
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			right: 109px;
-			[dir="rtl"] &{
-				right: auto;
-				left: 109px;
-			}
-		}
-	}
-}
-.cms-footer-bottom{
-	padding: 15px 0;
 }
 @import "scrolltop";

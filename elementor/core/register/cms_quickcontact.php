@@ -16,7 +16,7 @@ etc_add_custom_widget(
 					'controls' => array(
 						saniga_elementor_row_align([
 							'condition' => [
-								'layout' => ['1']
+								'layout' => ['1','2']
 							]
 						]),
                         array(
@@ -28,6 +28,10 @@ etc_add_custom_widget(
                                 '1' => [
                                     'label' => esc_html__( 'Layout 1', 'saniga' ),
                                     'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_quickcontact/layout-image/1.png'
+                                ],
+                                '2' => [
+                                    'label' => esc_html__( 'Layout 2', 'saniga' ),
+                                    'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_quickcontact/layout-image/2.png'
                                 ],
                             ],
                             'prefix_class' => 'cms-quick-contact-layout-'
@@ -178,9 +182,139 @@ etc_add_custom_widget(
 						])
                     ),
 					'condition'   => [
-						'layout' => ['1','10']
+						'layout' => ['1']
 					]
                 ),
+				array(
+					'name'     => 'heading_section',
+					'label'    => esc_html__( 'Heading Settings', 'saniga' ),
+					'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
+					'controls' => array_merge(
+						array(
+							array(
+								'name'        => 'heading_text',
+								'label'       => esc_html__( 'Heading', 'saniga' ),
+								'type'        => \Elementor\Controls_Manager::TEXTAREA,
+								'placeholder' => esc_html__( 'Enter Heading', 'saniga' ),
+								'label_block' => true
+	                        )
+                        )
+					),
+					'condition'   => [
+						'layout' => ['2']
+					]
+				),
+				array(
+					'name'     => 'desc_section',
+					'label'    => esc_html__( 'Description Settings', 'saniga' ),
+					'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
+					'controls' => array_merge(
+						array(
+							array(
+								'name'        => 'description_text',
+								'label'       => esc_html__( 'Description', 'saniga' ),
+								'type'        => \Elementor\Controls_Manager::TEXTAREA,
+								'placeholder' => esc_html__( 'Enter your description', 'saniga' ),
+								'show_label'  => false
+	                        )
+                        ),
+                        saniga_elementor_theme_colors([
+							'name'            => 'description_color',
+							'label'           => esc_html__('Text Color','saniga'),
+							'custom_name'     => 'description_color_custom',
+							'custom_label'    => esc_html__('Custom Text Color','saniga'),
+							'custom_selector' => '{{WRAPPER}} .cms-desc'
+						])
+					),
+					'condition'   => [
+						'layout' => ['2']
+					]
+				),
+				array(
+					'name'     => 'phone_section',
+					'label'    => esc_html__( 'Phone Settings', 'saniga' ),
+					'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
+					'controls' => array_merge(
+						array(
+							array(
+								'name'             => 'phone_icon',
+								'label'            => esc_html__( 'Phone Icon', 'saniga' ),
+								'type'             => \Elementor\Controls_Manager::ICONS,
+								'default'          => [],
+								'placeholder'      => esc_html__( 'Choose phone icon', 'saniga' ),
+								'condition'   => [
+									'layout' => ['0']
+								]
+	                        ),
+							array(
+								'name'        => 'phone_number',
+								'label'       => esc_html__( 'Phone Number', 'saniga' ),
+								'type'        => \Elementor\Controls_Manager::TEXT,
+								'placeholder' => '+02 01061245741',
+								'label_block' => true,
+								'condition'   => [
+									'layout' => ['0']
+								]
+	                        ),
+	                        array(
+								'name'        => 'phone_bg',
+								'label'       => esc_html__( 'Icon Phone Background', 'saniga' ),
+								'type'        => \Elementor\Controls_Manager::COLOR,
+								'default'     => '',
+								'selectors'	  => [
+									'{{WRAPPER}} .cms-phone-icon' => 'background-color: {{VALUE}};',
+								],
+								'condition'   => [
+									'layout' => ['0']
+								]
+	                        ),
+	                        array(
+                                'name'        => 'phone_text_color',
+                                'label'       => esc_html__( 'Text Color', 'saniga' ),
+                                'type'        => \Elementor\Controls_Manager::SELECT,
+                                'options'     => saniga_elementor_theme_color_opts(['custom' => false]),  
+                                'default'     => 'white',
+                                'label_block' => true,
+                                'condition'   => [
+									'layout' => ['0']
+								]
+                            ),
+                            array(
+                                'name'        => 'phone_text_color_hover',
+                                'label'       => esc_html__( 'Text Hover Color', 'saniga' ),
+                                'type'        => \Elementor\Controls_Manager::SELECT,
+                                'options'     => saniga_elementor_theme_color_opts(['custom' => false]),  
+                                'default'     => 'white',
+                                'label_block' => true,
+                                'condition'   => [
+									'layout' => ['0']
+								]
+                            ),
+                        )
+					),
+					'condition'   => [
+						'layout' => ['2']
+					]
+				),
+				array(
+					'name'     => 'email_section',
+					'label'    => esc_html__( 'Email Settings', 'saniga' ),
+					'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
+					'controls' => array_merge(
+						array(
+							array(
+								'name'        => 'email_text',
+								'label'       => esc_html__( 'Email', 'saniga' ),
+								'type'        => \Elementor\Controls_Manager::TEXTAREA,
+								'placeholder' => 'info@cmssuperheroes.com',
+								'show_label'  => false
+	                        )
+                        )
+					),
+					'condition'   => [
+						'layout' => ['2']
+					]
+				),
 				array(
 					'name'     => 'dropdown_section',
 					'label'    => esc_html__( 'Dropdown Heading Settings', 'saniga' ),
@@ -213,7 +347,7 @@ etc_add_custom_widget(
                         )
 					),
 					'condition'   => [
-						'layout' => ['8']
+						'layout' => ['0']
 					]
 				),
                 array(
@@ -253,7 +387,7 @@ etc_add_custom_widget(
 						)
 					),
 					'condition'   => [
-						'layout' => ['2','3','4','5','6','7','8']
+						'layout' => ['0']
 					]
 				),
                 array(
@@ -279,126 +413,10 @@ etc_add_custom_widget(
 						)
 					),
 					'condition'   => [
-						'layout' => ['2','3','4','5','6','7','8']
+						'layout' => ['0']
 					]
 				),
-                array(
-					'name'     => 'heading_section',
-					'label'    => esc_html__( 'Heading Settings', 'saniga' ),
-					'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
-					'controls' => array_merge(
-						array(
-							array(
-								'name'        => 'heading_text',
-								'label'       => esc_html__( 'Heading', 'saniga' ),
-								'type'        => \Elementor\Controls_Manager::TEXTAREA,
-								'default'     => '',
-								'placeholder' => esc_html__( 'Enter your title', 'saniga' ),
-								'label_block' => true
-	                        ),
-	                        array(
-	                            'name'         => 'heading_text_typo',
-	                            'type'         => \Elementor\Group_Control_Typography::get_type(),
-	                            'control_type' => 'group',
-	                            'default'      => '',
-	                            'selector'     => '{{WRAPPER}} .cms-heading',
-	                            'condition'    => [
-                                    'heading_text!' => ''
-                                ],
-	                        ),
-	                        array(
-	                            'name'         => 'heading_text_shadow',
-	                            'type'         => \Elementor\Group_Control_Text_Shadow::get_type(),
-	                            'control_type' => 'group',
-	                            'default'      => '',
-	                            'selector'     => '{{WRAPPER}} .cms-heading',
-	                            'condition'    => [
-                                    'heading_text!' => ''
-                                ],
-	                        ),
-	                        array(
-								'name'      => 'heading_extra_space',
-								'label'     => esc_html__( 'Extra bottom Space', 'saniga' ),
-								'type'      => \Elementor\Controls_Manager::NUMBER,
-								'condition' => [
-	                                'heading_text!' => '',
-	                            ],
-	                        ),
-	                        array(
-                                'name'        => 'heading_color',
-                                'label'       => esc_html__( 'Heading Color', 'saniga' ),
-                                'type'        => \Elementor\Controls_Manager::SELECT,
-                                'options'     => saniga_elementor_theme_color_opts(),  
-                                'default'     => '',
-                                'condition'   => [
-                                    'heading_text!' => ''
-                                ],
-                            ),
-                            array(
-                                'name'        => 'heading_custom_color',
-                                'label'       => esc_html__( 'Custom Heading Color', 'saniga' ),
-                                'type'        => \Elementor\Controls_Manager::COLOR,
-                                'condition'   => [
-                                    'heading_color'      => 'custom'
-                                ],
-                            ),
-                            array(
-								'name'      => 'heading_animation',
-								'label'     => esc_html__( 'Motion Effect', 'saniga' ),
-								'type'      => \Elementor\Controls_Manager::ANIMATION,
-								'condition' => [
-                                    'heading_text!' => ''
-                                ],
-                            )
-                        )
-					),
-					'condition'   => [
-						'layout' => ['2','3','4','5','6','7','8','9']
-					]
-				),
-				array(
-					'name'     => 'desc_section',
-					'label'    => esc_html__( 'Description Settings', 'saniga' ),
-					'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
-					'controls' => array_merge(
-						array(
-							array(
-								'name'        => 'description_text',
-								'label'       => esc_html__( 'Description', 'saniga' ),
-								'type'        => \Elementor\Controls_Manager::TEXTAREA,
-								'default'     => '',
-								'placeholder' => esc_html__( 'Enter your description', 'saniga' ),
-								'show_label'  => false
-	                        ),
-	                        array(
-                                'name'        => 'description_color',
-                                'label'       => esc_html__( 'Description Color', 'saniga' ),
-                                'type'        => \Elementor\Controls_Manager::SELECT,
-                                'options'     => saniga_elementor_theme_color_opts(),  
-                                'default'     => '',
-                            ),
-                            array(
-                                'name'        => 'description_custom_color',
-                                'label'       => esc_html__( 'Custom Description Color', 'saniga' ),
-                                'type'        => \Elementor\Controls_Manager::COLOR,
-                                'condition'   => [
-                                    'description_color'      => 'custom'
-                                ],
-                            ),
-                            array(
-                                'name' => 'description_animation',
-                                'label' => esc_html__( 'Motion Effect', 'saniga' ),
-                                'type' => \Elementor\Controls_Manager::ANIMATION,
-                                'condition'   => [
-                                    'description_text!' => ''
-                                ],
-                            ),
-                        )
-					),
-					'condition'   => [
-						'layout' => ['2','3','4','5','6','7','8','9']
-					]
-				),
+                
 				array(
 					'name'     => 'timetable_section',
 					'label'    => esc_html__( 'Timetable', 'saniga' ),
@@ -468,62 +486,10 @@ etc_add_custom_widget(
 	                    )
                     ),
 					'condition'   => [
-						'layout' => ['3','6']
+						'layout' => ['0']
 					]
                 ),
-				array(
-					'name'     => 'phone_section',
-					'label'    => esc_html__( 'Phone Settings', 'saniga' ),
-					'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
-					'controls' => array_merge(
-						array(
-							array(
-								'name'             => 'phone_icon',
-								'label'            => esc_html__( 'Phone Icon', 'saniga' ),
-								'type'             => \Elementor\Controls_Manager::ICONS,
-								'fa4compatibility' => 'icon',
-								'default'          => [],
-								'placeholder'      => esc_html__( 'Choose phone icon', 'saniga' ),
-	                        ),
-							array(
-								'name'        => 'phone_number',
-								'label'       => esc_html__( 'Phone Number', 'saniga' ),
-								'type'        => \Elementor\Controls_Manager::TEXT,
-								'default'     => '',
-								'placeholder' => esc_html__( 'Enter your phone number', 'saniga' ),
-								'label_block' => true
-	                        ),
-	                        array(
-								'name'        => 'phone_bg',
-								'label'       => esc_html__( 'Icon Phone Background', 'saniga' ),
-								'type'        => \Elementor\Controls_Manager::COLOR,
-								'default'     => '',
-								'selectors'	  => [
-									'{{WRAPPER}} .cms-phone-icon' => 'background-color: {{VALUE}};',
-								]
-	                        ),
-	                        array(
-                                'name'        => 'phone_text_color',
-                                'label'       => esc_html__( 'Text Color', 'saniga' ),
-                                'type'        => \Elementor\Controls_Manager::SELECT,
-                                'options'     => saniga_elementor_theme_color_opts(['custom' => false]),  
-                                'default'     => 'white',
-                                'label_block' => true,
-                            ),
-                            array(
-                                'name'        => 'phone_text_color_hover',
-                                'label'       => esc_html__( 'Text Hover Color', 'saniga' ),
-                                'type'        => \Elementor\Controls_Manager::SELECT,
-                                'options'     => saniga_elementor_theme_color_opts(['custom' => false]),  
-                                'default'     => 'white',
-                                'label_block' => true,
-                            ),
-                        )
-					),
-					'condition'   => [
-						'layout' => ['2','3','5','6','8','9']
-					]
-				),
+				
 				array(
 					'name'     => 'button_section',
 					'label'    => esc_html__( 'Button Settings', 'saniga' ),
@@ -532,7 +498,7 @@ etc_add_custom_widget(
 						saniga_elementor_button_settings(),
 					),
 					'condition'   => [
-						'layout' => ['4']
+						'layout' => ['0']
 					]
 				),
 				array(
@@ -550,7 +516,7 @@ etc_add_custom_widget(
 						]),
 					),
 					'condition'   => [
-						'layout' => ['2']
+						'layout' => ['0']
 					]
 				),
 				array(
@@ -613,7 +579,7 @@ etc_add_custom_widget(
 						)
 					),
 					'condition'   => [
-						'layout' => ['7','9']
+						'layout' => ['0']
 					]
 				),
 				array(
@@ -626,7 +592,7 @@ etc_add_custom_widget(
 						'btn_type_default' => 'btn btn-fill'
 		            ]),
 					'condition'   => [
-						'layout' => ['10']
+						'layout' => ['0']
 					]
 		        )
             )

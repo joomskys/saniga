@@ -43,7 +43,7 @@ $container-max-widths: (
   xl: 1200px
 ) !default;
 
-$grid-gutter-width: 30px;
+$grid-gutter-width: 40px;
 $grid-gutters: $grid-gutter-width;
 
 /* Media break point */
@@ -55,7 +55,7 @@ $screen-lg-min: 992px;
 $screen-lg-max: 1199px;
 $screen-xl-min: 1200px;
 $screen-xxl-min: 1600px;
-$desktop-screen: $screen-xl-min;
+$desktop-screen: 1280px;
 
 // boostrap
 @import '_bootstrap/bootstrap-grid';

@@ -788,7 +788,6 @@ if(class_exists('Woocommerce')) {
 # Footer
 --------------------------------------------------------------*/
 Redux::setSection($opt_name, saniga_footer_opts());
-Redux::setSection($opt_name, saniga_footer_bottom_opts());
 
 /* API Key /--------------------------------------------------------- */
 Redux::setSection($opt_name, array(

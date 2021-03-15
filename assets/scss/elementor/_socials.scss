@@ -3,6 +3,11 @@
 		display: block;
 	}
 }
-.cms-socials-layout-1{
-
+// Layout 2
+.cms-socials-layout-2{
+	a{
+		width: 50px;
+		height: 50px;
+		@include box-shadow(0 0 0 2px #242424 inset!important);
+	}
 }

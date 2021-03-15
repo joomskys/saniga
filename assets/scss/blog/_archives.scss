@@ -20,6 +20,7 @@
 	padding: 7px 20px 4px;
 	position: relative;
 	overflow: hidden;
+	vertical-align: top;
 	.cms-btn-content{
 		position: relative;
 		z-index: 1;
@@ -45,12 +46,11 @@
 		@include transform(translateX(-100%));
 		@include transition();
 	}
-	&:hover{
-		//@include box-shadow(0 0 0 2px $accent-color);
-		//background: $accent-color;
-		color: $white;
-		&:after{
-			@include transform(translateX(0));
-		}
+}
+.cms-hover-readmore:hover .cms-blog-readmore,
+.cms-blog-readmore:hover{
+	color: $white;
+	&:after{
+		@include transform(translateX(0));
 	}
 }

@@ -1,46 +1,32 @@
 .cms-badge{}
 
 .cms-badge-1{
-	height: 18px;
-	min-width: 46px;
+	height: 65px;
+	min-width: 60px;
 	position: relative;
-	background-color: $accent-color;
+	background-color: $secondary-color;
 	color: $white;
 	padding: 0 10px;
+	overflow: hidden;
+	@include border-radius(4px 0 0 4px);
+	[dir="rtl"] &{
+		@include border-radius(0 4px 4px 0);
+	}
 	&:before,
 	&:after{
 		content: '';
 		display: block;
 		position: absolute;
 	}
-	&:before{
-		width: 1px;
-		height: 1px;
-		top: -1px;
-		left: 0;
-		background-color: inherit;
+	&:after{
+		height: 5px;
+		width: 100%;
+		background: $white;
+		left: 5px;
+		bottom: 0;
 		[dir="rtl"] &{
 			left: auto;
-			right: 0;
+			right: 5px;
 		}
-	}
-	&:after{
-		top: 0;
-		right: 0;
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-width: 9px 6px 9px 0;
-		border-color: transparent #fff transparent transparent;
-		[dir = 'rtl'] &{
-			right: auto;
-			left: 0;
-			border-width: 9px 0 9px 6px;
-			border-color: transparent transparent transparent #fff;
-		}
-	}
-	.cms-badge-text{
-		line-height: 18px;
-		font-size: 80%;
 	}
 }

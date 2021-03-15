@@ -84,6 +84,10 @@ if(!function_exists('saniga_configs')){
                 'single_content_col'  => 8,
                 'single_sidebar_pos'  => 'right',
             ],
+            // single post
+            'single_post' => [
+                'title_layout' => '10'
+            ],
             // body typo
             'body' => [
                 'bg'                => '#fff',
@@ -207,7 +211,7 @@ if(!function_exists('saniga_configs')){
             // thumbnail size
             'thumbnail' => [
                 'large_size_w'                   => 770,
-                'large_size_h'                   => 527,
+                'large_size_h'                   => 514,
                 'medium_large_size_w'            => 770,
                 'medium_large_size_h'            => 370,
                 'medium_size_w'                  => 570,

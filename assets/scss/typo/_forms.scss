@@ -1,10 +1,10 @@
 @import "forms_placeholder";
 @import "forms_styles";
 
-$FF_Color: $body-font-color;
-$FF_Height: 65px;
+$FF_Color: #616161;
+$FF_Height: 58px;
 $FF_Padding: 0 20px;
-$FF_Border: 0 0 0 1px $border-color;
+$FF_Border: 0 0 0 2px $border-color inset;
 $FF_Border_Radius: 0;
 $FF_Border_Radius_rtl: 0;
 $FF_Shadow: $shadow-1;
@@ -14,17 +14,18 @@ input,
 textarea, select,
 .select2-container.select2-container--default .select2-selection--single {
     background-color: $FF_Background;
-    @include box-shadow($FF_Border);
+    border: none;
+    
     color: $FF_Color;
     padding: $FF_Padding;
     line-height: $FF_Height;
     height: $FF_Height;
     font-size: 100%;
     text-align: start;
-    @include border-radius($FF_Border_Radius);
-    @include box-shadow(none);
-    @include transition();
     outline: none;
+    @include box-shadow($FF_Border);
+    @include border-radius($FF_Border_Radius);
+    @include transition();
     &:hover,
     &:focus, 
     &:active {

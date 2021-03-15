@@ -103,7 +103,11 @@ function saniga_post_options_register( $metabox ) {
 	// Sidebar
 	$metabox->add_section('post', saniga_sidebar_opts(['name' => 'post_sidebar_pos', 'default' => true, 'subsection' => true]));
 	// Post title
-	$metabox->add_section( 'post', saniga_page_title_opts(['default' => true,'default_value' => '-1']));
+	$metabox->add_section( 'post', saniga_page_title_opts([
+		'default'        => false,
+		'default_value'  => '1',
+		'default_layout' => saniga_configs('single_post')['title_layout']
+	]));
 	/**
 	 * Config post format meta options
 	 *

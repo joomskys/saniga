@@ -1,0 +1,2 @@
+<?php
+// silient is golden

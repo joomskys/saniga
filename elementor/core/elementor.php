@@ -103,6 +103,8 @@ if(!function_exists('saniga_register_custom_icon_library')){
         return $tabs;
     }
 }
+
+// Elementor Post layout
 if(!function_exists('saniga_elementor_post_layout')){
     function saniga_elementor_post_layout(){
         return [
@@ -112,6 +114,85 @@ if(!function_exists('saniga_elementor_post_layout')){
             ]
         ];
     }
+}
+
+/**
+ * Elementor Default Image
+*/
+function saniga_elementor_opt_default_image($name){
+    return get_template_directory_uri() .'/assets/images/'.$name;
+}
+/**
+ * Elementor Text Settings
+*/
+function saniga_elementor_text_settings($args){
+    $args = wp_parse_args($args, [
+        'label'    => esc_html__( 'Heading', 'saniga' ),
+        'name'     => 'text',
+        'selector' => '.text'
+    ]);
+    return array(
+        array(
+            'name'        => $args['name'],
+            'label'       => $args['label'],
+            'type'        => \Elementor\Controls_Manager::TEXTAREA,
+            'placeholder' => esc_html__( 'Enter your text', 'saniga' ),
+            'label_block' => true
+        ),
+        array(
+            'name'         => $args['name'].'_typo',
+            'type'         => \Elementor\Group_Control_Typography::get_type(),
+            'control_type' => 'group',
+            'selector'     => '{{WRAPPER}} '.$args['selector'],
+            'condition'    => [
+                $args['name'].'!' => ''
+            ],
+        ),
+        array(
+            'name'         => $args['name'].'_shadow',
+            'type'         => \Elementor\Group_Control_Text_Shadow::get_type(),
+            'control_type' => 'group',
+            'selector'     => '{{WRAPPER}} '.$args['selector'],
+            'condition'    => [
+                $args['name'].'!' => ''
+            ],
+        ),
+        array(
+            'name'      => $args['name'].'_extra_space',
+            'label'     => esc_html__( 'Extra bottom Space', 'saniga' ),
+            'type'      => \Elementor\Controls_Manager::NUMBER,
+            'selector'  => '{{WRAPPER}} '.$args['selector'],
+            'condition' => [
+                $args['name'].'!' => '',
+            ],
+        ),
+        array(
+            'name'        => $args['name'].'_color',
+            'label'       => esc_html__( 'Color', 'saniga' ),
+            'type'        => \Elementor\Controls_Manager::SELECT,
+            'options'     => saniga_elementor_theme_color_opts(),  
+            'default'     => '',
+            'condition'   => [
+                $args['name'].'!' => ''
+            ],
+        ),
+        array(
+            'name'        => $args['name'].'_custom_color',
+            'label'       => esc_html__( 'Custom Color', 'saniga' ),
+            'type'        => \Elementor\Controls_Manager::COLOR,
+            'condition'   => [
+                $args['name'].'_color'      => 'custom'
+            ],
+        ),
+        array(
+            'name'      => $args['name'].'_animation',
+            'label'     => esc_html__( 'Motion Effect', 'saniga' ),
+            'type'      => \Elementor\Controls_Manager::ANIMATION,
+            'condition' => [
+                $args['name'].'!' => ''
+            ],
+        )
+    );
 }
 /**
  * Elementor Animate
@@ -188,6 +269,7 @@ function saniga_animate() {
     );
     return $cms_animate;
 }
+// Theme Colors
 if(!function_exists('saniga_elementor_theme_color_opts')){
     function saniga_elementor_theme_color_opts($args = []){
         $args = wp_parse_args($args, [
@@ -291,19 +373,9 @@ if(!function_exists('saniga_text_align_opts')){
 if(!function_exists('saniga_elementor_align_class')){
     function saniga_elementor_align_class($settings, $id = 'text-align', $extra_class = ''){
         $align_class = [];
-        // Text Align
-        if( !empty($settings[$id.'_mobile']) ){
-            $align_class[] = 'text-sm-'.$settings[$id.'_mobile'];
-        }
-        if( !empty($settings[$id.'_tablet']) ){
-            $align_class[] = 'text-md-'.$settings[$id.'_tablet'];
-        }
-        if( !empty($settings[$id]) && (empty($settings[$id.'_mobile']) && empty($settings[$id.'_tablet']) ) ) {
-            $align_class[] = 'text-'.$settings[$id];
-        } elseif( !empty($settings[$id] )) {
-            $align_class[] = 'text-lg-'.$settings[$id];
-        }
-        
+        $align_class[] = empty($settings[$id.'_mobile']) ? 'text-start' : 'text-'.$settings[$id.'_mobile'];
+        $align_class[] = empty($settings[$id.'_tablet']) ? 'text-md-start' : 'text-md-'.$settings[$id.'_tablet']; 
+        $align_class[] = empty($settings[$id]) ? 'text-lg-start' : 'text-lg-'.$settings[$id];
         $align_class[] = $extra_class;
         return trim(implode(' ', $align_class));
     }
@@ -1917,133 +1989,6 @@ if(!function_exists('saniga_elementor_badge_render')){
         }
     }
 }
-// Post Layout 
-if(!function_exists('saniga_get_post_grid')){
-    function saniga_get_post_grid($posts = [], $settings = [], $args = []){
-        if(empty($posts) || !is_array($posts) || empty($settings) || !is_array($settings)){
-            return false;
-        }
-        extract($settings);
-        if($thumbnail_size != 'custom'){
-            $img_size = $thumbnail_size;
-        }
-        elseif(!empty($thumbnail_custom_dimension['width']) && !empty($thumbnail_custom_dimension['height'])){
-            $img_size = $thumbnail_custom_dimension['width'] . 'x' . $thumbnail_custom_dimension['height'];
-        }
-        else{
-            $img_size = 'full';
-        }
-        $col_xl = isset($settings['col_xl']) ? 'col-xl-'.(12 / intval($settings['col_xl'])) : '';
-        $col_lg = isset($settings['col_lg']) ? 'col-lg-'.(12 / intval($settings['col_lg'])) : '';
-        $col_md = isset($settings['col_md']) ? 'col-md-'.(12 / intval($settings['col_md'])) : '';
-        $col_sm = isset($settings['col_sm']) ? 'col-'.(12 / intval($settings['col_sm'])) : '';
-
-        $args = wp_parse_args($args, [
-            'item_class' => trim(implode(' ', ['cms-grid-item', $col_xl, $col_lg, $col_md, $col_sm]))
-        ]);
-
-        $item_class = $args['item_class'];
-        $settings['gap_extra'] = empty($settings['gap_extra']) ? '0' : $settings['gap_extra'];
-        // Start build post item 
-        foreach ($posts as $post):
-            $filter_class = etc_get_term_of_post_to_class($post->ID, array_unique($tax));
-            ?>
-            <div class="<?php echo esc_attr($item_class . ' ' . $filter_class); ?>" style="padding: <?php echo esc_attr($settings['gap']/2);?>px; margin-bottom: <?php echo esc_attr($settings['gap_extra']);?>px">
-                <?php switch ($settings['layout']) {
-                    default:
-                ?>
-                    <div class="cms-item-content bg-white cms-radius-8 cms-hover-img-scale clearfix"><?php 
-                        saniga_post_media([
-                            'id'             => $post->ID, 
-                            'default_thumb'  => '1',
-                            'thumbnail_size' => $img_size,
-                            'wrap_class'     => 'cms-radius-8 overflow-hidden',
-                            'img_class'      => 'w-100 cms-radius-10'  
-                        ]); ?>
-                        <div class="cms-item-content-inner p-lr-15 p-lr-md-40 pt-40 pb-40 mt-n8">
-                            <?php 
-                                saniga_post_meta([
-                                    'post_id'       => $post->ID,
-                                    'taxo'          => saniga_get_custom_post_taxonomies($post->post_type, 'cat'),
-                                    'class'         => 'pb-5',
-                                    'show_icon'     => false,
-                                    'show_cmt'      => false,
-                                    'show_date'     => false   
-                                ]);
-                            ?>
-                            <div class="cms-item-content-title cms-heading text-20 lh-28 mb-25">
-                                <a href="<?php echo esc_url(get_permalink( $post->ID )); ?>"><?php echo get_the_title($post->ID); ?></a>
-                            </div>
-                            <div class="cms-item-content-excerpt mb-30"><?php
-                                if(!empty($post->post_excerpt)){
-                                    echo wp_trim_words( $post->post_excerpt, $settings['excerpt_lenght'], $settings['excerpt_more_text'] );
-                                }
-                                else{
-                                    $content = strip_shortcodes( $post->post_content );
-                                    $content = apply_filters( 'the_content', $content );
-                                    $content = str_replace(']]>', ']]&gt;', $content);
-                                    echo wp_trim_words( $content, $settings['excerpt_lenght'], $settings['excerpt_more_text'] );
-                                }
-                            ?></div>
-                            <?php 
-                            if(!empty($settings['readmore_text'])){ ?>
-                                <div class="cms-btn-wraps cms-post-item-readmore">
-                                    <a href="<?php echo esc_url(get_permalink( $post->ID )); ?>" class="btn btn-outline btn-primary btn-hover-accent">
-                                        <span class="cms-btn-content">
-                                            <span class="cms-btn-icon text-20 cmsi-arrow-circle-<?php echo is_rtl() ? 'left' : 'right';?>"></span>
-                                            <span class="cms-btn-text"><?php echo esc_html($settings['readmore_text']); ?></span>
-                                        </span>
-                                    </a>
-                                </div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                <?php break; 
-                    } ?>
-            </div>
-        <?php
-        endforeach;
-    }
-}
-// Pagination 
-if(!function_exists('saniga_load_more_post_grid')){
-    add_action( 'wp_ajax_saniga_load_more_post_grid', 'saniga_load_more_post_grid' );
-    add_action( 'wp_ajax_nopriv_saniga_load_more_post_grid', 'saniga_load_more_post_grid' );
-    function saniga_load_more_post_grid(){
-        try{
-            if(!isset($_POST['settings'])){
-                throw new Exception(__('Something went wrong while requesting. Please try again!', 'saniga'));
-            }
-            $settings = $_POST['settings'];
-            set_query_var('paged', $settings['paged']);
-            extract(etc_get_posts_of_grid($settings['post_type'], [
-                'source'   => isset($settings['source'])?$settings['source']:'',
-                'orderby'  => isset($settings['orderby'])?$settings['orderby']:'date',
-                'order'    => isset($settings['order'])?$settings['order']:'desc',
-                'limit'    => isset($settings['limit'])?$settings['limit']:'6',
-                'post_ids' => '',
-            ]));
-            ob_start();
-                saniga_get_post_grid($posts, $settings);
-            $html = ob_get_clean();
-            wp_send_json(
-                array(
-                    'status' => true,
-                    'message' => __('Load Post Grid Successfully!', 'saniga'),
-                    'data' => array(
-                        'html'  => $html,
-                        'paged' => $settings['paged'],
-                        'posts' => $posts,
-                    ),
-                )
-            );
-        }
-        catch (Exception $e){
-            wp_send_json(array('status' => false, 'message' => $e->getMessage()));
-        }
-        die;
-    }
-}
 
 // Zocdoc rating 
 if(!function_exists('saniga_zocdoc_rating')){
@@ -2073,6 +2018,34 @@ if(!function_exists('saniga_zocdoc_rating')){
         <?php
     }
 }
+
+// Newsletter Extension
+if(!function_exists('saniga_element_newsletter_form_list')){
+    function saniga_element_newsletter_form_list(){
+        if(class_exists('Newsletter')) {
+            $forms = array_filter( (array) get_option( 'newsletter_forms', array() ) );
+
+            $newsletter_forms = array(
+                'default' => esc_html__( 'Default Form', 'saniga' )
+            );
+
+            if ( $forms )
+            {
+                $index = 1;
+                foreach ( $forms as $key => $form )
+                {
+                    $newsletter_forms[$key] = sprintf( esc_html__( 'Form %s', 'saniga' ), $index );
+                    $index ++;
+                }
+            }
+        } else {
+            $newsletter_forms = [];
+        }
+    }
+}
+
+
+
 // Scan element (need add to bottom of this file)
 $files = scandir(get_template_directory() . '/elementor/core/register');
 foreach ($files as $file){
@@ -2104,246 +2077,3 @@ if(!function_exists('saniga_star_rating')){
 }
 
 
-
-if(!function_exists('elementorframe_get_post_grid')){
-    function elementorframe_get_post_grid($posts = [], $settings = []){
-        if(empty($posts) || !is_array($posts) || empty($settings) || !is_array($settings)){
-            return false;
-        }
-        extract($settings);
-        if($thumbnail_size != 'custom'){
-            $img_size = $thumbnail_size;
-        }
-        elseif(!empty($thumbnail_custom_dimension['width']) && !empty($thumbnail_custom_dimension['height'])){
-            $img_size = $thumbnail_custom_dimension['width'] . 'x' . $thumbnail_custom_dimension['height'];
-        }
-        else{
-            $img_size = 'full';
-        }
-        if (is_array($posts)):
-            foreach ($posts as $post):
-                $img_id = get_post_thumbnail_id($post->ID);
-                $img = etc_get_image_by_size( array(
-                    'attach_id'  => $img_id,
-                    'thumb_size' => $img_size,
-                    'class'      => '',
-                ));
-                $thumbnail = $img['thumbnail'];
-                $item_class = "grid-item col-xl-{$col_xl} col-lg-{$col_lg} col-md-{$col_md} col-sm-{$col_sm} col-{$col_xs}";
-                $filter_class = etc_get_term_of_post_to_class($post->ID, array_unique($tax));
-                $author = get_user_by('id', $post->post_author);
-                ?>
-                <div class="<?php echo esc_attr($item_class . ' ' . $filter_class); ?>">
-                    <div class="grid-item-inner">
-                        <?php if (has_post_thumbnail($post->ID) && wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), false) && $show_thumbnail == 'true'): ?>
-                            <div class="entry-featured">
-                                <div class="post-image">
-                                    <a href="<?php echo esc_url(get_permalink( $post->ID )); ?>"><?php echo wp_kses_post($thumbnail); ?></a>
-                                </div>
-                            </div>
-                        <?php endif; ?>
-                        <div class="entry-body">
-                            <?php if($show_meta == 'true'): ?>
-                                <ul class="entry-meta">
-                                    <?php if($show_author == 'true'): ?>
-                                        <li class="author"><a href="<?php echo esc_url(get_author_posts_url($post->post_author, $author->user_nicename)); ?>"><?php echo esc_html($author->display_name); ?></a></li>
-                                    <?php endif; ?>
-                                    <?php if($show_post_date == 'true'): ?>
-                                        <li class="post-date"><?php $date_formart = get_option('date_format'); echo get_the_date($date_formart, $post->ID); ?></li>
-                                    <?php endif; ?>
-                                    <?php if($show_categories == 'true'): ?>
-                                        <li class="categories"><?php the_terms( $post->ID, 'category', '', ' ' ); ?></li>
-                                    <?php endif; ?>
-                                </ul>
-                            <?php endif; ?>
-                            <?php if($show_title == 'true'): ?>
-                            <<?php etc_print_html($title_tag);?> class="entry-title"><a href="<?php echo esc_url(get_permalink( $post->ID )); ?>"><?php echo esc_attr(get_the_title($post->ID)); ?></a></<?php etc_print_html($title_tag);?>>
-                    <?php endif; ?>
-                        <?php if($show_excerpt == 'true'): ?>
-                            <div class="entry-content">
-                                <?php
-                                    if(!empty($post->post_excerpt)){
-                                        echo wp_trim_words( $post->post_excerpt, $num_words, $more = null );
-                                    }
-                                    else{
-                                        $content = strip_shortcodes( $post->post_content );
-                                        $content = apply_filters( 'the_content', $content );
-                                        $content = str_replace(']]>', ']]&gt;', $content);
-                                        $content = wp_trim_words( $content, $num_words, '&hellip;' );
-                                        echo wp_kses_post($content);
-                                    }
-                                ?>
-                            </div>
-                        <?php endif; ?>
-                        <?php if($show_button == 'true'): ?>
-                            <div class="entry-readmore">
-                                <a class="btn elementor-animation-<?php echo esc_attr($hover_animation); ?>" href="<?php echo esc_url(get_permalink( $post->ID )); ?>"><?php echo esc_html__($button_text, 'elementorframe'); ?></a>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                </div>
-                </div>
-            <?php
-            endforeach;
-        endif;
-    }
-}
-
-add_action( 'wp_ajax_elementorframe_load_more_post_grid', 'elementorframe_load_more_post_grid' );
-add_action( 'wp_ajax_nopriv_elementorframe_load_more_post_grid', 'elementorframe_load_more_post_grid' );
-if(!function_exists('elementorframe_load_more_post_grid')){
-    function elementorframe_load_more_post_grid(){
-        try{
-            if(!isset($_POST['settings'])){
-                throw new Exception(__('Something went wrong while requesting. Please try again!', 'elementorframe'));
-            }
-            $settings = $_POST['settings'];
-            set_query_var('paged', $settings['paged']);
-            extract(etc_get_posts_of_grid('post', [
-                'source' => isset($settings['source'])?$settings['source']:'',
-                'orderby' => isset($settings['orderby'])?$settings['orderby']:'date',
-                'order' => isset($settings['order'])?$settings['order']:'desc',
-                'limit' => isset($settings['limit'])?$settings['limit']:'6',
-                'post_ids' => '',
-            ]));
-            ob_start();
-            elementorframe_get_post_grid($posts, $settings);
-            $html = ob_get_clean();
-            wp_send_json(
-                array(
-                    'status' => true,
-                    'message' => __('Load Successfully!', 'elementorframe'),
-                    'data' => array(
-                        'html' => $html,
-                        'paged' => $settings['paged'],
-                        'posts' => $posts,
-                    ),
-                )
-            );
-        }
-        catch (Exception $e){
-            wp_send_json(array('status' => false, 'message' => $e->getMessage()));
-        }
-        die;
-    }
-}
-
-/**
- * Prints posts pagination based on query
- *
- * @param  WP_Query $query     Custom query, if left blank, this will use global query ( current query )
- * @return void
- */
-function elementorframe_posts_pagination( $query = null, $ajax = false )
-{
-    if($ajax){
-        add_filter('paginate_links', 'elementorframe_ajax_paginate_links');
-    }
-
-    $classes = array();
-
-    if ( empty( $query ) )
-    {
-        $query = $GLOBALS['wp_query'];
-    }
-
-    if ( empty( $query->max_num_pages ) || ! is_numeric( $query->max_num_pages ) || $query->max_num_pages < 2 )
-    {
-        return;
-    }
-
-    $paged = $query->get( 'paged', '' );
-
-    if ( ! $paged && is_front_page() && ! is_home() )
-    {
-        $paged = $query->get( 'page', '' );
-    }
-
-    $paged = $paged ? intval( $paged ) : 1;
-
-    $pagenum_link = html_entity_decode( get_pagenum_link() );
-    $query_args   = array();
-    $url_parts    = explode( '?', $pagenum_link );
-
-    if ( isset( $url_parts[1] ) )
-    {
-        wp_parse_str( $url_parts[1], $query_args );
-    }
-
-    $pagenum_link = remove_query_arg( array_keys( $query_args ), $pagenum_link );
-    $pagenum_link = trailingslashit( $pagenum_link ) . '%_%';
-
-    $html_prev = '<i class="zmdi zmdi-long-arrow-left"></i>';
-    $html_next = '<i class="zmdi zmdi-long-arrow-right"></i>';
-    $paginate_links_args = array(
-        'base'     => $pagenum_link,
-        'total'    => $query->max_num_pages,
-        'current'  => $paged,
-        'mid_size' => 1,
-        'add_args' => array_map( 'urlencode', $query_args ),
-        'prev_text' => $html_prev,
-        'next_text' => $html_next,
-    );
-    if($ajax){
-        $paginate_links_args['format'] = '?page=%#%';
-    }
-    $links = paginate_links( $paginate_links_args );
-    if ( $links ):
-    ?>
-    <nav class="navigation posts-pagination <?php echo esc_attr($ajax?'ajax':''); ?>">
-        <div class="posts-page-links">
-            <?php
-                printf($links);
-            ?>
-        </div>
-    </nav>
-    <?php
-    endif;
-
-    if($ajax){
-        remove_filter('paginate_links', 'elementorframe_ajax_paginate_links');
-    }
-}
-if(!function_exists('elementorframe_ajax_paginate_links')){
-    function elementorframe_ajax_paginate_links($link){
-        $parts = parse_url($link);
-        parse_str($parts['query'], $query);
-        if(isset($query['page']) && !empty($query['page'])){
-            return '#' . $query['page'];
-        }
-        else{
-            return '#1';
-        }
-    }
-}
-
-add_action( 'wp_ajax_elementorframe_get_pagination_html', 'elementorframe_get_pagination_html' );
-add_action( 'wp_ajax_nopriv_elementorframe_get_pagination_html', 'elementorframe_get_pagination_html' );
-if(!function_exists('elementorframe_get_pagination_html')){
-    function elementorframe_get_pagination_html(){
-        try{
-            if(!isset($_POST['query_vars'])){
-                throw new Exception(__('Something went wrong while requesting. Please try again!', 'elementorframe'));
-            }
-            $query = new WP_Query($_POST['query_vars']);
-            ob_start();
-            elementorframe_posts_pagination( $query,  true );
-            $html = ob_get_clean();
-            wp_send_json(
-                array(
-                    'status' => true,
-                    'message' => __('Load Successfully!', 'elementorframe'),
-                    'data' => array(
-                        'html' => $html,
-                        'query_vars' => $_POST['query_vars'],
-                        'post' => $query->have_posts()
-                    ),
-                )
-            );
-        }
-        catch (Exception $e){
-            wp_send_json(array('status' => false, 'message' => $e->getMessage()));
-        }
-        die;
-    }
-}

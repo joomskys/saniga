@@ -25,6 +25,10 @@ etc_add_custom_widget(
                                     'label' => esc_html__( 'Layout 1', 'saniga' ),
                                     'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_socials/layout-images/1.png'
                                 ],
+                                '2' => [
+                                    'label' => esc_html__( 'Layout 2', 'saniga' ),
+                                    'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_socials/layout-images/2.png'
+                                ]
                             ],
                             'prefix_class' => 'cms-socials-layout-'
                         ),
