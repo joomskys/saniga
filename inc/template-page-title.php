@@ -7,7 +7,7 @@ if(!function_exists('saniga_page_title_layout')){
         if(is_singular('cms-header-top') || is_singular('cms-footer') || is_404()) return;
 		$show_pagetitle  = saniga_get_opts( 'pagetitle', '1' );
         if(is_singular('post')){
-            $ptitle_layout =  saniga_get_opts( 'ptitle_layout', saniga_configs('single_post')['title_layout'] );
+            $ptitle_layout =  saniga_configs('single_post')['title_layout'];
         } else {
             $ptitle_layout   = saniga_get_opts( 'ptitle_layout', saniga_configs('ptitle')['layout'] );
         }
@@ -24,7 +24,7 @@ if(!function_exists('saniga_page_title_layout')){
         	<div class="cms-page-title-overlay"></div>
         	<div class="container relative">
         		<div class="cms-page-title-inner">
-        			<?php get_template_part( 'template-parts/page-title/layout', $ptitle_layout ); ?>
+        			<?php var_dump($ptitle_layout); get_template_part( 'template-parts/page-title/layout', $ptitle_layout ); ?>
         		</div>
         	</div>
             <?php if($show_scroll): ?>
