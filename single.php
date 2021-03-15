@@ -21,7 +21,7 @@ get_header();
                 }
             ?>
         </div>
-        <?php saniga_sidebar(['content_col'=> 'single_content_col','sidebar_pos' => 'single_sidebar_pos', 'class' => 'pl-xl-55']); ?>
+        <?php saniga_sidebar(['content_col'=> 'single_content_col','sidebar_pos' => 'single_sidebar_pos', 'class' => 'pl-xl-50']); ?>
     </div>
 </div>
 <?php

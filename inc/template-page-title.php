@@ -24,7 +24,7 @@ if(!function_exists('saniga_page_title_layout')){
         	<div class="cms-page-title-overlay"></div>
         	<div class="container relative">
         		<div class="cms-page-title-inner">
-        			<?php var_dump($ptitle_layout); get_template_part( 'template-parts/page-title/layout', $ptitle_layout ); ?>
+        			<?php get_template_part( 'template-parts/page-title/layout', $ptitle_layout ); ?>
         		</div>
         	</div>
             <?php if($show_scroll): ?>

@@ -2034,7 +2034,7 @@ html {
 
 @media (min-width: 1366px) {
     .container {
-      max-width: 1310px; } }
+      max-width: 1320px; } }
   @media (min-width: 1400px) {
     .container.container-wide {
       max-width: 84%; } }
@@ -33613,12 +33613,19 @@ body:not(.elementor-page) #cms-main {
   position: relative; }
 
 #cms-header {
+  background: #fff;
   -webkit-transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) 0s;
   -khtml-transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) 0s;
   -moz-transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) 0s;
   -ms-transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) 0s;
   -o-transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) 0s;
-  transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) 0s; }
+  transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) 0s;
+  -webkit-box-shadow: 0px 5px 83px 0px rgba(27, 26, 26, 0.12);
+  -khtml-box-shadow: 0px 5px 83px 0px rgba(27, 26, 26, 0.12);
+  -moz-box-shadow: 0px 5px 83px 0px rgba(27, 26, 26, 0.12);
+  -ms-box-shadow: 0px 5px 83px 0px rgba(27, 26, 26, 0.12);
+  -o-box-shadow: 0px 5px 83px 0px rgba(27, 26, 26, 0.12);
+  box-shadow: 0px 5px 83px 0px rgba(27, 26, 26, 0.12); }
 
 .cms-pagetitle {
   background-color: var(--ptitle-background-color);
@@ -33669,7 +33676,8 @@ body:not(.elementor-page) #cms-main {
 
 .cms-breadcrumb .breadcrumb-divider {
   padding: 0 10px;
-  font-size: 80%; }
+  font-size: 80%;
+  vertical-align: bottom; }
 
 .cms-pagetitle-breadcrumb {
   color: var(--ptitle-breadcrumb-regular); }
@@ -33701,12 +33709,12 @@ body:not(.elementor-page) #cms-main {
 .cms-page-title-layout10#cms-pagetitle {
   background: none;
   color: var(--color-body);
-  padding: 40px 0; }
+  padding: 34px 0; }
 
-.cms-page-title-layout10#cms-pagetitle a {
+.cms-page-title-layout10#cms-pagetitle a, .cms-page-title-layout10#cms-pagetitle .breadcrumb-divider {
   color: var(--color-primary); }
 
-.cms-page-title-layout10#cms-pagetitle a:hover {
+.cms-page-title-layout10#cms-pagetitle a:hover, .cms-page-title-layout10#cms-pagetitle .breadcrumb-divider:hover {
   color: var(--color-accent); }
 
 .cms-page-title-layout10#cms-pagetitle + #cms-main {

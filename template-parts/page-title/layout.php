@@ -118,7 +118,7 @@ switch ($ptitle_layout) {
         ]);
         break;
     case '10':
-        saniga_breadcrumb(['divider' => $breadcrumb_separator, 'class' => $breadcrumb_class]);
+        saniga_breadcrumb(['divider' => $breadcrumb_separator, 'class' => $breadcrumb_class.' text-14 justify-content-center']);
         break;
     case '11' :
         saniga_page_title(['class' => 'text-center text-xl-45']);

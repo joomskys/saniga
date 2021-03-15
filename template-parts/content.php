@@ -14,9 +14,9 @@ if(has_post_thumbnail() || saniga_configs('default_post_thumbnail') === '1'){
     <div class="clearfix">
         <?php 
             saniga_post_media([
-                'thumbnail_size' => 'medium_large',
+                'thumbnail_size' => 'large',
                 'wrap_class'     => '',
-                'img_class'      => 'cms-radius-8'
+                'img_class'      => ''
             ]);
         ?>
         <div class="<?php echo esc_attr($class);?>"><?php

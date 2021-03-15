@@ -210,8 +210,8 @@ if(!function_exists('saniga_configs')){
 
             // thumbnail size
             'thumbnail' => [
-                'large_size_w'                   => 770,
-                'large_size_h'                   => 514,
+                'large_size_w'                   => 840,
+                'large_size_h'                   => 562,
                 'medium_large_size_w'            => 770,
                 'medium_large_size_h'            => 370,
                 'medium_size_w'                  => 570,

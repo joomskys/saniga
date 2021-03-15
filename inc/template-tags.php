@@ -274,6 +274,7 @@ if(!function_exists('saniga_pagination_next_text')){
 if(!function_exists('saniga_socials_share_default')){
     function saniga_socials_share_default($args = []) {
         $args = wp_parse_args($args, [
+            'echo'         => true, 
             'show_share'   => '1',
             'class'        => '',
             'title'        => '<div class="cms-post-share-title h4">'.esc_html__('Share:','saniga').'</div>',
@@ -283,19 +284,26 @@ if(!function_exists('saniga_socials_share_default')){
         ]);
         if($args['show_share'] != '1') return;
         $pinterestimage = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
-
-        printf('%s', $args['before']);
-    ?>
-        <div class="<?php echo trim(implode(' ',['cms-post-share row align-items-center',  $args['class']]));?>">
-            <?php if(!empty($args['title'])) printf('%s', $args['title']); ?>
-            <div class="<?php echo trim(implode(' ',['col-auto cms-social',  $args['social_class']]));?>">
-                <a class="fb-social facebook hover-effect" title="Facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php urlencode(the_permalink()); ?>"><i class="cmsi-facebook-f"></i></a>
-                <a class="tw-social twitter hover-effect" title="Twitter" target="_blank" href="https://twitter.com/home?status=<?php the_permalink(); ?>"><i class="cmsi-twitter"></i></a>
-                <a class="it-social linkedin hover-effect" title="Linkedin" target="_blank" href="https://linked.com/<?php echo saniga_get_opt('instagram_user');?>"><i class="cmsi-linkedin-in"></i></a>
+        
+        ob_start();
+            printf('%s', $args['before']);
+        ?>
+            <div class="<?php echo trim(implode(' ',['cms-post-share row align-items-center',  $args['class']]));?>">
+                <?php if(!empty($args['title'])) printf('%s', $args['title']); ?>
+                <div class="<?php echo trim(implode(' ',['col-auto cms-social',  $args['social_class']]));?>">
+                    <a class="fb-social facebook hover-effect" title="Facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php urlencode(the_permalink()); ?>"><i class="cmsi-facebook-f"></i></a>
+                    <a class="tw-social twitter hover-effect" title="Twitter" target="_blank" href="https://twitter.com/home?status=<?php the_permalink(); ?>"><i class="cmsi-twitter"></i></a>
+                    <a class="it-social linkedin hover-effect" title="Linkedin" target="_blank" href="https://linked.com/<?php echo saniga_get_opt('instagram_user');?>"><i class="cmsi-linkedin-in"></i></a>
+                </div>
             </div>
-        </div>
-        <?php
-        printf('%s', $args['after']);
+            <?php
+            printf('%s', $args['after']);
+            
+        if($args['echo']){
+            echo ob_get_clean();
+        } else {
+            return ob_get_clean();
+        }
     }
 }
 

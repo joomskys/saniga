@@ -2,8 +2,9 @@
 	&#cms-pagetitle{
 		background: none;
 		color: $body-color;
-		padding: 40px 0;
-		a{
+		padding: 34px 0;
+		a,
+		.breadcrumb-divider{
 			color: $primary-color;
 			&:hover{
 				color: $accent-color;

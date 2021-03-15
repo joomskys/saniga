@@ -16,26 +16,51 @@ if(has_post_thumbnail() || saniga_configs('default_post_thumbnail') === '1'){
     $padding_class = '';
 }
 ?>
-<div <?php post_class('cms-single-post'); ?>>
+<div <?php post_class('cms-single-post cms-post-layout-1'); ?>>
     <?php 
         saniga_post_media([
             'show_media'     => saniga_get_opts('post_feature_image_on', '1'),     
             'thumbnail_size' => $thumbnail_size,
             'wrap_class'     => '',
-            'img_class'      => 'cms-radius-16',
-            'media_content'  => false
+            'img_class'      => '',
+            //'media_content'  => false,
+            'after'          => '<span class="cms-post-grid-date absolute cms-badge cms-badge-1 text-center font-700 lh-19 pt-10">'.
+                saniga_post_date([
+                    'post_id'     => $post->ID,
+                    'echo'        => false,
+                    'show_icon'   => false,
+                    'class'       => 'badge-date', 
+                    'date_format' => 'j'  
+                ]).
+                saniga_post_date([
+                    'post_id'     => $post->ID,
+                    'echo'        => false,
+                    'show_icon'   => false,
+                    'class'       => 'badge-month',
+                    'date_format' => 'M'  
+                ]).
+                saniga_socials_share_default([
+                    'echo'         => false, 
+                    'class'        => '',
+                    'show_share'   => saniga_get_opts( 'post_social_share_on', '0' ),   
+                    'title'        => '',
+                    'social_class' => 'cms-socials cms-social-layout-3',
+                    'before'       => '<div class="bg-white">',
+                    'after'        => '</div>'
+                ])
+            .'</span>'
         ]);
     ?>
     <div class="<?php echo esc_attr($padding_class);?>">
         <?php
             saniga_post_meta([
-                'show_date'   => saniga_get_opts('post_date_on','1'),
+                'show_date'   => '0',
                 'show_cat'    => saniga_get_opts('post_categories_on','1'),
                 'show_author' => saniga_get_opts('post_author_on','1'),
                 'show_cmt'    => saniga_get_opts('post_comments_on','1'),
-                'show_icon'   => true,
+                'show_icon'   => false,
                 'class'       => '',
-                'separator'   => ''
+                'separator' => '<div class="col-auto"><span class="cms-meta-separator"></span></div>'
             ]);
             saniga_post_title(['class' => 'text-24 text-lg-40 lh-lg-50 font-700 pt-15 mb-30']);
         ?>
