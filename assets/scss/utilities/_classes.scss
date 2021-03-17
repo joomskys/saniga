@@ -52,21 +52,18 @@
 	&:after{
 	    content: '';
 	    display: block;
-	    height: 3px;
+	    height: 6px;
 	    background: $accent-color;
 	    position: absolute;
-	    left: 40px;
-	    right: 40px;
+	    left: 0;
+	    right: 0;
 	    bottom: 0;
 	}
 	&.cms-bottom-divider-primary{
 		background: $primary-color; 
 	}
 }
-.elementor-section.cms-bottom-divider:after{
-	left: 70px;
-	right: 70px;
-}
+
 // background style
 .cms-bg-cover{
 	background-repeat: no-repeat;
@@ -196,4 +193,5 @@
 [class^="cmsi-"],
 [class*=" cmsi-"] {
   vertical-align: middle;
+  line-height: 1;
 }

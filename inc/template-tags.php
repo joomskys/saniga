@@ -274,13 +274,14 @@ if(!function_exists('saniga_pagination_next_text')){
 if(!function_exists('saniga_socials_share_default')){
     function saniga_socials_share_default($args = []) {
         $args = wp_parse_args($args, [
-            'echo'         => true, 
-            'show_share'   => '1',
-            'class'        => '',
-            'title'        => '<div class="cms-post-share-title h4">'.esc_html__('Share:','saniga').'</div>',
-            'social_class' => '',
-            'before'       => '',
-            'after'        => ''  
+            'echo'              => true, 
+            'show_share'        => '1',
+            'class'             => '',
+            'title'             => '<div class="cms-post-share-title cms-heading col">'.esc_html__('Share:','saniga').'</div>',
+            'social_class'      => '',
+            'social_item_class' => '',
+            'before'            => '',
+            'after'             => ''  
         ]);
         if($args['show_share'] != '1') return;
         $pinterestimage = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
@@ -291,14 +292,22 @@ if(!function_exists('saniga_socials_share_default')){
             <div class="<?php echo trim(implode(' ',['cms-post-share row align-items-center',  $args['class']]));?>">
                 <?php if(!empty($args['title'])) printf('%s', $args['title']); ?>
                 <div class="<?php echo trim(implode(' ',['col-auto cms-social',  $args['social_class']]));?>">
-                    <a class="fb-social facebook hover-effect" title="Facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php urlencode(the_permalink()); ?>"><i class="cmsi-facebook-f"></i></a>
-                    <a class="tw-social twitter hover-effect" title="Twitter" target="_blank" href="https://twitter.com/home?status=<?php the_permalink(); ?>"><i class="cmsi-twitter"></i></a>
-                    <a class="it-social linkedin hover-effect" title="Linkedin" target="_blank" href="https://linked.com/<?php echo saniga_get_opt('instagram_user');?>"><i class="cmsi-linkedin-in"></i></a>
+                    <div class="row gutters-10 gutters-grid">
+                        <div class="cms-social cms-social-item col-auto">
+                            <a class="<?php echo esc_attr($args['social_item_class']);?>" title="Facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php urlencode(the_permalink()); ?>"><i class="cmsi-facebook-1"></i></a>
+                        </div>
+                        <div class="cms-social cms-social-item col-auto">
+                            <a class="<?php echo esc_attr($args['social_item_class']);?>" title="Twitter" target="_blank" href="https://twitter.com/home?status=<?php the_permalink(); ?>"><i class="cmsi-twitter-1"></i></a>
+                        </div>
+                        <div class="cms-social cms-social-item col-auto">
+                            <a class="<?php echo esc_attr($args['social_item_class']);?>" title="Linkedin" target="_blank" href="https://linked.com/<?php echo saniga_get_opt('linkedin_user');?>"><i class="cmsi-linkedin-1"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <?php
             printf('%s', $args['after']);
-            
+
         if($args['echo']){
             echo ob_get_clean();
         } else {
@@ -325,13 +334,17 @@ if(!function_exists('saniga_post_author_info')){
         <div class="<?php echo trim(implode(' ', ['entry-author-info', $args['class']]));?>">
             <div class="cms-post-author row text-center text-md-start">
                 <div class="cms-post-author-avatar col-12 col-md-auto mb-20 mb-md-0">
-                        <?php echo get_avatar( get_the_author_meta( 'ID' ), '70', '', esc_html__('Saniga', 'saniga'), ['class' => 'cms-radius-8'] ); ?>
+                        <?php echo get_avatar( get_the_author_meta( 'ID' ), '120', '', esc_html__('Saniga', 'saniga'), [
+                            'width' => '120',
+                            'height' => '120'
+                        ] ); ?>
                     </div>
-                <div class="cms-post-author-description col text-primary"><?php 
+                <div class="cms-post-author-description col"><?php 
                     echo '<div class="cms-post-author-title cms-heading '.$args['title_class'].'">'.get_the_author().'</div>';
                     echo '<div class="cms-post-author-description">'.get_the_author_meta( 'description' ).'</div>';
                     saniga_get_user_social([
-                        'class' => 'cms-social-layout-1 pt-15 ml-n10 justify-content-center justify-content-md-start'
+                        'class'             => 'cms-socials-layout-5 pt-15',
+                        'social_item_class' => 'circle'
                     ]); 
                 ?></div>
             </div>
@@ -390,7 +403,7 @@ if(!function_exists('saniga_posts_nav_link')) {
                          ?>
                         <div class="col"><?php 
                             // label
-                            if(!empty($args['prev_title'])) printf('<div class="cms-nav-label text-13">%s</div>', esc_html($args['prev_title']));
+                            if(!empty($args['prev_title'])) printf('<div class="cms-nav-label text-15 font-700 text-primary">%s</div>', esc_html($args['prev_title']));
                             // title
                             if('1' === $args['show_title']) printf('<div class="cms-nav-title cms-heading text-16 lh-22">%s</div>', get_the_title($previous_post->ID ));
                         ?></div>
@@ -408,7 +421,7 @@ if(!function_exists('saniga_posts_nav_link')) {
                     <div class="row align-items-center gutters-20">
                         <div class="col"><?php
                             // label
-                            if(!empty($args['prev_title'])) printf('<div class="cms-nav-label text-13">%s</div>', esc_html($args['next_title']));
+                            if(!empty($args['prev_title'])) printf('<div class="cms-nav-label text-15 font-700 text-primary">%s</div>', esc_html($args['next_title']));
                             // title
                             if('1' === $args['show_title']) printf('<div class="cms-nav-title cms-heading text-16 lh-22">%s</div>', get_the_title($next_post->ID ));
                         ?></div>
@@ -642,7 +655,8 @@ if(!function_exists('saniga_save_user_custom_fields')){
 if(!function_exists('saniga_get_user_social')){
     function saniga_get_user_social($args = []) {
         $args = wp_parse_args($args,[
-            'class' => ''
+            'class'             => '',
+            'social_item_class' => ''
         ]);
         $user_facebook = get_user_meta(get_the_author_meta( 'ID' ), 'user_facebook', true);
         $user_twitter = get_user_meta(get_the_author_meta( 'ID' ), 'user_twitter', true);
@@ -659,43 +673,68 @@ if(!function_exists('saniga_get_user_social')){
 
         ?>
         <div class="<?php echo trim(implode(' ', ['user-social cms-socials', $args['class']]));?>">
-            <?php if(!empty($user_facebook)) { ?>
-                <a href="<?php echo esc_url($user_facebook); ?>"><i class="cmsi-facebook-f"></i></a>
-            <?php } ?>
-            <?php if(!empty($user_twitter)) { ?>
-                <a href="<?php echo esc_url($user_twitter); ?>"><i class="cmsi-twitter"></i></a>
-            <?php } ?>
-            <?php if(!empty($user_linkedin)) { ?>
-                <a href="<?php echo esc_url($user_linkedin); ?>"><i class="cmsi-linkedin"></i></a>
-            <?php } ?>
-            <?php if(!empty($user_rss)) { ?>
-                <a href="<?php echo esc_url($user_rss); ?>"><i class="cmsi-rss"></i></a>
-            <?php } ?>
-            <?php if(!empty($user_instagram)) { ?>
-                <a href="<?php echo esc_url($user_instagram); ?>"><i class="cmsi-instagram"></i></a>
-            <?php } ?>
-            <?php if(!empty($user_google)) { ?>
-                <a href="<?php echo esc_url($user_google); ?>"><i class="cmsi-google"></i></a>
-            <?php } ?>
-            <?php if(!empty($user_skype)) { ?>
-                <a href="<?php echo esc_url($user_skype); ?>"><i class="cmsi-skype"></i></a>
-            <?php } ?>
-            <?php if(!empty($user_pinterest)) { ?>
-                <a href="<?php echo esc_url($user_pinterest); ?>"><i class="cmsi-pinterest"></i></a>
-            <?php } ?>
-            <?php if(!empty($user_vimeo)) { ?>
-                <a href="<?php echo esc_url($user_vimeo); ?>"><i class="cmsi-vimeo"></i></a>
-            <?php } ?>
-            <?php if(!empty($user_youtube)) { ?>
-                <a href="<?php echo esc_url($user_youtube); ?>"><i class="cmsi-youtube"></i></a>
-            <?php } ?>
-            <?php if(!empty($user_yelp)) { ?>
-                <a href="<?php echo esc_url($user_yelp); ?>"><i class="cmsi-yelp"></i></a>
-            <?php } ?>
-            <?php if(!empty($user_tumblr)) { ?>
-                <a href="<?php echo esc_url($user_tumblr); ?>"><i class="cmsi-tumblr"></i></a>
-            <?php } ?>
-
+            <div class="row gutters-10 gutters-grid">
+                <?php if(!empty($user_facebook)) { ?>
+                    <div class="cms-social cms-social-item col-auto">
+                        <a class="<?php echo esc_attr($args['social_item_class']);?>" href="<?php echo esc_url($user_facebook); ?>"><i class="cmsi-facebook-1"></i></a>
+                    </div>
+                <?php } ?>
+                <?php if(!empty($user_twitter)) { ?>
+                    <div class="cms-social cms-social-item col-auto">
+                        <a class="<?php echo esc_attr($args['social_item_class']);?>" href="<?php echo esc_url($user_twitter); ?>"><i class="cmsi-twitter-1"></i></a>
+                    </div>
+                <?php } ?>
+                <?php if(!empty($user_linkedin)) { ?>
+                    <div class="cms-social cms-social-item col-auto">
+                        <a class="<?php echo esc_attr($args['social_item_class']);?>" href="<?php echo esc_url($user_linkedin); ?>"><i class="cmsi-linkedin-1"></i></a>
+                    </div>
+                <?php } ?>
+                <?php if(!empty($user_rss)) { ?>
+                    <div class="cms-social cms-social-item col-auto">
+                        <a class="<?php echo esc_attr($args['social_item_class']);?>" href="<?php echo esc_url($user_rss); ?>"><i class="cmsi-rss"></i></a>
+                    </div>
+                <?php } ?>
+                <?php if(!empty($user_instagram)) { ?>
+                    <div class="cms-social cms-social-item col-auto">
+                        <a class="<?php echo esc_attr($args['social_item_class']);?>" href="<?php echo esc_url($user_instagram); ?>"><i class="cmsi-instagram"></i></a>
+                    </div>
+                <?php } ?>
+                <?php if(!empty($user_google)) { ?>
+                    <div class="cms-social cms-social-item col-auto">
+                        <a class="<?php echo esc_attr($args['social_item_class']);?>" href="<?php echo esc_url($user_google); ?>"><i class="cmsi-google"></i></a>
+                    </div>
+                <?php } ?>
+                <?php if(!empty($user_skype)) { ?>
+                    <div class="cms-social cms-social-item col-auto">
+                        <a class="<?php echo esc_attr($args['social_item_class']);?>" href="<?php echo esc_url($user_skype); ?>"><i class="cmsi-skype"></i></a>
+                    </div>
+                <?php } ?>
+                <?php if(!empty($user_pinterest)) { ?>
+                    <div class="cms-social cms-social-item col-auto">
+                        <a class="<?php echo esc_attr($args['social_item_class']);?>" href="<?php echo esc_url($user_pinterest); ?>"><i class="cmsi-pinterest"></i></a>
+                    </div>
+                <?php } ?>
+                <?php if(!empty($user_vimeo)) { ?>
+                    <div class="cms-social cms-social-item col-auto">
+                        <a class="<?php echo esc_attr($args['social_item_class']);?>" href="<?php echo esc_url($user_vimeo); ?>"><i class="cmsi-vimeo"></i></a>
+                    </div>
+                <?php } ?>
+                <?php if(!empty($user_youtube)) { ?>
+                    <div class="cms-social cms-social-item col-auto">
+                        <a class="<?php echo esc_attr($args['social_item_class']);?>" href="<?php echo esc_url($user_youtube); ?>"><i class="cmsi-youtube"></i></a>
+                    </div>
+                <?php } ?>
+                <?php if(!empty($user_yelp)) { ?>
+                    <div class="cms-social cms-social-item col-auto">
+                        <a class="<?php echo esc_attr($args['social_item_class']);?>" href="<?php echo esc_url($user_yelp); ?>"><i class="cmsi-yelp"></i></a>
+                    </div>
+                <?php } ?>
+                <?php if(!empty($user_tumblr)) { ?>
+                    <div class="cms-social cms-social-item col-auto">
+                        <a class="<?php echo esc_attr($args['social_item_class']);?>" href="<?php echo esc_url($user_tumblr); ?>"><i class="cmsi-tumblr"></i></a>
+                    </div>
+                <?php } ?>
+            </div>
         </div> <?php
     }
 }

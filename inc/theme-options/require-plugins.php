@@ -85,6 +85,14 @@ function saniga_register_required_plugins() {
             'force_activation'   => $auto_active,
             'force_deactivation' => $auto_active,
         ),
+        
+        array(
+            'name'               => esc_html__('WP User Avatar', 'solatec'),
+            'slug'               => 'wp-user-avatar',
+            'required'           => false,
+            'force_activation'   => $auto_active,
+            'force_deactivation' => $auto_active,
+        ),
         array(
             'name'               => esc_html__('Translatepress Multilingual', 'saniga'),
             'slug'               => 'translatepress-multilingual',

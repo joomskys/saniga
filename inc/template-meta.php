@@ -256,7 +256,7 @@ if ( ! function_exists( 'saniga_post_tagged_in' ) ) :
         if ( $tags_list )
         {
             echo '<div class="'.trim(implode(' ', ['cms-post-tags', $args['class']])).'"><div class="row gutters-10 gutters-grid align-items-center">';
-                if($args['title'] != '') printf('<div class="col-auto cms-post-tags-title">%s</div>', $args['title']);
+                if($args['title'] != '') printf('%s', $args['title']);
                 printf('<div class="col">%2$s</div>', '', $tags_list);
             echo '</div></div>';
         }

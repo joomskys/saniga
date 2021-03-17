@@ -7,51 +7,53 @@
 }
 
 .cms-single-post{
-	.cms-featured-inner .cms-post-date{
-		top: 40px;
-		left: 40px;
-		bottom: auto;
-		right: auto;
+	.cms-single-media-meta{
+		bottom: 0;
+		left: 0;
+		height: 65px;
+		padding-left: 75px;
+		padding-top: 5px;
 		[dir="rtl"] &{
 			left: auto;
-			right: 40px;
+			right: 0;
+			padding-left: 0;
+			padding-right: 75px;
 		}
-	}
-	.cms-post-meta{
-		position: relative;
-		&:before{
-			content: '';
-			position: absolute;
-			left: -40px;
-			background-color: $white;
-			top: 0;
-			bottom: 0;
-			width: 200px;
-		}
-	}
-	.cms-post-tags .custom {
-		color: $accent-color;
-		> a{
-			color: $accent-color;
-			&:hover{
-				color: $primary-color;
+		.cms-socials{
+			padding: 14px 20px;
+			height: 60px;
+			text-align: center;
+			@include border-radius(0 4px 0 0);
+			[dir="rtl"] &{
+				@include border-radius(4px 0 0 0);
 			}
 		}
 	}
-	.cms-post-content{
-		font-size: 16px;
-		p:not(last-child){
-			margin-bottom: 25px;
+	.cms-post-tags-share{
+		border-top: 2px solid $border-color;
+		padding-top: 28px;
+		.cms-post-share{
+			max-width: 126px;
 		}
 	}
-	.cms-post-author-avatar img{
-		@include border-radius(8px);
-	}
-}
-body.single-post:not(.elementor-default){
-	.cms-post-title{
-		//font-size: 19px;
-		//font-weight: 500!important;
-		//line-height: normal!important;
+	.cms-single-next-prev-navigation{
+		.cms-nav-icon{
+			width: 60px;
+			height: 60px;
+			line-height: 60px;
+			display: block;
+			text-align: center;
+			font-size: 12px;
+			color: $primary-color;
+			@include transition();
+			@include box-shadow(0 0 0 2px $border-color inset);
+		}
+		.cms-single-nav-inner:hover{
+			.cms-nav-icon{
+				background: $primary-color;
+				color: $white;
+				@include box-shadow(0 0 0 2px $primary-color inset);
+			}
+		}
 	}
 }	

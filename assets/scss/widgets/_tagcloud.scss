@@ -6,13 +6,13 @@
 		flex: 0 0 auto;
 		margin: 5px;
 		padding: 7px 15px;
-		@include box-shadow(0 0 0 2px $border-color );
+		@include box-shadow(0 0 0 2px $border-color inset);
 		font-size: 12px;
 		line-height: 18px;
 		text-transform: capitalize;
 		color: $accent-color;
 		&:hover{
-			@include box-shadow(0 0 0 2px $accent-color);
+			@include box-shadow(0 0 0 2px $accent-color inset);
 			background: $accent-color;
 			color: $white-color;
 		}

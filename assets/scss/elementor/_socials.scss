@@ -11,3 +11,42 @@
 		@include box-shadow(0 0 0 2px #242424 inset!important);
 	}
 }
+
+// Layout 3
+.cms-socials-layout-3,
+.cms-socials-layout-4,
+.cms-socials-layout-5{
+	a{
+		width: 32px;
+		height: 32px;
+		line-height: 32px;
+		font-size: 20px;
+		text-align: center;
+		@include box-shadow(0 0 0 2px $border-color inset);
+		&:hover{
+			color: $white;
+			background: $secondary-color;
+			@include box-shadow(0 0 0 2px $secondary-color inset);
+		}
+	}
+}
+.cms-socials-layout-3{
+	a{
+		color: $secondary-color;
+	}
+}
+.cms-socials-layout-4{
+	a{
+		color: $accent-color;
+	}
+}
+.cms-socials-layout-5{
+	a{
+		color: $primary-color;
+		@include border-radius(50%);
+		&:hover{
+			color: $white;
+			background: $secondary-color;
+		}
+	}
+}

@@ -197,7 +197,7 @@ if(!function_exists('saniga_configs')){
             ],
             // shadow 
             'shadow' => [
-                '1'  => 'xx',
+                '1'  => '0px 5px 83px 0px rgba(27, 26, 26, 0.12)',
             ],
             // Radius
             'radius'    => [
