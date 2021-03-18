@@ -223,7 +223,7 @@ if(!function_exists('saniga_configs')){
             ],
             // comments
             'comment' => [
-                'avatar-size'  => 60,
+                'avatar-size'  => 100,
                 'border'       => '0',
                 'radius'       => '0' 
             ],                                   

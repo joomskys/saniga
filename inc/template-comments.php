@@ -33,7 +33,10 @@ function saniga_comment_list( $comment, $args, $depth ) {
 		        	?></div>
 		        <?php endif; ?>
 		        <div class="comment-content col">
-	        		<div class="cms-heading comment-title"><?php printf( '%s', get_comment_author_link() ); ?></div>
+		        	<div class="row gutters-10">
+	        			<div class="cms-heading comment-title text-18 font-600 col-auto"><?php printf( '%s', get_comment_author_link() ); ?></div>
+	        			<div class="comment-date empty-none col text-secondary text-12"><?php echo get_comment_date().' - '.get_comment_time(); ?></div>
+	        		</div>
 		        	<div class="comment-meta">
 		            	<div class="comment-rating empty-none"><?php
 		            		/**
@@ -55,7 +58,6 @@ function saniga_comment_list( $comment, $args, $depth ) {
 								do_action( 'woocommerce_review_meta', $comment );
 							}
 						?></div>
-						<div class="comment-date empty-none"><?php echo get_comment_date().' - '.get_comment_time(); ?></div>
 		            </div>
 		            <div class="before-comment-text empty-none"><?php
 		            	if(is_singular('product')){ do_action( 'woocommerce_review_before_comment_text', $comment ); }
@@ -74,11 +76,13 @@ function saniga_comment_list( $comment, $args, $depth ) {
 		            <div class="after-comment-text empty-none"><?php 
 		            	if(is_singular('product')){ do_action( 'woocommerce_review_after_comment_text', $comment ); }
 		            ?></div>
-		            <div class="comment-reply"><?php 
+		            <div class="comment-reply"><?php
+		            	$reply_icon = is_rtl() ? 'cmsi-arrow-left' : 'cmsi-arrow-right';
 		            	comment_reply_link( array_merge( $args, array(
 							'add_below' => $add_below,
 							'depth'     => $depth,
-							'max_depth' => $args['max_depth']
+							'max_depth' => $args['max_depth'],
+							'reply_text' => '<span class="'.$reply_icon.' pr-5 text-12"></span>'.esc_html__('Reply', 'saniga')
 						) ) ); 
 					?></div>
 		        </div>
@@ -98,23 +102,23 @@ if(!function_exists('saniga_comment_form_args')){
 			'comment_author' => '',
 			'comment_author_email' => ''
 		];
-		$icon = is_rtl() ? 'cmsi-arrow-circle-left' : 'cmsi-arrow-circle-right';
+		$icon = is_rtl() ? 'cmsi-arrow-left' : 'cmsi-arrow-right';
 		$cms_comment_fields = array(
 			'id_form'              => 'commentform',
 			'title_reply'          => esc_attr__( 'Leave A Reply', 'saniga'),
 			'title_reply_to'       => esc_attr__( 'Leave A Reply To ', 'saniga') . '%s',
  			'cancel_reply_link'    => esc_attr__( 'Cancel Reply', 'saniga'),
 			'id_submit'            => 'submit',
-			'class_submit'         => 'btn-accent btn-hover-primary',
+			'class_submit'         => 'btn-primary btn-hover-accent btn-lg',
 			'label_submit'         => esc_attr__( 'Submit Comment', 'saniga'),
-			'submit_button'		   => '<button name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s"><span class="cms-btn-content"><span class="cms-btn-icon"><span class="'.$icon.'"></span></span><span class="cms-btn-text">%4$s</span></span></button>',	
+			'submit_button'		   => '<button name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s"><span class="cms-btn-content"><span class="cms-btn-icon"><span class="text-15 '.$icon.'"></span></span><span class="cms-btn-text">%4$s</span></span></button>',	
 			'comment_notes_before' => '',
             'comment_field' 	   =>  '',
     	);
 
     	$cms_fields = [];
 		//open
-    	$cms_fields['open'] = '<div class="cms-comment-form-fields-wrap row">';
+    	$cms_fields['open'] = '<div class="cms-comment-form-fields-wrap row gutters-40 gutters-grid">';
 		// author
 		$cms_fields['author'] = '<div class="comment-form-field comment-form-author col-lg-4 col-md-4 col-sm-12">'.
                 	'<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
