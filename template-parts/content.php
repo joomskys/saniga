@@ -27,7 +27,7 @@ if(has_post_thumbnail() || saniga_configs('default_post_thumbnail') === '1'){
             ]);
             saniga_post_title(['class' => 'text-24 mb-20']);
             saniga_post_excerpt();
-            saniga_post_link_pages();
+            saniga_post_link_pages(['class' => 'pt-20 pb-10']);
             saniga_post_readmore(['wrap_class' => 'mt-20', 'class' => 'cms-blog-readmore d-inline-block']);
         ?></div>
     </div>
