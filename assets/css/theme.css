@@ -19453,8 +19453,7 @@ blockquote {
   left: 0; }
 
 [class^="cmsi-"], [class*=" cmsi-"] {
-  vertical-align: middle;
-  line-height: 1; }
+  vertical-align: middle; }
 
 .cms-clip-path {
   position: relative;
