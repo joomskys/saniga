@@ -5,6 +5,7 @@ $FF_Color: #616161;
 $FF_Height: 58px;
 $FF_Padding: 0 20px;
 $FF_Border: 0 0 0 2px $border-color inset;
+$FF_Border_Hover: 0 0 0 2px $border-color inset, $shadow-1;
 $FF_Border_Radius: 0;
 $FF_Border_Radius_rtl: 0;
 $FF_Shadow: $shadow-1;
@@ -15,7 +16,6 @@ textarea, select,
 .select2-container.select2-container--default .select2-selection--single {
     background-color: $FF_Background;
     border: none;
-    
     color: $FF_Color;
     padding: $FF_Padding;
     line-height: $FF_Height;
@@ -31,7 +31,7 @@ textarea, select,
     &:active {
         border-color: $accent-color;
         color: $primary_color;
-        @include box-shadow($FF_Shadow);
+        @include box-shadow($FF_Border_Hover);
     }
     &:not([type="submit"]):not([type="checkbox"]):not([type="radio"]){
         width: 100%;
