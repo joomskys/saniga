@@ -35,7 +35,7 @@ function saniga_comment_list( $comment, $args, $depth ) {
 		        <div class="comment-content col">
 		        	<div class="row gutters-10">
 	        			<div class="cms-heading comment-title text-18 font-600 col-auto"><?php printf( '%s', get_comment_author_link() ); ?></div>
-	        			<div class="comment-date empty-none col text-secondary text-12"><?php echo get_comment_date().' - '.get_comment_time(); ?></div>
+	        			<div class="comment-date empty-none col-auto text-secondary text-12"><?php echo get_comment_date().' - '.get_comment_time(); ?></div>
 	        		</div>
 		        	<div class="comment-meta">
 		            	<div class="comment-rating empty-none"><?php
