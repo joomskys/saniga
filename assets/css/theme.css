@@ -33815,7 +33815,7 @@ body:not(.elementor-page) #cms-main {
 .cms-blog-readmore {
   color: #222;
   font-weight: 700;
-  padding: 7px 20px 4px;
+  padding: 5px 20px;
   position: relative;
   overflow: hidden;
   vertical-align: top; }
