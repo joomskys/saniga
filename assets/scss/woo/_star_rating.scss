@@ -4,7 +4,7 @@
 	line-height: normal;
 	margin: 0;
 	align-items:center;
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 }
 p.stars{
 	margin: 0;
@@ -12,12 +12,13 @@ p.stars{
 .star-rating{
 	font-family: $star_icon_font;
 	color: $star_icon_color;
-	font-size: 20px;
-	letter-spacing: 0.4px;
-	margin: 0;
+	font-size: 14px;
+	letter-spacing: 6px;
+	margin: 7px 0 0;
 	white-space: nowrap;
 	position: relative;
 	display: inline-block;
+	width: 95px;
 	&:before,
 	> span:before,
 	.cms-star-rated:before{
@@ -26,7 +27,7 @@ p.stars{
 	>span:before,
 	.cms-star-rated:before,
 	&[aria-label="Rated 0 out of 5"]:before{
-		color: var(--rating-color);
+		color: $star_icon_filled_color;
 	}
 	.cms-star-rated,
 	> span{

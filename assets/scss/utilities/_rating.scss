@@ -1,8 +1,8 @@
 $star_icon_font: "font-cmsi";
 $star_icon: "\f110";
 $star_icon_filled: "\f111";
-$star_icon_color: $primary-color;
-$star_icon_filled_color: $secondary-color;
+$star_icon_color: $body-color;
+$star_icon_filled_color: $accent-color;
 
 .comments-rating {
 	border: none;

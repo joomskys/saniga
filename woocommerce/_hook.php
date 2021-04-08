@@ -21,7 +21,7 @@ if(!function_exists('saniga_woocommerce_template_single_sharing')){
 	add_action('woocommerce_share', 'saniga_woocommerce_template_single_sharing');
 	function saniga_woocommerce_template_single_sharing(){
 		saniga_socials_share_default([
-			'show_share'   => saniga_get_opts( 'post_social_share_on', '0' ),
+			'show_share'   => saniga_get_opts( 'product_social_share_on', '0' ),
 			'class'		   => 'mt-30',	
 			'title'        => '',
 			'social_class' => 'cms-socials cms-social-layout-6 bg-colored'

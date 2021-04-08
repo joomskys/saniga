@@ -19,7 +19,7 @@
 		left: 15px;
 		right: 15px;
 		bottom: 0;
-		height: 2px;
+		height: 4px;
 		background: var(--border-color);
 	}
 	li{
@@ -41,8 +41,7 @@
 			display: block;
 			padding: 13px 0;
 			font-weight: 700;
-			color: inherit;
-			border-bottom: 2px solid var(--border-color);
+			border-bottom: 4px solid var(--border-color);
 		}
 		&:hover,
 		&.active{

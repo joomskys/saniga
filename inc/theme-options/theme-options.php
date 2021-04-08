@@ -756,10 +756,14 @@ if(class_exists('Woocommerce')) {
         )
     ));
     Redux::setSection($opt_name, array(
-        'title'      => esc_html__('Sinlge Products', 'saniga'),
+        'title'      => esc_html__('Single Products', 'saniga'),
         'icon'       => 'el el-shopping-cart',
         'subsection' => true,
         'fields'     => array_merge(
+            saniga_page_title_opts_fields([
+                'prefix'         => 'product_',
+                'default_layout' => saniga_configs('ptitle')['layout'],
+            ]),
             array(
                 saniga_sidebar_opts([
                     'name'          => 'product_single_sidebar_pos',
@@ -780,12 +784,15 @@ if(class_exists('Woocommerce')) {
                         ['product_single_sidebar_pos', '!=', '0'],
                         ['product_single_sidebar_pos', '!=', 'bottom']
                     ],
+                ),
+                array(
+                    'id'       => 'product_social_share_on',
+                    'title'    => esc_html__('Social Share', 'saniga'),
+                    'subtitle' => esc_html__('Show social share on single product.', 'saniga'),
+                    'type'     => 'switch',
+                    'default'  => '0',
                 )
-            ),
-            saniga_page_title_opts_fields([
-                'prefix'         => 'product_',
-                'default_layout' => saniga_configs('ptitle')['layout'],
-            ])
+            )
         )
     ));
 }

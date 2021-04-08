@@ -54,3 +54,24 @@
 		}
 	}
 }
+.cms-social-layout-6{
+	a{
+		width: 52px;
+		height: 40px;
+		font-size: 16px;
+		line-height: 40px;
+		display: block;
+		text-align: center;
+		&:hover{
+			@include transform(translateY(-5px));
+		}
+	}
+}
+.cms-social{
+	&.bg-colored{
+		a{
+			@include saniga_social_color(background-color);
+			color: $white;
+		}
+	}
+}

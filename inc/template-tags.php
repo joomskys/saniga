@@ -281,11 +281,15 @@ if(!function_exists('saniga_socials_share_default')){
             'social_class'      => '',
             'social_item_class' => '',
             'before'            => '',
-            'after'             => ''  
+            'after'             => '',
+            'icon_facebook'     => 'cmsi-facebook-f',
+            'icon_twitter'      => 'cmsi-twitter',
+            'icon_linkedin'     => 'cmsi-linkedin',
+            'icon_instagram'    => 'cmsi-instagram',
+            'icon_pinterest'    => 'cmsi-pinterest'
         ]);
         if($args['show_share'] != '1') return;
-        $pinterestimage = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
-        
+        $pinterestimage = get_the_post_thumbnail_url( get_the_ID(), 'full' );
         ob_start();
             printf('%s', $args['before']);
         ?>
@@ -293,15 +297,27 @@ if(!function_exists('saniga_socials_share_default')){
                 <?php if(!empty($args['title'])) printf('%s', $args['title']); ?>
                 <div class="<?php echo trim(implode(' ',['col-auto cms-social',  $args['social_class']]));?>">
                     <div class="row gutters-10 gutters-grid">
+                        <?php if(!empty($args['icon_facebook'])) { ?>
                         <div class="cms-social cms-social-item col-auto">
-                            <a class="<?php echo esc_attr($args['social_item_class']);?>" title="Facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php urlencode(the_permalink()); ?>"><i class="cmsi-facebook-1"></i></a>
+                            <a class="<?php echo esc_attr($args['social_item_class']);?>" title="Facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>"><i class="<?php echo esc_attr($args['icon_facebook']) ?>"></i></a>
                         </div>
+                        <?php } if(!empty($args['icon_twitter'])) { ?>
                         <div class="cms-social cms-social-item col-auto">
-                            <a class="<?php echo esc_attr($args['social_item_class']);?>" title="Twitter" target="_blank" href="https://twitter.com/home?status=<?php the_permalink(); ?>"><i class="cmsi-twitter-1"></i></a>
+                            <a class="<?php echo esc_attr($args['social_item_class']);?>" title="Twitter" target="_blank" href="https://twitter.com/intent/tweet?original_referer=<?php echo urldecode(site_url()); ?>&url=<?php echo urlencode(get_permalink()); ?>&text=<?php the_title();?>&via=<?php echo saniga_get_opt('twitter_user', 'joomskys');?>"><i class="<?php echo esc_attr($args['icon_twitter']) ?>"></i></a>
                         </div>
+                        <?php } if(!empty($args['icon_linkedin'])) { ?>
                         <div class="cms-social cms-social-item col-auto">
-                            <a class="<?php echo esc_attr($args['social_item_class']);?>" title="Linkedin" target="_blank" href="https://linked.com/<?php echo saniga_get_opt('linkedin_user');?>"><i class="cmsi-linkedin-1"></i></a>
+                            <a class="<?php echo esc_attr($args['social_item_class']);?>" title="Linkedin" target="_blank" href="https://www.linkedin.com/cws/share?url=<?php echo urlencode(get_permalink());?>"><i class="<?php echo esc_attr($args['icon_linkedin']) ?>"></i></a>
                         </div>
+                        <?php } if(!empty($args['icon_instagram'])) { ?>
+                            <div class="cms-social cms-social-item col-auto">
+                                <a class="<?php echo esc_attr($args['social_item_class']);?>" title="Instagram" target="_blank" href="https://instagram.com/<?php echo saniga_get_opt('instagram_user');?>"><i class="<?php echo esc_attr($args['icon_instagram']) ?>"></i></a>
+                            </div>
+                        <?php } if(!empty($args['icon_pinterest'])) { ?>
+                            <div class="cms-social cms-social-item col-auto">
+                                <a class="<?php echo esc_attr($args['social_item_class']);?>" title="Pinterest" target="_blank" href="http://pinterest.com/pin/create/button/?url=<?php echo urlencode(get_permalink()); ?>&media=<?php echo esc_attr($pinterestimage); ?>&description=<?php the_title(); ?>"><i class="<?php echo esc_attr($args['icon_pinterest']) ?>"></i></a>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

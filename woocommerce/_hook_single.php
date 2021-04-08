@@ -9,7 +9,7 @@ if(!function_exists('saniga_woocommerce_before_single_product_summary')){
 		$classes = ['cms-wc-img-summary cms-single-product-gallery-summary-wraps row gutters-50', saniga_get_opts('saniga_product_gallery_layout', saniga_configs('saniga_product_gallery_layout'))];
 		$class = saniga_get_opts('saniga_product_gallery_thumb_position', saniga_configs('saniga_product_gallery_thumb_position'));
 		echo '<div class="'.trim(implode(' ', $classes)).'">';
-			echo '<div class="cms-single-product-gallery-wraps col-lg-6 thumbnail-'.esc_attr($class).'"><div class="cms-single-product-gallery-wraps-inner relative">';
+			echo '<div class="cms-single-product-gallery-wraps col-lg-6 thumbnail-'.esc_attr($class).'"><div class="cms-single-product-gallery-wraps-inner relative pr-xl-20">';
 				do_action('saniga_before_single_product_gallery');
 				do_action('saniga_single_product_gallery');
 				do_action('saniga_adter_single_product_gallery');
@@ -187,7 +187,7 @@ if ( ! function_exists( 'woocommerce_template_single_rating' ) ) {
 
 // single price 
 add_filter('woocommerce_product_price_class', function(){
-	return 'text-22 text-accent font-700 mb-20';
+	return 'text-22 text-secondary font-700 mb-20';
 });
 // Wrap add-to-cart and some other button
 add_action('woocommerce_single_product_summary', function(){ echo '<div class="cms-single-product-btns d-flex align-items-end">';}, 29);
