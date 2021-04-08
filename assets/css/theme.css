@@ -41526,7 +41526,7 @@ ul.cart_list li dl dd p:last-child, ul.product_list_widget li dl dd p:last-child
 
 .woocommerce-message::before {
   font-family: "font-cmsi";
-  content: '\f4a3';
+  content: '\f057';
   color: #8fae1b; }
 
 .woocommerce-info {
@@ -41561,7 +41561,7 @@ ul.cart_list li dl dd p:last-child, ul.product_list_widget li dl dd p:last-child
 
 .woocommerce-account ul.digital-downloads li::before {
   font-family: "font-cmsi";
-  content: "\e00a"; }
+  content: "\f102"; }
 
 .woocommerce-account ul.digital-downloads li .count {
   float: right; }
