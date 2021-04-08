@@ -40797,16 +40797,17 @@ table.wp-calendar-table th:hover a:before, table.wp-calendar-table td:hover a:be
 
 .cms-sidebar-shop .cms-sidebar-area-inner > .cms-widget {
   padding: 0;
-  background-color: transparent;
-  -webkit-border-radius: 0 !important;
-  -khtml-border-radius: 0 !important;
-  -moz-border-radius: 0 !important;
-  -ms-border-radius: 0 !important;
-  -o-border-radius: 0 !important;
-  border-radius: 0 !important; }
+  background: transparent;
+  border-top: none;
+  -webkit-box-shadow: none;
+  -khtml-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none; }
 
-.cms-sidebar-shop .cms-sidebar-area-inner > .cms-widget:after {
-  display: none; }
+.cms-sidebar-shop .cms-sidebar-area-inner > .cms-widget .cms-widget-title {
+  margin-top: 0; }
 
 #cms-footer.cms-footer-fixed {
   position: fixed;
@@ -41402,19 +41403,13 @@ ul.cart_list li a, ul.product_list_widget li a {
 
 ul.cart_list li .quantity, ul.product_list_widget li .quantity, ul.cart_list li .amount, ul.product_list_widget li .amount {
   font-size: 15px;
-  color: var(--color-accent); }
+  color: var(--color-secondary); }
 
 ul.cart_list li img, ul.product_list_widget li img {
   float: left;
   margin-right: 20px;
   width: 60px;
-  height: 60px;
-  -webkit-border-radius: 8px 8px 0 8px;
-  -khtml-border-radius: 8px 8px 0 8px;
-  -moz-border-radius: 8px 8px 0 8px;
-  -ms-border-radius: 8px 8px 0 8px;
-  -o-border-radius: 8px 8px 0 8px;
-  border-radius: 8px 8px 0 8px; }
+  height: 60px; }
 
 ul.cart_list li dl, ul.product_list_widget li dl {
   margin: 0;
@@ -41606,7 +41601,7 @@ form .show-password-input.display-password::after {
 
 .price {
   font-size: 20px;
-  color: var(--primary-color); }
+  color: var(--secondary-color); }
 
 .price del {
   text-decoration: line-through !important;
@@ -41620,6 +41615,7 @@ form .show-password-input.display-password::after {
   opacity: 0.5; }
 
 del {
+  color: var(--color-secondary);
   text-decoration: line-through !important;
   filter: alpha(opacity=50);
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
@@ -41628,8 +41624,7 @@ del {
   -moz-opacity: 0.5;
   -ms-opacity: 0.5;
   -o-opacity: 0.5;
-  opacity: 0.5;
-  color: var(--color-accent); }
+  opacity: 0.5; }
 
 @media (min-width: 1200px) {
     .woocommerce-tabs {
@@ -42014,7 +42009,7 @@ ul.products .cms-products-content {
   left: auto;
   right: 20px; }
 
-.add_to_cart_button {
+.add_to_cart_button, .button.product_type_grouped {
   min-width: 210px; }
 
 .add_to_cart_button .cms-addtocart-icon:before, .product_type_grouped .cms-addtocart-icon:before, .product_type_external .cms-addtocart-icon:before {
