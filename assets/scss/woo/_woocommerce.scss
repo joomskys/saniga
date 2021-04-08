@@ -647,7 +647,7 @@ ul.product_list_widget {
 .woocommerce-message {
 	border-top-color: #8fae1b;
 	&::before {
-		@include font-cmsi('\f4a3');
+		@include font-cmsi('\f057');
 		color: #8fae1b;
 	}
 }
@@ -687,7 +687,7 @@ ul.product_list_widget {
 
 			&::before {
 
-				@include font-cmsi( "\e00a" );
+				@include font-cmsi( "\f102" );
 			}
 
 			.count {
