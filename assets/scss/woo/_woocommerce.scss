@@ -600,26 +600,17 @@ ul.product_list_widget {
 			display: block;
 			font-size: 16px;
 		}
-
-		.quantity,
-		.amount{
-			font-size: 15px;
-			color: $accent-color;
-		}
-
 		img {
 			float: left;
 			margin-right: $product_widget_img_space;
 			width: $product_widget_thumbnail_size_w;
 			height: $product_widget_thumbnail_size_h;
-			@include border-radius(8px 8px 0 8px);
 		}
 
 		dl {
 			margin: 0;
 			padding-left: 1em;
 			border-left: 2px solid rgba(0, 0, 0, 0.1);
-
 			@include clearfix();
 
 			dt,
