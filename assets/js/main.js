@@ -626,8 +626,7 @@
             var offsetTop = adminBarHeight + headerTopHeight + headerHeight;
             shoppingCart.toggleClass('open');
             shoppingCart.css({'top': offsetTop});
-            //console.log(shoppingCart.offset().left);
-            /*if(saniga_is_rtl()){
+            if(saniga_is_rtl()){
                 if (shoppingCart.offset().left + shoppingCart.outerWidth() > $(window).width()) {
                     shoppingCart.css({'left':'0',});
                 } else if (shoppingCart.offset().left < 0) {
@@ -639,7 +638,7 @@
                 } else if (shoppingCart.offset().left < 0) {
                     shoppingCart.css({'right':'0'});
                 }
-            }*/
+            }
         });
     }
     //quantity number field custom
@@ -827,7 +826,7 @@
                         $section_space_end = $(this).hasClass('cms-full-content-with-space-end'),
                         $section_space_start_wide = $(this).hasClass('cms-full-content-with-space-start-wide'),
                         $section_space_end_wide = $(this).hasClass('cms-full-content-with-space-end-wide');
-                    //console.log(main_offset);   
+                    console.log(main_offset);   
                     if(saniga_is_rtl()){
                         if($section_space_start) {
                             $(this).css({
