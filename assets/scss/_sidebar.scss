@@ -79,11 +79,5 @@
 // Sidebar shop 
 .cms-sidebar-shop .cms-sidebar-area-inner {
 	> .cms-widget{
-		padding: 0;
-		background-color: transparent;
-		@include border-radius(0 !important);
-		&:after{
-			display: none;
-		}
 	}
 }
