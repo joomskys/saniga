@@ -41424,7 +41424,7 @@ p.demo_store a, .woocommerce-store-notice a {
   padding: 25px;
   margin: 0 0 40px;
   position: relative;
-  background-color: #e4f2e2;
+  background-color: #dcf5fb;
   border-top: 0px solid var(--color-accent);
   list-style: none outside;
   width: 100%;
@@ -41432,19 +41432,13 @@ p.demo_store a, .woocommerce-store-notice a {
   font-size: 19px;
   font-weight: 600;
   color: var(--color-primary);
-  -webkit-border-radius: 8px 8px 0 8px;
-  -khtml-border-radius: 8px 8px 0 8px;
-  -moz-border-radius: 8px 8px 0 8px;
-  -ms-border-radius: 8px 8px 0 8px;
-  -o-border-radius: 8px 8px 0 8px;
-  border-radius: 8px 8px 0 8px;
   display: flex;
   flex-wrap: wrap;
   align-items: center; }
 
 .woocommerce-message::before, .woocommerce-error::before, .woocommerce-info::before {
   font-family: "font-cmsi";
-  content: '\f05a';
+  content: '\f038';
   width: 20px;
   max-width: 20px;
   flex: 0 0 auto; }
