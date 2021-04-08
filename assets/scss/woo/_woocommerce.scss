@@ -362,7 +362,7 @@ p.demo_store,
 		.woocommerce-widget-layered-nav-list__item {
 		}
 		.woocommerce-widget-layered-nav-list__item--chosen a::before {
-			//@include font-cmsi( "\f057" );
+			//@include font-cmsi( "\f038" );
 			//color: $red;
 		}
 	}
@@ -388,7 +388,7 @@ p.demo_store,
 				text-decoration: none;
 				&::before {
 
-					@include font-cmsi( "\f057" );
+					@include font-cmsi( "\f038" );
 					color: $red;
 					vertical-align: inherit;
 					margin-right: 0.5em;
@@ -647,7 +647,7 @@ ul.product_list_widget {
 .woocommerce-message {
 	border-top-color: #8fae1b;
 	&::before {
-		@include font-cmsi('\f057');
+		@include font-cmsi('\f038');
 		color: #8fae1b;
 	}
 }
@@ -660,7 +660,7 @@ ul.product_list_widget {
 .woocommerce-error {
 	border-top-color: #b81c23;
 	&::before {
-		@include font-cmsi("\f057");
+		@include font-cmsi("\f038");
 		color: #b81c23;
 	}
 }
