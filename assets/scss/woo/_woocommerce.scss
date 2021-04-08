@@ -600,6 +600,13 @@ ul.product_list_widget {
 			display: block;
 			font-size: 16px;
 		}
+
+		.quantity,
+		.amount{
+			font-size: 15px;
+			color: $secondary-color;
+		}
+
 		img {
 			float: left;
 			margin-right: $product_widget_img_space;
