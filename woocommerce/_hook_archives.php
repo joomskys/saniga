@@ -188,7 +188,7 @@ if(!function_exists('saniga_woocommerce_loop_add_to_cart_args')){
 			' ',
 			array_filter(
 				array(
-					'button btn btn-lg btn-accemt btn-hover-secondary',
+					'button btn btn-lg btn-accent btn-hover-secondary',
 					'product_type_' . $product->get_type(),
 					$product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
 					$product->supports( 'ajax_add_to_cart' ) && $product->is_purchasable() && $product->is_in_stock() ? 'ajax_add_to_cart' : '',
