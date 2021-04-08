@@ -24,11 +24,11 @@ if(!function_exists('saniga_woocommerce_catalog_result')){
 	add_action('saniga_woocommerce_result_count', 'woocommerce_result_count');
 	function saniga_woocommerce_catalog_result(){
 	?>
-		<div class="row justify-content-between align-items-center gutters-30 gutters-grid">
-			<div class="col-md-12 col-lg-auto order-lg-2 m-b30">
+		<div class="row justify-content-between align-items-center gutters-30 gutters-grid pb-20">
+			<div class="col-md-12 col-lg-auto order-lg-2">
 				<?php do_action('saniga_woocommerce_catalog_ordering'); ?>
 			</div>
-			<div class="col m-b30">
+			<div class="col text-heading font-700">
 				<?php do_action('saniga_woocommerce_result_count'); ?>
 			</div>
 		</div>
