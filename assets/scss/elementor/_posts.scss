@@ -14,3 +14,157 @@
   		box-shadow: 0px 5px 83px 0px rgba(27, 26, 26, 0.12);
   	}
 }
+// Layout 2
+.cms-post-layout-2{
+	.cms-item-content{
+		@include box-shadow(0px 5px 83px 0px rgba(27, 26, 26, 0.06));
+		.cms-btn-wraps{
+			position: absolute;
+			left: 15px;
+			bottom: 0;
+		}
+		@media (min-width: $screen-lg-min){
+			.cms-btn-wraps{
+				bottom: -68px;
+				left: 50px;
+			}
+			&:hover{
+				@include transform(translateY(-20px));
+				.cms-btn-wraps{
+					bottom: 0;
+				}
+			}
+		}
+	}
+	.cms-post-icon > span{
+		background: url('../images/svg/icon-shadow.svg') 0 0 no-repeat;
+		padding: 20px 0 0 20px;
+		transform: translate(0, -20px);
+		display: inline-block;
+		[dir="rtl"] &{
+			padding: 20px 20px 0 0;
+			transform: translate(0, -20px);
+			background-position: calc(100% + 16px) 0;
+		}
+		@media (min-width: $screen-md-min){
+			transform: translate(-20px, -20px);
+			[dir="rtl"] &{
+				transform: translate(20px, -20px);
+			}
+		}
+	}
+	.cms-featured:after{
+		content: '';
+		height: 5px;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: $accent-color;
+	}
+}
+// Layout 3
+.cms-post-layout-3{
+	.cms-item-content-inner{
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		@include background-gradient-top(transparent,  #222222);
+	}
+	.cms-item-content-excerpt{
+		max-height: 67px;
+		overflow: hidden;
+	}
+	@media (min-width: $desktop-screen){
+		.cms-item--content{
+			@include transform(translateY(55px));
+		}
+		.cms-item-content:hover{
+			.cms-item--content{
+				@include transform(translateY(0));
+			}
+		}
+	}
+}
+// Layout 3
+.cms-post-layout-4{
+	.cms-featured .cms-post-icon{
+		position: absolute;
+		top: 40px;
+		left: 40px;
+		z-index: 1;
+		[dir='rtl'] &{
+			left: auto;
+			right: 40px;
+		}
+		@media (min-width: $screen-xl-min){
+			opacity: 0;
+		}
+	}
+	.cms-post-item-readmore {
+		position: absolute;
+		bottom: 0;
+		z-index: 1;
+		.cms-readmore{
+			padding-left: 30px;
+			padding-right: 30px;
+			max-width: 82px;
+			overflow: hidden;
+			.cms-btn-icon{
+				font-size: 22px;
+			}
+			.cms-btn-text{
+				opacity: 0;
+				position: absolute;
+				@include transform(translateX(-100%));
+			}
+			&:hover{
+				max-width: 300px;
+				.cms-btn-text{
+					opacity: 1;
+					position: relative;
+					@include transform(translateX(0%));
+				}
+			}
+		}
+	}
+	.cms-item-content{
+		&:hover{
+			.cms-featured .cms-post-icon{
+				@include opacity(1);
+				@media (min-width: $screen-xl-min){
+					top: -40px;
+					left: -40px;
+					[dir='rtl'] &{
+						left: auto;
+						right: -40px;
+					}
+				}
+			}
+			.cms-readmore{
+				background-color: $accent-color;
+				color: $white;
+				max-width: 300px;
+				.cms-btn-text{
+					opacity: 1;
+					position: relative;
+					@include transform(translateX(0%));
+				}
+			}
+			&:after{
+				background-color: $accent-color;
+			}
+		}
+		&:after{
+			content: '';
+			height: 5px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: $primary-color;
+			@include transition();
+		}
+	}
+}

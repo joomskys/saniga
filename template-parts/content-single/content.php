@@ -24,8 +24,9 @@ if(has_post_thumbnail() || saniga_configs('default_post_thumbnail') === '1'){
                 'thumbnail_size' => $thumbnail_size,
                 'wrap_class'     => '',
                 'img_class'      => '',
+                'show_link'      => false,   
                 //'media_content'  => false,
-                'after'          => '<div class="cms-single-media-meta absolute"><span class="cms-post-grid-date absolute cms-badge cms-badge-1 text-center font-700 lh-19 pt-10">'.
+                'after'          => '<div class="cms-media-meta cms-single-media-meta absolute"><span class="cms-post-grid-date absolute cms-badge cms-badge-1 text-center font-700 lh-19 pt-10">'.
                     saniga_post_date([
                         'post_id'     => $post->ID,
                         'echo'        => false,

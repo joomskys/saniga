@@ -121,6 +121,9 @@
 		}
 	}
 }
+.logged-in-as{
+	margin-bottom: 0;
+}
 #cancel-comment-reply-link{
 	padding-left: 30px;
 	color: red;
@@ -131,10 +134,6 @@
 }
 .comment-body + .comment-respond{
 	margin-top: 25px;
-	.logged-in-as{
-		margin-bottom: 5px;
-	}
-
 	+ ul.children{
 		margin-top: 15px;
 	}

@@ -13,7 +13,7 @@
 			'menu'                 => $settings['menu'],
 			'menu_class'           => 'cms-menu cms-menu-horz '.saniga_elementor_row_justify_class($settings),
 			'container_aria_label' => $heading_text,
-			'before' 			   => '<span class="text-'.$settings['link_color'].' link-hover-'.$settings['link_hover_color'].'">',
+			'before' 			   => '<span class="link-'.$settings['link_color'].' link-hover-'.$settings['link_hover_color'].'">',
 			'after'				   => '</span>',		
 			'link_before'		   => '<span class="menu-icon"></span>',
 			'theme_location'       => ''

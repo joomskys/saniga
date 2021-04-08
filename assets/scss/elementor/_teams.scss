@@ -6,7 +6,7 @@
 		width: auto;
 		max-width: 100%;
 		padding: 5px;
-		@media(min-width: $screen-lg-min){
+		@media(min-width: $screen-lg-max){
 			@include transform(scale(0));
 		}
 	}
@@ -18,6 +18,16 @@
 		text-align: center;
 		font-size: 12px;
 		@include border-radius(50%);
+		background-color: $secondary-color;
+		color: $white;
+		&.cmsi:before{
+			display: block;
+			@include transform(translateY(4px));
+		}
+		&:hover{
+			background-color: $accent-color;
+			color: $primary-color;
+		}
 	}
 }
 .cms-team-item:hover{
@@ -27,25 +37,7 @@
 		}
 	}
 }
-.cms-teams-layout-1{
-	.cms-team-social{
-		a{
-			span{
-				background-color: $white;
-				color: $accent-color;
-			}
-		}
-	}
-	@media(max-width: $screen-lg-min){
-		.cms-team-info {
-			background-color: $accent-color;
-			color: $white;
-			*{
-				color: $white;
-			}
-		}
-	}
-}
+
 .cms-teams-layout-2{
 	.cms-team-social-wrap {
 		background-color: white;
@@ -55,17 +47,9 @@
 		right: 0;
 		padding-top: 25px;
 		overflow: hidden;
-		@media (max-width: $screen-lg-min){
-			bottom: -5px;
+		@media (max-width: $screen-lg-max){
+			bottom: 0;
 			visibility: visible;
-		}
-	}
-	.cms-team-social{
-		a{
-			span{
-				background-color: $accent-color;
-				color: $white;
-			}
 		}
 	}
 	.cms-team-info{
@@ -75,10 +59,7 @@
 	.cms-team-item:hover{
 		.cms-team-social-wrap{
 			visibility: visible;
-			bottom: -15px;
-			@media (max-width: $screen-lg-min){
-				bottom: -5px;
-			}
+			bottom: 0;
 		}
 	}
 }

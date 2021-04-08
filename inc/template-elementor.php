@@ -81,6 +81,160 @@ if(!function_exists('saniga_get_post_grid')){
             ?>
             <div class="<?php echo esc_attr($item_class . ' ' . $filter_class); ?>" style="padding: <?php echo esc_attr($settings['gap']/2);?>px; margin-bottom: <?php echo esc_attr($settings['gap_extra']);?>px">
                 <?php switch ($settings['layout']) {
+                    case '4':
+                ?>
+                    <div class="cms-item-content bg-white cms-hover-img-scale cms-transition clearfix relative">
+                        <?php 
+                        ob_start();
+                        saniga_post_icon([
+                                'id' => $post->ID,
+                                'class' => 'cms-transition text-80 lh-80 text-accent mb-10'
+                            ]);
+                        $media_icon = ob_get_clean();
+                        saniga_post_media([
+                            'id'             => $post->ID, 
+                            'default_thumb'  => '1',
+                            'thumbnail_size' => $img_size,
+                            'wrap_class'     => 'relative',
+                            'img_class'      => 'w-100',
+                            'after'          => $media_icon
+                        ]); ?>
+                        <div class="cms-item-content-inner p-lr-15 p-lr-md-50 pt-50 pb-100">
+                            <div class="cms-item-content-title cms-heading font-700 text-23 lh-32 mb-27">
+                                <a href="<?php echo esc_url(get_permalink( $post->ID )); ?>"><?php echo get_the_title($post->ID); ?></a>
+                            </div>
+                            <div class="cms-item-content-excerpt mb-n8"><?php
+                                if(!empty($post->post_excerpt)){
+                                    echo wp_trim_words( $post->post_excerpt, $settings['excerpt_lenght'], $settings['excerpt_more_text'] );
+                                }
+                                else{
+                                    $content = strip_shortcodes( $post->post_content );
+                                    $content = apply_filters( 'the_content', $content );
+                                    $content = str_replace(']]>', ']]&gt;', $content);
+                                    echo wp_trim_words( $content, $settings['excerpt_lenght'], $settings['excerpt_more_text'] );
+                                }
+                            ?></div>
+                            <?php 
+                            //$readmore = '';
+                            if(!empty($settings['readmore_text'])){ 
+                                //ob_start(); ?>
+                                <div class="cms-btn-wraps cms-post-item-readmore cms-transition">
+                                    <a href="<?php echo esc_url(get_permalink( $post->ID )); ?>" class="cms-readmore btn btn-primary btn-hover-accent btn-lg">
+                                        <span class="cms-btn-content">
+                                            <span class="cms-btn-icon text-20 cmsi-arrow-circle-<?php echo is_rtl() ? 'left' : 'right';?>"></span>
+                                            <span class="cms-btn-text cms-transition"><?php echo esc_html($settings['readmore_text']); ?></span>
+                                        </span>
+                                    </a>
+                                </div>
+                            <?php 
+                            //$readmore = ob_get_clean();
+                        } ?>
+                        </div>
+                    </div>
+                <?php break; 
+                    case '3':
+                ?>
+                    <div class="cms-item-content cms-hover-img-scale relative overflow-hidden">
+                        <?php 
+                        saniga_post_media([
+                            'id'             => $post->ID, 
+                            'default_thumb'  => '1',
+                            'thumbnail_size' => $img_size,
+                            'wrap_class'     => '',
+                            'img_class'      => 'w-100'
+                        ]); ?>
+                        <div class="cms-item-content-inner p-15 p-md-40 absolute">
+                            <div class="d-flex overflow-hidden h-100">
+                                <div class="align-self-start"><?php 
+                                    saniga_post_icon([
+                                        'id'    => $post->ID,
+                                        'class' => 'cms-badge-2 text-30',
+                                        'icon_class' => 'text-30'
+                                    ]); 
+                                    saniga_post_saleoff([
+                                        'id'    => $post->ID,
+                                        'class' => 'cms-badge-2'
+                                    ]);
+                                ?></div>
+                                <div class="cms-item--content align-self-end overflow-hidden cms-transition">
+                                    <div class="cms-item-content-title cms-heading text-24 font-700 mb-15 text-white">
+                                        <a href="<?php echo esc_url(get_permalink( $post->ID )); ?>"><?php echo get_the_title($post->ID); ?></a>
+                                    </div>
+                                    <div class="cms-item-content-excerpt text-white mb-15"><?php
+                                        if(!empty($post->post_excerpt)){
+                                            echo wp_trim_words( $post->post_excerpt, $settings['excerpt_lenght'], $settings['excerpt_more_text'] );
+                                        }
+                                        else{
+                                            $content = strip_shortcodes( $post->post_content );
+                                            $content = apply_filters( 'the_content', $content );
+                                            $content = str_replace(']]>', ']]&gt;', $content);
+                                            echo wp_trim_words( $content, $settings['excerpt_lenght'], $settings['excerpt_more_text'] );
+                                        }
+                                    ?></div>
+                                    <?php if(!empty($settings['readmore_text'])){  ?>
+                                        <div class="cms-post-item-readmore text-14 font-700 mb-n5">
+                                            <a href="<?php echo esc_url(get_permalink( $post->ID )); ?>" class="cms-readmore d-inline-block text-accent text-hover-white">
+                                                <span class="cms-btn-content">
+                                                    <span class="cms-btn-icon text-12 cmsi-arrow-<?php echo is_rtl() ? 'left' : 'right';?>"></span>
+                                                    <span class="cms-btn-text"><?php echo esc_html($settings['readmore_text']); ?></span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php break; 
+                    case '2':
+                ?>
+                    <div class="cms-item-content bg-white cms-hover-img-scale cms-hover-readmore cms-transition clearfix">
+                        <div class="cms-item-content-inner p-lr-15 p-lr-md-50 pt-50 pb-50">
+                            <?php saniga_post_icon([
+                                'id' => $post->ID,
+                                'class' => 'text-80 lh-80 text-accent mb-10'
+                            ]); ?>
+                            <div class="cms-item-content-title cms-heading text-23 lh-32 mb-27">
+                                <a href="<?php echo esc_url(get_permalink( $post->ID )); ?>"><?php echo get_the_title($post->ID); ?></a>
+                            </div>
+                            <div class="cms-item-content-excerpt mb-n8"><?php
+                                if(!empty($post->post_excerpt)){
+                                    echo wp_trim_words( $post->post_excerpt, $settings['excerpt_lenght'], $settings['excerpt_more_text'] );
+                                }
+                                else{
+                                    $content = strip_shortcodes( $post->post_content );
+                                    $content = apply_filters( 'the_content', $content );
+                                    $content = str_replace(']]>', ']]&gt;', $content);
+                                    echo wp_trim_words( $content, $settings['excerpt_lenght'], $settings['excerpt_more_text'] );
+                                }
+                            ?></div>
+                            <?php 
+                            $readmore = '';
+                            if(!empty($settings['readmore_text'])){ 
+                                ob_start(); ?>
+                                <div class="cms-btn-wraps cms-post-item-readmore cms-transition">
+                                    <a href="<?php echo esc_url(get_permalink( $post->ID )); ?>" class="cms-readmore btn btn-accent btn-hover-secondary btn-lg cms-blog-readmore2">
+                                        <span class="cms-btn-content">
+                                            <span class="cms-btn-icon text-20 cmsi-arrow-circle-<?php echo is_rtl() ? 'left' : 'right';?>"></span>
+                                            <span class="cms-btn-text"><?php echo esc_html($settings['readmore_text']); ?></span>
+                                        </span>
+                                    </a>
+                                </div>
+                            <?php 
+                            $readmore = ob_get_clean();
+                        } ?>
+                        </div>
+                        <?php 
+                        saniga_post_media([
+                            'id'             => $post->ID, 
+                            'default_thumb'  => '1',
+                            'thumbnail_size' => $img_size,
+                            'wrap_class'     => 'relative overflow-hidden',
+                            'img_class'      => 'w-100',
+                            'after'          => $readmore
+                        ]); ?>
+                    </div>
+                <?php break; 
                     default:
                 ?>
                     <div class="cms-item-content bg-white cms-hover-img-scale cms-hover-readmore cms-transition clearfix"><?php 
@@ -145,7 +299,7 @@ if(!function_exists('saniga_get_post_grid')){
                             ?></div>
                             <?php 
                             if(!empty($settings['readmore_text'])){ ?>
-                                <div class="cms-btn-wraps cms-post-item-readmore">
+                                <div class="cms-btn-wraps cms-post-item-readmore cms-transition">
                                     <a href="<?php echo esc_url(get_permalink( $post->ID )); ?>" class="cms-readmore cms-blog-readmore d-inline-block">
                                         <span class="cms-btn-content">
                                             <span class="cms-btn-icon text-20 cmsi-arrow-circle-<?php echo is_rtl() ? 'left' : 'right';?>"></span>

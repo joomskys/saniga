@@ -1,0 +1,92 @@
+<?php 
+// Heading
+$widget->add_render_attribute( 'heading', 'class', 'cms-mainheading text-16 font-700 mt-n5');
+$widget->add_render_attribute( 'heading', 'class', 'text-'.$widget->get_setting('heading_text_color', 'secondary'));
+if ( $settings['heading_text_animation'] ) {
+    $widget->add_render_attribute( 'heading', 'class', 'animated ' . $widget->get_setting('heading_text_animation', ''));
+}
+if ( $settings['heading_text_animation_delay'] !== '') {
+    $widget->add_render_attribute( 'heading', 'style', 'transition-delay:' . $widget->get_setting('heading_text_animation_delay').'ms');
+}
+// SubHeading
+$widget->add_render_attribute( 'subheading', 'class', 'cms-heading cms-subheading font-700 text-40 pt-10');
+$widget->add_render_attribute( 'subheading', 'class', 'text-'.$widget->get_setting('subheading_text_color', 'primary'));
+if ( $settings['subheading_text_animation'] ) {
+    $widget->add_render_attribute( 'subheading', 'class', 'animated ' . $widget->get_setting('subheading_text_animation', ''));
+}
+if ( $settings['subheading_text_animation_delay'] !== '') {
+    $widget->add_render_attribute( 'heading', 'style', 'transition-delay:' . $widget->get_setting('subheading_text_animation_delay').'ms');
+}
+// Description
+$widget->add_render_attribute( 'description', 'class', 'cms-heading-desc relative empty-none pt-50 text-17 lh-27');
+$widget->add_render_attribute( 'description', 'class', 'text-'.$settings['description_text_color']);
+if ( $settings['description_text_animation'] ) {
+    $widget->add_render_attribute( 'description', 'class', 'animated ' . $settings['description_text_animation'] );
+}
+if($settings['description_text_color'] === 'custom' && !empty($settings['description_text_custom_color'])){
+    $widget->add_render_attribute( 'description', 'style', 'color:'.$settings['description_text_custom_color']);
+}
+// Feature
+$widget->add_render_attribute( 'feature', 'class', 'cms-heading-features pt-35 cms-list cms-list-1');
+
+?>
+<div class="cms-heading-wrapper <?php echo saniga_elementor_align_class($settings);?>">
+    <?php 
+        saniga_elementor_icon_render($settings, [
+            'wrap_class' => 'mb-20',
+            'class'      => 'text-82 text-accent'
+        ]);
+    ?>
+    <div <?php etc_print_html($widget->get_render_attribute_string( 'heading' )); ?>><?php 
+        etc_print_html($widget->get_setting('heading_text','Let Us Help You With Your Cleaning & Disinfecting Responsibilities'));
+    ?></div>
+    <div <?php etc_print_html($widget->get_render_attribute_string( 'subheading' )); ?>><?php 
+        etc_print_html($widget->get_setting('subheading_text','Leading Provider Of Cleaning And Disinfecting Services In Huge Commercial Markets!'));
+    ?></div>
+    <div class="cms-heading-extra-space extra-space"></div>
+    <div class="pl-lg-110">
+        <div <?php etc_print_html($widget->get_render_attribute_string( 'description' )); ?>><?php 
+            echo wpautop($widget->get_setting('description_text', 'With more than 35 years getting to know every kind of client, from homeowners to facility & managers to healthcare decision-makers. Our relentless passion for excellence and customer service means we continuously invest in improving our processes.')); 
+        ?></div>
+        <div <?php etc_print_html($widget->get_render_attribute_string( 'feature' )); ?>><?php 
+            foreach ($settings['heading_feature'] as $value) { ?>
+                <div class="cms-heading-feature-item cms-list-item text-16 text-heading font-700"><?php
+                    saniga_elementor_icon_render($settings, [
+                        'id'           => 'heading_feature_icon',
+                        'tag'          => 'span',
+                        'class'        => 'text-26 text-secondary pr-10', 
+                        'default_icon' => [
+                            'library' => 'cmsi',
+                            'value'   => 'cmsi-check-circle'
+                        ]
+                    ]);
+                    echo $value['title'];
+                ?></div>
+            <?php } 
+        ?></div>
+        <div class="cms-heading-singnature row gutters-40 gutters-grid align-items-center pt-40">
+            <div class="col-auto relative">
+                <?php
+                    if(!empty($settings['singnature_image']['id'])){
+                        saniga_elementor_image_render($settings, [
+                            'id'          => 'singnature_image',
+                            'custom_size' => 'full'
+                        ]);
+                    } else {
+                        echo '<img src="'.$settings['singnature_image']['url'].'" alt="saniga" />';
+                    }
+                ?>
+                <div class="cms-signature absolute">
+                    <div class="cms-heading cms-signature-name text-19 lh-29 mb-0 font-600 text-<?php echo esc_attr($widget->get_settings('singnature_color','primary'));?>"><?php echo esc_html($widget->get_setting('singnature_name','Michael Brian')); ?></div>
+                    <div class="cms-signature-job text-14 text-<?php echo esc_attr($widget->get_setting('singnature_job_color','body'));?> empty-none"><?php echo esc_html($widget->get_setting('singnature_job')) ?></div>
+                </div>
+            </div>
+            <?php 
+                saniga_elementor_button_render($settings, [
+                    'prefix' => 'btn5',
+                    'class'  => 'col-auto'
+                ]);
+            ?>
+        </div>
+    </div>
+</div>

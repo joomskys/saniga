@@ -23,7 +23,7 @@ input[type="button"]{
   @include border-radius($button-radius);
   @include transition();
   .cms-btn-icon{
-    font-size: 20px;
+    font-size: 12px;
     //@include transform(translateY(3px));
   }
   &:hover, 
@@ -42,10 +42,11 @@ input[type="button"]{
   // outline
   &.btn-outline{
     background: transparent;
-    border-color: $button-border-color;
+    @include box-shadow(0 0 0 2px $button-border-color inset);
     @each $name, $color in $cms_theme_colors{
       &.btn-#{$name} {
-        color: #{$color}
+        color: #{$color};
+        @include box-shadow(0 0 0 2px $color inset);
       }    
     }
     &.btn-white{
@@ -58,7 +59,7 @@ input[type="button"]{
     &.btn-hover-#{$name}{
       &:hover{
         color: $white;
-        border-color: #{$color};
+        @include box-shadow(0 0 0 2px $color inset);
         background-color: #{$color};
       }
     }
@@ -79,7 +80,6 @@ input[type="button"]{
 // button text
 .cms-btn-content{
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   margin: 0 -5px;
@@ -88,9 +88,15 @@ input[type="button"]{
     position: relative;
     padding-left: 5px;
     padding-right: 5px;
+    white-space: nowrap;
   }
 }
-
+.text-start > .cms-btn-content{
+  justify-content: flex-start;
+}
+.text-end > .cms-btn-content{
+  justify-content: flex-end;
+}
 .cms-loading-icon,
 .cms-added-icon{
   display: none;
@@ -202,5 +208,21 @@ $cms_theme_btn_font_sizes : (
 
   &.rev-btn{
     border:none!important;
+  }
+}
+.cms-video-1{
+  width: 68px;
+  height: 68px;
+  display: block;
+  line-height: 68px;
+  font-size: 20px;
+  text-align: center;
+  background: $white;
+  color: $primary-color;
+  @include border-radius(50%);
+  @include box-shadow(0 0 0 15px rgba( 255, 255 , 255 , 0.2)!important);
+  &:hover{
+    background-color: $secondary-color;
+    color: $primary-color;
   }
 }

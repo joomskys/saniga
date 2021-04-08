@@ -681,12 +681,29 @@ if(!function_exists('saniga_social_list_opts')){
 if(!function_exists('saniga_page_title_opts')){
 	function saniga_page_title_opts($args = []){
 		$args = wp_parse_args($args, [
+			'prefix'		 => '',	
+			'default'        => '',
+			'default_value'  => '',
+			'default_layout' => '',
+			'subsection'     => ''
+		]);		
+		return array(
+			'title'      => esc_html__('Page Title', 'saniga'),
+			'icon'       => 'el-icon-map-marker',
+			'subsection' => $args['subsection'],
+			'fields'     => saniga_page_title_opts_fields($args)
+		);
+	}
+}
+if(!function_exists('saniga_page_title_opts_fields')){
+	function saniga_page_title_opts_fields($args = []){
+		$args = wp_parse_args($args, [
+			'prefix'         => '',
 			'default'        => false,
 			'default_value'  => '1',
 			'default_layout' => '',
-			'subsection'     => false
+			'subsection'     => false,
 		]);
-
 		if($args['default']){
 			$options = [
 				'-1' => esc_html__('Default','saniga'),
@@ -706,7 +723,6 @@ if(!function_exists('saniga_page_title_opts')){
 		// layout
 		$layout_default = [
 			'-1' => get_template_directory_uri() . '/assets/images/default-opt/default.jpg',
-			//'0' => get_template_directory_uri() . '/assets/images/default-opt/none.jpg',
 		];
 		$layout_list = [
 			'1' => get_template_directory_uri() . '/assets/images/ptitle-layout/p1.jpg',
@@ -741,80 +757,81 @@ if(!function_exists('saniga_page_title_opts')){
                 '0'  => esc_html__('Hide','saniga'),
 			];
 		}
-		
+
+		$args = array_merge($args,[
+			'layout_opts'   => $layout_opts,
+			'sh_options'    => $sh_options,
+			'ptitle_layout' => $ptitle_layout
+		]);
 		return array(
-			'title'      => esc_html__('Page Title', 'saniga'),
-			'icon'       => 'el-icon-map-marker',
-			'subsection' => $args['subsection'],
-			'fields'     => array(
-		        array(
-		            'id'           => 'pagetitle',
-		            'type'         => 'button_set',
-		            'title'        => esc_html__( 'Page Title', 'saniga' ),
-		            'subtitle'     => esc_html__('Show/Hide page title?', 'saniga'),
-		            'options'      => $sh_options,
-		            'default'      => $args['default_value'],
-		        ),
-		        array(
-		            'id'       => 'ptitle_layout',
-		            'type'     => 'image_select',
-		            'title'    => esc_html__('Layout', 'saniga'),
-		            'subtitle' => esc_html__('Select a layout for page title.', 'saniga'),
-		            'options'  => $layout_opts,
-		            'default'  => $ptitle_layout,
-		            'required' => array( 0 => 'pagetitle', 1 => 'equals', 2 => '1' ),
-		        ),
-		        array(
-					'id'                    => 'ptitle_bg',
-					'type'                  => 'background',
-					'title'                 => esc_html__('Background', 'saniga'),
-					'subtitle'              => esc_html__('Page title background.', 'saniga'),
-					'output'                => array('body #pagetitle'),
-					'required'              => array( 0 => 'pagetitle', 1 => 'equals', 2 => '1' ),
-		        ),
-		        array(
-					'id'           => 'ptitle_overlay_color',
-					'type'         => 'color_rgba',
-					'title'        => esc_html__('Overlay Background Color', 'saniga'),
-					'required'     => array( 0 => 'pagetitle', 1 => 'equals', 2 => '1' ),
-		        ),
-		        array(
-		            'id'       => 'ptitle_title_on',
-		            'type'     => 'button_set',
-		            'title'    => esc_html__('Show Title', 'saniga'),
-		            'options'  => $sh_options,
-		            'default'  => $args['default_value'],
-		            'required' => array( 0 => 'pagetitle', 1 => 'equals', 2 => '1' ),
-		        ),
-		        saniga_page_title_custom_text_opts($args['default']),
-		        array(
-					'id'          => 'ptitle_color',
-					'type'        => 'color_rgba',
-					'title'       => esc_html__('Title Color', 'saniga'),
-					'subtitle'    => esc_html__('Page title color.', 'saniga'),
-					'required'    => array( 0 => 'ptitle_title_on', 1 => 'equals', 2 => '1' ),
-		        ),
-		        array(
-		            'id'       => 'ptitle_breadcrumb_on',
-		            'type'     => 'button_set',
-		            'title'    => esc_html__('Show Breadcrumb', 'saniga'),
-		            'options'  => $sh_options,
-		            'default'  => $args['default_value'],
-		            'required' => array( 0 => 'pagetitle', 1 => 'equals', 2 => '1' ),
-		        ),
-		        array(
-		            'id'      => 'ptitle_breadcrumb_link_color',
-		            'type'    => 'link_color',
-		            'title'   => esc_html__('Breadcrumb Color', 'saniga'),
-		            'default' => array(
-		                'regular' => '',
-		                'hover'   => '',
-		                'active'  => '',
-		            ),
-		            'required' => array( 0 => 'ptitle_breadcrumb_on', 1 => 'equals', 2 => '1' ),
-		        ),
-		    )
-		);
+	        array(
+	            'id'           => $args['prefix'].'pagetitle',
+	            'type'         => 'button_set',
+	            'title'        => esc_html__( 'Page Title', 'saniga' ),
+	            'subtitle'     => esc_html__('Show/Hide page title?', 'saniga'),
+	            'options'      => $args['sh_options'],
+	            'default'      => $args['default_value'],
+	        ),
+	        array(
+	            'id'       => $args['prefix'].'ptitle_layout',
+	            'type'     => 'image_select',
+	            'title'    => esc_html__('Layout', 'saniga'),
+	            'subtitle' => esc_html__('Select a layout for page title.', 'saniga'),
+	            'options'  => $args['layout_opts'],
+	            'default'  => $args['ptitle_layout'],
+	            'required' => array( 0 => $args['prefix'].'pagetitle', 1 => 'equals', 2 => '1' ),
+	        ),
+	        array(
+				'id'                    => $args['prefix'].'ptitle_bg',
+				'type'                  => 'background',
+				'title'                 => esc_html__('Background', 'saniga'),
+				'subtitle'              => esc_html__('Page title background.', 'saniga'),
+				'output'                => array('body #pagetitle'),
+				'required'              => array( 0 => $args['prefix'].'pagetitle', 1 => 'equals', 2 => '1' ),
+	        ),
+	        array(
+				'id'           => $args['prefix'].'ptitle_overlay_color',
+				'type'         => 'color_rgba',
+				'title'        => esc_html__('Overlay Background Color', 'saniga'),
+				'required'     => array( 0 => $args['prefix'].'pagetitle', 1 => 'equals', 2 => '1' ),
+	        ),
+	        array(
+	            'id'       => $args['prefix'].'ptitle_title_on',
+	            'type'     => 'button_set',
+	            'title'    => esc_html__('Show Title', 'saniga'),
+	            'options'  => $args['sh_options'],
+	            'default'  => $args['default_value'],
+	            'required' => array( 0 => $args['prefix'].'pagetitle', 1 => 'equals', 2 => '1' ),
+	        ),
+	        saniga_page_title_custom_text_opts($args['default']),
+	        saniga_page_title_custom_sub_text_opts($args['default']),
+	        array(
+				'id'          => $args['prefix'].'ptitle_color',
+				'type'        => 'color_rgba',
+				'title'       => esc_html__('Title Color', 'saniga'),
+				'subtitle'    => esc_html__('Page title color.', 'saniga'),
+				'required'    => array( 0 => $args['prefix'].'ptitle_title_on', 1 => 'equals', 2 => '1' ),
+	        ),
+	        array(
+	            'id'       => $args['prefix'].'ptitle_breadcrumb_on',
+	            'type'     => 'button_set',
+	            'title'    => esc_html__('Show Breadcrumb', 'saniga'),
+	            'options'  => $args['sh_options'],
+	            'default'  => $args['default_value'],
+	            'required' => array( 0 => $args['prefix'].'pagetitle', 1 => 'equals', 2 => '1' ),
+	        ),
+	        array(
+	            'id'      => $args['prefix'].'ptitle_breadcrumb_link_color',
+	            'type'    => 'link_color',
+	            'title'   => esc_html__('Breadcrumb Color', 'saniga'),
+	            'default' => array(
+	                'regular' => '',
+	                'hover'   => '',
+	                'active'  => '',
+	            ),
+	            'required' => array( 0 => $args['prefix'].'ptitle_breadcrumb_on', 1 => 'equals', 2 => '1' ),
+	        ),
+	    );
 	}
 }
 if(!function_exists('saniga_page_title_custom_text_opts')){
@@ -825,6 +842,20 @@ if(!function_exists('saniga_page_title_custom_text_opts')){
 			'type'         => 'textarea',
 			'title'        => esc_html__( 'Custom Title', 'saniga' ),
 			'subtitle'     => esc_html__( 'Use custom title for this page. The default title will be used on document title.', 'saniga' ),
+			'required' 	   => array( 
+				array(0 => 'ptitle_title_on', 1 => 'equals', 2 => '1' )
+			)
+		);
+	}
+}
+if(!function_exists('saniga_page_title_custom_sub_text_opts')){
+	function saniga_page_title_custom_sub_text_opts($show){
+		if(!$show) return;
+		return array(
+			'id'           => 'custom_sub_title',
+			'type'         => 'textarea',
+			'title'        => esc_html__( 'Custom Sub Title', 'saniga' ),
+			'subtitle'     => esc_html__( 'Add short description for page title', 'saniga' ),
 			'required' 	   => array( 
 				array(0 => 'ptitle_title_on', 1 => 'equals', 2 => '1' )
 			)

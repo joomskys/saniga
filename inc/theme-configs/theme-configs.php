@@ -35,8 +35,10 @@ if(!function_exists('saniga_configs')){
                 '15' => '15px',
                 '20' => '20px',
                 '25' => '25px',
+                '27' => '27px',
                 '30' => '30px',
                 '35' => '35px',
+                '38' => '38px',
                 '40' => '40px',
                 '45' => '45px',
                 '50' => '50px',
@@ -56,6 +58,10 @@ if(!function_exists('saniga_configs')){
                 '120' => '120px',
                 '125' => '125px',
                 '130' => '130px',
+                '140' => '140px',
+                '148' => '148px',
+                '150' => '150px',
+                '200' => '200px',
             ],
             // screen size use in
             'theme_size_screen'    => [
@@ -198,6 +204,7 @@ if(!function_exists('saniga_configs')){
             // shadow 
             'shadow' => [
                 '1'  => '0px 5px 83px 0px rgba(27, 26, 26, 0.12)',
+                '2'  => '0px 5px 83px 0px rgba(27, 26, 26, 0.06)',
             ],
             // Radius
             'radius'    => [
@@ -324,7 +331,7 @@ if(!function_exists('saniga_configs')){
                 ])
             ],
             // google font
-            'google_fonts'          => 'Fira+Sans:wght@500;700&family=Roboto:wght@400;500;700&display=swap',
+            'google_fonts'          => 'Fira+Sans:Fira+Sans:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Roboto:wght@400;500;700&display=swap',
             'content_width'         => 1170,          
             // WooCommerce,
             'saniga_product_single_image_w'          => '570',

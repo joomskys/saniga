@@ -15,7 +15,7 @@
         .#{$abbrev}r#{$infix}-#{$size} {
           #{$prop}-right: #{$length};
           [dir="rtl"] &{
-            //#{$prop}-right: inherit;
+            #{$prop}-right: 0;
             #{$prop}-left: #{$length};
           }
         }
@@ -29,7 +29,7 @@
         .#{$abbrev}l#{$infix}-#{$size} {
           #{$prop}-left: #{$length};
           [dir="rtl"] &{
-            //#{$prop}-left: inherit;
+            #{$prop}-left: 0;
             #{$prop}-right: #{$length};
           }
         }
@@ -43,6 +43,11 @@
         .#{$abbrev}-tb#{$infix}-#{$size} {
           #{$prop}-top: #{$length};
           #{$prop}-bottom: #{$length};
+        }
+        // auto
+        .#{$abbrev}-lr#{$infix}-auto {
+          #{$prop}-left: auto;
+          #{$prop}-right: auto;
         }
       }
     }

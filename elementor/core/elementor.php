@@ -1,7 +1,7 @@
 <?php
 /**
  * Get Page List 
- * @return array
+ * @return array 
 */
 if(!function_exists('saniga_elementor_list_page_opts')){
     function saniga_elementor_list_page_opts($default = []){
@@ -36,7 +36,7 @@ if(!function_exists('etc_get_grid_term_by_post_type_options')){
             'customize_changeset',
             'oembed_cache',
             'cms-mega-menu',
-            'elementor_library',
+            'elementor_library'
         ];
         $ExtraExcludedPostTypes = apply_filters('etc_get_post_types', []);
         $excludedPostTypes      = array_merge($DefaultExcludedPostTypes, $ExtraExcludedPostTypes );
@@ -67,6 +67,12 @@ if(!function_exists('etc_get_grid_term_by_post_type_options')){
         return $result;
     }
 }
+if(!function_exists('saniga_etc_get_post_types')){
+    add_filter('etc_get_post_types', 'saniga_etc_get_post_types');
+    function saniga_etc_get_post_types(){
+        return ['e-landing-page'];
+    }
+}
 /**
  * Extra Elementor Icons
 */
@@ -89,13 +95,13 @@ if(!function_exists('saniga_register_custom_icon_library')){
             'cmsi_saniga' => [
                 'name'          => 'cmsi-saniga',
                 'label'         => esc_html__( 'CMS Saniga', 'saniga' ),
-                'url'           => get_template_directory_uri() . '/assets/fonts/cms-saniga/styles.css',
+                'url'           => get_template_directory_uri() . '/assets/fonts/font-saniga/flaticon.css',
                 'enqueue'       => [],
-                'prefix'        => 'cmsi-',
+                'prefix'        => 'flaticon-',
                 'displayPrefix' => '',
-                'labelIcon'     => 'cmsi-saniga',
+                'labelIcon'     => 'flaticon-001-house',
                 'ver'           => '1.0.0',
-                'fetchJson'     => get_template_directory_uri() . '/assets/fonts/cms-saniga/cms-font-saniga.js',
+                'fetchJson'     => get_template_directory_uri() . '/assets/fonts/font-saniga.js',
                 'native'        => true,
             ]
         ];
@@ -110,7 +116,19 @@ if(!function_exists('saniga_elementor_post_layout')){
         return [
             '1' => [
                 'label' => esc_html__( 'Layout 1', 'saniga' ),
-                'image' => get_template_directory_uri() . '/elementor/templates/layouts/posts/layout1.png'
+                'image' => get_template_directory_uri() . '/elementor/templates/layouts/posts/1.png'
+            ],
+            '2' => [
+                'label' => esc_html__( 'Layout 2', 'saniga' ),
+                'image' => get_template_directory_uri() . '/elementor/templates/layouts/posts/2.png'
+            ],
+            '3' => [
+                'label' => esc_html__( 'Layout 3', 'saniga' ),
+                'image' => get_template_directory_uri() . '/elementor/templates/layouts/posts/3.png'
+            ],
+            '4' => [
+                'label' => esc_html__( 'Layout 4', 'saniga' ),
+                'image' => get_template_directory_uri() . '/elementor/templates/layouts/posts/4.png'
             ]
         ];
     }
@@ -129,7 +147,8 @@ function saniga_elementor_text_settings($args){
     $args = wp_parse_args($args, [
         'label'    => esc_html__( 'Heading', 'saniga' ),
         'name'     => 'text',
-        'selector' => '.text'
+        'selector' => '.text',
+        'separator' => ''
     ]);
     return array(
         array(
@@ -137,7 +156,8 @@ function saniga_elementor_text_settings($args){
             'label'       => $args['label'],
             'type'        => \Elementor\Controls_Manager::TEXTAREA,
             'placeholder' => esc_html__( 'Enter your text', 'saniga' ),
-            'label_block' => true
+            'label_block' => true,
+            'separator'   => $args['separator']
         ),
         array(
             'name'         => $args['name'].'_typo',
@@ -161,7 +181,9 @@ function saniga_elementor_text_settings($args){
             'name'      => $args['name'].'_extra_space',
             'label'     => esc_html__( 'Extra bottom Space', 'saniga' ),
             'type'      => \Elementor\Controls_Manager::NUMBER,
-            'selector'  => '{{WRAPPER}} '.$args['selector'],
+            'selectors'  => [
+                '{{WRAPPER}} '.$args['selector'].' + .extra-space' => 'margin-bottom:{{VALUE}}px;'
+            ],
             'condition' => [
                 $args['name'].'!' => '',
             ],
@@ -183,6 +205,9 @@ function saniga_elementor_text_settings($args){
             'condition'   => [
                 $args['name'].'_color'      => 'custom'
             ],
+            'selectors'  => [
+                '{{WRAPPER}} '.$args['selector'] => 'color:{{VALUE}};'
+            ]
         ),
         array(
             'name'      => $args['name'].'_animation',
@@ -191,6 +216,61 @@ function saniga_elementor_text_settings($args){
             'condition' => [
                 $args['name'].'!' => ''
             ],
+        ),
+        array(
+            'name'      => $args['name'].'_animation_delay',
+            'label'     => esc_html__( 'Transition Delay', 'saniga' ),
+            'type'      => \Elementor\Controls_Manager::TEXT,
+            'condition' => [
+                $args['name'].'_animation!' => ''
+            ],
+        )
+    );
+}
+/**
+ * Elementor Typo Settings
+*/
+function saniga_elementor_typo_settings($args){
+    $args = wp_parse_args($args, [
+        'name'     => 'typo_text',
+        'selector' => '.typo-text',
+        'condition'=> []
+    ]);
+    return array(
+        array(
+            'name'         => $args['name'].'_typo',
+            'type'         => \Elementor\Group_Control_Typography::get_type(),
+            'control_type' => 'group',
+            'selector'     => '{{WRAPPER}} '.$args['selector'],
+            'condition'    => $args['condition']
+        ),
+        array(
+            'name'         => $args['name'].'_shadow',
+            'type'         => \Elementor\Group_Control_Text_Shadow::get_type(),
+            'control_type' => 'group',
+            'selector'     => '{{WRAPPER}} '.$args['selector'],
+            'condition'    => $args['condition']
+        ),
+        array(
+            'name'        => $args['name'].'_color',
+            'label'       => esc_html__( 'Color', 'saniga' ),
+            'type'        => \Elementor\Controls_Manager::SELECT,
+            'options'     => saniga_elementor_theme_color_opts(),
+            'condition'    => $args['condition'] 
+        ),
+        array(
+            'name'        => $args['name'].'_custom_color',
+            'label'       => esc_html__( 'Custom Color', 'saniga' ),
+            'type'        => \Elementor\Controls_Manager::COLOR,
+            'condition'   => array_merge(
+                [
+                    $args['name'].'_color'      => 'custom'
+                ],
+                $args['condition']
+            ),
+            'selectors'  => [
+                '{{WRAPPER}} '.$args['selector'] => 'color:{{VALUE}};'
+            ]
         )
     );
 }
@@ -288,18 +368,27 @@ if(!function_exists('saniga_elementor_theme_color_opts')){
 if(!function_exists('saniga_elementor_theme_colors')){
     function saniga_elementor_theme_colors($args = []){
         $args = wp_parse_args($args, [
-            'name'            => 'main_color',
-            'label'           => esc_html__('Main Color', 'saniga'),
-            'custom'          => true,
-            'custom_name'     => 'main_custom_color',
-            'custom_label'    => esc_html__('Custom Main Color', 'saniga'),
-            'custom_selector' => '',
-            'custom_selector_tag' => 'color'
+            'name'                => 'main_color',
+            'label'               => esc_html__('Main Color', 'saniga'),
+            'custom'              => true,
+            'custom_label'        => esc_html__('Custom Main Color', 'saniga'),
+            'custom_selector'     => '',
+            'custom_selector_tag' => 'color',
+            'prefix_class'        => '',
+            'relation'            => ''  
         ]);
         $custom_selector = [];
-        if(!empty($args['custom_selector'])) $custom_selector = [
-            '{{WRAPPER}} '.$args['custom_selector'] => $args['custom_selector_tag'].': {{VALUE}};' //$custom_selector
-        ];
+        if(!empty($args['custom_selector'])){
+            if($args['relation'] === 'and'){
+                $custom_selector = [
+                    '{{WRAPPER}}'.$args['custom_selector'] => $args['custom_selector_tag'].': {{VALUE}};' //$custom_selector
+                ];
+            } else {
+                $custom_selector = [
+                    '{{WRAPPER}} '.$args['custom_selector'] => $args['custom_selector_tag'].': {{VALUE}};' //$custom_selector
+                ];
+            }
+        } 
         $color = [
             [
                 'name'        => $args['name'],
@@ -307,17 +396,18 @@ if(!function_exists('saniga_elementor_theme_colors')){
                 'type'        => \Elementor\Controls_Manager::SELECT,
                 'options'     => saniga_elementor_theme_color_opts(),  
                 'default'     => '',
+                'prefix_class'=> $args['prefix_class']
             ]
         ];
         if($args['custom']){
             $color[] = [
-                'name'        => $args['custom_name'],
+                'name'        => 'custom_'.$args['name'],
                 'label'       => $args['custom_label'],
                 'type'        => \Elementor\Controls_Manager::COLOR,
                 'condition'   => [
                     $args['name'] => 'custom'
                 ],
-                'selectors'    => $custom_selector
+                'selectors'    => $custom_selector,
             ];
         }
         return  $color;
@@ -350,7 +440,7 @@ if(!function_exists('saniga_text_align_opts')){
         ]);
         return [
             'start' => [
-                'title' => esc_html__( 'Left', 'saniga' ),
+                'title' => esc_html__( 'Start', 'saniga' ),
                 'icon' => 'eicon-text-align-left',
             ],
             'center' => [
@@ -358,7 +448,7 @@ if(!function_exists('saniga_text_align_opts')){
                 'icon' => 'eicon-text-align-center',
             ],
             'end' => [
-                'title' => esc_html__( 'Right', 'saniga' ),
+                'title' => esc_html__( 'End', 'saniga' ),
                 'icon' => 'eicon-text-align-right',
             ],
             'justify' => [
@@ -371,12 +461,18 @@ if(!function_exists('saniga_text_align_opts')){
 // Alignment css class
 // Text Align
 if(!function_exists('saniga_elementor_align_class')){
-    function saniga_elementor_align_class($settings, $id = 'text-align', $extra_class = ''){
+    function saniga_elementor_align_class($settings, $args = []){
+        $args = wp_parse_args($args, [
+            'id'          => 'text-align',
+            'extra_class' => '',
+            'default'     => 'start',
+            'prefix'      => 'text-'  
+        ]);
         $align_class = [];
-        $align_class[] = empty($settings[$id.'_mobile']) ? 'text-start' : 'text-'.$settings[$id.'_mobile'];
-        $align_class[] = empty($settings[$id.'_tablet']) ? 'text-md-start' : 'text-md-'.$settings[$id.'_tablet']; 
-        $align_class[] = empty($settings[$id]) ? 'text-lg-start' : 'text-lg-'.$settings[$id];
-        $align_class[] = $extra_class;
+        $align_class[] = empty($settings[$args['id'].'_mobile']) ? $args['prefix'].$args['default'] : $args['prefix'].$settings[$args['id'].'_mobile'];
+        $align_class[] = empty($settings[$args['id'].'_tablet']) ? $args['prefix'].'md-'.$args['default'] : $args['prefix'].'md-'.$settings[$args['id'].'_tablet']; 
+        $align_class[] = empty($settings[$args['id']]) ? $args['prefix'].'lg-'.$args['default'] : $args['prefix'].'lg-'.$settings[$args['id']];
+        $align_class[] = $args['extra_class'];
         return trim(implode(' ', $align_class));
     }
 }
@@ -496,248 +592,248 @@ if(!function_exists('saniga_elementor_slick_slider_settings')){
             'name'     => 'section_slick_slider_settings',
             'label'    => esc_html__('Carousel Settings', 'saniga'),
             'tab'      => $args['tab'],
-            'controls' => array(
+            'controls' => array_merge(
                 array(
-                    'name' => 'slide_rows',
-                    'label' => esc_html__('Rows', 'saniga'),
-                    'description' => esc_html__('Setting this to more than 1 initializes grid mode. Use slidesPerRow to set how many slides should be in each row.', 'saniga'),
-                    'type' => \Elementor\Controls_Manager::SELECT,
-                    'options' => [
-                        '1' => '1',
-                        '2' => '2',
-                        '3' => '3',
-                        '4' => '4'
-                    ],
-                    'control_type' => 'responsive',
-                    'default'      => '1',
+                    array(
+                        'name' => 'slide_rows',
+                        'label' => esc_html__('Rows', 'saniga'),
+                        'description' => esc_html__('Setting this to more than 1 initializes grid mode. Use slidesPerRow to set how many slides should be in each row.', 'saniga'),
+                        'type' => \Elementor\Controls_Manager::SELECT,
+                        'options' => [
+                            '1' => '1',
+                            '2' => '2',
+                            '3' => '3',
+                            '4' => '4'
+                        ],
+                        'control_type' => 'responsive',
+                        'default'      => '1',
+                    ),
+                    array(
+                        'name' => 'slide_mode',
+                        'label' => esc_html__('Slide mode', 'saniga'),
+                        'type' => \Elementor\Controls_Manager::SELECT,
+                        'options' => [
+                            'true' => esc_html__('Fade', 'saniga'),
+                            'false' => esc_html__('Slide', 'saniga'),
+                        ],
+                        'default' => 'false',
+                    ),
+                    array(
+                        'name'         => 'slides_to_show',
+                        'label'        => esc_html__('Slides to Show', 'saniga'),
+                        'type'         => \Elementor\Controls_Manager::SELECT,
+                        'control_type' => 'responsive',
+                        'default'      => '',
+                        'options'      => [
+                                '' => esc_html__('Default', 'saniga' ),
+                            ] + $slides_to_show,
+                        'condition' => [
+                            'slide_mode' => 'false'
+                        ]
+                    ),
+                    array(
+                        'name'         => 'slides_to_scroll',
+                        'label'        => esc_html__('Slides to Scroll', 'saniga'),
+                        'type'         => \Elementor\Controls_Manager::SELECT,
+                        'control_type' => 'responsive',
+                        'default'      => '',
+                        'options'      => [
+                                '' => esc_html__('Default', 'saniga' ),
+                            ] + $slides_to_show,
+                        'condition' => [
+                            'slide_mode'      => 'false',
+                            'slides_to_show!' => '1',
+                        ],
+                    ),
+                    array(
+                        'name'         => 'gap',
+                        'label'        => esc_html__('Item Gap', 'saniga'),
+                        'type'         => \Elementor\Controls_Manager::NUMBER,
+                        'default'      => 30,
+                    ),
+                    array(
+                        'name'         => 'gap_extra',
+                        'label'        => esc_html__( 'Extra Gap Bottom', 'saniga' ),
+                        'description'  => esc_html__( 'Add extra space at bottom of each items','saniga'),
+                        'type'         => \Elementor\Controls_Manager::NUMBER,
+                        'default'      => 0,
+                    ),
+                    array(
+                        'name'         => 'asnavfor',
+                        'label'        => esc_html__('as Nav For', 'saniga'),
+                        'type'         => \Elementor\Controls_Manager::SWITCHER,
+                        'control_type' => '',
+                        'default'      => 'false',
+                        'separator'    => 'before', 
+                    ),
+                    array(
+                        'name'         => 'arrows',
+                        'label'        => esc_html__('Show Arrows', 'saniga'),
+                        'type'         => \Elementor\Controls_Manager::SWITCHER,
+                        'default'      => 'false', 
+                        'control_type' => 'responsive',
+                        'separator'    => 'before',
+                    ),
+                    array(
+                        'name'         => 'arrows_pos',
+                        'label'        => esc_html__('Arrows Position', 'saniga'),
+                        'type'         => \Elementor\Controls_Manager::SELECT,
+                        //'control_type' => 'responsive',
+                        'default'      => 'in-vertical',
+                        'options'      => [
+                            'in-vertical'   => esc_html__('Inside Vertical','saniga'),
+                            'out-vertical'  => esc_html__('Outside Vertical','saniga'),
+                            'top-left'      => esc_html__('Top Left','saniga'),
+                            'top-right'     => esc_html__('Top Right','saniga'),
+                            'top-center'    => esc_html__('Top Center','saniga'),
+                            'bottom-left'   => esc_html__('Bottom Left','saniga'),
+                            'bottom-right'  => esc_html__('Bottom Right','saniga'),
+                            'bottom-center' => esc_html__('Bottom Center','saniga'),
+                            'left-side'     => esc_html__('Left Side','saniga'),
+                            'right-side'    => esc_html__('Right Side','saniga'),
+                            'left-side2'     => esc_html__('Left Side2','saniga'),
+                            'right-side2'    => esc_html__('Right Side2','saniga')
+                        ],
+                        'condition' => [
+                            'arrows'   => 'true'
+                        ],
+                        'prefix_class' => 'cms-slick-nav-',
+                    ),
+                    array(
+                        'name'         => 'arrows_style',
+                        'label'        => esc_html__('Arrows Styles', 'saniga'),
+                        'type'         => \Elementor\Controls_Manager::SELECT,
+                        'default'      => 'default',
+                        'options'      => [
+                            'default'  => esc_html__('Default','saniga'),
+                            'long-arrow-text' => esc_html__('Long Arrow with Text','saniga'),
+                        ],
+                        'condition' => [
+                            'arrows'   => 'true'
+                        ],
+                        'prefix_class' => 'cms-slick-nav-style-',
+                    ),
+                    array(
+                        'name'         => 'arrows_color',
+                        'label'        => esc_html__('Arrows Color', 'saniga'),
+                        'type'         => \Elementor\Controls_Manager::SELECT,
+                        'default'      => '',
+                        'options'      => saniga_elementor_theme_color_opts(['custom' =>  false]),
+                        'condition' => [
+                            'arrows'   => 'true'
+                        ],
+                        'prefix_class' => 'cms-slick-nav-color-',
+                    ),
+                    array(
+                        'name'         => 'arrows_color_hover',
+                        'label'        => esc_html__('Arrows Color Hover', 'saniga'),
+                        'type'         => \Elementor\Controls_Manager::SELECT,
+                        'default'      => '',
+                        'options'      => saniga_elementor_theme_color_opts(['custom' =>  false]),
+                        'condition' => [
+                            'arrows'   => 'true'
+                        ],
+                        'prefix_class' => 'cms-slick-nav-color-hover-',
+                    ),
+                    array(
+                        'name'         => 'dots',
+                        'label'        => esc_html__('Show Dots', 'saniga'),
+                        'type'         => \Elementor\Controls_Manager::SWITCHER,
+                        'control_type' => 'responsive',
+                        'default'      => 'true',
+                        'separator'    => 'before',
+                    ),
+                    array(
+                        'name'         => 'dots_in_nav',
+                        'label'        => esc_html__('Dots In Nav', 'saniga'),
+                        'type'         => \Elementor\Controls_Manager::SWITCHER,
+                        'default'      => '',
+                        'separator'    => 'before',
+                        'condition'    => [
+                            'dots'       => 'true',
+                            'arrows'     => 'true',
+                            'arrows_pos' => ['top-left', 'top-right', 'top-center','bottom-left', 'bottom-right', 'bottom-center','left-side2','right-side2']
+                        ] 
+                    ),
+                    array(
+                        'name'         => 'dots_pos',
+                        'label'        => esc_html__('Dots Position', 'saniga'),
+                        'type'         => \Elementor\Controls_Manager::SELECT,
+                        'control_type' => 'responsive',
+                        'default'      => 'out',
+                        'options'      => [
+                            'in'  => esc_html__('Inside','saniga'),
+                            'out' => esc_html__('Outside','saniga'),
+                        ],
+                        'condition' => [
+                            'dots'        => 'true',
+                            'dots_in_nav' => ''
+                        ],
+                        'prefix_class' => 'cms-slick-dots-',
+                        'separator'    => 'before',
+                    )
                 ),
-                array(
-                    'name' => 'slide_mode',
-                    'label' => esc_html__('Slide mode', 'saniga'),
-                    'type' => \Elementor\Controls_Manager::SELECT,
-                    'options' => [
-                        'true' => esc_html__('Fade', 'saniga'),
-                        'false' => esc_html__('Slide', 'saniga'),
-                    ],
-                    'default' => 'false',
-                ),
-                array(
-                    'name'         => 'slides_to_show',
-                    'label'        => esc_html__('Slides to Show', 'saniga'),
-                    'type'         => \Elementor\Controls_Manager::SELECT,
-                    'control_type' => 'responsive',
-                    'default'      => '',
-                    'options'      => [
-                            '' => esc_html__('Default', 'saniga' ),
-                        ] + $slides_to_show,
-                    'condition' => [
-                        'slide_mode' => 'false'
-                    ]
-                ),
-                array(
-                    'name'         => 'slides_to_scroll',
-                    'label'        => esc_html__('Slides to Scroll', 'saniga'),
-                    'type'         => \Elementor\Controls_Manager::SELECT,
-                    'control_type' => 'responsive',
-                    'default'      => '',
-                    'options'      => [
-                            '' => esc_html__('Default', 'saniga' ),
-                        ] + $slides_to_show,
-                    'condition' => [
-                        'slide_mode'      => 'false',
-                        'slides_to_show!' => '1',
-                    ],
-                ),
-                array(
-                    'name'         => 'gap',
-                    'label'        => esc_html__('Item Gap', 'saniga'),
-                    'type'         => \Elementor\Controls_Manager::NUMBER,
-                    'default'      => 30,
-                ),
-                array(
-                    'name'         => 'gap_extra',
-                    'label'        => esc_html__( 'Extra Gap Bottom', 'saniga' ),
-                    'description'  => esc_html__( 'Add extra space at bottom of each items','saniga'),
-                    'type'         => \Elementor\Controls_Manager::NUMBER,
-                    'default'      => 0,
-                ),
-                array(
-                    'name'         => 'asnavfor',
-                    'label'        => esc_html__('as Nav For', 'saniga'),
-                    'type'         => \Elementor\Controls_Manager::SWITCHER,
-                    'control_type' => '',
-                    'default'      => 'false',
-                    'separator'    => 'before', 
-                ),
-                array(
-                    'name'         => 'arrows',
-                    'label'        => esc_html__('Show Arrows', 'saniga'),
-                    'type'         => \Elementor\Controls_Manager::SWITCHER,
-                    'default'      => 'false', 
-                    'control_type' => 'responsive',
-                    'separator'    => 'before',
-                ),
-                array(
-                    'name'         => 'arrows_pos',
-                    'label'        => esc_html__('Arrows Position', 'saniga'),
-                    'type'         => \Elementor\Controls_Manager::SELECT,
-                    //'control_type' => 'responsive',
-                    'default'      => 'in-vertical',
-                    'options'      => [
-                        'in-vertical'   => esc_html__('Inside Vertical','saniga'),
-                        'out-vertical'  => esc_html__('Outside Vertical','saniga'),
-                        'top-left'      => esc_html__('Top Left','saniga'),
-                        'top-right'     => esc_html__('Top Right','saniga'),
-                        'top-center'    => esc_html__('Top Center','saniga'),
-                        'bottom-left'   => esc_html__('Bottom Left','saniga'),
-                        'bottom-right'  => esc_html__('Bottom Right','saniga'),
-                        'bottom-center' => esc_html__('Bottom Center','saniga'),
-                        'left-side'     => esc_html__('Left Side','saniga'),
-                        'right-side'    => esc_html__('Right Side','saniga'),
-                        'left-side2'     => esc_html__('Left Side2','saniga'),
-                        'right-side2'    => esc_html__('Right Side2','saniga')
-                    ],
-                    'condition' => [
-                        'arrows'   => 'true'
-                    ],
-                    'prefix_class' => 'cms-slick-nav-',
-                ),
-                array(
-                    'name'         => 'arrows_style',
-                    'label'        => esc_html__('Arrows Styles', 'saniga'),
-                    'type'         => \Elementor\Controls_Manager::SELECT,
-                    'default'      => 'default',
-                    'options'      => [
-                        'default'  => esc_html__('Default','saniga'),
-                        'long-arrow-text' => esc_html__('Long Arrow with Text','saniga'),
-                    ],
-                    'condition' => [
-                        'arrows'   => 'true'
-                    ],
-                    'prefix_class' => 'cms-slick-nav-style-',
-                ),
-                array(
-                    'name'         => 'arrows_color',
-                    'label'        => esc_html__('Arrows Color', 'saniga'),
-                    'type'         => \Elementor\Controls_Manager::SELECT,
-                    'default'      => '',
-                    'options'      => saniga_elementor_theme_color_opts(['custom' =>  false]),
-                    'condition' => [
-                        'arrows'   => 'true'
-                    ],
-                    'prefix_class' => 'cms-slick-nav-color-',
-                ),
-                array(
-                    'name'         => 'arrows_color_hover',
-                    'label'        => esc_html__('Arrows Color Hover', 'saniga'),
-                    'type'         => \Elementor\Controls_Manager::SELECT,
-                    'default'      => '',
-                    'options'      => saniga_elementor_theme_color_opts(['custom' =>  false]),
-                    'condition' => [
-                        'arrows'   => 'true'
-                    ],
-                    'prefix_class' => 'cms-slick-nav-color-hover-',
-                ),
-                array(
-                    'name'         => 'dots',
-                    'label'        => esc_html__('Show Dots', 'saniga'),
-                    'type'         => \Elementor\Controls_Manager::SWITCHER,
-                    'control_type' => 'responsive',
-                    'default'      => 'true',
-                    'separator'    => 'before',
-                ),
-                array(
-                    'name'         => 'dots_in_nav',
-                    'label'        => esc_html__('Dots In Nav', 'saniga'),
-                    'type'         => \Elementor\Controls_Manager::SWITCHER,
-                    'default'      => '',
-                    'separator'    => 'before',
-                    'condition'    => [
-                        'dots'       => 'true',
-                        'arrows'     => 'true',
-                        'arrows_pos' => ['top-left', 'top-right', 'top-center','bottom-left', 'bottom-right', 'bottom-center','left-side2','right-side2']
-                    ] 
-                ),
-                array(
-                    'name'         => 'dots_pos',
-                    'label'        => esc_html__('Dots Position', 'saniga'),
-                    'type'         => \Elementor\Controls_Manager::SELECT,
-                    'control_type' => 'responsive',
-                    'default'      => 'out',
-                    'options'      => [
-                        'in'  => esc_html__('Inside','saniga'),
-                        'out' => esc_html__('Outside','saniga'),
-                    ],
-                    'condition' => [
-                        'dots'        => 'true',
-                        'dots_in_nav' => ''
-                    ],
-                    'prefix_class' => 'cms-slick-dots-',
-                    'separator'    => 'before',
-                ),
-                array(
-                    'name'         => 'dots_color',
-                    'label'        => esc_html__('Dots Color', 'saniga'),
-                    'type'         => \Elementor\Controls_Manager::SELECT,
-                    'default'      => '',
-                    'options'      => saniga_elementor_theme_color_opts(['custom' =>  false]),
-                    'condition' => [
-                        'dots'        => 'true'
-                    ],
-                    'prefix_class' => 'cms-slick-dots-color-',
-                ),
-                array(
-                    'name'         => 'dots_color_hover',
-                    'label'        => esc_html__('Dots Color Hover', 'saniga'),
-                    'type'         => \Elementor\Controls_Manager::SELECT,
-                    'default'      => '',
-                    'options'      => saniga_elementor_theme_color_opts(['custom' =>  false]),
-                    'condition' => [
-                        'dots'        => 'true',
-                    ],
-                    'prefix_class' => 'cms-slick-dots-color-hover-',
-                ),
-                saniga_elementor_row_align([
-                    'name'      => 'dots_align',
-                    'label'     => esc_html__('Dots Align', 'saniga'),
-                    'condition' => [
-                        'dots'        => 'true',
-                        'dots_in_nav' => ''
-                    ],
-                    'prefix_class' => 'cms-slick-dots-align-'
+                saniga_elementor_theme_colors([
+                    'name'                => 'dots_color',
+                    'label'               => esc_html__('Dots Color', 'saniga'),
+                    'custom_label'        => esc_html__('Custom Dots Color', 'saniga'),
+                    'custom_selector'     => '.cms-slick-dots-color-custom ul.cms-slick-dot li:not(.slick-active):not(:hover) button:before',
+                    'custom_selector_tag' => 'background',
+                    'prefix_class'        => 'cms-slick-dots-color-',
+                    'relation'            => 'and'  
+                ]),
+                saniga_elementor_theme_colors([
+                    'name'                => 'dots_color_hover',
+                    'label'               => esc_html__('Dots Color Hover', 'saniga'),
+                    'custom_label'        => esc_html__('Custom Dots Color Hover', 'saniga'),
+                    'custom_selector'     => '.cms-slick-dots-color-hover-custom ul.cms-slick-dot li.slick-active button:before, .cms-slick-dots-color-hover-custom ul.cms-slick-dot li:hover button:before',
+                    'custom_selector_tag' => 'background',
+                    'prefix_class'        => 'cms-slick-dots-color-hover-',
+                    'relation'            => 'and'  
                 ]),
                 array(
-                    'name'    => 'pause_on_hover',
-                    'label'   => esc_html__('Pause on Hover', 'saniga'),
-                    'type'    => \Elementor\Controls_Manager::SWITCHER,
-                    'default' => 'true'
-                ),
-                array(
-                    'name'    => 'autoplay',
-                    'label'   => esc_html__('Autoplay', 'saniga'),
-                    'type'    => \Elementor\Controls_Manager::SWITCHER,
-                    'default' => 'true'
-                ),
-                array(
-                    'name'      => 'autoplay_speed',
-                    'label'     => esc_html__('Autoplay Speed', 'saniga'),
-                    'type'      => \Elementor\Controls_Manager::NUMBER,
-                    'default'   => 2000,
-                    'condition' => [
-                        'autoplay' => 'true'
-                    ]
-                ),
-                array(
-                    'name'  => 'infinite',
-                    'label' => esc_html__('Infinite Loop', 'saniga'),
-                    'type'  => \Elementor\Controls_Manager::SWITCHER,
-                ),
-                array(
-                    'name'    => 'speed',
-                    'label'   => esc_html__('Animation Speed', 'saniga'),
-                    'type'    => \Elementor\Controls_Manager::NUMBER,
-                    'default' => 500,
-                ),
+                    saniga_elementor_row_align([
+                        'name'      => 'dots_align',
+                        'label'     => esc_html__('Dots Align', 'saniga'),
+                        'condition' => [
+                            'dots'        => 'true',
+                            'dots_in_nav' => ''
+                        ],
+                        'prefix_class' => 'cms-slick-dots-align%s-'
+                    ]),
+                    array(
+                        'name'    => 'pause_on_hover',
+                        'label'   => esc_html__('Pause on Hover', 'saniga'),
+                        'type'    => \Elementor\Controls_Manager::SWITCHER,
+                        'default' => 'true'
+                    ),
+                    array(
+                        'name'    => 'autoplay',
+                        'label'   => esc_html__('Autoplay', 'saniga'),
+                        'type'    => \Elementor\Controls_Manager::SWITCHER,
+                        'default' => 'true'
+                    ),
+                    array(
+                        'name'      => 'autoplay_speed',
+                        'label'     => esc_html__('Autoplay Speed', 'saniga'),
+                        'type'      => \Elementor\Controls_Manager::NUMBER,
+                        'default'   => 2000,
+                        'condition' => [
+                            'autoplay' => 'true'
+                        ]
+                    ),
+                    array(
+                        'name'  => 'infinite',
+                        'label' => esc_html__('Infinite Loop', 'saniga'),
+                        'type'  => \Elementor\Controls_Manager::SWITCHER,
+                    ),
+                    array(
+                        'name'    => 'speed',
+                        'label'   => esc_html__('Animation Speed', 'saniga'),
+                        'type'    => \Elementor\Controls_Manager::NUMBER,
+                        'default' => 500,
+                    )
+                )
             ),
             'condition' => $args['condition']
         );
@@ -910,7 +1006,7 @@ if(!function_exists('saniga_slick_slider_settings')){
             'data-asnavfor'             => $asnavfor,
             'data-titlenext'            => $titlenext,
             'data-titleprev'            => $titleprev,
-            'style'                     => 'margin-left:-'.$slides_gutter.'px;margin-right:-'.$slides_gutter.'px;',    
+            'style'                     => 'margin:-'.$slides_gutter.'px;',    
         ] );
         if((int)$slideRows > 1) $widget->add_render_attribute( 'cms-slider-settings', 'class', 'multi-rows-xl');
         if((int)$slideRowsTablet > 1) $widget->add_render_attribute( 'cms-slider-settings', 'class', 'multi-rows-lg');
@@ -1182,7 +1278,8 @@ if(!function_exists('saniga_elementor_hyperlink_settings')){
             'prefix'            => '',
             'link_type'         => '',
             'link_type_default' => 'custom',
-            'link_page'         => true
+            'link_page'         => true,
+            'link_text'         => ''
         ]);
         $_link_type = [
             'custom'   => esc_html__('Custom','saniga')
@@ -1228,21 +1325,21 @@ if(!function_exists('saniga_elementor_hyperlink_settings')){
                     'url'         => '#',
                     'is_external' => 'on'
                 ],
-                'condition'   => array_merge($args['condition'], [$args['prefix'].'link_type' => 'custom'], [$args['prefix'].'link_text!' => '']),
+                'condition'   => array_merge($args['condition'], [$args['prefix'].'link_type' => 'custom']),
             ),
             array(
                 'name'        => $args['prefix'].'link_color',
                 'label'       => esc_html__( 'Color', 'saniga' ),
                 'type'        => \Elementor\Controls_Manager::SELECT,
                 'options'     => saniga_elementor_theme_color_opts(['custom' =>  false]),
-                'condition'   => array_merge([$args['prefix'].'link_text!' => ''], $args['condition']),
+                'condition'   => array_merge($args['condition']),
             ),
             array(
                 'name'        => $args['prefix'].'link_hover_color',
                 'label'       => esc_html__( 'Hover Color', 'saniga' ),
                 'type'        => \Elementor\Controls_Manager::SELECT,
                 'options'     => saniga_elementor_theme_color_opts(['custom' =>  false]),
-                'condition'   => array_merge([$args['prefix'].'link_text!' => ''], $args['condition']),
+                'condition'   => array_merge($args['condition']),
             ),
             array(
                 'name'         => $args['prefix'].'link_align',
@@ -1250,7 +1347,7 @@ if(!function_exists('saniga_elementor_hyperlink_settings')){
                 'type'         => \Elementor\Controls_Manager::CHOOSE,
                 'control_type' => 'responsive',
                 'options'      => saniga_text_align_opts(),
-                'condition'    => array_merge([$args['prefix'].'link_text!' => ''], $args['condition'])
+                'condition'    => array_merge($args['condition'])
             ),
             array(
                 'name'             => $args['prefix'].'link_icon',
@@ -1258,7 +1355,7 @@ if(!function_exists('saniga_elementor_hyperlink_settings')){
                 'type'             => \Elementor\Controls_Manager::ICONS,
                 'label_block'      => true,
                 'fa4compatibility' => 'icon',
-                'condition' => array_merge([$args['prefix'].'link_text!' => ''], $args['condition'])
+                'condition' => array_merge($args['condition'])
             ),
             array(
                 'name'    => $args['prefix'].'link_icon_align',
@@ -1270,7 +1367,6 @@ if(!function_exists('saniga_elementor_hyperlink_settings')){
                     'right' => esc_html__( 'After', 'saniga' ),
                 ],
                 'condition' => array_merge([
-                        $args['prefix'].'link_text!' => '',
                         $args['prefix'].'link_icon[value]!' => ''
                     ],
                     $args['condition']
@@ -1287,7 +1383,6 @@ if(!function_exists('saniga_elementor_hyperlink_settings')){
                     ],
                 ],
                 'condition' => array_merge([
-                        $args['prefix'].'link_text!' => '',
                         $args['prefix'].'link_icon[value]!' => ''
                     ],
                     $args['condition']
@@ -1307,7 +1402,6 @@ if(!function_exists('saniga_elementor_hyperlink_settings')){
                     ],
                 ],
                 'condition' => array_merge([
-                        $args['prefix'].'link_text!' => '',
                         $args['prefix'].'link_icon[value]!' => ''
                     ],
                     $args['condition']
@@ -1366,6 +1460,7 @@ if(!function_exists('saniga_elementor_page_link_attrs')){
         $page_link_attrs[] = 'href="'.saniga_get_link_by_slug($settings[$args['prefix'].'link_page'],'page').'"';
         $page_link_attrs[] = 'target="_blank"';
         $page_link_attrs[] = 'class="'.$args['class'].'"';
+
         if($args['echo']){
             return trim(implode(' ',$page_link_attrs));
         } else {
@@ -1377,27 +1472,33 @@ if(!function_exists('saniga_elementor_page_link_attrs')){
 if(!function_exists('saniga_elementor_hyperlink_render')){
     function saniga_elementor_hyperlink_render($settings, $args = []){
         $args = wp_parse_args($args, [
-            'prefix'       => '',
-            'tag'          => 'div',
-            'link_type'    => 'custom',
-            //'link_text'    => !empty($settings[$args['prefix'].'link_text']) ? $settings[$args['prefix'].'link_text'] : 'Read More';
-            'wrap_class'   => '',    
-            'class'        => '',
-            'default_icon' => [
-                'value'   => 'cmsi-arrow-circle-right',
+            'prefix'           => '',
+            'tag'              => 'div',
+            'link_type'        => 'custom',
+            'link_text'        => esc_html__('Read More','saniga'),
+            'link_color'       => '',
+            'link_hover_color' => '',
+            'wrap_class'       => '',    
+            'class'            => '',
+            'default_icon'     => [
+                'value'   => 'cmsi-arrow-right',
                 'library' => 'cmsi'
             ],
-            'icon_align'   => 'left', 
-            'echo'         => true,
+            'icon_class' => '',
+            'icon_align' => 'left', 
+            'before'     => '',
+            'after'      => '',
+            'echo'       => true,
         ]);
-        if(array_key_exists('link_text', $args)){
-            $link_text = $args['link_text'];
-        } else {
-            $link_text = !empty($settings[$args['prefix'].'link_text']) ? $settings[$args['prefix'].'link_text'] : 'Read More';
-        }
+        
+        $link_text = !empty($settings[$args['prefix'].'link_text']) ? $settings[$args['prefix'].'link_text'] : $args['link_text'];
+        
         $link_attrs = '';
-        $args['class'] .= ' d-inline-block text-'.$settings[$args['prefix'].'link_color'].' text-hover-'.$settings[$args['prefix'].'link_hover_color'];
-        if($args['prefix'].$args['link_type'] === 'custom'){
+        $link_color = !empty($settings[$args['prefix'].'link_color']) ? $settings[$args['prefix'].'link_color'] : $args['link_color'];
+        $link_hover_color = !empty($settings[$args['prefix'].'link_hover_color']) ? $settings[$args['prefix'].'link_hover_color'] : $args['link_hover_color'];
+        $args['class'] .= ' d-inline-block text-'.$link_color.' text-hover-'.$link_hover_color;
+
+        if($settings[$args['prefix'].'link_type'] === 'custom'){
             $link_attrs = saniga_elementor_custom_link_attrs($settings, $args);
         } else {
             $link_attrs = saniga_elementor_page_link_attrs($settings, $args);
@@ -1411,6 +1512,7 @@ if(!function_exists('saniga_elementor_hyperlink_render')){
         }
         ?>
             <<?php printf('%s', $args['tag']);?> class="<?php echo trim(implode(' ', ['cms-link', $args['wrap_class']]));?>">
+                <?php printf('%s', $args['before']); ?>
                 <a <?php printf('%s', $link_attrs) ;?>>
                     <span class="cms-btn-content"><?php 
                         saniga_elementor_icon_render($settings, [
@@ -1418,7 +1520,7 @@ if(!function_exists('saniga_elementor_hyperlink_render')){
                             'loop'         => false,
                             'tag'          => 'span',   
                             'wrap_class'   => 'cms-btn-icon '.$icon_class,
-                            'class'        => 'cms-link-icon cms-align-icon-'.$settings[$args['prefix'].'link_icon_align'].' rtl-flip',
+                            'class'        => 'cms-link-icon cms-align-icon-'.$settings[$args['prefix'].'link_icon_align'].' '.$args['icon_class'].' rtl-flip',
                             'style'        => '',
                             'before'       => '',
                             'after'        => '',
@@ -1428,6 +1530,7 @@ if(!function_exists('saniga_elementor_hyperlink_render')){
                         printf('%s', '<span class="cms-btn-text">'.$link_text.'</span>');
                     ?></span>
                 </a>
+                <?php printf('%s', $args['after']); ?>
             </<?php printf('%s', $args['tag']);?>>
         <?php
     }
@@ -1447,14 +1550,15 @@ if(!function_exists('saniga_elementor_button_settings')){
             'btn_link_type'         => [],
             'btn_link_type_default' => 'custom',
             'btn_color'             => 'accent',
-            'btn_hover_color'       => 'primary',
+            'btn_hover_color'       => 'secondary',
             'btn_size'              => '',
-            'btn_align'             => 'start',
+            'btn_align'             => '',
             'icon_default'          => [
-                'value'             => 'cmsi-arrow-circle-right',
+                'value'             => 'cmsi-arrow-right',
                 'library'           => 'cmsi'
             ],
-            'icon_align'            => 'left'
+            'icon_align'            => 'left',
+            'separator'             => ''
         ]);
         $default = [
             array(
@@ -1464,6 +1568,7 @@ if(!function_exists('saniga_elementor_button_settings')){
                 'default'     => $args['btn_text'],
                 'placeholder' => esc_html__('Your Text', 'saniga'),
                 'condition'   => $args['condition'],
+                'separator'   => $args['separator']
             ),
             array(
                 'name'        => $args['prefix'].'show_btn_text',
@@ -1653,7 +1758,11 @@ if(!function_exists('saniga_elementor_button_settings')){
                 'name'        => $args['prefix'].'btn_css_class',
                 'label'       => esc_html__( 'Custom CSS Class', 'saniga' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'condition'   => $args['condition'],
+                'condition' => array_merge([
+                        $args['prefix'].'btn_text!' => ''
+                    ],
+                    $args['condition']
+                )
             )
         ];
         return wp_parse_args($args['options'], $default);
@@ -1676,7 +1785,8 @@ if(!function_exists('saniga_elementor_button_render')){
             'default'     => [
                 'btn_text' => '',
                 'btn_type' => ''
-            ]  
+            ],
+            'align'        => '' 
         ]);
         if(empty($settings[$args['prefix'].'btn_text'])) return;
         $button_attrs = [];
@@ -1748,7 +1858,7 @@ if(!function_exists('saniga_elementor_button_render')){
         $settings[$args['prefix'].'icon_align'] = isset($settings[$args['prefix'].'icon_align']) ? $settings[$args['prefix'].'icon_align'] : 'left';
         if($args['wrap'] == true):
     ?>
-        <<?php echo esc_html($args['tag']);?> class="cms-btn-wraps <?php echo esc_attr($args['class'].' '.saniga_elementor_align_class($settings, $args['prefix'].'align') );?>">
+        <<?php echo esc_html($args['tag']);?> class="cms-btn-wraps <?php echo esc_attr($args['class'].' '.saniga_elementor_align_class($settings, [ 'id' => $args['prefix'].'align', 'default' => $args['align'] ] ) );?>">
     <?php endif; ?>
             <a <?php echo trim(implode(' ', $button_attrs)); ?>>
                 <span class="cms-btn-content cms-btn-content-<?php echo esc_attr($args['prefix']);?>">
@@ -1821,9 +1931,44 @@ if(!function_exists('saniga_elementor_image_render')){
             'class'       => '',
             'default'     => true,
             'before'      => '',
-            'after'       => ''
+            'after'       => '',
+            'default_img' => ''
         ]);      
         if(empty($settings[$args['id']])) return;
+        $custom_size = explode('x', $args['custom_size']);
+        $custom_size[1] = isset($custom_size[1]) ? $custom_size[1] : $custom_size[0];
+        $thumbnail_size_custom = isset($settings[$args['size'].'_custom_dimension']) ? $settings[$args['size'].'_custom_dimension'] : ['width' => $custom_size[0], 'height' => $custom_size[1]];
+        
+        if(isset($settings[$args['size'].'_size']) && $settings[$args['size'].'_size'] != 'custom'){
+            $img_size = $settings[$args['size'].'_size'];
+        } elseif(!empty($thumbnail_size_custom['width']) && !empty($thumbnail_size_custom['height'])){
+            $img_size = $thumbnail_size_custom['width'] . 'x' . $thumbnail_size_custom['height'];
+        } else {
+            $img_size = $args['custom_size'];
+        }
+        
+        saniga_image_by_size([
+            'id'          => $settings[$args['id']]['id'],
+            'size'        => $img_size,
+            'class'       => $args['class'],
+            'default'     => $args['default'],
+            'default_img' => $args['default_img'],
+            'before'      => $args['before'],
+            'after'       => $args['after']
+        ]);
+    }
+}
+
+// Image URL Render 
+if(!function_exists('saniga_elementor_image_url_render')){
+    function saniga_elementor_image_url_render($settings, $args = []){
+        $args = wp_parse_args($args, [
+            'id'          => 'selected_img',
+            'size'        => 'thumbnail_size',
+            'custom_size' => '',
+            'default_img' => ''  
+        ]); 
+        if(empty($settings[$args['id']]) && empty($args['url'])) return;
         if(empty($args['custom_size'])){
             $thumbnail_size_custom = isset($settings[$args['size'].'_custom_dimension']) ? $settings[$args['size'].'_custom_dimension'] : ['width' => '', 'height' => ''];
             if(isset($settings[$args['size'].'_size']) && $settings[$args['size'].'_size'] != 'custom'){
@@ -1838,13 +1983,11 @@ if(!function_exists('saniga_elementor_image_render')){
         } else {
             $img_size = $args['custom_size'];
         }
-        saniga_image_by_size([
-            'id'      => $settings[$args['id']]['id'],
-            'size'    => $img_size,
-            'class'   => $args['class'],
-            'default' => $args['default'],
-            'before'  => $args['before'],
-            'after'   => $args['after']
+
+        return saniga_get_image_url_by_size([
+            'id'          => $settings[$args['id']]['id'],
+            'size'        => $img_size,
+            'default_img' => $args['default_img']  
         ]);
     }
 }
@@ -1866,7 +2009,8 @@ if(!function_exists('saniga_elementor_icon_render')){
             'default_icon'    => [
                 'value'   => '',
                 'library' => ''
-            ]
+            ],
+            'echo' => true
         ]);
         if($args['loop']) {
             $icon = $args['id'];
@@ -1879,6 +2023,7 @@ if(!function_exists('saniga_elementor_icon_render')){
         foreach ($args['atts'] as $key => $att) {
             $atts[] = $key.'="'.$att.'"';
         }
+        ob_start();
         printf('%s', $args['before']);
         ?>
         <<?php echo esc_html($args['tag']);?> class="<?php echo trim(implode(' ',['cms-icon-wrap', $args['wrap_class']]));?>" <?php echo implode(' ', $atts);?>><?php \Elementor\Icons_Manager::render_icon( $icon, [ 
@@ -1888,6 +2033,12 @@ if(!function_exists('saniga_elementor_icon_render')){
             ]); ?></<?php echo esc_html($args['tag']);?>>
         <?php
         printf('%s', $args['after']);
+
+        if($args['echo']){
+            echo ob_get_clean();
+        } else {
+            return ob_get_clean();
+        }
     }
 }
 
@@ -2058,17 +2209,21 @@ foreach ($files as $file){
 if(!function_exists('saniga_star_rating')){
     function saniga_star_rating($args = []){
         $args = wp_parse_args($args, [
-            'rated' => '100',
-            'text'  => ''    
+            'rated'      => '100',
+            'text'       => '',
+            'class'      => '',
+            'rated_class' => '',
+            'text_class' => ''    
         ]);
+        $text_class = !empty($args['text_class']) ? $args['text_class'] : 'text-16 font-700';
     ?>
         <div class="row align-items-center gutters-15 text-accent">
             <div class="col-auto">
-                <div class="cms-star-rating relative">
-                    <div class="cms-star-rated absolute" data-width="<?php echo esc_attr($args['rated']);?>"></div>
+                <div class="cms-star-rating relative <?php echo esc_attr($args['class']);?>">
+                    <div class="cms-star-rated absolute <?php echo esc_attr($args['rated_class']);?>" data-width="<?php echo esc_attr($args['rated']);?>"></div>
                 </div>
             </div>
-            <div class="col empty-none text-16 font-700"><?php
+            <div class="col empty-none <?php echo esc_attr($text_class);?>"><?php
                 echo esc_html($args['text']);
             ?></div>
         </div>

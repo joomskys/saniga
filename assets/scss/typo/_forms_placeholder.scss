@@ -29,8 +29,13 @@ textarea::-ms-placeholder {
 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
-    @include css3-prefix('appearance', 'none');
-    margin: 0; 
+    //@include css3-prefix('appearance', 'none');
+    //margin: 0; 
+    @include opacity(1);
+    height: 30px;
+    margin-top: 15px;
+    cursor: pointer;
+    @include border-radius(5px);
 }
 input::-webkit-calendar-picker-indicator{
     opacity: 0;

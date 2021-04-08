@@ -78,92 +78,39 @@
 		@include transform(translate(-50%, -50%));
 	}
 }
-// Layout 2
-.cms-video-layout-2{
-	.cms-video-heading{
-		z-index: 1;
-		@include border-radius(0 0 16px 0);
-		[dir="rtl"] &{
-			@include border-radius(0 0 0 16px);
-		}
+// Layout 1
+.cms-video-layout-1{
+	.cms-video-title.bg-grey{
+		background: #f5f5f5;
 	}
-	@media (min-width: $screen-xl-min){
-		.cms-video-player{
-			padding-top: 166px;
-		}
-		.cms-video-heading{
+	@media (min-width: $screen-md-min){
+		.cms-video-text{
 			position: absolute;
-			top: 0;
+			bottom: 0;
 			left: 0;
-			background-color: $white;
+			max-width: 400px;
 			[dir="rtl"] &{
 				left: auto;
 				right: 0;
 			}
 		}
 	}
-	@media (max-width: $screen-lg-max){
-		.cms-video-heading{
-			margin-bottom: -50px;
-		}
-		.cms-popup{
-			.cms-text{
-				color: $white;
-				padding-left: 40px;
-				[dir="rtl"] &{
-					padding-left: 0;
-					padding-right: 40px;
-				}
-				&:after{
-					background-color: $white;
-				}
-			}
-		}
-	}
-	&.cms-video-play-icon-style-3{
-		@media (max-width: 400px){
-			.btn-video-wrap{
-				width: calc(100% - 40px);
-			}
-			.cms-popup{
-				width: 100%;
-				.cms-text{
-					display: none;
-				}
-				.cms-icon-wrap{
-					margin-left: auto;
-					margin-right: auto;
-					margin-bottom: -80px;
-				}
-			}
-		}
-	}
-	.cms-video-sub-title{
-		margin-top: 48px;
+}
+// Play icon style 1
+.cms-video-play-icon-style-1{
+	.cms-icon-wrap{
 		position: relative;
-		padding-left: 70px;
-		padding-right: 70px;
 		&:before{
 			content: '';
-			display: block;
-			width: 4px;
-			height: 93px;
+			width: 118px;
+			height: 118px;
+			border: 2px solid $white;
+			@include border-radius(50%);
 			position: absolute;
-			top: 8px;
-			left: 0;
-			background-color: $accent-color;
-			[dir="rtl"] &{
-				left: auto;
-				right: 0;
-			}
+			top: 50%;
+			left: 50%;
+			@include transform(translate(-50%,-50%));
 		}
-		@media (max-width: $screen-md-max){
-			padding-left: 20px;
-			padding-right: 20px;
-		}
-	}
-	.video-bg{
-		@include border-radius(16px);
 	}
 }
 // Play icon style

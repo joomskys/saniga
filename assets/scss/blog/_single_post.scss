@@ -7,28 +7,6 @@
 }
 
 .cms-single-post{
-	.cms-single-media-meta{
-		bottom: 0;
-		left: 0;
-		height: 65px;
-		padding-left: 75px;
-		padding-top: 5px;
-		[dir="rtl"] &{
-			left: auto;
-			right: 0;
-			padding-left: 0;
-			padding-right: 75px;
-		}
-		.cms-socials{
-			padding: 14px 20px;
-			height: 60px;
-			text-align: center;
-			@include border-radius(0 4px 0 0);
-			[dir="rtl"] &{
-				@include border-radius(4px 0 0 0);
-			}
-		}
-	}
 	.cms-post-tags-share{
 		border-top: 2px solid $border-color;
 		padding-top: 28px;
@@ -57,3 +35,7 @@
 		}
 	}
 }	
+
+body.single-post #cms-main{
+	padding-bottom: 110px;
+}

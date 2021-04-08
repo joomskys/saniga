@@ -14,7 +14,8 @@ if(!function_exists('saniga_post_thumbnail')){
             'img_class'       => '',
             'show_image'      => true,
             'before'          => '',
-            'after'           => ''   
+            'after'           => '',
+            'show_link'       => true
         ]);
         extract($args);
         if(!has_post_thumbnail($args['id']) && !$default_thumb) return;
@@ -28,21 +29,25 @@ if(!function_exists('saniga_post_thumbnail')){
         $thumbnail_atts_style = [];
         if($thumbnail_is_bg) $thumbnail_atts_style[] = 'background-image: url('.saniga_get_image_url_by_size(['id'=>$id,'size'=> 'full', 'default_thumb' => $default_thumb]).')';
         if(!empty($thumbnail_atts_style)) $thumbnail_atts[] = 'style="'.implode(';',$thumbnail_atts_style).'"';
-        if($echo) {
+
+        ob_start();
             printf('%s', $args['before']);
         ?>
             <div <?php echo implode(' ', $thumbnail_atts);?>>
-                <a href="<?php the_permalink($id);?>"><?php saniga_image_by_size([
+                <?php if($args['show_link']) : ?><a href="<?php the_permalink($id);?>"><?php endif; ?>
+                    <?php saniga_image_by_size([
                     'id'         => get_post_thumbnail_id($id),
                     'size'       => $thumbnail_size, 
                     'class'      => $args['img_class'], 
                     'show_image' => $show_image]);
-                ?></a>
+                ?><?php if($args['show_link']) : ?></a><?php endif; ?>
             </div>
             <?php do_action('saniga_post_thumbnail_content');
             printf('%s', $args['after']);
+        if($args['echo']){
+            echo ob_get_clean();
         } else {
-            return $args['before'].'<div '.implode(' ', $thumbnail_atts).'><a href="'.get_the_permalink($id).'"><img src="'.saniga_get_image_url_by_size(['id'=>$id,'size'=> 'full', 'default_thumb' => $default_thumb]).'" alt="'.get_the_title().'" class="'.$args['img_class'].'" /></a></div>'.do_action('saniga_post_thumbnail_content').$args['after'];
+            return ob_get_clean();
         }
     }
 }
@@ -381,7 +386,7 @@ if(!function_exists('saniga_post_image')){
 if(!function_exists('saniga_post_media')){
     function saniga_post_media($args = []){
         $args = wp_parse_args($args, [
-            'show_media'     => '1',   
+            'show_media'     => '1',
             'id'             => null,
             'thumbnail_size' => is_single() ? 'large' : 'medium',
             'echo'           => true,
@@ -391,6 +396,7 @@ if(!function_exists('saniga_post_media')){
             'after'          => '',
             'class'          => '',
             'img_class'      => '',
+            'show_link'      => true,   
             'media_content'  => true,
             'media_before'         => '',
             'media_after'          => '',

@@ -1,17 +1,13 @@
-.cms-clients-layout-1{
+.cms-client-slider{
+	.slick-track{
+		align-items: center;
+	}
 	.cms-client-img{
-		min-height: 50px;
-		line-height: 50px;
 		img{
-			vertical-align: middle;
+			margin: 0 auto;
 		}
 	}
-	.cms-client-item{
-		border-top: 3px solid transparent;
-		padding: 70px 0;
-		&.slick-current,
-		&:hover{
-			border-color: $accent_color;
-		}
-	}
+}
+.cms-clients-layout-1{
+	padding: 65px 0;
 }

@@ -46,7 +46,7 @@ if (!function_exists('saniga_cf7_submit_button_handler')) {
 		unset($atts['icon_position']);
 		$atts = wpcf7_format_atts($atts);	
 		
-		$html = sprintf('<button %1$s><span class="cms-btn-content">%2$s<span class="cms-btn-text">%3$s</span>%4$s</span></button>', $atts, $icon_before, $value, $icon_after);
+		$html = sprintf('<div class="cms-submit"><button %1$s><span class="cms-btn-content">%2$s<span class="cms-btn-text">%3$s</span>%4$s</span></button></div>', $atts, $icon_before, $value, $icon_after);
 		return $html;
 	}
 }

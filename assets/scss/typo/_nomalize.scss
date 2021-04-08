@@ -23,9 +23,9 @@ body {
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
   padding: 0;
   margin: 0;
+  overflow-x: hidden;
   word-break: break-word;
 }
 
@@ -292,7 +292,7 @@ textarea {
   height: auto;
   line-height: normal;
   width: auto;
-  @include transform(translate(0px, 2px));
+  @include transform(translate(0px, 5px));
   margin-right: 10px;
   [dir="rtl"] &{
     margin-right: 0;

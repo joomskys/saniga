@@ -108,7 +108,14 @@ if (!function_exists('saniga_default_image_thumbnail_url')) {
 
         $default_img = saniga_resize_thumbnail('', $default_img, $width, $height, true);
 
-        return site_url() . $default_img['url'];
+        $url = strpos($default_img['url'], 'http');
+        if($url !== false){
+            $src = $default_img['url'];
+        } else {
+            $src = site_url() . $default_img['url'];
+        }
+
+        return $src;
     }
 }
 /**
@@ -144,7 +151,13 @@ if (!function_exists('saniga_default_image_thumbnail')) {
         }
 
         $default_img = saniga_resize_thumbnail('', $default_img, $width, $height, true);
-        $thumbnail = '<img class="' . trim(implode(' ', array('default-thumb', $class))) . '" src="' . site_url() . $default_img['url'] . '" width="' . $default_img['width'] . '" height="' . $default_img['height'] . '" alt="' . esc_attr(get_option('blogname')) . '" />';
+        $url = strpos($default_img['url'], 'http');
+        if($url !== false){
+            $src = $default_img['url'];
+        } else {
+            $src = site_url() . $default_img['url'];
+        }
+        $thumbnail = '<img class="' . trim(implode(' ', array('default-thumb', $class))) . '" src="' . $src . '" width="' . $default_img['width'] . '" height="' . $default_img['height'] . '" alt="' . esc_attr(get_option('blogname')) . '" />';
         if($echo)
             echo saniga_html($thumbnail);
         else 
@@ -196,9 +209,13 @@ if ( ! function_exists( 'saniga_resize_thumbnail' ) ) {
             // this is not an attachment, let's use the image url
         } elseif ( $img_url ) {
             $file_path = parse_url( $img_url );
-            $actual_file_path = rtrim( ABSPATH, '/' ) . $file_path['path'];
+            $url = strpos($img_url, 'http');
+            if($url !== false){
+                $actual_file_path = $img_url;
+            } else {
+                $actual_file_path = rtrim( ABSPATH, '/' ) . $file_path['path'];
+            }
             $orig_size = getimagesize( $actual_file_path );
-
             $image_src[0] = $img_url;
             $image_src[1] = $orig_size[0];
             $image_src[2] = $orig_size[1];
@@ -306,14 +323,15 @@ if ( ! function_exists( 'saniga_resize_thumbnail' ) ) {
 if(!function_exists('saniga_image_by_size')){
     function saniga_image_by_size( $args = []) {
         $default = [
-            'id'         => null , 
-            'size'       => 'medium', 
-            'class'      => '', 
-            'echo'       => true , 
-            'default'    => false,
-            'before'     => '',
-            'after'      => '',
-            'show_image' => true
+            'id'          => null , 
+            'size'        => 'medium',
+            'default_img' => '',
+            'class'       => '', 
+            'echo'        => true , 
+            'default'     => false,
+            'before'      => '',
+            'after'       => '',
+            'show_image'  => true
         ];
         $args = wp_parse_args($args, $default);
         extract($args);
@@ -324,7 +342,7 @@ if(!function_exists('saniga_image_by_size')){
         $mime_type  = get_post_mime_type($id);
         if($mime_type === 'image/svg+xml') $class .= ' svg';
         if(empty($id) ){
-            $saniga_image_by_size = saniga_default_image_thumbnail(['size' => $size, 'class' => trim($class)]);
+            $saniga_image_by_size = saniga_default_image_thumbnail(['size' => $size, 'class' => trim($class), 'default_img' => $args['default_img']]);
         } elseif ( is_string( $size ) && ( ( ! empty( $_wp_additional_image_sizes[ $size ] ) && is_array( $_wp_additional_image_sizes[ $size ] ) ) || in_array( $size, array(
                     'thumbnail',
                     'thumb',
@@ -403,13 +421,14 @@ if(!function_exists('saniga_get_image_url_by_size')){
             'id'            => null, 
             'size'          => 'thumbnail', 
             'default_thumb' => false,
-            'class'         => ''
+            'class'         => '',
+            'default_img'   => ''
         ]);
         extract($args);
         global $_wp_additional_image_sizes;
         if($id === null) $id = get_post_thumbnail_id();
         if(empty($id) && $default_thumb){
-            $img_url = saniga_default_image_thumbnail_url(['size' => $size, 'class' => $args['class']]);
+            $img_url = saniga_default_image_thumbnail_url(['size' => $size, 'class' => $args['class'], 'default_img' => $args['default_img']]);
         } elseif ( is_string( $size ) && ( ( ! empty( $_wp_additional_image_sizes[ $size ] ) && is_array( $_wp_additional_image_sizes[ $size ] ) ) || in_array( $size, array(
                     'thumbnail',
                     'thumb',

@@ -95,10 +95,7 @@ $border-radius: (
 .bdr-main{
 	border-color: $border-color;
 }
-[data-other-link="other-link"],
-.cms-bdr-b{
-	border-bottom: 2px solid;
-}
+
 .cms-hover-bdr-b:hover{
 	border-bottom: 2px solid $accent-color;
 }

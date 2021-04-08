@@ -1,46 +1,55 @@
 // All style
-.wpcf7-submit-icon{
-}
-.wpcf7 .wpcf7-form .cms-input.time-wrap,
-.wpcf7 .wpcf7-form .cms-input.date-wrap{
-    &:before {
-        position: absolute;
-        top: calc(50% + 11px);
-        transform: translateY(-50%);
-        right: 26px;
-        color: #091d3e;
-        font-weight: bold;
-        font-size: 14px;
-        pointer-events: none;
-        z-index: 1;
+.cms-cf7-layout-1{
+    .cms-cf7-rating{
+        top: -29px;
+        right: 30px;
         [dir="rtl"] &{
             right: auto;
-            left: 26px;
+            left: 30px;
+        }
+        @media (max-width: $screen-sm-max){
+            right: -15px;
+            [dir="rtl"] &{
+                right: auto;
+                left: -15px;
+            }
         }
     }
-    input{
-        position: relative;
+    .cms-cf7-star{
+        min-height: 29px;
+        vertical-align: middle;
+        text-align: center;
+        img{
+            vertical-align: middle;
+        }
+    }
+    .row {
+        [class^="col-"]:not(:last-child){
+            padding-bottom: 25px;
+        }
+    }
+    input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+    select, 
+    textarea{
+        background-color: #efefef;
+        @include box-shadow(0 0 0 2px #efefef);
+        &:hover{
+            @include box-shadow(0 0 0 2px #efefef);
+        }
     }
 }
-.wpcf7 .wpcf7-form .cms-input.time-wrap:before {
-    @include font-cmsi('\f017');
-}
-.wpcf7 .wpcf7-form .cms-input.date-wrap:before {
-    @include font-cmsi('\f783');
-}
-
-.cms-cf7-layout-3{
-    .cms-form-desc{
-        padding-bottom: 13px;
-    }
-}
-
-.cms-submit{
+.cms-cf7-separator{
+    //border-top: 2px solid $border-color;
+    margin-top: 42px;
+    padding-top: 42px;
     position: relative;
-    .ajax-loader{
+    &:before{
+        content: '';
         position: absolute;
-        top: 50%;
-        left: 50%;
-        @include transform(translate(-50%,-50%));
+        top: 0;
+        left: $grid-gutters/2;
+        right: $grid-gutters/2;
+        height: 2px;
+        background-color: $border-color;
     }
 }

@@ -1,330 +1,120 @@
 // animate icon
-.elementor-widget-cms_icon_box{
-	.cms-icon-wrap{
-		@include transition();
-	}
+.elementor-widget-cms_fancy_box{
 	&:hover{
-		.cms-icon-wrap:not(.cms-link-icon):not(.cms-btn-icon){
+		.cms-fancy-icon{
 			@include transform(translateY(-10px));
 		}
 	}
 }
-
-// layout 2
-.cms-icon-box-layout-2{
-	.icon-position{
-		position: absolute;
-		font-size: 110px;
-		line-height: 1;
-		bottom: -20px;
-		right: 0;
-	}
-	&.cms-icon-box-icon-position-start .icon-position{
-		top: 0;
-		left: 0;
-	}
-	&.cms-icon-box-icon-position-top .icon-position{
-		top: 0;
-		right: 0;
-	}
-	&.cms-icon-box-icon-position-bottom .icon-position{
-		bottom: -20px;
-		left: 0;
-	}
-	&.cms-icon-box-icon-position-end .icon-position{
-		bottom: -20px;
-		right: 0;
-	}
+// all
+.cms-fancybox{
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
-// layout 3
-.cms-icon-box-layout-3{
-	.cms-icon-boxes{
-		&:before{
-			content: '';
-			display: block;
-			width: calc(100% - 80px);
-			height: 4px;
-			margin: 0 auto;
-			background-color: $accent-color;
+// Layout 2
+.cms-fancybox-layout-2{
+	height: 100%;
+	.cms-btn-wraps{
+		padding-top: 30px;
+	}
+	@media (min-width : $screen-lg-min){
+		padding-bottom: 106px;
+		.cms-fancy-icon-bg{
 			position: absolute;
-			top: 0;
+			top: 50%;
+			left: 0;
+			right: 0;
+			@include transform(translate(0, -50%));
 		}
-	}
-	.main-icon{
-		position: relative;
-		&:before{
-			content: '';
-			width: 54px;
-			height: 54px;
-			display: block;
-			background-color: #ecf6ea;
+		.cms-btn-wraps {
 			position: absolute;
-			left: -10px;
-			top: -10px;
-			@include border-radius(22px);
-			@include transition();
+			left: 0;
+			right: 0;
+			top: 50%;
+			padding: 17px 0 40px;
+			opacity: 0;
 		}
-	}
-	.col-sm-auto + .col{
-		margin-top: -10px;
-	}
-	.cms-icon-boxes:hover{
-		@include transform(translateY(-15px));
-		.main-icon:before{
-			bottom: 0;
-			right: -10px;
-			width: 84px;
-			height: 84px;
+		.cms-fancybox-content{
+			z-index: 1;
+			padding-top: 35px;
+			padding-bottom: 30px;
 		}
-	}
-	// Slick Slider
-	.slick-list{
-		padding-top: 15px;
-	}
-}
-
-// layout 5 & 7
-.cms-icon-box-layout-5,
-.cms-icon-box-layout-7{
-	.cms-icon-boxes{
-		&:before,
-		&:after{
-			content: '';
-			display: block;
-			height: 4px;
-			margin: 0 auto;
-			position: absolute;
-			@include transition();
+		&:not(:hover){
+			.cms-fancy-icon-bg{
+				.cms-icon{
+					font-size: 150px;
+					color: #efefef;
+				}
+			}
 		}
-		&:before{
-			width: 100%;
-			background-color: $border-color;
-		}
-		&:after{
-			width: 0;
-			left: 50%;
-			background-color: $accent-color;
-		}
-	}
-	.cms-main-icon{
-		position: relative;
-		&:before{
-			content: '';
-			width: 60px;
-			height: 60px;
-			display: block;
-			background-color: #ecf6ea;
-			position: absolute;
-			left: -10px;
-			top: -10px;
-			@include border-radius(22px);
-			@include transition();
-			[dir="rtl"] &{
-				left: auto;
-				right: -10px;
+		&:hover{
+			.cms-fancy-icon-bg{
+				top: 40px;
+				@include transform(translate(0, 0));
+			}
+			.cms-btn-wraps{
+				top: 100%;
+				opacity: 1;
+			}
+			.cms-fancybox-content{
+				@include transform(translateY(55px));
 			}
 		}
 	}
-	.col-sm-auto + .col{
-		margin-top: -10px;
-	}
-	.cms-icon-boxes:hover{
-		&:after{
-			width: 100%;
-			left: 0;
-		}
-		.cms-main-icon:before{
+}
+// Layout 3
+.cms-fancybox-layout-3{
+	@media (min-width: $screen-md-min){
+		.cms-fancybox-content-wrap{
+			position: absolute;
 			bottom: 0;
-			right: -10px;
-			width: 94px;
-			height: 94px;
+			left: 0;
+			max-width: 260px;
 		}
 	}
 }
-// layout 5
-.cms-icon-box-layout-5{
-	.cms-icon-boxes{
-		&:before,
-		&:after{
-			top: 0;
+// Layout 4
+.cms-fancybox-layout-4{
+	.cms-fancybox-content-wrap{
+		@media (min-width: $screen-md-min){
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			max-width: 260px;
+		}
+		@media (min-width: $screen-xl-min){
+			bottom: 80px;
+			right: -80px;
+			&:after{
+				content: '';
+			    position: absolute;
+			    top: 0;
+			    bottom: 0;
+			    width: 50vw;
+			    background: #000;
+			    z-index: -1;
+			}
+			[dir="rtl"] &{
+				right: auto;
+				left: -80px;
+			}
 		}
 	}
 }
 // Layout 7
-.cms-icon-box-layout-7{
-	.cms-icon-boxes{
-		&:before,
-		&:after{
-			bottom: 0;
-		}
+.cms-fancybox-layout-7{
+	.cms-fancy-icon-wrap{
+		background: #f3f3f3;
+		padding: 45px;
+		text-align: center;
 	}
-	.cms-btn-icon{
-		color: $accent-color;
-	}
-	.cms-icon-boxes:hover{
-		.cms-btn-icon{
-			color: $white;
-		}
-	}
-}
-// layout 6
-.cms-icon-box-layout-6{
-	.cms-icon-box-wrap{
-		padding-bottom: 40px;
-	}
-	.cms-icon-box-content {
-		bottom: 0;
-		right: 40px;
-		[dir="rtl"] &{
-			right: auto;
-			left: 40px;
-		}
-		max-width: calc(100% - 80px);
-		@media (min-width: $desktop-screen){
-			max-width: 57.377049180327869%;
-		}
-	}
-	.icon-position{
-		position: absolute;
-		font-size: 132px;
-		line-height: 1;
-		bottom: 20px;
-		right: 20px;
-	}
-	&.cms-icon-box-icon-position-start .icon-position{
-		top: 20px;
-		left: 20px;
-	}
-	&.cms-icon-box-icon-position-top .icon-position{
-		top: 20px;
-		right: 20px;
-	}
-	&.cms-icon-box-icon-position-bottom .icon-position{
-		bottom: 20px;
-		left: 20px;
-	}
-	&.cms-icon-box-icon-position-end .icon-position{
-		bottom: 20px;
-		right: 20px;
-	}
-}
-//  layout 8
-.cms-icon-box-layout-8{
-	.cms-icon-boxes{
-		&:before{
-			content: '';
-			display: block;
-			width: calc(100% - 80px);
-			height: 4px;
-			margin: 0 auto;
-			background-color: $accent-color;
-			position: absolute;
-			top: 0;
-		}
-	}
-	.col-sm-auto + .col{
-		margin-top: -10px;
-	}
-	.cms-btn-text{
-		color: $accent-color;
-	}
-	.cms-icon-boxes:hover{
-		@include transform(translateY(-15px));
-		.cms-readmore{
-			color: $accent-color;
-		}
-	}
-	// Slick Slider
-	.slick-list{
-		padding-top: 15px;
-	}
-}
-
-// layout 11
-.cms-icon-box-layout-11{
-	.cms-icon-boxes{
-		border: 2px solid #e1e1e1;
-		&:before{
-			content: '';
-			display: block;
-			width: 0;
-			height: 4px;
-			margin: 0 auto;
-			background-color: $accent-color;
-			position: absolute;
-			top: 0;
-			left: 50%;
-			@include transition();
-		}
-	}
-	.col-sm-auto + .col{
-		margin-top: -10px;
-	}
-	.cms-icon-wrap:not(.cms-btn-icon){
-		margin-top: -5px;
-	}
-	.cms-main-icon{
-		position: relative;
-		&:before{
-			content: '';
-			width: 60px;
-			height: 60px;
-			display: block;
-			background-color: #ecf6ea;
-			position: absolute;
-			left: -10px;
-			top: -10px;
-			@include border-radius(22px);
-			@include transition();
-			[dir="rtl"] &{
-				left: auto;
-				right: -10px;
+	.cms-fancybox{
+		&:hover{
+			.cms-fancy-icon-wrap{
+				background: $secondary-color;
 			}
 		}
-	}
-	.cms-icon-boxes:hover{
-		border-color: transparent;
-		&:before{
-			width: calc(100% - 60px);
-			left: 30px;
-		}
-		.cms-readmore{
-			color: $accent-color;
-		}
-	}
-	// Slick Slider
-	.slick-list{
-		padding-top: 15px;
-	}
-}
-// layout 12
-.cms-icon-box-layout-12{
-	.cms-icon-box-inner{
-		padding-top: 23px;
-		padding-bottom: 23px;
-	}
-	.icon-position{
-		position: absolute;
-		font-size: 110px;
-		line-height: 1;
-		top: -5px;
-		right: 0;
-	}
-	&.cms-icon-box-icon-position-start .icon-position{
-		top: 0;
-		left: 0;
-	}
-	&.cms-icon-box-icon-position-top .icon-position{
-		top: 0;
-		right: 0;
-	}
-	&.cms-icon-box-icon-position-bottom .icon-position{
-		bottom: -20px;
-		left: 0;
-	}
-	&.cms-icon-box-icon-position-end .icon-position{
-		bottom: -20px;
-		right: 0;
 	}
 }

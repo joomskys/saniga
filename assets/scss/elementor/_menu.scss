@@ -67,3 +67,30 @@
 		}
 	}
 }
+// Layout 4
+.cms-menu-layout-4 {
+	.cms-menu-wraps{
+		&:before{
+			content: '';
+			height: 6px;
+			background: $accent-color;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+		}
+	}
+	.cms-menu{
+		> li{
+			padding-top: 1px;
+			padding-bottom: 1px;
+			> div > a{
+				padding: 22px 30px;
+				display: block;
+			}
+		}
+	}
+	.current-menu-item > div{
+		background: $accent-color;
+	}
+}

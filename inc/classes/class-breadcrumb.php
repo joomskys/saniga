@@ -10,7 +10,6 @@ if ( ! defined( 'ABSPATH' ) )
 {
     die();
 }
-
 class CMS_Breadcrumb
 {
     /**
@@ -320,7 +319,7 @@ class CMS_Breadcrumb
     {
         $queried_object = $GLOBALS['wp_query']->get_queried_object();
         $this->add_entry(
-            single_tag_title( '', false ) ).' '.get_tag_link( $queried_object->term_id
+            esc_html__( 'Tag:', 'saniga' ).' '.single_tag_title( '', false ) ).' '.get_tag_link( $queried_object->term_id
         );
     }
 
@@ -541,7 +540,7 @@ class CMS_Breadcrumb
         }
 
         $entries[] = array(
-            'label' => wp_trim_word(wp_trim_words(), '5', '...'),
+            'label' => get_the_title(),
             'url'   => ''
         );
 

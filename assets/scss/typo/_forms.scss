@@ -11,7 +11,7 @@ $FF_Border_Radius_rtl: 0;
 $FF_Shadow: $shadow-1;
 $FF_Background: #fff;
 
-input,
+input:not([type="checkbox"]):not([type="radio"]),
 textarea, select,
 .select2-container.select2-container--default .select2-selection--single {
     background-color: $FF_Background;
@@ -23,6 +23,7 @@ textarea, select,
     font-size: 100%;
     text-align: start;
     outline: none;
+    width: 100%;
     @include box-shadow($FF_Border);
     @include border-radius($FF_Border_Radius);
     @include transition();
@@ -32,9 +33,6 @@ textarea, select,
         border-color: $accent-color;
         color: $primary_color;
         @include box-shadow($FF_Border_Hover);
-    }
-    &:not([type="submit"]):not([type="checkbox"]):not([type="radio"]){
-        width: 100%;
     }
     [dir="rtl"] &{
         @include border-radius($FF_Border_Radius_rtl);

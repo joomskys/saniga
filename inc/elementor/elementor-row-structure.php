@@ -10,14 +10,17 @@ if(!function_exists('saniga_custom_section_presets')){
             ],
             2 => [
                 [
-                    'preset' => [50, 100]
+                    'preset' => [40, 100]
                 ],
+                [
+                    'preset' => [50, 100]
+                ]
                 
             ],
             3 => [
                 [
                     'preset' => [ 50, 50, 100 ],
-                ],
+                ]
             ],
             4 => [
                 [
@@ -25,7 +28,7 @@ if(!function_exists('saniga_custom_section_presets')){
                 ],
                 [
                     'preset' => [ 100, 33, 33, 33 ],
-                ],
+                ]
             ],
             5 => [
                 [
@@ -41,7 +44,7 @@ if(!function_exists('saniga_custom_section_presets')){
                 ],
                 [
                     'preset' => [100, 20, 20, 20, 20, 20],
-                ],
+                ]
             ]
         ];
     }

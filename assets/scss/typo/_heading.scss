@@ -27,6 +27,9 @@ h1, h2, h3, h4, h5, h6,
     }
   }
 }
+.heading{
+  font-family: var(--heading-font-family);
+}
 h1, .h1 {
   color: $heading-h1-typo-font-color;
   font-family: $heading-h1-typo-font-family;
@@ -91,7 +94,9 @@ h6, .h6 {
   color: var(--heading-font-color);
   font-weight: var(--heading-font-weight);
 }
-
+.text-heading{
+  color: var(--heading-font-color);
+}
 .cms-heading2{
   font-family: "Roboto", sans-serif;
   font-weight: 700;

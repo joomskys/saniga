@@ -20,12 +20,6 @@ function saniga_get_page_titles() {
 			if ( is_front_page() ) {
 				$title = esc_html__( 'Welcome to', 'saniga' ).' '.get_bloginfo('name');
 			}
-		} // Single page view
-        elseif ( is_page() ) {
-			$title = get_post_meta( get_the_ID(), 'custom_title', true );
-			if ( ! $title ) {
-				$title = get_the_title();
-			}
 		} elseif ( is_404() ) {
 			$title = esc_html__( '404', 'saniga' );
 		} elseif ( is_search() ) {
@@ -41,15 +35,21 @@ function saniga_get_page_titles() {
 				$title = get_the_title();
 			}
 		}
+		$sub_title = get_post_meta( get_the_ID(), 'custom_sub_title', true );
 	} elseif ( is_author() ) {
-		$title = esc_html__( 'Author:', 'saniga' ) . ' ' . get_the_author();
+		$title     = esc_html__( 'Author:', 'saniga' ) . ' ' . get_the_author();
+		$sub_title = saniga_get_opts('custom_sub_title');
 	} else {
-		$title = get_the_archive_title();
+		$custom_title = saniga_get_opts('custom_title');
+		$_title = get_the_archive_title();
 		if( (class_exists( 'WooCommerce' ) && is_shop()) ) {
-			$title = esc_html__( 'Our Products', 'saniga' );
+			$_title = esc_html__( 'Our Products', 'saniga' );
 		}
+		$title = !empty($custom_title) ? $custom_title : $_title;
+		$sub_title = saniga_get_opts('custom_sub_title');
 	}
 	return array(
-		'title' => $title,
+		'title'     => $title,
+		'sub_title' => $sub_title
 	);
 }

@@ -2,31 +2,25 @@
 @each $name, $color in $cms_theme_colors {
 	// link color
 	.link-#{$name} {
-		color: #{$color}!important;
-		*{
-			color: inherit;
+		color: #{$color};
+		a{
+			color: #{$color};
 		}
 	}
 	.link-hover-#{$name}{
 		&:hover{
-			color: #{$color}!important;
-			*{
-				color: inherit;
+			color: #{$color};
+			a{
+				color: #{$color};
 			}
 		}
 	}
 	// text color
 	.text-#{$name}{
 		color: #{$color};
-		a{
-			color: inherit;
-		}
 	}
-	body *.text-hover-#{$name}:hover{
-		color: #{$color}!important;
-		*{
-			color: inherit;
-		}
+	.text-hover-#{$name}:hover{
+		color: #{$color};
 	}
 	// background color
 	.bg-#{$name}{
@@ -43,6 +37,10 @@
 	}
 	.bdr-hover-#{$name}:hover{
 		border-color: #{$color};
+	}
+	// divider
+	.cms-divider-#{$name}:before{
+		background-color: #{$color};
 	}
 }
 .bg-light-accent {

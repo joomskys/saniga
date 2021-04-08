@@ -262,3 +262,69 @@ if ( ! function_exists( 'saniga_post_tagged_in' ) ) :
         }
     }
 endif;
+
+// Get Post icon
+if(!function_exists('saniga_post_icon')){
+    function saniga_post_icon($args = []){
+        $args = wp_parse_args($args, [
+            'id'         => get_the_ID(),
+            'class'      => '',     
+            'before'     => '',
+            'after'      => '',
+            'icon_class' => '',
+            'img_size'   => '88x100',
+            'echo'       => true    
+        ]);
+        $icon     = saniga_get_post_format_value($args['id'], 'cms_service_icon', '');
+        $icon_img = saniga_get_post_format_value($args['id'], 'cms_service_icon_img', ['id' => '']);
+        $img_url  = saniga_get_image_url_by_size([
+            'id'   => $icon_img['id'],
+            'size' => $args['img_size']
+        ]);
+        $img_size = explode('x', $args['img_size']);
+        $img_w = $img_size[0];
+        $img_h = isset($img_size[1]) ? $img_size[1] : $img_size[0];
+        if(empty($icon) && empty($icon_img['id'])) return;
+        $_icon = $_icon_img = '';
+        if( empty($icon) && !empty($icon_img['id']) ) $_icon_img = '<span class="icon-img d-inline-block '.$args['icon_class'].'" style="width:'.$img_w.'px; height:'.$img_h.'px;"><img src="'.$img_url.'" alt="Saniga" /></span>';
+        if(!empty($icon)) $_icon = '<span class="'.$icon.' '.$args['icon_class'].'"></span>';
+
+        ob_start();
+        ?>
+            <div class="<?php echo trim(implode(' ', ['cms-post-icon', $args['class']]));?>"><?php 
+                printf('%1$s %2$s %3$s %4$s', $args['before'], $_icon, $_icon_img, $args['after'] ); 
+            ?></div>
+        <?php
+        if($args['echo']){
+            echo ob_get_clean();
+        } else {
+            return ob_get_clean();
+        }
+    }
+}
+// Get post sale off
+if(!function_exists('saniga_post_saleoff')){
+    function saniga_post_saleoff($args = []){
+        $args = wp_parse_args($args, [
+            'id'         => get_the_ID(),
+            'class'      => '',     
+            'before'     => '',
+            'after'      => '',
+            'text'       => 'off',  
+            'echo'       => true    
+        ]);
+        $sale = saniga_get_post_format_value($args['id'], 'cms_saleoff', '');
+        if(empty($sale)) return;
+        ob_start(); 
+        ?>
+            <div class="<?php echo trim(implode(' ', ['cms-saleoff', $args['class']]));?>"><?php 
+                printf('%1$s%2$s %3$s%4$s', $args['before'], $sale, $args['text'], $args['after'] ); 
+            ?></div>
+        <?php
+        if($args['echo']){
+            echo ob_get_clean();
+        } else {
+            return ob_get_clean();
+        }
+    }
+}

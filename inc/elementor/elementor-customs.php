@@ -4,16 +4,13 @@ if(!function_exists('saniga_add_cpt_support')){
     function saniga_add_cpt_support() {
         $cpt_support = get_option( 'elementor_cpt_support' );
         if( ! $cpt_support ) {
-            $cpt_support = [ 'page', 'post', 'cms-service', 'cms-doctor', 'cms-department', 'cms-footer','cms-header-top', 'cms-mega-menu' ];
+            $cpt_support = [ 'page', 'post', 'cms-service', 'cms-industry', 'cms-footer','cms-header-top', 'cms-mega-menu' ];
             update_option( 'elementor_cpt_support', $cpt_support );
         } else if( ! in_array( 'service', $cpt_support ) ) {
             $cpt_support[] = 'service';
             update_option( 'elementor_cpt_support', $cpt_support );
-        } else if( ! in_array( 'doctor', $cpt_support ) ) {
-            $cpt_support[] = 'doctor';
-            update_option( 'elementor_cpt_support', $cpt_support );
-        } else if( ! in_array( 'department', $cpt_support ) ) {
-            $cpt_support[] = 'department';
+        } else if( ! in_array( 'industry', $cpt_support ) ) {
+            $cpt_support[] = 'industry';
             update_option( 'elementor_cpt_support', $cpt_support );
         } else if( ! in_array( 'footer', $cpt_support ) ) {
             $cpt_support[] = 'footer';
@@ -75,12 +72,23 @@ if(!function_exists('saniga_custom_section_params')){
                             'type'         => \Elementor\Controls_Manager::SWITCHER,
                             'prefix_class' => 'cms-boxed-bg-',
                             'default'      => 'false',
-                            'condition'    => [
-                                //'stretch_section' => ['section-stretched']
-                            ] 
+                            'separator'    => 'before'
+                        ),
+                        array(
+                            'name'      => 'cms_boxed_overlay',
+                            'label'     => esc_html__( 'Overlay Color','saniga' ),
+                            'type'      => \Elementor\Controls_Manager::COLOR,
+                            'default'   => '',
+                            'selectors' => [
+                                '{{WRAPPER}} > .cms-section-boxed-bg:before' => 'background-color: {{VALUE}};',
+                            ],
+                            'condition' => [
+                                'cms_boxed_bg' => 'true'
+                            ], 
                         ),
                         array(
                             'name'         => 'cms_boxed_bg_background',
+                            'title'        => esc_html__( 'Boxed Background Type', 'saniga' ),
                             'type'         => \Elementor\Group_Control_Background::get_type(),
                             'control_type' => 'group',
                             'types'         => [ 'classic' ],
@@ -91,22 +99,81 @@ if(!function_exists('saniga_custom_section_params')){
                             ],
                             'selector'  => '{{WRAPPER}} > .cms-section-boxed-bg',
                             'condition'    => [
-                                'stretch_section' => ['section-stretched']
+                                'cms_boxed_bg' => ['true']
                             ]
+                        ),
+                        array(
+                            'name'         => 'cms_boxed_divider',
+                            'label'        => esc_html__( 'Boxed Divider', 'saniga' ),
+                            'type'         => \Elementor\Controls_Manager::SWITCHER,
+                            'prefix_class' => 'cms-section-boxed-divider-',
+                            'default'      => 'false',
+                            'separator'    => 'before'
+                        ),
+                        array(
+                            'name'         => 'cms_boxed_divider_pos',
+                            'label'        => esc_html__( 'Boxed Divider Position', 'saniga' ),
+                            'type'         => \Elementor\Controls_Manager::SELECT,
+                            'prefix_class' => 'cms-section-boxed-divider-',
+                            'options'      => [
+                                'top'    => esc_html__('Top', 'saniga'),
+                                'bottom' => esc_html__('Bottom', 'saniga')
+                            ],
+                            'default'      => 'top',
+                        ),
+                        array(
+                            'name'      => 'cms_boxed_divider_color',
+                            'label'     => esc_html__( 'Divider Color','saniga' ),
+                            'type'      => \Elementor\Controls_Manager::COLOR,
+                            'default'   => '',
+                            'selectors' => [
+                                '{{WRAPPER}} > .cms-section-boxed-divider' => 'background-color: {{VALUE}};',
+                            ],
+                            'condition' => [
+                                'cms_boxed_divider' => 'true'
+                            ], 
+                        ),
+                        array(
+                            'name'      => 'cms_boxed_divider_h',
+                            'label'     => esc_html__( 'Divider Height', 'saniga' ),
+                            'type'      => \Elementor\Controls_Manager::SLIDER,
+                            'range' => [
+                                'px' => [
+                                    'min'  => 1,
+                                    'max'  => 100,
+                                    'step' => 1,
+                                ],
+                            ],
+                            'default' => [
+                                'size' => '1',
+                            ],
+                            'size_units' => [ 'px'],
+                            'selectors' => [
+                                '{{WRAPPER}} > .cms-section-boxed-divider' => 'height: {{SIZE}}{{UNIT}};',
+                            ],
+                            'condition' => [
+                                'cms_boxed_divider' => 'true'
+                            ] 
                         )
-                    ),
-                ),
-            ),
+                    )
+                )
+            )
         );
     }
 }
 
 // add html to before row
 if(!function_exists('saniga_boxed_bg')){
-    //add_filter('etc-custom-section/before-elementor-row', 'saniga_boxed_bg', 10 , 1);
-    function saniga_boxed_bg($settings){
-        if($settings['cms_boxed_bg_background'] == 'true'){
-            return '<div class="cms-section-boxed-bg"></div>';
-        }
+    add_filter('etc-custom-section/before-elementor-row', 'saniga_boxed_bg', 10 , 2);
+    function saniga_boxed_bg( $html, $widget){
+        $html .= '<div class="cms-section-boxed-bg"></div>';
+        return $html;
+    }
+}
+if(!function_exists('saniga_boxed_divider')){
+    add_filter('etc-custom-section/before-elementor-row', 'saniga_boxed_divider', 11 , 2);
+    function saniga_boxed_divider( $html, $widget){
+        $html .= '<div class="cms-section-boxed-divider"></div>';
+        return $html;
     }
 }

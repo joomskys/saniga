@@ -5,138 +5,45 @@
 }
 
 .cms-testimonial-layout-1{
-	.cms-slick-sliders .slick-list{
-		overflow: hidden;
+	.cms-ttmn-content{
+		padding-left: 110px;
 	}
-	
-	.cms-slick-slider-nav{
-		.slick-track{
-		}
-		.slick-slide{
-			cursor: pointer;
-		}
+	.cms-quote-icon{
+		font-size: 30px;
+		max-width: 30px;
+		left: 38px;
+		top: 10px;
 	}
-	.cms-ttmn-desc{
-		position: relative;
-		//padding-top: 35px;
-		//padding-left: 40px;
-		&:before{
-			position: absolute;
+	.cms-ttmn-star{
+		padding-top: 2px;
+	}
+	@media (max-width: $screen-md-max){
+		.cms-ttmn-content{
+			padding-left: 70px;
+		}
+		.cms-quote-icon{
 			left: 0;
-			top: -39px;
-			z-index: -1;
-			@include font-cmsi("\f10d", 900, 97px);
-			color: var(--color-435ba1);
-		}
-		[dir="rtl"] &{
-			padding-left: 0;
-			padding-right: 40px;
-			&:before{
-				left: auto;
-				right: 0;
-			}
-		}
-	}
-	.cms-slick-sliders .slick-list{
-		margin: 0;
-		padding: 0;
-	}
-	.cms-ttmn-navs{
-		.cms-ttmn-nav-avatar{
-			width: 135px;
-			float: left;
-			margin-right: 15px;
-			[dir="rtl"] &{
-				float: right;
-				margin-right: 0;
-				margin-left: 30px;
-			}
-			.cms-ttmn-nav-item{
-				margin-right: 5px;
-				&.slick-current,
-				&:hover{
-					.cms-slick-nav-img{
-						border-color: $accent-color;
-					}
-				}
-			}
-			.cms-slick-nav-img{
-				border: 2px solid transparent;
-				padding: 3px;
-				@include border-radius(50%);
-				width: 50px;
-				height: 50px;
-			}
-		}
-		.cms-ttmn-nav-avatar-info{
-			float: left;
-			width: calc(100% - 150px);
-			[dir="rtl"] &{
-				float: right;
-			}
 		}
 	}
 }
 
-// layout 2
 .cms-testimonial-layout-2{
-	.cms-ttmn-desc{
-		position: relative;
-		padding-top: 10px;
-		padding-bottom: 25px;
+	.cms-ttmn-item-inner{
+		background: url('../images/icons/quote-right-white-1.png') top right no-repeat;
 	}
-	.cms-ttmn-img{
-		position: relative;
-		display: inline-block;
-		&:before,
-		&:after{
-			content: '';
-			visibility: hidden;
+	// Nav arrows
+	&.cms-slick-nav-bottom-right{
+		.cms-slick--arrows{
 			position: absolute;
-			@include border-radius(50%);
-			@include transition();
-			@include transform(scale(0));
-		}
-		&:before{
-			content: '';
-			width: 34px;
-			height: 34px;
-			line-height: 34px;
-			text-align: center;
-			color: $accent-color;
-			font-size: 20px;
-			top: 8px;
-			right: 8px;
-			bottom: 8px;
-			left: 8px;
-			background: $white url('../images/quote1.png') center center no-repeat;
-			z-index: 1;
-		}
-		&:after{
-			top: 0;
-			bottom:0;
-			left: 0;
-			right: 0;
-			background-color: $accent-color;
-			@include opacity(0.7);
-		}
-		img{
-			min-width: 50px;
-			min-height: 50px;
-			box-shadow: 0 0 0 5px white, 0 0 0 7px $accent-color;
-		}
-	}
-	.cms-ttmn-item:hover{
-		.cms-ttmn-img{
-			&:before,
-			&:after{
-				visibility: visible;
-				@include transform(scale(1));
+		    bottom: 130px;
+		    right: 0;
+		    [dir="rtl"] &{
+		    	right: auto;
+		    	left: 0;
+		    }
+			.cms-slick-arrows{
+				padding-top: 0;
 			}
 		}
-	}
-	.cms-slick-sliders .slick-list{
-		margin: 0;
-		padding: 0;
 	}
 }

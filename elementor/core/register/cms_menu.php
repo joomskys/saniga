@@ -40,6 +40,10 @@ etc_add_custom_widget(
                                 '3' => [
                                     'label' => esc_html__( 'Layout 3', 'saniga' ),
                                     'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_menu/layout-images/3.png'
+                                ],
+                                '4' => [
+                                    'label' => esc_html__( 'Layout 4', 'saniga' ),
+                                    'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_menu/layout-images/4.png'
                                 ]
                             ],
                             'prefix_class' => 'cms-menu-layout-'
@@ -57,7 +61,7 @@ etc_add_custom_widget(
                             'type'        => \Elementor\Controls_Manager::TEXTAREA,
                             'label_block' => true,
                             'condition'   => [
-                                'layout'  => ['2']
+                                'layout'  => ['2','4']
                             ]
                         ),
                         array(
@@ -108,12 +112,28 @@ etc_add_custom_widget(
                                 'custom'   => false
                             ]),
                         ),
+                        array(
+                            'name'        => 'link_bg_color',
+                            'label'       => esc_html__( 'Item Background Color', 'saniga' ),
+                            'type'        => \Elementor\Controls_Manager::SELECT,
+                            'options'     => saniga_elementor_theme_color_opts([
+                                'custom'   => false
+                            ])
+                        ),
+                        array(
+                            'name'        => 'link_bg_hover_color',
+                            'label'       => esc_html__( 'Item Background Hover Color', 'saniga' ),
+                            'type'        => \Elementor\Controls_Manager::SELECT,
+                            'options'     => saniga_elementor_theme_color_opts([
+                                'custom'   => false
+                            ])
+                        ),
                         saniga_elementor_row_align([
                             'label'     => esc_html__('Text Align','saniga'),
                             'condition' => [
                                 'layout' => ['1']
                             ]
-                        ]),
+                        ])
                     )
                 )
             )

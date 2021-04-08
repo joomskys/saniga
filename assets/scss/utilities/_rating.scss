@@ -2,7 +2,7 @@ $star_icon_font: "font-cmsi";
 $star_icon: "\f110";
 $star_icon_filled: "\f111";
 $star_icon_color: $primary-color;
-$star_icon_filled_color: $rating-color;
+$star_icon_filled_color: $secondary-color;
 
 .comments-rating {
 	border: none;
@@ -98,10 +98,10 @@ $star_icon_filled_color: $rating-color;
 	height: 14px;
 	display: inline-block;
 	letter-spacing: 3px;
+	color: $star_icon_color;
 	&:before{
 		font-family: $star_icon_font;
 		content: '\f110\f110\f110\f110\f110';
-		color: $star_icon_color;
 	}
 	.cms-star-rated{
 		top: 0;

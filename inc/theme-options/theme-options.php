@@ -759,27 +759,33 @@ if(class_exists('Woocommerce')) {
         'title'      => esc_html__('Sinlge Products', 'saniga'),
         'icon'       => 'el el-shopping-cart',
         'subsection' => true,
-        'fields'     => array(
-            saniga_sidebar_opts([
-                'name'          => 'product_single_sidebar_pos',
-                'fields_only'   =>  true,
-                'default_value' => saniga_configs('blog')['single_sidebar_pos']  
-            ]),
+        'fields'     => array_merge(
             array(
-                'id'            => 'product_single_content_col',
-                'title'         => esc_html__('Content Columns', 'saniga'),
-                'subtitle'      => esc_html__('Choose content Columns', 'saniga'),
-                'type'          => 'slider',
-                'default'       => saniga_configs('blog')['archive_content_col'],
-                'min'           => 1,
-                'step'          => 1,
-                'max'           => 11,
-                'display_value' => 'label',
-                'required'      => [ 
-                    ['product_page_sidebar_pos', '!=', '0'],
-                    ['product_page_sidebar_pos', '!=', 'bottom']
-                ],
+                saniga_sidebar_opts([
+                    'name'          => 'product_single_sidebar_pos',
+                    'fields_only'   =>  true,
+                    'default_value' => saniga_configs('blog')['single_sidebar_pos']  
+                ]),
+                array(
+                    'id'            => 'product_single_content_col',
+                    'title'         => esc_html__('Content Columns', 'saniga'),
+                    'subtitle'      => esc_html__('Choose content Columns', 'saniga'),
+                    'type'          => 'slider',
+                    'default'       => saniga_configs('blog')['archive_content_col'],
+                    'min'           => 1,
+                    'step'          => 1,
+                    'max'           => 11,
+                    'display_value' => 'label',
+                    'required'      => [ 
+                        ['product_single_sidebar_pos', '!=', '0'],
+                        ['product_single_sidebar_pos', '!=', 'bottom']
+                    ],
+                )
             ),
+            saniga_page_title_opts_fields([
+                'prefix'         => 'product_',
+                'default_layout' => saniga_configs('ptitle')['layout'],
+            ])
         )
     ));
 }

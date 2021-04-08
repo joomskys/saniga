@@ -24,7 +24,8 @@ $breakpoints: $grid-breakpoints;
 		@each $name, $width in $elementor_col_width{
 			.elementor-col#{$infix}-#{$name},
 			.elementor-column[data-col="#{$name}"] {
-				width: #{$width};
+				//width: #{$width};
+				//flex: 0 0 #{$width};
 			}
 			.col#{$infix}-basic{
 				flex-basis: 0;

@@ -8,14 +8,14 @@ $alignment : (
 );
 @each $name, $align in $alignment{
 	.cms-justify-content-#{$name} {
-		> .elementor-container > .elementor-row{
+		> .elementor-container{
 			justify-content: #{$align};
 		}
 	}
 }
 @media (min-width: 1600px){
 	.cms-justify-content-xxl-between {
-		> .elementor-container > .elementor-row{
+		> .elementor-container{
 			justify-content: space-between;
 		}
 	}
@@ -26,24 +26,63 @@ $alignment : (
 	}
 }
 
-.cms-section-boxed-bg{
-	display: none;
+// Boxed background
+.cms-boxed-bg-true > .cms-section-boxed-bg{
 	position: absolute;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
+	background-color: $accent-color;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-color: $primary-color;
-	@include border-radius(16px);
-	@media (min-width: $desktop-screen){
+	@media (min-width: 1366px){
 		left: 40px;
 		right: 40px;
 	}
-	.cms-boxed-bg-true > &{
-		display: block;
+	@media (min-width: 1600px){
+		left: 80px;
+		right: 80px;
+	}
+
+	&:before{
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+}
+// Boxed Divider 
+.cms-section-boxed-divider-true{
+	.cms-section-boxed-divider{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+		background-color: $border-color;
+	}
+	&.elementor-section-boxed {
+		.cms-section-boxed-divider{
+			@media (min-width: 1366px){
+				left: 40px;
+				right: 40px;
+			}
+			@media (min-width: 1440px){
+				left: 80px;
+				right: 80px;
+			}
+		}
+	}
+
+	&.cms-section-boxed-divider-bottom{
+		.cms-section-boxed-divider{
+			top: auto;
+			bottom: 0;
+		}
 	}
 }
 @import 'custom_column';

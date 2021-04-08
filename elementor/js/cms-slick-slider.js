@@ -40,7 +40,7 @@
                 {
                     breakpoint: breakpoints.lg,
                     settings: {
-                        rows: data.rowstablet,
+                        //rows: data.rowstablet,
                         slidesToShow: data.slidestoshowtablet,
                         slidesToScroll: data.slidestoscrolltablet,
                         arrows: data.arrowstablet,
@@ -51,7 +51,7 @@
 
                     breakpoint: breakpoints.md,
                     settings: {
-                        rows: data.rowsmobile,
+                        //rows: data.rowsmobile,
                         slidesToShow: data.slidestoshowmobile,
                         slidesToScroll: data.slidestoscrollmobile,
                         arrows: data.arrowsmobile,
@@ -59,7 +59,7 @@
                     }
                 }
             ],
-            adaptiveHeight: true
+            //adaptiveHeight: true
         };
         if(true === data.asnavfor){
             slickOptions['asNavFor'] = '.cms-slick-slider-nav, .cms-slick-slider-meta';//carousel_nav + ',' + carousel_meta;
@@ -143,7 +143,7 @@
             arrows: true,
             appendArrows: carousel.parents('.cms-howitwork-sliders').find('.cms-slick-arrows'),
             prevArrow : '<div class="cms-slick-prev cms-slick-arrow"><span class="cms-slick-arrow-icon prev cmsi-long-arrow-left"></span></div>',
-            nextArrow : '<div class="cms-slick-next cms-slick-arrow"><span class="cms-slick-arrow-icon next cmsi-long-arrow-right-1"></span></div>',
+            nextArrow : '<div class="cms-slick-next cms-slick-arrow"><span class="cms-slick-arrow-icon next cmsi-long-arrow-right"></span></div>',
             // Dots
             dots: false,
             // Items
@@ -199,7 +199,43 @@
                     }
                 ]
             });
-        });        
+        });      
+    };
+    // Pricing Slider 
+    var CMSPricingSlider = function($scope, $){
+        var carousel = $scope.find('.cms-pricing-table-slide');
+        var breakpoints = elementorFrontend.config.breakpoints;
+        var data = carousel.data();
+        if(carousel.length == 0){
+            return false;
+        }
+        console.log(data.rtl);
+        $settings = {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: false,
+            arrows: true,
+            appendArrows: carousel.parent('.cms-pricing-table-wrap').find('.cms-pricing-slick-arrows'),
+            prevArrow : '<div class="cms-slick-prev cms-slick-arrow rtl-flip"><span class="cms-slick-arrow-icon prev cmsi-arrow-left"></span></div>',
+            nextArrow : '<div class="cms-slick-next cms-slick-arrow rtl-flip"><span class="cms-slick-arrow-icon next cmsi-arrow-right"></span></div>',
+            //adaptiveHeight: true,
+            rtl: data.rtl
+        };
+        console.log($settings);
+        carousel.each(function() {
+            $(this).slick({
+                //fade: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: false,
+                arrows: true,
+                appendArrows: carousel.parent('.cms-pricing-table-wrap').find('.cms-pricing-slick-arrows'),
+                prevArrow : '<div class="cms-slick-prev cms-slick-arrow rtl-flip"><span class="cms-slick-arrow-icon prev cmsi-arrow-left"></span></div>',
+                nextArrow : '<div class="cms-slick-next cms-slick-arrow rtl-flip"><span class="cms-slick-arrow-icon next cmsi-arrow-right"></span></div>',
+                //adaptiveHeight: true,
+                rtl: data.rtl
+            });
+        });  
     };
     
 
@@ -213,5 +249,6 @@
         elementorFrontend.hooks.addAction( 'frontend/element_ready/cms_careers.default', CMSSlickSliderHandler );
         elementorFrontend.hooks.addAction( 'frontend/element_ready/cms_fancy_box.default', CMSSlickSliderDataSettingsHandler );
         elementorFrontend.hooks.addAction( 'frontend/element_ready/cms_howitwork.default', CMSSlickSliderHowItWork );
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/cms_pricing_table_slide.default', CMSPricingSlider );
     } );
 } )( jQuery );

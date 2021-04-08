@@ -1,12 +1,8 @@
 .elementor-widget-wrap>.elementor-inner-section.elementor-section-boxed{
-	max-width: calc(#{$desktop-screen} - 30px);
-	> .elementor-container{
-		margin-left: 0;
-		[dir="rtl"] &{
-			margin-left: auto;
-			margin-right: 0;
-		}
-	}
+	max-width: calc(100% + #{$grid-gutters});
+    width: calc(100% + #{$grid-gutters});
+    margin-left: $grid-gutters/-2;
+    margin-right: $grid-gutters/-2;
 }
 
 .elementor-inner-section.bg-full-right{

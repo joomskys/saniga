@@ -240,6 +240,8 @@ if(!function_exists('saniga_scripts')){
         wp_enqueue_style( 'saniga-google-fonts', saniga_fonts_url() );
         // theme font icon
         wp_enqueue_style( 'font-cmsi', get_template_directory_uri() . '/assets/fonts/font-cmsi/styles.css', array(), $theme->get( 'Version' ) );
+        // Saniga incon
+        wp_enqueue_style( 'font-saniga', get_template_directory_uri() . '/assets/fonts/font-saniga/flaticon.css', array(), $theme->get( 'Version' ) );
         // theme style
         wp_enqueue_style( 'saniga', get_template_directory_uri() . '/assets/css/theme'.$min.'.css', array(), $theme->get( 'Version' ) );
         wp_add_inline_style( 'saniga', saniga_inline_styles() );
@@ -255,8 +257,6 @@ if(!function_exists('saniga_scripts')){
         if ( isset( $smoothscroll ) && $smoothscroll ) {
             wp_enqueue_script( 'smoothscroll', get_template_directory_uri() . '/assets/js/smoothscroll.min.js', array( 'jquery' ), 'all', true );
         }
-        // sidebar fixed on scroll
-        wp_register_script( 'saniga-sidebar-fixed', get_template_directory_uri() . '/assets/js/sidebar-scroll-fixed.js', array( 'jquery' ), '1.0.0', true );
         // Slick Slider 
         wp_register_script( 'jquery-slick', get_template_directory_uri() . '/assets/js/slick/slick.min.js', array( 'jquery' ), '1.8.1', true );
         // Theme JS
@@ -396,3 +396,38 @@ if(!function_exists('saniga_elementor_base_scripts')){
 remove_action( 'set_comment_cookies', 'wp_set_comment_cookies' );
 // remove lazy load 
 add_filter( 'wp_lazy_loading_enabled', '__return_false' );
+
+
+// Allow SVG
+add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mimes) {
+
+  global $wp_version;
+  if ( $wp_version !== '4.7.1' ) {
+     return $data;
+  }
+
+  $filetype = wp_check_filetype( $filename, $mimes );
+
+  return [
+      'ext'             => $filetype['ext'],
+      'type'            => $filetype['type'],
+      'proper_filename' => $data['proper_filename']
+  ];
+
+}, 10, 4 );
+
+function cc_mime_types( $mimes ){
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter( 'upload_mimes', 'cc_mime_types' );
+
+function fix_svg() {
+  echo '<style>
+        .attachment-266x266, .thumbnail img {
+             width: 100% !important;
+             height: auto !important;
+        }
+        </style>';
+}
+//add_action( 'admin_head', 'fix_svg' );

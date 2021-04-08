@@ -11,12 +11,10 @@
 }
 
 // Layout 1
-.cms-accordion-layout1{
+.cms-accordion-layout-1{
 	.cms-accordion-item{
 		padding: 22px 30px;
 		border: 2px solid $border-color;
-		@include border-radius(8px);
-		@include transition();
 		margin-bottom: 30px;
 		cursor: pointer;
 		&:last-child{

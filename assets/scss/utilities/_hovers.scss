@@ -49,3 +49,18 @@
 	    display: block;
 	}
 }
+// Hover Show Content
+.cms-hover-show-more-text-wrap{
+	.cms-hover-show-more-text{
+		overflow: hidden;
+		.cms-btn-text{
+			@include transform(translateX(-150%));
+			@include transition();
+		}
+	}
+	&:hover{
+		.cms-btn-text{
+			@include transform(translateX(0));
+		}
+	}
+}

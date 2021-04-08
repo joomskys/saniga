@@ -1,0 +1,38 @@
+.elementor-widget-cms_download{
+	.cms-download-item{
+		a{
+			display: flex;
+	    	flex-wrap: wrap;
+	    	align-items: center;
+	    	position: relative;
+	    	&:before{
+	    		content: '';
+	    		width: 80px;
+	    		position: absolute;
+	    		top: 0;
+	    		left: 0;
+	    		bottom: 0;
+	    		background: rgba($white, 0.2);
+	    		[dir="rtl"] &{
+	    			left: auto;
+	    			right: 0;
+	    		}
+	    	}
+		}
+		.cms-download-icon{
+			flex: 0 0 80px;
+		    width: auto;
+		    max-width: 80px;
+		    text-align: center;
+		    vertical-align: middle;
+		    position: relative;
+		    z-index: 1;
+		}
+		.cms-download-text{
+			flex-basis: 0;
+		    flex-grow: 1;
+		    max-width: 100%;
+		    padding: 27.5px 25px;
+		}
+	}
+}

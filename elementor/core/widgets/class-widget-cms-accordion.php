@@ -1,0 +1,11 @@
+<?php
+
+class ETC_CmsAccordion_Widget extends Elementor_Theme_Core_Widget_Base{
+    protected $name = 'cms_accordion';
+    protected $title = 'CMS Accordion';
+    protected $icon = 'eicon-accordion';
+    protected $categories = array( 'elementor-theme-core' );
+    protected $params = '{"sections":[{"name":"layout_section","label":"Layout","tab":"layout","controls":[{"name":"layout","label":"Templates","type":"layoutcontrol","default":"1","options":{"1":{"label":"Layout 1","image":"http:\/\/localhost\/saniga\/wp-content\/themes\/saniga\/elementor\/templates\/widgets\/cms_accordion\/layout-images\/layout1.png"}},"prefix_class":"cms-accordion-layout-"}]},{"name":"source_section","label":"Source Settings","tab":"content","controls":[{"name":"heading","label":"Heading","type":"text","separator":"after"},{"name":"active_section","label":"Active section","type":"number","separator":"after"},{"name":"cms_accordion","label":"Accordion Items","type":"repeater","default":[{"ac_title":"Accordion #1","ac_content":"Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."},{"ac_title":"Accordion #2","ac_content":"Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."}],"controls":[{"name":"ac_title","label":"Title","type":"text"},{"name":"ac_title_icon","label":"Title Icon","type":"icons","fa4compatibility":"icon","default":{"value":"","library":""}},{"name":"ac_content","label":"Content","type":"textarea","rows":10}],"title_field":"{{{ ac_title }}}","separator":"after"}]},{"name":"explain_section","label":"Explain Settings","tab":"layout","controls":[{"name":"explain_icon_pos","label":"Explain Icon position","type":"select","options":{"left":"Left","right":"Right"},"default":"right"},{"name":"main_icon","label":"Icon","type":"icons","fa4compatibility":"icon","default":{"value":"cmsi-plus","library":"cmsi"}},{"name":"icon_active","label":"Active Icon","type":"icons","fa4compatibility":"icon","default":{"value":"cmsi-minus","library":"cmsi"},"condition":{"main_icon!":""},"separator":"after"}]}]}';
+    protected $styles = array(  );
+    protected $scripts = array( 'cms-accordion' );
+}

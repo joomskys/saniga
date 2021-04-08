@@ -28,11 +28,13 @@
         // background image moving
         saniga_background_moving();
         // custom html checkbox and radio
-        saniga_html_input_checkbox();
+        //saniga_html_input_checkbox();
         // Smooth Scroll
         saniga_smooth_scroll()
         // full
         saniga_elementor_section_full_width_with_space();
+        // gallery load more
+        saniga_galleries_loadmore();
     });
 
     $(window).on('load', function () {
@@ -814,24 +816,25 @@
     ======================================================== **/
     function saniga_elementor_section_full_width_with_space(){
         'use strict';
-        if($(window).width() > 1199 ){
+        if($(window).width() > 1279 ){
             setTimeout(function(){
                 $('.elementor-section-full_width').each(function () {
                     var offset = parseInt($(this).css('left').replace('-','')),
+                        main_offset = ($(window).width() - 1280)/2,
                         offset_wide = offset - 115,
                         $section_space_start = $(this).hasClass('cms-full-content-with-space-start'),
                         $section_space_end = $(this).hasClass('cms-full-content-with-space-end'),
                         $section_space_start_wide = $(this).hasClass('cms-full-content-with-space-start-wide'),
                         $section_space_end_wide = $(this).hasClass('cms-full-content-with-space-end-wide');
-
+                    console.log(main_offset);   
                     if(saniga_is_rtl()){
                         if($section_space_start) {
                             $(this).css({
-                                'padding-right': offset + 'px',
+                                'padding-right': main_offset + 'px',
                             });
                         } else if($section_space_end) {
                             $(this).css({
-                                'padding-left': offset + 'px',
+                                'padding-left': main_offset + 'px',
                             });
                         }
                         if($section_space_start_wide) {
@@ -846,11 +849,11 @@
                     } else {
                         if($section_space_start){
                             $(this).css({
-                                'padding-left': offset + 'px',
+                                'padding-left': main_offset + 'px',
                             });
                         } else if($section_space_end){
                             $(this).css({
-                                'padding-right': offset + 'px',
+                                'padding-right': main_offset + 'px',
                             });
                         }
                         if($section_space_start_wide){
@@ -866,7 +869,7 @@
                 });
             }, 100 )
         } else {
-            $('.elementor-section-full_width').each(function () {
+            $('.elementor-section').each(function () {
                 $(this).css({
                     'padding-left': '',
                     'padding-right': ''
@@ -890,5 +893,70 @@
             }
         });
     }
+    /**
+     * Galleries Load more
+    **/
+    function saniga_dropdown_menu(){
+        'use strict';
+        var $menu = $('.cms-main-navigation');        
+        $menu.find('.cms-primary-menu li').each(function () {
+            var $submenu = $(this).find('> ul.sub-menu');
+            if ($submenu.length == 1) {
+                $(this).hover(function () {
+                    if ($submenu.offset().left + $submenu.width() > $(window).width()) {
+                        $submenu.addClass('back');
+                    } else if ($submenu.offset().left < 0) {
+                        $submenu.addClass('back');
+                    }
+                }, function () {
+                    $submenu.removeClass('back');
+                });
+            }
+        });
+
+        $('.sub-menu .current-menu-item').parents('.menu-item-has-children').addClass('current-menu-ancestor');
+    }
+    function saniga_galleries_loadmore() {
+        'use strict';
+        /*$('.cms-image-gallery').each(function() {
+            var data_show = $(this).data('show'),
+                data_load = $(this).data('loadmore'),
+                item_show = $(this).find('.cms-gallery-item'); 
+                console.log(data_show, data_load);
+            $(this).find('.cms-gallery-item').addClass('fuck');
+            $('.cms-gallery-item').slide(0, data_show);
+            $(this).find('#load').on('click', function(e){
+                e.preventDefault();
+                //$(this).parents('.cms-image-gallery').find('.cms-gallery-item:hidden').slide(0,data_load).show();
+                if ($(this).find(".cms-gallery-item:hidden").length == 0) { // check if any hidden divs still exist
+                  //alert("No more divs"); // alert if there are none left
+                  $(this).hide();
+                }
+            });
+        });*/
+        var data_show = $('.cms-image-gallery').data('show'),
+            data_load = $('.cms-image-gallery').data('loadmore'); 
+        $(".cms-image-gallery .cms-gallery-item").slice(0, data_show).show(); // select the first ten
+        $(".cms-image-gallery .cms-gallery-load").on('click',  function(e) { // click event for load more
+            e.preventDefault();
+            $(".cms-image-gallery .cms-gallery-item:hidden").slice(0, data_load).show(300); // select next 10 hidden divs and show them
+            if ($(".cms-image-gallery .cms-gallery-item:hidden").length == 0) { // check if any hidden divs still exist
+              //alert("No more divs"); // alert if there are none left
+              $(this).hide();
+            }
+        });
+    };
 
 })(jQuery);
+/*
+var item_show = 1;
+          $(".cms-image-gallery .cms-gallery-item").slice(0, 2).show(); // select the first ten
+          $(".cms-image-gallery #load").click(function(e) { // click event for load more
+            e.preventDefault();
+            $(".cms-image-gallery .cms-gallery-item:hidden").slice(0, 2).show(); // select next 10 hidden divs and show them
+            if ($(".cms-image-gallery .cms-gallery-item:hidden").length == 0) { // check if any hidden divs still exist
+              //alert("No more divs"); // alert if there are none left
+              $(this).hide();
+            }
+          });
+*/

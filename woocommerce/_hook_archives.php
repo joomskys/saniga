@@ -221,7 +221,7 @@ if ( ! function_exists( 'woocommerce_template_loop_product_title' ) ) {
 	 * Show the product title in the product loop. By default this is an H2.
 	 */
 	function woocommerce_template_loop_product_title() {
-		echo '<span class="cms-heading text-21">' . get_the_title() . '</span>';
+		echo '<span class="cms-heading text-20">' . get_the_title() . '</span>';
 	}
 }
 

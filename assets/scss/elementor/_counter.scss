@@ -2,27 +2,20 @@
 	white-space: nowrap;
 	overflow: hidden;
 }
+.cms-counter-icon.default-thumb{
+	//max-width: 64px;
+}
 // layout 1
 .cms-counter-layout1{
-	.cms-counter-image img{
-		max-width: 37px;
+	.cms-counter-icon{
+		@include opacity(0.1);
 	}
-}
-// layout 2
-.cms-counter-layout2{
-	.cms-counter-wrap:after{
-		content: '';
-		width: 28px;
-		height: 2px;
-		display: block;
-		background-color: $border-color;
-		margin-top: 22px;
-	}
-}
-
-.cms-counter-links .cms-link{
-	padding-bottom: 5px;
-	&:last-child{
-		padding-bottom: 0;
+	.cms-counter-number-wrap{
+		top: 20px;
+		left: 30px;
+		[dir="rtl"] &{
+			left: auto;
+			right: 30px;
+		}
 	}
 }

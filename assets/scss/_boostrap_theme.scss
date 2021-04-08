@@ -35,9 +35,11 @@ $theme-gutters: (
 			$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 			@each $gutter, $value in $theme-gutters{
 				&.gutters#{$infix}-#{$gutter}{
-					margin: 0 $value/-2;
+					margin-left: $value/-2;
+					margin-right: $value/-2;
 					> [class*='col']{
-						padding: 0 $value/2;
+						padding-left: $value/2;
+						padding-right: $value/2;
 					}
 					&.gutters-grid{
 						margin: $value/-2;

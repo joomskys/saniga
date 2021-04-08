@@ -28,6 +28,10 @@
 			background: $secondary-color;
 			@include box-shadow(0 0 0 2px $secondary-color inset);
 		}
+		i{
+			display: block;
+			@include transform(translateY(3px));
+		}
 	}
 }
 .cms-socials-layout-3{

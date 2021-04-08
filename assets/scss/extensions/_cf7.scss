@@ -2,11 +2,17 @@
 	[dir="rtl"] &{
 		direction: rtl!important;
 	}
-	.wpcf7-submit + .ajax-loader{
-		position: absolute;
-		display: none;
-		&.is-active{
-			display: block;
+	.cms-submit {
+		position: relative;
+		.ajax-loader{
+			margin: 0;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			@include transform(translate(-50%, -50%));
+			&.is-active{
+				display: block;
+			}
 		}
 	}
 	span.wpcf7-list-item{
@@ -14,6 +20,29 @@
 		&.first,
 		&:first-child{
 			margin-left: 0;
+		}
+	}
+	label{
+		font-size: 14px;
+		font-weight: 700;
+		color: $heading-font-color;
+		font-family: $heading-font-family;
+		padding-bottom: 7px;
+		+ br{
+			display: none;
+		}
+	}
+	// Radio List
+	.wpcf7-form-control.wpcf7-radio{
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -10px;
+		span.wpcf7-list-item{
+			flex: 0 0 auto;
+		    width: auto;
+		    max-width: 100%;
+		    padding: 0 10px;
+		    margin: 0;
 		}
 	}
 }

@@ -1,105 +1,32 @@
-.cms-heading-singnature{
-	padding: 17px 44px 17px 0;
-	img{
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-}
-.cms-heading-feature-item{
-	&:not(:last-child){
-		padding-bottom: 10px;
-	}
-	.cms-icon{
-	    font-size: 22px;
-	}
-}
-
-// Layout 4
-.cms-heading-layout-4{
-	.btn-accent{
-		&:hover{
-			background-color: $white;
-			border-color: $white;
-			color: $accent-color;
+// Layout 1
+.cms-heading-layout-1{
+	.cms-heading-singnature{
+		.cms-divider{
+			width: 2px;
+			height: 38px;
+			background-color: $border-color;
 		}
 	}
 }
-
-// Layout 6
-.cms-heading-layout-6{
-	.cms-heading-features{
-		display: flex;
-		flex-wrap: wrap;
-		margin-left: -15px;
-		margin-right: -15px;
-		.cms-heading-feature-item {
-			flex: 0 0 50%;
-			max-width: 50%;
-			padding-left: 15px;
-			padding-right: 15px;
-			@media (max-width: $screen-md-max ){
-				flex: 0 0 100%;
-				max-width: 100%;
-			}
-		}
+// layout 5
+.cms-heading-layout-5{
+	.cms-signature{
+		bottom: 20px;
 	}
-}
-
-// layout 7
-.cms-heading-layout-7{
-	.cms-heading-wrapper{
-		padding-top: 130px;
-	}
-	.cms-heading-img{
-		position: absolute;
-		top: 0;
-		@media(min-width: $screen-xl-min){
-			right: -15px;
-			[dir="rtl"] &{
-				right: auto;
-				left: -15px;
-			}
-			&.order-last{
-				left: -15px;
+	@media (min-width: $screen-lg-min){
+		.cms-heading-desc {
+			&:before{
+				content: '';
+				position: absolute;
+				left: -42px;
+				width: 4px;
+				top: 57px;
+				bottom: 7px;
+				background: $border-color;
 				[dir="rtl"] &{
 					left: auto;
-					right: -15px;
+					right: -42px;
 				}
-			}
-		}
-	}
-	.cms-heading-content{
-		position: relative;
-		z-index: 1;
-		&.order-last{
-			@media (min-width: $screen-xl-min){
-				margin-left: 47.5%;
-				padding-left: 100px;
-				[dir="rtl"] &{
-					margin-left: 0;
-					margin-right: 47.5%;
-					padding-left: 15px;
-					padding-right: 100px;
-				}
-			}
-		}
-	}
-	.cms-heading-desc{
-		position: relative;
-		&:before{
-			content: '';
-			position: absolute;
-			left: 0;
-			top: 8px;
-			bottom: 8px;
-			width: 4px;
-			background-color: $accent-color;
-		}
-		[dir="rtl"] &{
-			&:before{
-				left: auto;
-				right: 0;
 			}
 		}
 	}
