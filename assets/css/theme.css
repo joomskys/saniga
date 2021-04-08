@@ -41317,7 +41317,7 @@ p.demo_store a, .woocommerce-store-notice a {
 
 .woocommerce .widget_layered_nav_filters ul li a::before {
   font-family: "font-cmsi";
-  content: "\f057";
+  content: "\f038";
   color: #dc3545;
   vertical-align: inherit;
   margin-right: 0.5em; }
@@ -41526,7 +41526,7 @@ ul.cart_list li dl dd p:last-child, ul.product_list_widget li dl dd p:last-child
 
 .woocommerce-message::before {
   font-family: "font-cmsi";
-  content: '\f057';
+  content: '\f038';
   color: #8fae1b; }
 
 .woocommerce-info {
@@ -41540,7 +41540,7 @@ ul.cart_list li dl dd p:last-child, ul.product_list_widget li dl dd p:last-child
 
 .woocommerce-error::before {
   font-family: "font-cmsi";
-  content: "\f057";
+  content: "\f038";
   color: #b81c23; }
 /**
  * Account page
