@@ -85,7 +85,7 @@ add_action('woocommerce_shop_loop_item_title','woocommerce_template_loop_product
 if(!function_exists('saniga_wrap_products_thumbnail_open')){
 	add_action('woocommerce_before_shop_loop_item', 'saniga_wrap_products_thumbnail_open', 1);
 	function saniga_wrap_products_thumbnail_open(){
-		echo '<div class="cms-products-thumb relative">';
+		echo '<div class="cms-products-thumb relative overflow-hidden">';
 	}
 }
 if(!function_exists('saniga_wrap_products_thumbnail_close')){
