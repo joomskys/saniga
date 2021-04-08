@@ -826,7 +826,6 @@
                         $section_space_end = $(this).hasClass('cms-full-content-with-space-end'),
                         $section_space_start_wide = $(this).hasClass('cms-full-content-with-space-start-wide'),
                         $section_space_end_wide = $(this).hasClass('cms-full-content-with-space-end-wide');
-                    console.log(main_offset);   
                     if(saniga_is_rtl()){
                         if($section_space_start) {
                             $(this).css({
