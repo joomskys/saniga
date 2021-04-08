@@ -41439,8 +41439,9 @@ p.demo_store a, .woocommerce-store-notice a {
 .woocommerce-message::before, .woocommerce-error::before, .woocommerce-info::before {
   font-family: "font-cmsi";
   content: '\f038';
-  width: 20px;
-  max-width: 20px;
+  width: 40px;
+  max-width: 40px;
+  font-size: 30px;
   flex: 0 0 auto; }
 
 .woocommerce-message .cms-added-to-cart-msg, .woocommerce-error .cms-added-to-cart-msg, .woocommerce-info .cms-added-to-cart-msg {
