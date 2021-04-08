@@ -536,7 +536,7 @@ p.demo_store,
 	padding: 25px;
 	margin: 0 0 40px;
 	position: relative;
-	background-color: #e4f2e2;
+	background-color: #dcf5fb;
 	border-top: 0px solid var(--color-accent);
 	list-style: none outside;
 	width: 100%;
@@ -544,13 +544,12 @@ p.demo_store,
 	font-size: 19px;
 	font-weight: 600;
 	color: $primary-color;
-	@include border-radius(8px 8px 0 8px);
 	display: flex;
 	flex-wrap: wrap;
 	align-items:center;
 	//justify-content: space-between;
 	&::before {
-		@include font-cmsi('\f05a');
+		@include font-cmsi('\f038');
 		width: 20px;
 		max-width: 20px;
 		flex: 0 0 auto;
