@@ -550,8 +550,9 @@ p.demo_store,
 	//justify-content: space-between;
 	&::before {
 		@include font-cmsi('\f038');
-		width: 20px;
-		max-width: 20px;
+		width: 40px;
+		max-width: 40px;
+		font-size: 30px;
 		flex: 0 0 auto;
 	}
 	.cms-added-to-cart-msg{
