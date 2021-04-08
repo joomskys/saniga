@@ -15,14 +15,14 @@
 }
 .price{
 	font-size: 20px;
-	color: var(--primary-color);
+	color: var(--secondary-color);
 	del{
 		text-decoration: line-through!important;
 		@include opacity(0.5);
 	}
 }
 del{
+	color: $secondary-color;
 	text-decoration: line-through!important;
 	@include opacity(0.5);
-	color: $accent-color;
 }
