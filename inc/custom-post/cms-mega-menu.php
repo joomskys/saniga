@@ -3,7 +3,7 @@
 if(!function_exists('saniga_enable_megamenu')){
 	add_filter( 'cms_enable_megamenu', 'saniga_enable_megamenu' );
 	function saniga_enable_megamenu() {
-		return false;
+		return true;
 	}
 }
 if(!function_exists('saniga_enable_onepage')){

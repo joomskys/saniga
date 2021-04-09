@@ -9,33 +9,44 @@ table.cart {
 		font-family: var(--heading-font-family);
 	}
 	td, th{
-		&:not(.product-name){
-			text-align: center;
-		}
+		text-align: center;
 		&.product-subtotal{
 			border-right: 1px solid #ddd;
 		}
 	}
 	td{
-		&.actions{
-			border-right: 0;
-			border-left: 0;
-			border-bottom: 0;
-			padding: 0;
-			text-align: start!important;
-			> .coupon,
-			> button[name="update_cart"],
-			[type="hidden"]{
-				display: none!important;
+		&.product-name > div{
+			> a{
+				font-weight: 700;
+				margin: 0 10px;
+				&.remove{
+					width: 20px;
+					height: 20px;
+					line-height: 20px;
+					color: $white;
+					background-color: black;
+					text-align: center;
+					@include border-radius(50%);
+					&:hover{
+						background-color: red;
+					}
+				}
 			}
 		}
-		.cms-cart-actions{
+		&.actions{
+			border-right: 1px solid #ddd;
+			border-bottom: 1px solid #ddd;
+			text-align: start!important;
 		}
-
 	}
-	.product-thumbnail{
-		max-width: 100px;
-		width: 100px;
+	.size-woocommerce_thumbnail{
+		max-width: 70px;
+		width: 70px;
+	}
+	input[name="coupon_code"][type="text"]{
+		height: 51px;
+		line-height: 51px;
+		width: 250px;
 	}
 }
 .cart-collaterals{

@@ -1,0 +1,12 @@
+#cms-primary-menu .megamenu{
+	.cms-megamenu-item{
+		//margin-left: $grid-gutters/-2;
+		//margin-right: $grid-gutters/-2;
+	}
+	.sub-menu{
+		padding: 0;
+		@media (min-width: 1200px){
+			width: 470px;
+		}
+	}
+}

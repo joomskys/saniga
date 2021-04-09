@@ -34,17 +34,17 @@ $menu_item_icon_rtl: "\f107";
 			position: relative;
 			border-bottom: $border-main;
 			&:before{
-				@include font-cmsi($menu_item_icon);
-				position: absolute;
-				left: 0;
-				visibility: hidden;
-				@include opacity(0);
-				@include transition();
-				[dir="rtl"] &{
-					@include font-cmsi($menu_item_icon_rtl);
-					left: auto;
-					right: 0;
-				}
+				// @include font-cmsi($menu_item_icon);
+				// position: absolute;
+				// left: 0;
+				// visibility: hidden;
+				// @include opacity(0);
+				// @include transition();
+				// [dir="rtl"] &{
+				// 	@include font-cmsi($menu_item_icon_rtl);
+				// 	left: auto;
+				// 	right: 0;
+				// }
 			}
 			&:after{
 				content: '';
@@ -64,17 +64,17 @@ $menu_item_icon_rtl: "\f107";
 			&:hover{
 				color: var(--dropdown-hover);
 				background-color: var(--dropdown-item-bg-hover);
-				padding-left: 20px;
+				//padding-left: 20px;
 				&:before{
-					visibility: visible;
-					@include opacity(1);
+					//visibility: visible;
+					//@include opacity(1);
 				}
 				&:after{
 					width: 100%;
 				}
 				[dir="rtl"] & {
 					padding-left: 0;
-					padding-right: 20px;
+					//padding-right: 20px;
 				}
 			}
 
@@ -216,10 +216,9 @@ $menu_item_icon_rtl: "\f107";
 			padding: 20px 40px;
 			z-index: -1;
 			visibility: hidden;
-			@include box-shadow(var(--dropdow-shadow));
+			@include box-shadow(var(--dropdown-shadow));
 			@include opacity(0);
 			@include transition();
-			@include border-radius(0 0 8px 8px);
 			&.back{
 				left: auto;
 				right: 100%;

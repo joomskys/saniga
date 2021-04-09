@@ -4,7 +4,7 @@
  **/
 if(!function_exists('saniga_page_title_layout')){
     function saniga_page_title_layout($args = []) {
-        if(is_singular('cms-header-top') || is_singular('cms-footer') || is_404()) return;
+        if(is_singular('cms-header-top') || is_singular('cms-footer') || is_singular('cms-mega-menu') || is_404()) return;
 		$show_pagetitle  = saniga_get_opts( 'pagetitle', '1' );
         if(is_singular('post')){
             $ptitle_layout = saniga_configs('single_post')['title_layout'];
@@ -177,7 +177,7 @@ if(!function_exists('saniga_page_title_layout')){
                                     'title_class' => $title_class
                                 ]);
                                 saniga_breadcrumb([
-                                    'class'   => 'mb-n35 justify-content-center '.$breadcrumb_class, 
+                                    'class'   => 'justify-content-center '.$breadcrumb_class, 
                                     'divider' => $breadcrumb_separator
                                 ]);
                                 break;

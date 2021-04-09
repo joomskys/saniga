@@ -8,7 +8,7 @@
 if(!function_exists('saniga_footer')){
     function saniga_footer()
     {
-        if(is_singular('cms-header-top') || is_singular('cms-footer')) return;
+        if(is_singular('cms-header-top') || is_singular('cms-footer')  || is_singular('cms-mega-menu')) return;
         $footer_layout = saniga_get_opts( 'footer_layout', '1' );
         get_template_part( 'template-parts/footer/footer-layout', $footer_layout );
     }

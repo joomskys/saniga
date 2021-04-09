@@ -75,5 +75,5 @@
             </div>
         </div>
     </div>
-    <?php do_action('saniga_header_popup_content'); ?>
+    <?php //do_action('saniga_header_popup_content'); ?>
 </header>

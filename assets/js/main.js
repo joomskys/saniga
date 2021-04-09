@@ -605,13 +605,13 @@
     // open cart popup
     function saniga_open_cart_popup(){
         'use strict';
-        $('.h-btn-cart').on('click', function (e) {
+        $('.cms-header-cart').on('click', function (e) {
             e.preventDefault();
-            var shoppingCart = $(this).parents('#cms-header').find('.widget_shopping_cart');
+            var shoppingCart     = $(this).parents('body').find('.widget_shopping_cart');
                 if ( $( "#wpadminbar" ).length ) {
-                    var adminBarHeight = $('#wpadminbar').outerHeight();
+                    var adminbarHeight = $('#wpadminbar').outerHeight();
                 } else {
-                    var adminBarHeight = 0;
+                    var adminbarHeight = 0;
                 }
                 if ( $( "#cms-header-top" ).length ) {
                     var headerTopHeight = $('#cms-header-top').outerHeight();
@@ -623,12 +623,11 @@
                 } else {
                     var headerHeight = 0;
                 }
-            var offsetTop = adminBarHeight + headerTopHeight + headerHeight;
-            shoppingCart.toggleClass('open');
-            shoppingCart.css({'top': offsetTop});
+            var offsetTop =  adminbarHeight + headerTopHeight + headerHeight;
+            shoppingCart.toggleClass('open').css({'top': offsetTop});
             if(saniga_is_rtl()){
                 if (shoppingCart.offset().left + shoppingCart.outerWidth() > $(window).width()) {
-                    shoppingCart.css({'left':'0',});
+                    shoppingCart.css({'left':'0'});
                 } else if (shoppingCart.offset().left < 0) {
                     shoppingCart.css({'left':'0'});
                 }

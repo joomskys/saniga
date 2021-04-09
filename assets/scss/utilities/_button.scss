@@ -3,7 +3,8 @@
 button,
 .button,
 input[type="submit"],
-input[type="button"]{
+input[type="button"],
+.added_to_cart{
   position: relative;
   display: inline-block;
   font-family: $button-font-family;

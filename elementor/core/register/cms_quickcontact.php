@@ -187,7 +187,7 @@ etc_add_custom_widget(
 										'label'           => esc_html__('Text Color','saniga'),
 										'custom_name'     => 'contact_list_text_color_custom',
 										'custom_label'    => esc_html__('Custom Text Color','saniga'),
-										'custom_selector' => '.cms-qc-list'
+										'custom_selector' => '.cms-qc-list'	
 									]),
 									saniga_elementor_theme_colors([
 										'name'            => 'contact_list_text_icon_color',
@@ -195,7 +195,14 @@ etc_add_custom_widget(
 										'custom_name'     => 'contact_list_text_icon_color_custom',
 										'custom_label'    => esc_html__('Custom Icon Color','saniga'),
 										'custom_selector' => '.cms-qc-wrap .cms-qc-list .cms-icon'
-									])
+									]),
+									saniga_elementor_theme_colors([
+										'name'            => 'contact_list_link_color',
+										'label'           => esc_html__('Link Color','saniga'),
+										'custom_name'     => 'contact_list_link_color_custom',
+										'custom_label'    => esc_html__('Custom Link Color','saniga'),
+										'custom_selector' => '.cms-qc-list a'
+									]),
 	                            ),
 	                            'default' => [
 	                                [
@@ -230,6 +237,7 @@ etc_add_custom_widget(
 	                                ]
 	                            ],
 	                            'title_field' => '{{{ elementor.helpers.renderIcon( this, contact_list_icon, {}, "i", "panel" ) || \'<i class="{{ icon }}" aria-hidden="true"></i>\' }}} {{{ contact_list_title_1 }}} {{{ contact_list_text_1 }}}',
+	                            'separator'   => 'after'
 	                        )
 						),
 						saniga_elementor_theme_colors([

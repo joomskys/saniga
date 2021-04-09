@@ -2,7 +2,7 @@
 /**
  * Template part for displaying the primary menu of the site
  */
-
+//if(class_exists('Saniga_Mega_Menu_Walker')) die('xxx');
 if ( has_nav_menu( 'primary' ) )
 {
     wp_nav_menu( array(
@@ -11,7 +11,7 @@ if ( has_nav_menu( 'primary' ) )
         'container'      => '',
         'menu_id'        => 'cms-primary-menu',
         'menu_class'     => 'cms-primary-menu clearfix',
-        'walker'         => class_exists( 'EFramework_Mega_Menu_Walker' ) ? new EFramework_Mega_Menu_Walker : '',
+        'walker'         => class_exists( 'Saniga_Mega_Menu_Walker' ) ? new Saniga_Mega_Menu_Walker : '',
     ) );
 }
 else

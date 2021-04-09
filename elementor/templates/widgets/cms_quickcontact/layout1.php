@@ -10,7 +10,8 @@
 		<div <?php etc_print_html($widget->get_render_attribute_string( 'qc-lists' )); ?>>
 		<?php foreach ($settings['contact_list'] as $value): 
 			$link_attrs = [];
-			$link_attrs[] = 'class="link-'.$widget->get_setting('link_color', 'secondary').'"';
+			$link_color = !empty($value['contact_list_link_color']) ? $value['contact_list_link_color'] : $widget->get_setting('link_color', 'secondary');
+			$link_attrs[] = 'class="link-'.$link_color.'"';
 			if ( ! empty( $value['contact_list_text_link']['url'] ) ) {
 				$url = str_replace(' ', '', $value['contact_list_text_link']['url']);
 				$link_attrs[] = 'href="'.$url.'"';

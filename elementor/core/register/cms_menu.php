@@ -44,6 +44,10 @@ etc_add_custom_widget(
                                 '4' => [
                                     'label' => esc_html__( 'Layout 4', 'saniga' ),
                                     'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_menu/layout-images/4.png'
+                                ],
+                                '5' => [
+                                    'label' => esc_html__( 'Layout 5', 'saniga' ),
+                                    'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_menu/layout-images/5.png'
                                 ]
                             ],
                             'prefix_class' => 'cms-menu-layout-'
@@ -61,7 +65,7 @@ etc_add_custom_widget(
                             'type'        => \Elementor\Controls_Manager::TEXTAREA,
                             'label_block' => true,
                             'condition'   => [
-                                'layout'  => ['2','4']
+                                'layout'  => ['2','4','5']
                             ]
                         ),
                         array(

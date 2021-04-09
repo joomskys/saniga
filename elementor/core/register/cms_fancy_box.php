@@ -60,6 +60,10 @@ etc_add_custom_widget(
                                 '8' => [
                                     'label' => esc_html__( 'Layout 8', 'saniga' ),
                                     'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_fancy_box/layout-images/8.png'
+                                ],
+                                '9' => [
+                                    'label' => esc_html__( 'Layout 9', 'saniga' ),
+                                    'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_fancy_box/layout-images/9.png'
                                 ]
                             ],
                             'prefix_class' => 'cms-fancybox-layout-'
@@ -438,6 +442,142 @@ etc_add_custom_widget(
                     ]
                 ),
                 array(
+                    'name'     => 'contact_section9',
+                    'label'    => esc_html__( 'Contact Settings', 'saniga' ),
+                    'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
+                    'controls' => array_merge(
+                        array(
+                            array(
+                                'name'     => 'contact_list3',
+                                'label'    => esc_html__( 'Contact Lists', 'saniga' ),
+                                'type'     => \Elementor\Controls_Manager::REPEATER,
+                                'controls' => array_merge(
+                                    array(
+                                        array(
+                                            'name'             => 'contact_list_icon',
+                                            'label'            => esc_html__( 'Icon', 'saniga' ),
+                                            'type'             => \Elementor\Controls_Manager::ICONS,
+                                            'default'          => [
+                                                'library'   => 'cmsi',
+                                                'value'     => 'cmsi-arrow-cirle-right'
+                                            ]
+                                        ),
+                                        array(
+                                            'name'        => 'contact_list_title',
+                                            'label'       => esc_html__( 'Title', 'saniga' ),
+                                            'type'        => \Elementor\Controls_Manager::TEXTAREA,
+                                            'placeholder' => esc_html__( 'Enter your text', 'saniga' ),
+                                            'default'     => esc_html__( 'Enter your text', 'saniga' ),
+                                            'label_block' => true,
+                                        ),
+                                        array(
+                                            'name'        => 'contact_list_text',
+                                            'label'       => esc_html__( 'Text', 'saniga' ),
+                                            'type'        => \Elementor\Controls_Manager::TEXTAREA,
+                                            'placeholder' => esc_html__( 'Enter your text', 'saniga' ),
+                                            'default'     => esc_html__( 'Enter your text', 'saniga' ),
+                                            'label_block' => true,
+                                        ),
+                                        array(
+                                            'name'        => 'contact_list_text_link',
+                                            'label'       => esc_html__( 'Link', 'saniga' ),
+                                            'type'        => \Elementor\Controls_Manager::URL,
+                                            'placeholder' => esc_html__('https://your-link.com', 'saniga' ),
+                                            'label_block' => true,
+                                        )
+                                    ),
+                                    saniga_elementor_theme_colors([
+                                        'name'            => 'contact_list_text_color3',
+                                        'label'           => esc_html__('Text Color','saniga'),
+                                        'custom_name'     => 'contact_list_text_color_custom3',
+                                        'custom_label'    => esc_html__('Custom Text Color','saniga'),
+                                        'custom_selector' => '.cms-qc-list'
+                                    ])
+                                ),
+                                'default' => [
+                                    [
+                                        'contact_list_title' => 'Emergency Line:',
+                                        'contact_list_text'  => '(002) 01061245741',
+                                        'contact_list_icon'  => [
+                                            'library' => 'cmsi',
+                                            'value'   => 'cmsi-phone-alt'
+                                        ]
+                                    ],
+                                    [
+                                        'contact_list_title' => 'Location:',
+                                        'contact_list_text'  => 'Brooklyn, New York, USA',
+                                        'contact_list_icon'  => [
+                                            'library' => 'cmsi',
+                                            'value'   => 'cmsi-map'
+                                        ]
+                                    ],
+                                    [
+                                        'contact_list_title' => 'Mon - Fri:',
+                                        'contact_list_text'  => '8:00 am - 7:00 pm',
+                                        'contact_list_icon'  => [
+                                            'library' => 'cmsi',
+                                            'value'   => 'cmsi-clock'
+                                        ]
+                                    ]
+                                ],
+                                'title_field' => '{{{ contact_list_title }}} {{{ contact_list_text }}}',
+                            )
+                        ),
+                        saniga_elementor_theme_colors([
+                            'name'            => 'text_color3',
+                            'label'           => esc_html__('Text Color','saniga'),
+                            'custom_name'     => 'text_color_custom3',
+                            'custom_label'    => esc_html__('Custom Text Color','saniga'),
+                            'custom_selector' => '.cms-qc-list'
+                        ]),
+                        array(  
+                            array(
+                                'name'  => 'contact_list_icon_size3',
+                                'label' => esc_html__( 'Icon Size', 'saniga' ),
+                                'type'  => \Elementor\Controls_Manager::SLIDER,
+                                'range' => [
+                                    'px' => [
+                                        'min' => 10,
+                                        'max' => 200,
+                                    ],
+                                ],
+                                'selectors' => [
+                                    '{{WRAPPER}} .cms-qc-list .cms-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+                                ]
+                            )
+                        ),
+                        saniga_elementor_theme_colors([
+                            'name'            => 'contact_list_icon_color3',
+                            'label'           => esc_html__('Icon Color','saniga'),
+                            'custom_name'     => 'contact_list_icon_color_custom3',
+                            'custom_label'    => esc_html__('Custom Icon Color','saniga'),
+                            'custom_selector' => '.cms-qc-list .cms-icon'
+                        ])
+                    ),
+                    'condition'   => [
+                        'layout' => ['9']
+                    ]
+                ),
+                array(
+                    'name'     => 'link_section9',
+                    'label'    => esc_html__( 'Button', 'saniga' ),
+                    'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
+                    'controls' => array_merge(
+                        saniga_elementor_button_settings([
+                            'prefix'           => 'button9',
+                            'btn_type_default' => 'btn btn-outline', 
+                            'btn_text'         => 'Explore Our Offers',
+                            'btn_color'        => 'white',
+                            'btn_hover_color'  => 'white',
+                            'btn_size'         => 'xl',
+                            'btn_align'        => 'justify'
+                        ])
+                    ),
+                    'condition' => [
+                        'layout' => ['9']
+                    ]
+                ),
+                array(
                     'name'     => 'background_section',
                     'label'    => esc_html__( 'Background', 'saniga' ),
                     'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
@@ -466,7 +606,7 @@ etc_add_custom_widget(
                         ]) 
                     ),
                     'condition'   => [
-                        'layout' => ['1','3','4','6','8']
+                        'layout' => ['1','3','4','6','8','9']
                     ]
                 )
             )

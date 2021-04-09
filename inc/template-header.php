@@ -5,7 +5,7 @@
 if(!function_exists('saniga_header_layout')){
     function saniga_header_layout()
     {
-        if(is_singular('cms-header-top') || is_singular('cms-footer')) return;
+        if(is_singular('cms-header-top') || is_singular('cms-footer')  || is_singular('cms-mega-menu') ) return;
         $header_layout = saniga_get_opts( 'header_layout', '1' );
         get_template_part( 'template-parts/header/header-layout', $header_layout );
     }
@@ -236,7 +236,7 @@ if(!function_exists('saniga_header_cart')){
             'after'  => ''
         ]);
         $css_class = ['cms-header-cart header-icon relative', $args['class']];
-        add_action('saniga_header_popup_content', 'saniga_header_popup_cart');
+        //add_action('saniga_header_popup_content', 'saniga_header_popup_cart');
 
         printf('%s', $args['before']);
     ?>
@@ -253,10 +253,11 @@ if(!function_exists('saniga_header_cart')){
     }
 }
 if(!function_exists('saniga_header_popup_cart')){
+    add_action('wp_footer', 'saniga_header_popup_cart');
     function saniga_header_popup_cart(){
         if(!class_exists('Woocommerce')) return;
         ?>
-        <div class="cms-header-cart">
+        <div class="cms-header-cart-content">
             <div class="widget_shopping_cart">
                 <div class="widget_shopping_cart_content">
                     <?php woocommerce_mini_cart(); ?>

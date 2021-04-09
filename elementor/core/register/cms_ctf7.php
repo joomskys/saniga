@@ -34,6 +34,10 @@ if(class_exists('WPCF7')) {
                                     '1' => [
                                         'label' => esc_html__( 'Layout 1', 'saniga' ),
                                         'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_ctf7/layout-images/1.png'
+                                    ],
+                                    '2' => [
+                                        'label' => esc_html__( 'Layout 2', 'saniga' ),
+                                        'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_ctf7/layout-images/2.png'
                                     ]
                                 ],
                                 'prefix_class' => 'cms-cf7-layout-'

@@ -118,3 +118,10 @@
 		}
 	}
 }
+
+// layout 9
+.cms-fancybox-layout-9{
+	.cms-qc-list:not(:last-child){
+		padding-bottom: 10px;
+	}
+}

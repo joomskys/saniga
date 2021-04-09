@@ -27,7 +27,7 @@ if(!function_exists('saniga_header_top_social')){
 }
 if(!function_exists('saniga_header_top')){
     function saniga_header_top($args = []){
-        if(is_singular('cms-header-top') || is_singular('cms-footer') ) return;
+        if(is_singular('cms-header-top') || is_singular('cms-footer')  || is_singular('cms-mega-menu') ) return;
         $args = wp_parse_args($args, []);
         $header_top_layout = saniga_get_opts('header_top_layout', '');
         $cms_post = get_post($header_top_layout);

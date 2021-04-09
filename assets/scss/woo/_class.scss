@@ -15,8 +15,9 @@
 }
 .price,
 .woocommerce-Price-amount{
-	font-size: 20px;
-	color: var(--secondary-color);
+	font-size: 16px;
+	color: var(--color-secondary);
+	font-weight: 700;
 	del{
 		text-decoration: line-through!important;
 		@include opacity(0.5);

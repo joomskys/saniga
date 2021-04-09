@@ -165,6 +165,19 @@ if(!function_exists('saniga_loop_add_to_cart_icon')){
 // Loop default add to cart button
 remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
 add_action('saniga_shop_loop_overlay_content_end', 'woocommerce_template_loop_add_to_cart');
+add_action('saniga_shop_loop_overlay_content_end', 'saniga_woocommerce_template_loop_added_to_cart');
+if(!function_exists('saniga_woocommerce_template_loop_added_to_cart')){
+	function saniga_woocommerce_template_loop_added_to_cart(){
+		?>
+			<a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="added_to_cart btn btn-xl btn-secondary btn-hover-accent" title="<?php esc_attr_e('View Cart','saniga');?>">
+				<span class="cms-btn-content">
+					<span class="cms-btn-text"><?php esc_html_e('View Cart','saniga');?></span>
+					<span class="cms-btn-icon"><span class="cmsi cmsi-arrow-right rtl-flip"></span></span>
+				</span>
+			</a>
+		<?php
+	}
+}
 
 add_filter('woocommerce_loop_add_to_cart_link', 'saniga_woocommerce_loop_add_to_cart_link', 10, 3);
 function saniga_woocommerce_loop_add_to_cart_link($button, $product, $args){

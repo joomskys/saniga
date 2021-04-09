@@ -280,7 +280,7 @@ if(!function_exists('saniga_configs')){
             'dropdown' => array_merge(
                 [
                     'bg'            => 'var(--color-white)',
-                    'shadow'        => '0px 5px 83px 0px rgba(40, 40, 40, 0.05)'
+                    'shadow'        => '0px 5px 83px 0px rgba(27, 26, 26, 0.12)'
                 ],
                 saniga_get_opts('dropdown_menu_color', [
                     'regular' => 'var(--color-body)',
