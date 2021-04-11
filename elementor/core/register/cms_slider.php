@@ -31,6 +31,10 @@ etc_add_custom_widget(
                                 '1' => [
                                     'label' => esc_html__('Layout 1', 'saniga' ),
                                     'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_slider/layout-images/1.png'
+                                ],
+                                '2' => [
+                                    'label' => esc_html__('Layout 2', 'saniga' ),
+                                    'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_slider/layout-images/2.png'
                                 ]
                             ],
                             'prefix_class' => 'cms-slider-layout-'
@@ -306,6 +310,11 @@ etc_add_custom_widget(
                                     'small_heading'   => esc_html__( 'Get A Customized Cleaning Plan That Meets Your Needs', 'saniga' ),
                                     'large_heading'   => 'Keep Your Home Clean And Healthy!',
                                     'description'     => 'Our cleaning experts deliver the highest quality of clean you can always count, let us help you with all of your cleaning and disinfecting responsibilities now.',
+                                    'description2'    => 'Delivering the highest standards of clean and guarantee to treat your home and office.',
+                                    'description2_icon' => [
+                                        'library' => 'flaticon',
+                                        'value'   => 'flaticon-020-character'
+                                    ],
                                     'image'       => [
                                         'url' => get_template_directory_uri().'/assets/images/sliders/home2-1.jpg'
                                     ]
@@ -326,7 +335,10 @@ etc_add_custom_widget(
                             ],
                             'title_field' => '{{{ large_heading }}}',
                         )
-                    )
+                    ),
+                    'condition' => [
+                        'layout' => '1'
+                    ]
                 ),
                 array(
                     'name'     => 'rating_section',
@@ -388,6 +400,197 @@ etc_add_custom_widget(
                     ),
                     'condition' => [
                         'layout' => ['1']
+                    ]
+                ),
+                array(
+                    'name'     => 'cms_slides_list2',
+                    'label'    => esc_html__('Slides List', 'saniga'),
+                    'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
+                    'controls' => array(
+                        array(
+                            'name'     => 'cms_slides2',
+                            'label'    => esc_html__('Add Slide', 'saniga'),
+                            'type'     => \Elementor\Controls_Manager::REPEATER,
+                            'controls' => array_merge(
+                                array(
+                                    array(
+                                        'name'        => 'image',
+                                        'label'       => esc_html__('Slide Image', 'saniga'),
+                                        'type'        => \Elementor\Controls_Manager::MEDIA,
+                                        'label_block' => true,
+                                    ),
+                                    array(
+                                        'name'        => 'small_heading',
+                                        'label'       => esc_html__('Small Heading'),
+                                        'type'        => \Elementor\Controls_Manager::TEXTAREA,
+                                        'placeholder' => esc_html__( 'Enter your text', 'saniga' ),
+                                        'label_block' => true,
+                                        'separator'   => 'before'
+                                    ),
+                                    array(
+                                        'name'        => 'small_heading_color',
+                                        'label'       => esc_html__( 'Color', 'saniga' ),
+                                        'type'        => \Elementor\Controls_Manager::SELECT,
+                                        'options'     => saniga_elementor_theme_color_opts()
+                                    ),
+                                    array(
+                                        'name'        => 'small_heading_custom_color',
+                                        'label'       => esc_html__( 'Custom Color', 'saniga' ),
+                                        'type'        => \Elementor\Controls_Manager::COLOR,
+                                        'condition'   => [
+                                            'small_heading_color'      => 'custom'
+                                        ],
+                                        'selectors'  => [
+                                            '{{WRAPPER}} .small-heading' => 'color:{{VALUE}};'
+                                        ]
+                                    ),
+                                    array(
+                                        'name'        => 'small_heading_animation',
+                                        'label'       => esc_html__( 'Motion Effect', 'saniga' ),
+                                        'type'        => \Elementor\Controls_Manager::ANIMATION,
+                                        'label_block' => false,
+                                    ),
+                                    array(
+                                        'name'      => 'small_heading_animation_delay',
+                                        'label'     => esc_html__( 'Transition Delay', 'saniga' ),
+                                        'type'      => \Elementor\Controls_Manager::TEXT
+                                    ),
+                                    array(
+                                        'name'        => 'large_heading',
+                                        'label'       => esc_html__('Large Heading'),
+                                        'type'        => \Elementor\Controls_Manager::TEXTAREA,
+                                        'placeholder' => esc_html__( 'Enter your text', 'saniga' ),
+                                        'label_block' => true,
+                                        'separator'   => 'before'
+                                    ),
+                                    array(
+                                        'name'        => 'large_heading_color',
+                                        'label'       => esc_html__( 'Color', 'saniga' ),
+                                        'type'        => \Elementor\Controls_Manager::SELECT,
+                                        'options'     => saniga_elementor_theme_color_opts()
+                                    ),
+                                    array(
+                                        'name'        => 'large_heading_custom_color',
+                                        'label'       => esc_html__( 'Custom Color', 'saniga' ),
+                                        'type'        => \Elementor\Controls_Manager::COLOR,
+                                        'condition'   => [
+                                            'large_heading_color'      => 'custom'
+                                        ],
+                                        'selectors'  => [
+                                            '{{WRAPPER}} .large-heading' => 'color:{{VALUE}};'
+                                        ]
+                                    ),
+                                    array(
+                                        'name'      => 'large_heading_animation',
+                                        'label'     => esc_html__( 'Motion Effect', 'saniga' ),
+                                        'type'      => \Elementor\Controls_Manager::ANIMATION
+                                    ),
+                                    array(
+                                        'name'      => 'large_heading_animation_delay',
+                                        'label'     => esc_html__( 'Transition Delay', 'saniga' ),
+                                        'type'      => \Elementor\Controls_Manager::TEXT
+                                    ),
+                                    array(
+                                        'name'        => 'description',
+                                        'label'       => esc_html__('Description'),
+                                        'type'        => \Elementor\Controls_Manager::TEXTAREA,
+                                        'placeholder' => esc_html__( 'Enter your text', 'saniga' ),
+                                        'label_block' => true,
+                                        'separator'   => 'before'
+                                    ),
+                                    array(
+                                        'name'        => 'description_color',
+                                        'label'       => esc_html__( 'Color', 'saniga' ),
+                                        'type'        => \Elementor\Controls_Manager::SELECT,
+                                        'options'     => saniga_elementor_theme_color_opts()
+                                    ),
+                                    array(
+                                        'name'        => 'description_custom_color',
+                                        'label'       => esc_html__( 'Custom Color', 'saniga' ),
+                                        'type'        => \Elementor\Controls_Manager::COLOR,
+                                        'condition'   => [
+                                            'description_color'      => 'custom'
+                                        ],
+                                        'selectors'  => [
+                                            '{{WRAPPER}} .description' => 'color:{{VALUE}};'
+                                        ]
+                                    ),
+                                    array(
+                                        'name'      => 'description_animation',
+                                        'label'     => esc_html__( 'Motion Effect', 'saniga' ),
+                                        'type'      => \Elementor\Controls_Manager::ANIMATION
+                                    ),
+                                    array(
+                                        'name'      => 'description_animation_delay',
+                                        'label'     => esc_html__( 'Transition Delay', 'saniga' ),
+                                        'type'      => \Elementor\Controls_Manager::TEXT,
+                                        'separator' => 'after'
+                                    )
+                                ),
+                                // button More About Us
+                                saniga_elementor_button_settings([
+                                    'btn_text'         => 'More About Us',
+                                    'btn_type_default' => 'btn btn-fill', 
+                                    'btn_size'         => 'xl',
+                                    'icon_default'     => [
+                                        'library' => 'cmsi',
+                                        'value'   => 'cmsi-arrow-right'   
+                                    ]
+                                ]),
+                                // button Shop Now
+                                saniga_elementor_button_settings([
+                                    'prefix'           => 'btn2', 
+                                    'btn_text'         => 'Shop Now',
+                                    'btn_type_default' => 'btn btn-fill', 
+                                    'btn_size'         => 'xl',
+                                    'btn_color'        => 'white',
+                                    'btn_hover_color'  => 'secondary',
+                                    'icon_default'     => []
+                                ]),
+                                // video 
+                                array(
+                                    array(
+                                        'name'        => 'video_link',
+                                        'label'       => esc_html__( 'Video URL', 'saniga' ),
+                                        'type'        => \Elementor\Controls_Manager::URL,
+                                        'placeholder' => esc_html__( 'https://your-link.com', 'saniga' ),
+                                        'default'     => [
+                                            'url'         => '',
+                                            'is_external' => 'on'
+                                        ],
+                                        'separator' => 'before'
+                                    ),
+                                    array(
+                                        'name'        => 'video_text',
+                                        'label'       => esc_html__( 'Video Text', 'saniga' ),
+                                        'type'        => \Elementor\Controls_Manager::TEXT,
+                                        'default'     => esc_html__('Our Video!','saniga')
+                                    )
+                                )
+                            ),
+                            'default' => [
+                                [
+                                    'small_heading'   => esc_html__( 'Explore Our Featured Products', 'saniga' ),
+                                    'large_heading'   => 'Cleaning Supplies For All Needs!',
+                                    'description'     => 'Our cleaning experts deliver the highest quality of clean you can always count, let us help you with all of your cleaning and disinfecting responsibilities now.',
+                                    'image'       => [
+                                        'url' => get_template_directory_uri().'/assets/images/sliders/home3-1.jpg'
+                                    ]
+                                ],
+                                [
+                                    'small_heading'   => esc_html__( 'Explore Our Featured Products', 'saniga' ),
+                                    'large_heading'   => 'Helping Industries And Huge Facilities!',
+                                    'description'     => 'Our cleaning experts deliver the highest quality of clean you can always count, let us help you with all of your cleaning and disinfecting responsibilities now.',
+                                    'image'       => [
+                                        'url' => get_template_directory_uri().'/assets/images/sliders/home3-2.jpg'
+                                    ]
+                                ]
+                            ],
+                            'title_field' => '{{{ large_heading }}}',
+                        )
+                    ),
+                    'condition' => [
+                        'layout' => '2'
                     ]
                 )
             )

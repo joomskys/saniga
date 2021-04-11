@@ -224,3 +224,14 @@
             order: 1; }
   .elementor-column {
     width: 100%; } }
+
+@media (min-width: 1200px){
+  .elementor-column.elementor-col-38\/194,
+  .elementor-column[data-col="38/194"] {
+      width: 38.194%;
+  }
+  .elementor-column.elementor-col-61\/806,
+  .elementor-column[data-col="61/806"] {
+      width: 61.806%;
+  }
+}

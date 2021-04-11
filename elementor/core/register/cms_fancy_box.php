@@ -64,6 +64,18 @@ etc_add_custom_widget(
                                 '9' => [
                                     'label' => esc_html__( 'Layout 9', 'saniga' ),
                                     'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_fancy_box/layout-images/9.png'
+                                ],
+                                '10' => [
+                                    'label' => esc_html__( 'Layout 10', 'saniga' ),
+                                    'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_fancy_box/layout-images/10.png'
+                                ],
+                                '11' => [
+                                    'label' => esc_html__( 'Layout 11', 'saniga' ),
+                                    'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_fancy_box/layout-images/11.png'
+                                ],
+                                '12' => [
+                                    'label' => esc_html__( 'Layout 12', 'saniga' ),
+                                    'image' => get_template_directory_uri() . '/elementor/templates/widgets/cms_fancy_box/layout-images/12.png'
                                 ]
                             ],
                             'prefix_class' => 'cms-fancybox-layout-'
@@ -116,134 +128,6 @@ etc_add_custom_widget(
                                 'default' => 'custom'
                             ),
                             array(
-                                'name'    => 'icon_position',
-                                'label'   => esc_html__( 'Icon Position', 'saniga' ),
-                                'type'    => \Elementor\Controls_Manager::CHOOSE,
-                                'options' => [
-                                    'start' => [
-                                        'title' => esc_html__( 'Left', 'saniga' ),
-                                        'icon'  => 'eicon-h-align-left',
-                                    ],
-                                    'top' => [
-                                        'title' => esc_html__( 'Top', 'saniga' ),
-                                        'icon'  => 'eicon-v-align-top',
-                                    ],
-                                    'bottom' => [
-                                        'title' => esc_html__( 'Left', 'saniga' ),
-                                        'icon'  => 'eicon-v-align-bottom',
-                                    ],
-                                    'end' => [
-                                        'title' => esc_html__( 'Right', 'saniga' ),
-                                        'icon'  => 'eicon-h-align-right',
-                                    ]
-                                ],
-                                'prefix_class' => 'cms-icon-box-icon-position-',
-                                'toggle'       => false,
-                                'condition'    => [
-                                    'layout'  => ['1']
-                                ]
-                            ),
-                            array(
-                                'name'               => 'icon_position_start',
-                                'label'              => esc_html__('Custom Postion', 'saniga' ),
-                                'type'               => \Elementor\Controls_Manager::DIMENSIONS,
-                                'control_type'       => 'responsive',
-                                'allowed_dimensions' => ['top', 'left'],
-                                'size_units'         => [ 'px', '%' ],
-                                'range' => [
-                                    '%' => [
-                                        'min' => 0,
-                                        'max' => 100,
-                                    ],
-                                ],
-                                'default' => [
-                                    'top' => '',
-                                    'left' => ''
-                                ],
-                                'condition'    => [
-                                    'icon_position'    => 'start',
-                                    'layout'           => ['2', '6']                         
-                                ],
-                                'selectors' => [
-                                    '{{WRAPPER}} .icon-position' => 'top: {{TOP}}{{UNIT}};left: {{LEFT}}{{UNIT}}',
-                                ],
-                            ),
-                            array(
-                                'name'               => 'icon_position_right',
-                                'label'              => esc_html__('Custom Postion', 'saniga' ),
-                                'type'               => \Elementor\Controls_Manager::DIMENSIONS,
-                                'control_type'       => 'responsive',
-                                'allowed_dimensions' => ['top', 'right'],
-                                'size_units'         => [ 'px', '%' ],
-                                'range' => [
-                                    '%' => [
-                                        'min' => 0,
-                                        'max' => 100,
-                                    ],
-                                ],
-                                'default' => [
-                                    'top' => '',
-                                    'left' => ''
-                                ],
-                                'condition'    => [
-                                    'icon_position'    => 'top',
-                                    'layout'           => ['2','6']                          
-                                ],
-                                'selectors' => [
-                                    '{{WRAPPER}} .icon-position' => 'top: {{TOP}}{{UNIT}};right: {{RIGHT}}{{UNIT}}',
-                                ],
-                            ),
-                            array(
-                                'name'               => 'icon_position_bottom',
-                                'label'              => esc_html__('Custom Postion', 'saniga' ),
-                                'type'               => \Elementor\Controls_Manager::DIMENSIONS,
-                                'control_type'       => 'responsive',
-                                'allowed_dimensions' => ['bottom', 'left'],
-                                'size_units'         => [ 'px', '%' ],
-                                'range' => [
-                                    '%' => [
-                                        'min' => 0,
-                                        'max' => 100,
-                                    ],
-                                ],
-                                'default' => [
-                                    'top' => '',
-                                    'left' => ''
-                                ],
-                                'condition'    => [
-                                    'icon_position'    => 'bottom',
-                                    'layout'           => ['2','6']                            
-                                ],
-                                'selectors' => [
-                                    '{{WRAPPER}} .icon-position' => 'bottom: {{BOTTOM}}{{UNIT}};left: {{LEFT}}{{UNIT}}',
-                                ],
-                            ),
-                            array(
-                                'name'               => 'icon_position_end',
-                                'label'              => esc_html__('Custom Postion', 'saniga' ),
-                                'type'               => \Elementor\Controls_Manager::DIMENSIONS,
-                                'control_type'       => 'responsive',
-                                'allowed_dimensions' => ['bottom', 'right'],
-                                'size_units'         => [ 'px', '%' ],
-                                'range' => [
-                                    '%' => [
-                                        'min' => 0,
-                                        'max' => 100,
-                                    ],
-                                ],
-                                'default' => [
-                                    'top' => '',
-                                    'left' => ''
-                                ],
-                                'condition'    => [
-                                    'icon_position'    => 'end',
-                                    'layout'           => ['2','6']                           
-                                ],
-                                'selectors' => [
-                                    '{{WRAPPER}} .icon-position' => 'bottom: {{BOTTOM}}{{UNIT}};right: {{RIGHT}}{{UNIT}}',
-                                ],
-                            ),
-                            array(
                                 'name'  => 'icon_size',
                                 'label' => esc_html__( 'Icon Size', 'saniga' ),
                                 'type'  => \Elementor\Controls_Manager::SLIDER,
@@ -289,7 +173,7 @@ etc_add_custom_widget(
                                     'active' => true,
                                 ],
                                 'condition' => [
-                                    'layout' => ['0']
+                                    'layout' => ['11']
                                 ]
                             ),
                             array(
@@ -300,8 +184,6 @@ etc_add_custom_widget(
                                 'label_block' => true,
                                 'dynamic'   => [
                                     'active' => true,
-                                ],
-                                'condition' => [
                                 ]
                             ),
                             array(
@@ -322,7 +204,7 @@ etc_add_custom_widget(
                                 ],
                                 'separator' => 'before',
                                 'condition' => [
-                                    'layout' => ['2','5','6','7','8']
+                                    'layout' => ['2','5','6','7','8','10']
                                 ]
                             ),
                             array(
@@ -578,6 +460,71 @@ etc_add_custom_widget(
                     ]
                 ),
                 array(
+                    'name'     => 'link_section11',
+                    'label'    => esc_html__( 'Button', 'saniga' ),
+                    'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
+                    'controls' => array_merge(
+                        saniga_elementor_button_settings([
+                            'prefix'           => 'button11',
+                            'btn_text'         => 'Add To Cart',
+                            'btn_color'        => 'white',
+                            'btn_size'         => 'lg',
+                            'icon_default'     => [
+                                'library' => 'cmsi',
+                                'value'   => 'cmsi-shopping-cart'  
+                            ]
+                        ])
+                    ),
+                    'condition' => [
+                        'layout' => ['11']
+                    ]
+                ),
+                array(
+                    'name'     => 'link_section12',
+                    'label'    => esc_html__( 'Button', 'saniga' ),
+                    'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
+                    'controls' => array_merge(
+                        saniga_elementor_button_settings([
+                            'prefix'           => 'button12',
+                            'btn_text'         => 'Explore Our Offers',
+                            'btn_color'        => 'primary',
+                            'btn_size'         => 'xl'
+                        ])
+                    ),
+                    'condition' => [
+                        'layout' => ['12']
+                    ]
+                ),
+                array(
+                    'name'     => 'saleoff_section11',
+                    'label'    => esc_html__( 'Sale Off', 'saniga' ),
+                    'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
+                    'controls' => array_merge(
+                        array(
+                            array(
+                                'name'  => 'saleoff11',
+                                'type'  => \Elementor\Controls_Manager::SLIDER,
+                                'label' => esc_html__( 'Sale Off', 'saniga' ),
+                                'range' => [
+                                    '%' => [
+                                        'min'  => 1,
+                                        'max'  => 100,
+                                        'step' => 1
+                                    ]
+                                ],
+                                'size_units' => [''],
+                                'default' => [
+                                    'unit' => '%',
+                                    'size' => 50
+                                ]
+                            )
+                        )
+                    ),
+                    'condition' => [
+                        'layout' => ['11']
+                    ]
+                ),
+                array(
                     'name'     => 'background_section',
                     'label'    => esc_html__( 'Background', 'saniga' ),
                     'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
@@ -606,7 +553,7 @@ etc_add_custom_widget(
                         ]) 
                     ),
                     'condition'   => [
-                        'layout' => ['1','3','4','6','8','9']
+                        'layout' => ['1','3','4','6','8','9','11','12']
                     ]
                 )
             )

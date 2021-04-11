@@ -91,3 +91,9 @@ $theme-width: (
 @import "_bootstrap/mixins/deprecate";
 // Custom 
 @import "_bootstrap_theme/custom_grid";
+
+.cms-hidden-md{
+	@media (max-width: $screen-md-max){
+		display: none;
+	}
+}

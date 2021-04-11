@@ -20,6 +20,9 @@ if(!function_exists('saniga_custom_section_presets')){
             3 => [
                 [
                     'preset' => [ 50, 50, 100 ],
+                ],
+                [
+                    'preset' => [ '38/194', '61/806', 100 ],
                 ]
             ],
             4 => [

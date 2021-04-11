@@ -54,6 +54,10 @@ etc_add_custom_widget(
                                 '7' => [
                                     'label'      => esc_html__( 'Layout 7', 'saniga' ),
                                     'image'      => get_template_directory_uri() . '/elementor/templates/widgets/cms_heading/layout-images/7.png'
+                                ],
+                                '8' => [
+                                    'label'      => esc_html__( 'Layout 8', 'saniga' ),
+                                    'image'      => get_template_directory_uri() . '/elementor/templates/widgets/cms_heading/layout-images/8.png'
                                 ]
                             ],
                             'prefix_class' => 'cms-heading-layout-'
@@ -112,7 +116,7 @@ etc_add_custom_widget(
                         ])
                     ),
                     'condition' => [
-                        'layout' => ['1', '2', '3','4','5','6', '7']
+                        'layout' => ['1', '2', '3','4','5','6', '7','8']
                     ]
                 ),
                 array(
@@ -140,7 +144,7 @@ etc_add_custom_widget(
                         ])
                     ),
                     'condition' => [
-                        'layout' => ['1', '3', '4','5','6', '7']
+                        'layout' => ['1', '3', '4','5','6', '7','8']
                     ]
                 ),
                 array(
@@ -373,6 +377,114 @@ etc_add_custom_widget(
                     ),
                     'condition'        => [
                         'layout' => ['6']
+                    ]
+                ),
+                array(
+                    'name'     => 'feature_section8',
+                    'label'    => esc_html__( 'Features', 'saniga' ),
+                    'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
+                    'controls' => array_merge(
+                        array(
+                            array(
+                                'name'     => 'heading_feature8',
+                                'label'    => esc_html__( 'Features', 'saniga' ),
+                                'type'     => \Elementor\Controls_Manager::REPEATER,
+                                'controls' => array(
+                                    array(
+                                        'name'             => 'icon_type',
+                                        'label'            => esc_html__( 'Feature Type', 'saniga' ),
+                                        'type'             => \Elementor\Controls_Manager::SELECT,
+                                        'options'          => [
+                                            'icon' => esc_html__('Icon','saniga'),
+                                            'img'  => esc_html__('Image','saniga'),
+                                        ],
+                                        'default' => 'icon'
+                                    ),
+                                    array(
+                                        'name'             => 'icon',
+                                        'label'            => esc_html__( 'Feature Icon', 'saniga' ),
+                                        'type'             => \Elementor\Controls_Manager::ICONS,
+                                        'default'          => [
+                                            'library' => 'flaticon',
+                                            'value'   => 'flaticon-016-tissues'
+                                        ],
+                                        'condition' => [
+                                            'icon_type'    => ['icon']                            
+                                        ],
+                                    ),
+                                    array(
+                                        'name'        => 'icon_color',
+                                        'label'       => esc_html__( 'Icon Color', 'saniga' ),
+                                        'type'        => \Elementor\Controls_Manager::SELECT,
+                                        'options'     => saniga_elementor_theme_color_opts(['custom' => false]),
+                                        'condition'   => [
+                                            'icon_type'    => ['icon']
+                                        ],
+                                    ),
+                                    array(
+                                        'name'        => 'image',
+                                        'label'       => esc_html__('Feature Image', 'saniga'),
+                                        'type'        => \Elementor\Controls_Manager::MEDIA,
+                                        'condition' => [
+                                            'icon_type'    => ['img']                            
+                                        ],
+                                    )
+                                ),
+                                'default' => [
+                                    [
+                                        'icon'  => [
+                                            'library' => 'flaticon',
+                                            'value'   => 'flaticon-016-tissues'
+                                        ],
+                                        'image' => [
+                                            'url' => get_template_directory_uri().'/elementor/templates/widgets/cms_heading/layout-images/default/icon1.png'
+                                        ]
+                                    ],
+                                    [
+                                        'icon'  => [
+                                            'library' => 'flaticon',
+                                            'value'   => 'flaticon-017-soap'
+                                        ],
+                                        'image' => [
+                                            'url' => get_template_directory_uri().'/elementor/templates/widgets/cms_heading/layout-images/default/icon2.png'
+                                        ]
+                                    ],
+                                    [
+                                        'icon'  => [
+                                            'library' => 'flaticon',
+                                            'value'   => 'flaticon-036-cream'
+                                        ],
+                                        'image' => [
+                                            'url' => get_template_directory_uri().'/elementor/templates/widgets/cms_heading/layout-images/default/icon3.png'
+                                        ]
+                                    ]
+                                ],
+                                //'title_field' => '{{{ elementor.helpers.renderIcon( this, icon, {}, "i", "panel" ) || \'<i class="{{ icon }}" aria-hidden="true"></i>\' }}}',
+                            )
+                        )
+                    ),
+                    'condition' => [
+                        'layout' => ['8']
+                    ]
+                ),
+                array(
+                    'name'     => 'button_8',
+                    'label'    => esc_html__( 'Button', 'saniga' ),
+                    'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
+                    'controls' => saniga_elementor_button_settings([
+                        'prefix'           => 'btn8', 
+                        'btn_text'         => 'Request An Estimate',
+                        //'btn_type_default' => 'btn btn-fill', 
+                        //'btn_color'        => 'white',
+                        //'btn_hover_color'  => 'secondary',
+                        'btn_size'         => 'xl',
+                        'icon_default'     => [
+                            'library' => 'cmsi',
+                            'value'   => 'cmsi-arrow-right'   
+                        ] 
+                    ]),
+                    'condition'        => [
+                        'layout' => ['8']
                     ]
                 )
             )

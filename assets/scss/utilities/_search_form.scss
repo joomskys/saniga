@@ -47,14 +47,14 @@ $search_icon_w: 48px;
 	margin: 0 auto;
 	border-bottom: 2px solid $border-color;
 	[type="search"]{
-		border:none;
-		padding-left: $search_icon_w + 10px;
+		padding-left: $search_icon_w + 10px !important;
 		padding-right: 0;
 		font-size: 35px;
 		background: transparent;
-		@include box-shadow(none);
+		font-family: var(--heading-font-family);
+		@include box-shadow(none!important);
 		[dir="rtl"] &{
-			padding-right: $search_icon_w + 10px;
+			padding-right: $search_icon_w + 10px !important;
 	        padding-left: 0;
 		}
 	}

@@ -102,7 +102,7 @@ $widget->add_render_attribute( 'rate_star', 'style', 'background-color:'.$widget
 								        <?php } ?>
 								    </div>
 								</div>
-								<div class="col-lg-4 col-xl-3 relative d-">
+								<div class="col-lg-4 col-xl-3 relative cms-hidden-md">
 									<div class="bg-white relative p-50">
 										<?php 
 											saniga_elementor_icon_render($slide,[

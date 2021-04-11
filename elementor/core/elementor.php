@@ -1963,10 +1963,11 @@ if(!function_exists('saniga_elementor_image_render')){
 if(!function_exists('saniga_elementor_image_url_render')){
     function saniga_elementor_image_url_render($settings, $args = []){
         $args = wp_parse_args($args, [
-            'id'          => 'selected_img',
-            'size'        => 'thumbnail_size',
-            'custom_size' => '',
-            'default_img' => ''  
+            'id'            => 'selected_img',
+            'size'          => 'thumbnail_size',
+            'custom_size'   => '',
+            'default_thumb' => false,
+            'default_img'   => ''  
         ]); 
         if(empty($settings[$args['id']]) && empty($args['url'])) return;
         if(empty($args['custom_size'])){
@@ -1987,7 +1988,8 @@ if(!function_exists('saniga_elementor_image_url_render')){
         return saniga_get_image_url_by_size([
             'id'          => $settings[$args['id']]['id'],
             'size'        => $img_size,
-            'default_img' => $args['default_img']  
+            'default_img' => $args['default_img'],
+            'default_thumb' => $args['default_thumb']  
         ]);
     }
 }
