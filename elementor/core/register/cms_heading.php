@@ -6,7 +6,13 @@ etc_add_custom_widget(
         'title'      => esc_html__( 'CMS Heading', 'saniga' ),
         'icon'       => 'eicon-t-letter',
         'categories' => array( Elementor_Theme_Core::ETC_CATEGORY_NAME ),
-        'scripts'    => array(),
+        'scripts'    => array(
+            'jquery',
+            'magnific-popup'
+        ),
+        'styles'     => array(
+            'magnific-popup'
+        ),
         'params'     => array(
             'sections' => array(
                 array(

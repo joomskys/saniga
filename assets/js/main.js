@@ -27,8 +27,6 @@
         saniga_quantity_plus_minus_action();
         // background image moving
         saniga_background_moving();
-        // custom html checkbox and radio
-        //saniga_html_input_checkbox();
         // Smooth Scroll
         saniga_smooth_scroll()
         // full
@@ -40,10 +38,8 @@
     $(window).on('load', function () {
         $(".cms-loader").fadeOut("slow");
         window_width = $(window).width();
-        saniga_col_offset();
         saniga_header_ontop();
         saniga_header_sticky();
-        saniga_rtl();
         saniga_footer_fixed();
         saniga_scroll_to_top();
         setTimeout(function () { $('.cms-grid-menu-layout5 .grid-filter-wrap .filter-item:nth-child(1)').trigger('click'); }, 100);
@@ -52,7 +48,6 @@
     });
     $(window).on('resize', function () {
         window_width = $(window).width();
-        saniga_col_offset();
         saniga_video_size();
         // full
         saniga_elementor_section_full_width_with_space();
@@ -71,6 +66,7 @@
         saniga_header_sticky();
         saniga_scroll_to_top();
     });
+
     // Ajax Complete
     $(document).ajaxComplete(function(event, xhr, settings){
         "use strict";
@@ -262,53 +258,6 @@
             return false;
         });
 
-        /* =================
-        Add Class
-        =================== */
-        $('.wpcf7-select').parent().addClass('wpcf7-menu');
-        /* =================
-         Row & VC Column Animation
-         =================== */
-        $('.vc_row.wpb_row.vc_row-fluid').each(function () {
-            var vctime = 100;
-            var vc_inner = $(this).children().length;
-            var _vci = vc_inner - 1;
-            $(this).find('> .wpb_animate_when_almost_visible').each(function (index, obj) {
-                $(this).css('animation-delay', vctime + 'ms');
-                if (_vci === index) {
-                    vctime = 100;
-                    _vci = _vci + vc_inner;
-                } else {
-                    vctime = vctime + 100;
-                }
-            });
-        });
-        $('.animation-time').each(function () {
-            var vctime = 100;
-            var vc_inner = $(this).children().length;
-            var _vci = vc_inner - 1;
-            $(this).find('> .grid-item > .wpb_animate_when_almost_visible').each(function (index, obj) {
-                $(this).css('animation-delay', vctime + 'ms');
-                if (_vci === index) {
-                    vctime = 100;
-                    _vci = _vci + vc_inner;
-                } else {
-                    vctime = vctime + 40;
-                }
-            });
-        });
-
-        /* =================
-         The clicked item should be in center in owl carousel
-         =================== */
-        var $owl_item = $('.owl-active-click');
-        $owl_item.children().each(function (index) {
-            $(this).attr('data-position', index);
-        });
-        $(document).on('click', '.owl-active-click .owl-item > div', function () {
-            $owl_item.trigger('to.owl.carousel', $(this).data('position'));
-        });
-
         /* Modal */
         $(document).on('click', function (e) {
             if (e.target.className == 'cms-modal cms-modal-search open')
@@ -319,23 +268,6 @@
             if (e.target.className == 'cms-hidden-sidebar open')
                 $('.cms-hidden-sidebar').removeClass('open');
         });
-
-        /* =================
-         Move Divider, Angled & Overlay for Row VC
-         =================== */
-        $('.entry-content > .vc_row').each(function () {
-            var _el_overlay = $(this).find(".cms-row-overlay"),
-                _row_overlay = _el_overlay.parents(".wpb_column");
-            _row_overlay.before(_el_overlay.clone());
-            _el_overlay.remove();
-            $(this).find(".cms-row-overlay").parent().addClass('vc-row-overlay');
-
-            var _el_divider = $(this).find(".row-divider"),
-                _row_divider = _el_divider.parents(".wpb_column");
-            _row_divider.before(_el_divider.clone());
-            _el_divider.remove();
-        });
-
     });
     /**
      * Check right to left
@@ -363,7 +295,7 @@
                 mainClass: 'mfp-fade',
             });
         });
-
+        // Single LightBox
         $('.cms-image-light-box').each(function () {
             $(this).magnificPopup({
                 delegate: 'a.cms-light-box',
@@ -381,7 +313,6 @@
             mainClass: 'mfp-fade',
             removalDelay: 160,
             preloader: false,
-
             fixedContentPos: false
         });
         // add parameter when opening video in popup
@@ -416,25 +347,12 @@
             }
         });
      }
-     /* =================
-     Column Absolute
-     =================== */
-    function saniga_col_offset() {
-        'use strict';
-        var w_vc_row_lg = ($('#content').width() - 1230) / 2;
-        if (window_width > 1200) {
-            $('.col-offset-right > .vc_column-inner').css('padding-right', w_vc_row_lg + 'px');
-            $('.col-offset-left > .vc_column-inner').css('padding-left', w_vc_row_lg + 'px');
-            $('.col-offset-right > .col-offset-inner').css('padding-right', w_vc_row_lg + 'px');
-            $('.col-offset-left > .col-offset-inner').css('padding-left', w_vc_row_lg + 'px');
-        }
-    }
     // Header ontop
     function saniga_header_ontop() {
         'use strict';
         var offsetTop = $('#cms-header-top').outerHeight();
-        if($('#site-header-wrap').hasClass('is-ontop')) {
-            $('#site-header-wrap').css({
+        if($('#cms-header').hasClass('is-ontop')) {
+            $('#cms-header').css({
                 'top': offsetTop
             });
         }
@@ -529,17 +447,7 @@
             $(this).parent().removeClass('open');
         });
     }
-    /* =================
-    RTL
-    =================== */
-    function saniga_rtl() {
-        'use strict';
-        if ($('html').attr('dir') == 'rtl') {
-            $('[data-vc-full-width="true"]').each(function (i, v) {
-                $(this).css('right', $(this).css('left')).css('left', 'auto');
-            });
-        }
-    }
+    
     /* ====================
       Fixed Footer
      ====================== */
@@ -577,7 +485,6 @@
                 prevArrow : '<div class="cms-slick-prev"><span class="cms-slick-prev-icon"></span></div>',
                 nextArrow : '<div class="cms-slick-next"><span class="cms-slick-next-icon"></span></div>',
                 dotsClass: 'cms-slick-dots', 
-
             });
         }
     }
@@ -742,28 +649,6 @@
         }
     }
     /**
-     * Cart Page
-    */
-    // move remove product to last of row
-    function saniga_table_move_column(table, selected ,from, to, remove, colspan, colspan_value) {
-        "use strict";
-        var rows = jQuery(selected, table);
-        var cols;
-        rows.each(function() {
-            cols = jQuery(this).children('th, td');
-            cols.eq(from).detach().insertAfter(cols.eq(to));
-        });
-        var rows_remove = jQuery(remove, table);
-        rows_remove.each(function(){
-            jQuery(this).remove(remove);
-        });
-        var colspan = jQuery(colspan, table);
-        colspan.each(function(){
-            jQuery(this).attr('colspan',colspan_value);
-        });
-    }
-
-    /**
      * BACKGROUND IMAGE MOVING FUNCTION BY= jquery.bgscroll.js
     */
     (function() {
@@ -797,18 +682,6 @@
         "use strict";
         // allow direction v, d
         $('.cms-bg-moving-h').bgscroll({scrollSpeed:20 , direction:'h' });
-    }
-    // Custom html input type checkbox and radio
-    function saniga_html_input_checkbox(){
-        'use strict';
-        $('input').each(function (ev) {
-            if ($(this).is('[type="checkbox"]')) {
-                $(this).wrap('<span class="cms-custom-checkbox"></span>').after('<span class="cms-checkmark"></span>');
-            }
-            if ($(this).is('[type="radio"]')) {
-                $(this).wrap('<span class="cms-custom-radio"></span>').after('<span class="cms-checkmark"></span>');
-            }
-        });
     }
     /** ====================================================
      Elementer Section Full Width with Left/ Right Spacing
@@ -894,44 +767,8 @@
     /**
      * Galleries Load more
     **/
-    function saniga_dropdown_menu(){
-        'use strict';
-        var $menu = $('.cms-main-navigation');        
-        $menu.find('.cms-primary-menu li').each(function () {
-            var $submenu = $(this).find('> ul.sub-menu');
-            if ($submenu.length == 1) {
-                $(this).hover(function () {
-                    if ($submenu.offset().left + $submenu.width() > $(window).width()) {
-                        $submenu.addClass('back');
-                    } else if ($submenu.offset().left < 0) {
-                        $submenu.addClass('back');
-                    }
-                }, function () {
-                    $submenu.removeClass('back');
-                });
-            }
-        });
-
-        $('.sub-menu .current-menu-item').parents('.menu-item-has-children').addClass('current-menu-ancestor');
-    }
     function saniga_galleries_loadmore() {
         'use strict';
-        /*$('.cms-image-gallery').each(function() {
-            var data_show = $(this).data('show'),
-                data_load = $(this).data('loadmore'),
-                item_show = $(this).find('.cms-gallery-item'); 
-                console.log(data_show, data_load);
-            $(this).find('.cms-gallery-item').addClass('fuck');
-            $('.cms-gallery-item').slide(0, data_show);
-            $(this).find('#load').on('click', function(e){
-                e.preventDefault();
-                //$(this).parents('.cms-image-gallery').find('.cms-gallery-item:hidden').slide(0,data_load).show();
-                if ($(this).find(".cms-gallery-item:hidden").length == 0) { // check if any hidden divs still exist
-                  //alert("No more divs"); // alert if there are none left
-                  $(this).hide();
-                }
-            });
-        });*/
         var data_show = $('.cms-image-gallery').data('show'),
             data_load = $('.cms-image-gallery').data('loadmore'); 
         $(".cms-image-gallery .cms-gallery-item").slice(0, data_show).show(); // select the first ten
@@ -944,17 +781,5 @@
             }
         });
     };
-
 })(jQuery);
-/*
-var item_show = 1;
-          $(".cms-image-gallery .cms-gallery-item").slice(0, 2).show(); // select the first ten
-          $(".cms-image-gallery #load").click(function(e) { // click event for load more
-            e.preventDefault();
-            $(".cms-image-gallery .cms-gallery-item:hidden").slice(0, 2).show(); // select next 10 hidden divs and show them
-            if ($(".cms-image-gallery .cms-gallery-item:hidden").length == 0) { // check if any hidden divs still exist
-              //alert("No more divs"); // alert if there are none left
-              $(this).hide();
-            }
-          });
-*/
+

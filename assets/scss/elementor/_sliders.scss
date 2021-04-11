@@ -1,9 +1,42 @@
 .cms-sliders{
 	display: flex;
+	.slick-list,
+	.slick-track{
+		height: 100%;
+	}
 	.cms-slide-item{
 		flex: 0 0 100vw;
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
+	.cms-slide-img-overlay{
+		background: rgba(0,0,0,0.5);
+	}
+	.large-heading{
+		line-height: 1.1;
+		padding: 8px 0 19px;
+	}
+	.cms-slide-rating{
+		top: -25px;
+		right: 30px;
+		[dir="rtl"]&{
+			right: auto;
+			left: 30px;
+		}
+	}
+	.cms-slide-dots-layer{
+		.cms-slick-dot{
+			justify-content: start;
+		}
+	}
 }
+.cms-sliders-wrap{
+	.cms-slide-dots-main{
+		position: absolute;
+		bottom: 40px;
+		left: 0;
+		right: 0;
+	}
+}
+// layout 1

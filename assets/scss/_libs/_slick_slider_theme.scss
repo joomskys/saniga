@@ -68,9 +68,15 @@ $slick-arrow-space: 45px;
 .cms-slick-nav-in-vertical{
 	.cms-slick-prev{
 		left: 15px;
+		@media(min-width: $screen-xl-min){
+			left: 45px;
+		}
 	}
 	.cms-slick-next{
 		right: 15px;
+		@media(min-width: $screen-xl-min){
+			right: 45px;
+		}
 	}
 }
 .cms-slick-nav-out-vertical{

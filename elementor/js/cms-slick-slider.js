@@ -237,8 +237,34 @@
             });
         });  
     };
-    
-
+    // CMS Slider
+    var CMSSliderHandler = function( $scope, $ ) {
+        var carousel = $scope.find(".cms-sliders-wrap-1 .cms-sliders");
+        var breakpoints = elementorFrontend.config.breakpoints;
+        if(carousel.length == 0){
+            return false;
+        }
+        carousel.each(function() {
+            $(this).slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                //fade: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+                appendArrows: carousel.parent().find('.cms-slide-arrows'),
+                prevArrow : '<div class="cms-slick-prev cms-slick-arrow"><span class="cms-slick-arrow-icon prev"></span></div>',
+                nextArrow : '<div class="cms-slick-next cms-slick-arrow"><span class="cms-slick-arrow-icon next"></span></div>',
+                dots: true,
+                appendDots: carousel.parent().find('.cms-slide-dots'),
+                dotsClass: 'cms-slick-dot'
+            }).on( 'afterChange', function( event, slick, currentSlide ) {
+              $.each(slick.$dots, (i, el) => {
+                $(el).find('li').eq(currentSlide).addClass('slick-active fuck');
+              })
+            });
+        });     
+    };
     // Make sure you run this code under Elementor.
     $( window ).on( 'elementor/frontend/init', function() {
         elementorFrontend.hooks.addAction( 'frontend/element_ready/cms_post_carousel.default', CMSSlickSliderHandler );
@@ -250,5 +276,6 @@
         elementorFrontend.hooks.addAction( 'frontend/element_ready/cms_fancy_box.default', CMSSlickSliderDataSettingsHandler );
         elementorFrontend.hooks.addAction( 'frontend/element_ready/cms_howitwork.default', CMSSlickSliderHowItWork );
         elementorFrontend.hooks.addAction( 'frontend/element_ready/cms_pricing_table_slide.default', CMSPricingSlider );
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/cms_slider.default', CMSSliderHandler );
     } );
 } )( jQuery );

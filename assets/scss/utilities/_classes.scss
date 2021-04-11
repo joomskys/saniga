@@ -173,6 +173,10 @@
 	.cms-hover-img-scale:hover &{
 		@include transform(scale(1.1));
 	}
+	&.cms-rate-star{
+		vertical-align: middle;
+		display: inline-block;
+	}
 }
 // ontop
 .z-ontop{
