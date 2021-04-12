@@ -37,7 +37,8 @@ function saniga_get_page_titles() {
 		}
 		$sub_title = get_post_meta( get_the_ID(), 'custom_sub_title', true );
 	} elseif ( is_author() ) {
-		$title     = esc_html__( 'Author:', 'saniga' ) . ' ' . get_the_author();
+		//esc_html__( 'Author:', 'saniga' ) . ' ' .
+		$title     = get_the_author();
 		$sub_title = saniga_get_opts('custom_sub_title');
 	} else {
 		$custom_title = saniga_get_opts('custom_title');

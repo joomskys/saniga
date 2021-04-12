@@ -28,8 +28,11 @@ if(!function_exists('saniga_post_author')){
                 // Author name
                 $my_post = get_post( $args['post_id'] );
                 $user_id = $my_post->post_author;
+                //var_dump($user_id);
+                $author_url = get_author_posts_url($user_id);
+                $author_url2 = get_the_author_meta( 'user_url', $user_id );
             ?>
-            <a href="<?php the_author_meta( 'user_url', $user_id ); ?>" title="<?php the_author_meta('display_name', $user_id); ?>"><?php the_author_meta('display_name', $user_id); ?></a>
+            <a href="<?php echo esc_url($author_url); ?>" title="<?php the_author_meta('display_name', $user_id); ?>"><?php the_author_meta('display_name', $user_id); ?></a>
         </span>
     <?php
         if($args['echo']){

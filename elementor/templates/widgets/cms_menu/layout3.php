@@ -14,7 +14,7 @@
 		wp_nav_menu(array(
 			'fallback_cb'          => '',
 			'menu'                 => $settings['menu'],
-			'menu_class'           => 'cms-menu cms-menu-horz text-14 '.saniga_elementor_row_justify_class($settings),
+			'menu_class'           => 'cms-menu cms-menu-horz text-14 justify-content-center justify-content-md-start justify-content-lg-start',
 			'container_aria_label' => $heading_text,
 			'before' 			   => '<span class="link-'.$link_color.' link-hover-'.$link_color_hover.'">',
 			'after'				   => '</span>',		
