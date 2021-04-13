@@ -20,6 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 global $product;
+$sku = $product->get_sku() ) ? $sku : esc_html__( 'N/A', 'saniga' );
 ?>
 <div class="product_meta">
 
@@ -27,7 +28,7 @@ global $product;
 
 	<?php if ( wc_product_sku_enabled() && ( $product->get_sku() || $product->is_type( 'variable' ) ) ) : ?>
 
-		<span class="sku_wrapper"><span class="meta-title"><?php esc_html_e( 'SKU:', 'saniga' ); ?></span> <span class="sku"><?php echo ( $sku = $product->get_sku() ) ? $sku : esc_html__( 'N/A', 'saniga' ); ?></span></span>
+		<span class="sku_wrapper"><span class="meta-title"><?php esc_html_e( 'SKU:', 'saniga' ); ?></span> <span class="sku"><?php echo esc_html($sku) ; ?></span></span>
 
 	<?php endif; ?>
 

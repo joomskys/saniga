@@ -112,7 +112,7 @@ if (!function_exists('saniga_default_image_thumbnail_url')) {
         if($url !== false){
             $src = $default_img['url'];
         } else {
-            $src = site_url() . $default_img['url'];
+            $src = home_url() . $default_img['url'];
         }
 
         return $src;
@@ -155,7 +155,7 @@ if (!function_exists('saniga_default_image_thumbnail')) {
         if($url !== false){
             $src = $default_img['url'];
         } else {
-            $src = site_url() . $default_img['url'];
+            $src = home_url() . $default_img['url'];
         }
         $thumbnail = '<img class="' . trim(implode(' ', array('default-thumb', $class))) . '" src="' . $src . '" width="' . $default_img['width'] . '" height="' . $default_img['height'] . '" alt="' . esc_attr(get_option('blogname')) . '" />';
         if($echo)
