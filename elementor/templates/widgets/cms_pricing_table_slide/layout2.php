@@ -66,8 +66,8 @@
                                 'class' => 'col-auto'
                             ]); ?>
                             <div <?php etc_print_html($widget->get_render_attribute_string( 'item-price' )); ?>>
-                                <span class="text-50"><?php echo $item['price_currency'].$item['price_value']; ?></span>
-                                <span class="text-14"><?php echo $item['price_duration'] ?></span>
+                                <span class="text-50"><?php etc_print_html($item['price_currency'].$item['price_value']); ?></span>
+                                <span class="text-14"><?php etc_print_html($item['price_duration']) ?></span>
                             </div>
                         </div>
                     </div>

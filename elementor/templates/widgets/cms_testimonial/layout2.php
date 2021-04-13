@@ -56,8 +56,8 @@ $widget->add_render_attribute( 'description', 'class', 'text-'.$settings['descri
                                                 endif; 
                                             ?>
                                             <div class="cms-ttmn-author pt-10">
-                                                <div class="cms-ttmn-name cms-heading text-16 font-700 <?php echo 'text-'.$settings['description_typo_color'];?>"><?php echo $value['title'];?>,</div>
-                                                <div class="cms-ttmn-subtitle text-13 <?php echo 'text-'.$settings['description_typo_color'];?>"><?php  echo $value['sub_title'];?></div>
+                                                <div class="cms-ttmn-name cms-heading text-16 font-700 <?php echo 'text-'.$settings['description_typo_color'];?>"><?php echo esc_html($value['title']);?>,</div>
+                                                <div class="cms-ttmn-subtitle text-13 <?php echo 'text-'.$settings['description_typo_color'];?>"><?php  echo esc_html($value['sub_title']);?></div>
                                             </div>
                                         </div>
                                     </div>

@@ -49,8 +49,8 @@ $widget->add_render_attribute( 'description', 'class', 'text-'.$settings['descri
                                     ]);
                                 ?></div>
                                 <div class="cms-ttmn-author">
-                                    <span class="cms-ttmn-name cms-heading text-16 font-700"><?php echo $value['title'];?>,</span>
-                                    <span class="cms-ttmn-subtitle text-13"><?php  echo $value['sub_title'];?></span>
+                                    <span class="cms-ttmn-name cms-heading text-16 font-700"><?php echo esc_html($value['title']);?>,</span>
+                                    <span class="cms-ttmn-subtitle text-13"><?php  echo esc_html($value['sub_title']);?></span>
                                 </div>
                             </div>
                         </div>

@@ -303,7 +303,7 @@ if(!function_exists('saniga_socials_share_default')){
                         </div>
                         <?php } if(!empty($args['icon_twitter'])) { ?>
                         <div class="cms-social cms-social-item col-auto">
-                            <a class="<?php echo esc_attr($args['social_item_class']);?>" title="Twitter" target="_blank" href="https://twitter.com/intent/tweet?original_referer=<?php echo urldecode(site_url()); ?>&url=<?php echo urlencode(get_permalink()); ?>&text=<?php the_title();?>&via=<?php echo saniga_get_opt('twitter_user', 'joomskys');?>"><i class="<?php echo esc_attr($args['icon_twitter']) ?>"></i></a>
+                            <a class="<?php echo esc_attr($args['social_item_class']);?>" title="Twitter" target="_blank" href="https://twitter.com/intent/tweet?original_referer=<?php echo urldecode(home_url('/')); ?>&url=<?php echo urlencode(get_permalink()); ?>&text=<?php the_title();?>&via=<?php echo saniga_get_opt('twitter_user', 'joomskys');?>"><i class="<?php echo esc_attr($args['icon_twitter']) ?>"></i></a>
                         </div>
                         <?php } if(!empty($args['icon_linkedin'])) { ?>
                         <div class="cms-social cms-social-item col-auto">

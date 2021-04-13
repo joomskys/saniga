@@ -87,7 +87,7 @@ function saniga_register_required_plugins() {
         ),
         
         array(
-            'name'               => esc_html__('WP User Avatar', 'solatec'),
+            'name'               => esc_html__('WP User Avatar', 'saniga'),
             'slug'               => 'wp-user-avatar',
             'required'           => false,
             'force_activation'   => $auto_active,

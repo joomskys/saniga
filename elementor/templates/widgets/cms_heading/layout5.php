@@ -60,7 +60,7 @@ $widget->add_render_attribute( 'feature', 'class', 'cms-heading-features pt-35 c
                             'value'   => 'cmsi-check-circle'
                         ]
                     ]);
-                    echo $value['title'];
+                    etc_print_html($value['title']);
                 ?></div>
             <?php } 
         ?></div>

@@ -145,7 +145,7 @@ etc_add_custom_widget(
                                     ),
                                     array(
                                         'name'        => 'small_heading',
-                                        'label'       => esc_html__('Small Heading'),
+                                        'label'       => esc_html__('Small Heading','saniga'),
                                         'type'        => \Elementor\Controls_Manager::TEXTAREA,
                                         'placeholder' => esc_html__( 'Enter your text', 'saniga' ),
                                         'label_block' => true,
@@ -181,7 +181,7 @@ etc_add_custom_widget(
                                     ),
                                     array(
                                         'name'        => 'large_heading',
-                                        'label'       => esc_html__('Large Heading'),
+                                        'label'       => esc_html__('Large Heading','saniga'),
                                         'type'        => \Elementor\Controls_Manager::TEXTAREA,
                                         'placeholder' => esc_html__( 'Enter your text', 'saniga' ),
                                         'label_block' => true,
@@ -216,7 +216,7 @@ etc_add_custom_widget(
                                     ),
                                     array(
                                         'name'        => 'description',
-                                        'label'       => esc_html__('Description'),
+                                        'label'       => esc_html__('Description','saniga'),
                                         'type'        => \Elementor\Controls_Manager::TEXTAREA,
                                         'placeholder' => esc_html__( 'Enter your text', 'saniga' ),
                                         'label_block' => true,
@@ -253,7 +253,7 @@ etc_add_custom_widget(
 
                                     array(
                                         'name'        => 'description2_icon',
-                                        'label'       => esc_html__('Description2 Icon'),
+                                        'label'       => esc_html__('Description2 Icon','saniga'),
                                         'type'        => \Elementor\Controls_Manager::ICONS,
                                         'label_block' => true,
                                         'separator'   => 'before',
@@ -264,7 +264,7 @@ etc_add_custom_widget(
                                     ),
                                     array(
                                         'name'        => 'description2',
-                                        'label'       => esc_html__('Description2'),
+                                        'label'       => esc_html__('Description2','saniga'),
                                         'type'        => \Elementor\Controls_Manager::TEXTAREA,
                                         'placeholder' => esc_html__( 'Enter your text', 'saniga' ),
                                         'label_block' => true,
@@ -421,7 +421,7 @@ etc_add_custom_widget(
                                     ),
                                     array(
                                         'name'        => 'small_heading',
-                                        'label'       => esc_html__('Small Heading'),
+                                        'label'       => esc_html__('Small Heading','saniga'),
                                         'type'        => \Elementor\Controls_Manager::TEXTAREA,
                                         'placeholder' => esc_html__( 'Enter your text', 'saniga' ),
                                         'label_block' => true,
@@ -457,7 +457,7 @@ etc_add_custom_widget(
                                     ),
                                     array(
                                         'name'        => 'large_heading',
-                                        'label'       => esc_html__('Large Heading'),
+                                        'label'       => esc_html__('Large Heading','saniga'),
                                         'type'        => \Elementor\Controls_Manager::TEXTAREA,
                                         'placeholder' => esc_html__( 'Enter your text', 'saniga' ),
                                         'label_block' => true,
@@ -492,7 +492,7 @@ etc_add_custom_widget(
                                     ),
                                     array(
                                         'name'        => 'description',
-                                        'label'       => esc_html__('Description'),
+                                        'label'       => esc_html__('Description','saniga'),
                                         'type'        => \Elementor\Controls_Manager::TEXTAREA,
                                         'placeholder' => esc_html__( 'Enter your text', 'saniga' ),
                                         'label_block' => true,
