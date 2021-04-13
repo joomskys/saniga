@@ -40677,11 +40677,11 @@ body.single-post #cms-main {
   overflow: hidden; }
 
 .cms-widget ul ul, .cms-widget ol ul, .cms-widget ul ol, .cms-widget ol ol {
-  padding-left: 15px; }
+  padding-left: 0; }
 
 [dir="rlt"] .cms-widget ul ul, [dir="rlt"] .cms-widget ol ul, [dir="rlt"] .cms-widget ul ol, [dir="rlt"] .cms-widget ol ol {
   padding-left: 0;
-  padding-right: 15px; }
+  padding-right: 0; }
 
 .cms-widget .count {
   min-width: 25px;
@@ -40810,6 +40810,16 @@ table.wp-calendar-table th:hover a:before, table.wp-calendar-table td:hover a:be
   border-color: var(--color-primary);
   background: var(--color-primary);
   color: #fff; }
+
+.widget_archive .children li:last-child a, .widget_categories .children li:last-child a, .widget_pages .children li:last-child a, .widget_nav_menu .children li:last-child a, .widget_product_categories .children li:last-child a, .woocommerce-widget-layered-nav-list .children li:last-child a, .widget_layered_nav_filters .children li:last-child a {
+  border-bottom: 2px solid #eaeaea; }
+
+.widget_archive .children a, .widget_categories .children a, .widget_pages .children a, .widget_nav_menu .children a, .widget_product_categories .children a, .woocommerce-widget-layered-nav-list .children a, .widget_layered_nav_filters .children a {
+  padding-left: 40px; }
+
+[dir="rtl"] .widget_archive .children a, [dir="rtl"] .widget_categories .children a, [dir="rtl"] .widget_pages .children a, [dir="rtl"] .widget_nav_menu .children a, [dir="rtl"] .widget_product_categories .children a, [dir="rtl"] .woocommerce-widget-layered-nav-list .children a, [dir="rtl"] .widget_layered_nav_filters .children a {
+  padding-left: 20px;
+  padding-right: 40px; }
 
 .widget_layered_nav_filters a:before {
   background: none; }

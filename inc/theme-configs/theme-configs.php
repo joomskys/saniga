@@ -96,8 +96,8 @@ if(!function_exists('saniga_configs')){
             ],
             // single product
             'single_product' => [
-                'title_layout' => '11'
-            ]
+                'title_layout' => '10'
+            ],
             // body typo
             'body' => [
                 'bg'                => '#fff',

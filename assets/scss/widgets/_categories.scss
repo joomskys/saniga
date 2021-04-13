@@ -32,6 +32,18 @@
 			}
 		}
 	}
+	.children {
+		li:last-child a{
+			border-bottom: 2px solid $border-color;
+		}
+		a{
+			padding-left: 40px;
+			[dir="rtl"] &{
+				padding-left: 20px;
+				padding-right: 40px;
+			}
+		}
+	}
 }
 
 .widget_layered_nav_filters{

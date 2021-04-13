@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 global $product;
-$sku = $product->get_sku() ) ? $sku : esc_html__( 'N/A', 'saniga' );
+$sku = $product->get_sku() ? $product->get_sku() : esc_html__( 'N/A', 'saniga' );
 ?>
 <div class="product_meta">
 

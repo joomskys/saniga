@@ -762,7 +762,7 @@ if(class_exists('Woocommerce')) {
         'fields'     => array_merge(
             saniga_page_title_opts_fields([
                 'prefix'         => 'product_',
-                'default_layout' => saniga_configs('ptitle')['layout'],
+                'default_layout' => saniga_configs('single_product')['title_layout'],
             ]),
             array(
                 saniga_sidebar_opts([
