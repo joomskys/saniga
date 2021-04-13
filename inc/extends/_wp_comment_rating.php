@@ -50,7 +50,7 @@ if(!function_exists('saniga_woocommerce_comment_rating_fields')){
 				$rating .= '</div>';
 			$rating .= '</div>';
 		}
-		if($echo){
+		if($args['echo']){
 			printf('%s', $rating);
 		} else {
 			return $rating;
