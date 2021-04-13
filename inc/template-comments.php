@@ -117,8 +117,19 @@ if(!function_exists('saniga_comment_form_args')){
     	);
 
     	$cms_fields = [];
+    	$cms_fields['open'] = '';
+    	if(!is_user_logged_in()){
+			$cms_fields['open'] .= saniga_comment_rating_fields([
+				'echo' => false,
+				'class' => 'mb-20'
+			]);
+			$cms_fields['open'] .= saniga_woocommerce_comment_rating_fields([
+				'echo' => false,
+				'class' => 'mb-20'
+			]);
+		}
 		//open
-    	$cms_fields['open'] = '<div class="cms-comment-form-fields-wrap row gutters-40 gutters-grid">';
+    	$cms_fields['open'] .= '<div class="cms-comment-form-fields-wrap row gutters-40 gutters-grid">';
 		// author
 		$cms_fields['author'] = '<div class="comment-form-field comment-form-author col-lg-4 col-md-4 col-sm-12">'.
                 	'<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
@@ -139,10 +150,15 @@ if(!function_exists('saniga_comment_form_args')){
 		// Comment Field Message
 		//$cms_comment_fields['comment_field'] = '';
 		if(is_user_logged_in()){
-			$cms_comment_fields['comment_field'] .= saniga_comment_rating_fields(false);
-			$cms_comment_fields['comment_field'] .= saniga_woocommerce_comment_rating_fields(false);
+			$cms_comment_fields['comment_field'] .= saniga_comment_rating_fields([
+				'echo' => false,
+				'class' => 'mt-20'
+			]);
+			$cms_comment_fields['comment_field'] .= saniga_woocommerce_comment_rating_fields([
+				'echo' => false,
+				'class' => 'mt-20'
+			]);
 		}
-
 		$cms_comment_fields['comment_field'] .= '<div class="cms-comment-form-fields-wrap cms-comment-form-fields-message row"><div class="comment-form-field comment-form-comment col-12"><textarea id="comment-msg" name="comment" cols="45" rows="8" placeholder="'.esc_attr__('Comment', 'saniga').'" aria-required="true">' .'</textarea></div></div>';
 
     	return $cms_comment_fields;

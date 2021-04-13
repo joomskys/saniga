@@ -35,7 +35,12 @@
 					font-weight: 700;
 					float: left;
 				}
-
+				&.product-name{
+					> div {
+						width: 100%;
+						padding-top: 10px;
+					}
+				}
 				&.product-remove,
 				&.actions {
 					&::before {

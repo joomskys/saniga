@@ -28,12 +28,16 @@ if(!function_exists('saniga_comment_rating_fields')){
 	}
 }
 if(!function_exists('saniga_woocommerce_comment_rating_fields')){
-	function saniga_woocommerce_comment_rating_fields($echo = true){
+	function saniga_woocommerce_comment_rating_fields($args =[]){
+		$args = wp_parse_args($args, [
+			'echo' => true,
+			'class' => ''
+		]);
 		$rating = '';
 		if(!function_exists('wc_review_ratings_enabled')) return;
 		if (wc_review_ratings_enabled() && is_singular('product') ) {
-			$rating .= '<div class="cms-comment-form-rating cms-comment-form-fields-wrap row">';
-				$rating .= '<div class="comment-form-field col-auto">' . esc_html__( 'Your rating', 'saniga' ) . ( wc_review_ratings_required() ? '&nbsp;<span class="required">*</span>' : '' ) . '</div>';
+			$rating .= '<div class="cms-comment-form-rating cms-comment-form-fields-wrap row align-items-center '.esc_attr($args['class']).'">';
+				$rating .= '<div class="comment-form-field col-auto cms-heading font-700">' . esc_html__( 'Your rating', 'saniga' ) . ( wc_review_ratings_required() ? '&nbsp;<span class="required">*</span>' : '' ) . '</div>';
 				$rating .= '<div class="comment-form-field comments-rating col">';
 					$rating .= '<select name="rating" id="rating" required>
 						<option value="">' . esc_html__( 'Rate&hellip;', 'saniga' ) . '</option>

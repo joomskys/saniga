@@ -344,7 +344,8 @@ etc_add_custom_widget(
                             'name'        => 'background',
                             'label'       => esc_html__( 'Background Image', 'saniga' ),
                             'description' => esc_html__( 'Choose Background. Default is post feature image', 'saniga' ),
-                            'type'        => \Elementor\Controls_Manager::MEDIA  
+                            'type'        => \Elementor\Controls_Manager::MEDIA ,
+                            'default'     => ['url' => '']  
                         ),
                         array(
                             'name'        => 'bg_overlay',

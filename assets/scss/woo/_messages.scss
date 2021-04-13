@@ -4,3 +4,13 @@
 		display: none;
 	}
 }
+
+.woocommerce-message{
+	.restore-item{
+		margin-left: 20px;
+		[dir="rtl"] &{
+			margin-right: 20px;
+			margin-left: 0;
+		}
+	}
+}

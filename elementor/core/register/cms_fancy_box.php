@@ -250,7 +250,7 @@ etc_add_custom_widget(
                         ])
                     ),
                     'condition' => [
-                        'layout' => ['1', '3','5']
+                        'layout' => ['1','3','4','5']
                     ]
                 ),
                 array(

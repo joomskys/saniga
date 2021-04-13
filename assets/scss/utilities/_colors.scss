@@ -18,6 +18,9 @@
 	// text color
 	.text-#{$name}{
 		color: #{$color};
+		&.cms-star-rated{
+			color: #{$color};
+		}
 	}
 	.text-hover-#{$name}:hover{
 		color: #{$color};

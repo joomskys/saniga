@@ -2220,7 +2220,7 @@ if(!function_exists('saniga_star_rating')){
         $text_class = !empty($args['text_class']) ? $args['text_class'] : 'text-16 font-700';
     ?>
         <div class="row align-items-center gutters-15 text-accent">
-            <div class="col-auto">
+            <div class="col-12 col-md-auto">
                 <div class="cms-star-rating relative <?php echo esc_attr($args['class']);?>">
                     <div class="cms-star-rated absolute <?php echo esc_attr($args['rated_class']);?>" data-width="<?php echo esc_attr($args['rated']);?>"></div>
                 </div>

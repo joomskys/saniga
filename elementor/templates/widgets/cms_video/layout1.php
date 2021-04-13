@@ -24,7 +24,7 @@ $widget->add_render_attribute( 'play-icon', 'class', 'cms-play-video-icon '.$wid
                 'id'          => 'video_image_overlay',
                 'size'        => 'video_image_overlay_size',
                 'class'       => 'video-bg rtl-flip '.$img_classes,
-                'default_img' => get_template_directory_uri() . '/elementor/templates/widgets/cms_video/layout-images/thumb-1.jpg'
+                'default_img' => get_template_directory_uri() . '/elementor/templates/widgets/cms_video/layout-images/thumb-1.png'
             ]);
         ?>
         <?php if(!empty($video_link)) : ?>

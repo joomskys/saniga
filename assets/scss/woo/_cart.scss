@@ -44,9 +44,9 @@ table.cart {
 		width: 70px;
 	}
 	input[name="coupon_code"][type="text"]{
-		height: 51px;
-		line-height: 51px;
-		width: 250px;
+		height: 51px!important;
+		line-height: 51px!important;
+		width: 250px!important;
 	}
 }
 .cart-collaterals{

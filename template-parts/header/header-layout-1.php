@@ -11,7 +11,7 @@
             <div class="cms-navigation col">
                 <div class="row align-items-center justify-content-between">
                     <div class="col-12 col-xl-auto">
-                        <div class="row align-items-center gutters-20">
+                        <div class="row align-items-center gutters-30">
                             <?php saniga_secondary_menu([
                                 'before' => '<div class="col-auto font-700 order-xl-first">',
                                 'after'  => '</div>'

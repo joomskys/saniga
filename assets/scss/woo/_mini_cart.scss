@@ -1,6 +1,11 @@
 .widget_shopping_cart {
 	.woocommerce-mini-cart{
 		.mini_cart_item{
+			padding-right: 25px;
+			[dir="rtl"]{
+				padding-right: 0;
+				padding-left: 25px;
+			}
 			a.remove{
 			    color: white;
 			    display: block;

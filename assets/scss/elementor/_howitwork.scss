@@ -110,6 +110,11 @@
 				}
 			}
 		}
+		&:last-child{
+			.box-icon.cms-icon:after{
+				width: 140px;
+			}
+		}
 	}
 }
 .cms-howitwork-layout-2{

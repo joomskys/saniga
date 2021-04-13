@@ -8,6 +8,10 @@
 }
 p.stars{
 	margin: 0;
+	> span{
+		margin-bottom: -7px;
+		display: block;
+	}
 }
 .star-rating{
 	font-family: $star_icon_font;
@@ -44,6 +48,7 @@ p.stars{
 		margin-left: 30px;
 		font-size: 13px;
 		color: $body-font-color;
+		padding-top: 10px;
 		&:hover{
 			color: $accent-color;
 		}

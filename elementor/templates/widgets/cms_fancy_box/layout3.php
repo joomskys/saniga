@@ -26,7 +26,7 @@ $widget->add_render_attribute( 'wrap', 'class', 'cms-fancybox cms-hover-show-mor
 $background_img = saniga_elementor_image_url_render($settings, [
     'id'          => 'background_img',
     'size'        => 'background_size',
-    'default_img' => get_template_directory_uri().'/elementor/templates/widgets/cms_fancy_box/layout-images/bg-1.jpg'
+    'default_img' => get_template_directory_uri().'/elementor/templates/widgets/cms_fancy_box/layout-images/bg-1.png'
 ]);
 if(!empty($settings['background_img']['id'])){
    // $widget->add_render_attribute( 'wrap', 'style', 'background-image:url('.$background_img.');');
@@ -50,7 +50,7 @@ if($settings['bg_color'] !== '' && $settings['background_color_custom'] !== ''){
             'id'          => 'background_img',
             'size'        => 'background_size',
             'class'       => 'w-100',
-            'default_img' => get_template_directory_uri().'/elementor/templates/widgets/cms_fancy_box/layout-images/bg-1.jpg'
+            'default_img' => get_template_directory_uri().'/elementor/templates/widgets/cms_fancy_box/layout-images/bg-1.png'
         ]); 
     ?>
     <div <?php etc_print_html($widget->get_render_attribute_string( 'content-wrap' )); ?>>

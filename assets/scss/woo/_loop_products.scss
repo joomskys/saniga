@@ -174,7 +174,9 @@ ul.products{
 .add_to_cart_button,
 .button.product_type_grouped,
 .added_to_cart{
-	min-width: 210px;
+	@media (min-width: $desktop-screen){
+		min-width: 210px;
+	}
 }
 .add_to_cart_button,
 .product_type_grouped,

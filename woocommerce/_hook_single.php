@@ -176,7 +176,7 @@ if ( ! function_exists( 'woocommerce_template_single_rating' ) ) {
 				<?php echo wc_get_rating_html( $average, $rating_count ); // WPCS: XSS ok. ?>
 				<?php if ( comments_open() ) : ?>
 					<?php //phpcs:disable ?>
-					<a href="#reviews" class="woocommerce-review-link cms-scroll" rel="nofollow"><?php printf( _n( '%s Review', '%s Reviews', $review_count, 'saniga' ), '<span class="count">' . esc_html( $review_count ) . '</span>' ); ?> / <?php esc_html_e('Add Review','saniga');?></a>
+					<a href="#reviews" class="woocommerce-review-link cms-scroll-down" rel="nofollow"><?php printf( _n( '%s Review', '%s Reviews', $review_count, 'saniga' ), '<span class="count">' . esc_html( $review_count ) . '</span>' ); ?> / <?php esc_html_e('Add Review','saniga');?></a>
 					<?php // phpcs:enable ?>
 				<?php endif ?>
 			</div>

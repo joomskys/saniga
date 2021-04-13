@@ -2,10 +2,10 @@ $slick-slider-outer-space: 0;
 .cms-slick-sliders{
 	position: relative;
 	.slick-list{
-		margin: $slick-slider-outer-space*-1;
-		padding: $slick-slider-outer-space;
+		//margin: $slick-slider-outer-space*-1;
+		//padding: $slick-slider-outer-space;
 		z-index: 0;
-		overflow: visible;
+		//overflow: visible;
 	}
 	.slick-track{
 		display: flex;
@@ -16,6 +16,7 @@ $slick-slider-outer-space: 0;
 		flex: 0 0 auto;
 	    width: auto;
 	    max-width: 100%;
+	    outline: none;
 		@include transition(.3s cubic-bezier(.24,.74,.58,1));
 		&:not(.slick-active){
 			@include opacity(0);

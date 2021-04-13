@@ -8,7 +8,7 @@
 }
 .wc-tabs{
 	list-style: none;
-	margin: 57px 0 0;
+	margin: 57px -15px 0;
 	padding: 0;
 	display: flex;
 	flex-wrap: wrap;
@@ -31,12 +31,6 @@
 		padding:0 15px;
 		position: relative;
 		z-index: 1;
-		&:first-child{
-			padding-left: 0;
-		}
-		&:last-child{
-			padding-right: 0;
-		}
 		a{
 			display: block;
 			padding: 13px 0;
@@ -53,5 +47,5 @@
 	}
 }
 .wc-tab{
-	padding-top: 20px;
+	padding-top: 40px;
 }

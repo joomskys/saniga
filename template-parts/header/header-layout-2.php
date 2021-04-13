@@ -62,7 +62,7 @@
                 }
             ?>
             <div class="col col-lg-auto <?php echo esc_attr($hidden_sidebar);?>">
-                <div class="row align-items-center justify-content-end">
+                <div class="row align-items-center justify-content-end gutters-20">
                     <?php
                         saniga_header_search(['class' => 'col-auto cms-hidden-n-xl']);
                         saniga_header_cart(['class' => 'col-auto cms-hidden-n-xl']);

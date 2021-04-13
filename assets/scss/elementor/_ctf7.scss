@@ -7,7 +7,8 @@
             right: auto;
             left: 30px;
         }
-        @media (max-width: $screen-sm-max){
+        @media (max-width: $screen-md-max){
+            visibility: hidden;
             right: -15px;
             [dir="rtl"] &{
                 right: auto;

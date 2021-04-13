@@ -105,10 +105,13 @@ $star_icon_filled_color: $accent-color;
 	}
 	.cms-star-rated{
 		top: 0;
-		color: $star_icon_filled_color;
+		//color: $star_icon_filled_color;
 		&:before{
 			font-family: $star_icon_font;
 			content: '\f111\f111\f111\f111\f111';
 		}
 	}
+}
+.cms-star-rated{
+	color: $star_icon_filled_color;
 }

@@ -11,7 +11,7 @@ $FF_Border_Radius_rtl: 0;
 $FF_Shadow: $shadow-1;
 $FF_Background: #fff;
 
-input:not([type="checkbox"]):not([type="radio"]),
+input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]),
 textarea, select,
 .select2-container.select2-container--default .select2-selection--single {
     background-color: $FF_Background;

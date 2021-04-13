@@ -2,6 +2,12 @@
 	margin: -15px;
 	> div {
 		padding: 15px;
+		&.cms-single-product-gallery-wraps{
+			text-align: center;
+		}
+		> .cms-single-product-gallery-wraps-inner {
+			display: inline-block;
+		}
 	}
 }
 
@@ -15,7 +21,7 @@
 		height: 30px;
 		border: 2px solid $accent_color;
 		color: $accent_color;
-		z-index: 10;
+		z-index: 1;
 		text-align: center;
 		line-height: 26px;
 		font-size: 0;

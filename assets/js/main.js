@@ -85,7 +85,10 @@
             var iso = new Isotope(this, {
                 itemSelector: '.cms-grid-item',
                 layoutMode: $(this).data('layout'),
-                //percentPosition: true,
+                fitRows: {
+                    gutter: -1
+                },
+                percentPosition: true,
                 masonry: {
                     columnWidth: '.cms-grid-sizer',
                 },
@@ -754,7 +757,7 @@
     */
     function saniga_smooth_scroll(){
         'use strict';
-        $('body').on('click', '.cms-scroll, .is-one-page', function () {
+        $('body').on('click', '.cms-scroll-down, .is-one-page', function () {
             var target = $(this.hash),
                 offset = $('.cms-header').innerHeight();
                 target = target.length ? target : '';
