@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Saniga\n"
-"POT-Creation-Date: 2021-02-02 04:27+0700\n"
+"POT-Creation-Date: 2021-04-14 14:55+0700\n"
 "PO-Revision-Date: 2020-12-04 09:44+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"

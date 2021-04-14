@@ -37,10 +37,6 @@ $alignment : (
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	@media (min-width: 1366px){
-		left: 40px;
-		right: 40px;
-	}
 	@media (min-width: 1600px){
 		left: 80px;
 		right: 80px;

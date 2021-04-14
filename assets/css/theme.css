@@ -7702,10 +7702,6 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; }
-  @media (min-width: 1366px) {
-  .cms-boxed-bg-true > .cms-section-boxed-bg {
-    left: 40px;
-    right: 40px; } }
   @media (min-width: 1600px) {
   .cms-boxed-bg-true > .cms-section-boxed-bg {
     left: 80px;
