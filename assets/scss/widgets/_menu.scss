@@ -39,4 +39,36 @@
             display: none;
         }
     }
+    .menu-item{
+        position: relative;
+        .cms-menu-toggle{
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            background: $secondary_color;
+            color: $white;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 2;
+            &:before{
+                @include font-cmsi("\f089");
+            }
+            [dir="rtl"] &{
+                right: auto;
+                left: 20px;
+            }
+            &.open:before{
+                content: '\f002';
+            }
+        }
+        .sub-menu{
+            display: none;
+            &.submenu-open{
+                //display: block;
+            }
+        }
+    }
 }

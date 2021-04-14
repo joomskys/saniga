@@ -33,6 +33,8 @@
         saniga_elementor_section_full_width_with_space();
         // gallery load more
         saniga_galleries_loadmore();
+        // widget
+        saniga_widget_nav_menu();
     });
 
     $(window).on('load', function () {
@@ -507,6 +509,17 @@
                 $(this).attr('height',v_height + 59).css('height',v_height + 59);
             });
         }, 100);
+    }
+    /**
+     * Widgets
+    ***/
+    function saniga_widget_nav_menu(){
+        'use strict';
+        $('.cms-menu-toggle').on('click', function () {
+            $(this).toggleClass('open');
+            $(this).parent().find('>ul').toggleClass('submenu-open');
+            $(this).parent().find('>ul').slideToggle();
+        });
     }
     /**
      * WooCommerce

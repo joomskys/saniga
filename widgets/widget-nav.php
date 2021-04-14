@@ -52,7 +52,6 @@ class Saniga_Widget_Nav_Walker extends Walker_Nav_Menu {
         $classes   = empty( $item->classes ) ? array() : (array) $item->classes;
         $classes[] = 'menu-item-' . $item->ID;
         $classes[] = 'cms-list-item';
- 
         /**
          * Filters the arguments for a single nav menu item.
          *
@@ -148,11 +147,15 @@ class Saniga_Widget_Nav_Walker extends Walker_Nav_Menu {
          * @param int      $depth Depth of menu item. Used for padding.
          */
         $title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
- 
+        $dropdown_arrow = '';
+        if($args->walker->has_children){
+            $dropdown_arrow = '<span class="cms-menu-toggle"></span>';
+        }
         $item_output  = $args->before;
         $item_output .= '<a' . $attributes . '>';
         $item_output .= $args->link_before . '<span class="title">'.$title .'</span>'. $args->link_after;
         $item_output .= '</a>';
+        $item_output .= $dropdown_arrow;
         $item_output .= $args->after;
  
         /**

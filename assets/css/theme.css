@@ -40789,14 +40789,11 @@ table.wp-calendar-table th:hover a:before, table.wp-calendar-table td:hover a:be
   border-bottom: 0; }
 
 .widget_archive a, .widget_categories a, .widget_pages a, .widget_nav_menu a, .widget_product_categories a, .woocommerce-widget-layered-nav-list a, .widget_layered_nav_filters a {
-  padding: 20px 20px 20px 30px;
+  padding: 20px;
   background: #222;
   color: #fff;
   font-weight: 700;
   border-bottom: 2px solid #eaeaea; }
-
-[dir="rtl"] .widget_archive a, [dir="rtl"] .widget_categories a, [dir="rtl"] .widget_pages a, [dir="rtl"] .widget_nav_menu a, [dir="rtl"] .widget_product_categories a, [dir="rtl"] .woocommerce-widget-layered-nav-list a, [dir="rtl"] .widget_layered_nav_filters a {
-  padding: 20px 30px 20px 20px; }
 
 .widget_archive a:hover, .widget_categories a:hover, .widget_pages a:hover, .widget_nav_menu a:hover, .widget_product_categories a:hover, .woocommerce-widget-layered-nav-list a:hover, .widget_layered_nav_filters a:hover {
   color: #fff;
@@ -40807,21 +40804,11 @@ table.wp-calendar-table th:hover a:before, table.wp-calendar-table td:hover a:be
   background: var(--color-primary);
   color: #fff; }
 
-.widget_archive .children li:last-child a, .widget_categories .children li:last-child a, .widget_pages .children li:last-child a, .widget_nav_menu .children li:last-child a, .widget_product_categories .children li:last-child a, .woocommerce-widget-layered-nav-list .children li:last-child a, .widget_layered_nav_filters .children li:last-child a {
+.widget_archive ul li:last-child a, .widget_categories ul li:last-child a, .widget_pages ul li:last-child a, .widget_nav_menu ul li:last-child a, .widget_product_categories ul li:last-child a, .woocommerce-widget-layered-nav-list ul li:last-child a, .widget_layered_nav_filters ul li:last-child a {
   border-bottom: 2px solid #eaeaea; }
-
-.widget_archive .children a, .widget_categories .children a, .widget_pages .children a, .widget_nav_menu .children a, .widget_product_categories .children a, .woocommerce-widget-layered-nav-list .children a, .widget_layered_nav_filters .children a {
-  padding-left: 40px; }
-
-[dir="rtl"] .widget_archive .children a, [dir="rtl"] .widget_categories .children a, [dir="rtl"] .widget_pages .children a, [dir="rtl"] .widget_nav_menu .children a, [dir="rtl"] .widget_product_categories .children a, [dir="rtl"] .woocommerce-widget-layered-nav-list .children a, [dir="rtl"] .widget_layered_nav_filters .children a {
-  padding-left: 20px;
-  padding-right: 40px; }
 
 .widget_layered_nav_filters a:before {
   background: none; }
-
-.widget_categories ul.children {
-  margin-left: 15px; }
 
 .widget_nav_menu.horizontal .menu {
   display: flex;
@@ -40861,6 +40848,36 @@ table.wp-calendar-table th:hover a:before, table.wp-calendar-table td:hover a:be
   display: none; }
 
 .widget_nav_menu.horizontal .sub-menu {
+  display: none; }
+
+.widget_nav_menu .menu-item {
+  position: relative; }
+
+.widget_nav_menu .menu-item .cms-menu-toggle {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  background: var(--color-secondary);
+  color: #fff;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 2; }
+
+.widget_nav_menu .menu-item .cms-menu-toggle:before {
+  font-family: "font-cmsi";
+  content: "\f089"; }
+
+[dir="rtl"] .widget_nav_menu .menu-item .cms-menu-toggle {
+  right: auto;
+  left: 20px; }
+
+.widget_nav_menu .menu-item .cms-menu-toggle.open:before {
+  content: '\f002'; }
+
+.widget_nav_menu .menu-item .sub-menu {
   display: none; }
 
 .widget_recent_comments li {

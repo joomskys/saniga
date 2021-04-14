@@ -14,14 +14,11 @@
 		}
 	}
 	a{
-		padding: 20px 20px 20px 30px;
+		padding: 20px;
 		background: #222;
 		color: $white;
 		font-weight: 700;
 		border-bottom: 2px solid $border-color;
-		[dir="rtl"] &{
-			padding: 20px 30px 20px 20px;
-		}
 		&:hover{
 			color: $white;
 			background: $accent-color;
@@ -32,17 +29,17 @@
 			}
 		}
 	}
-	.children {
+	ul {
 		li:last-child a{
 			border-bottom: 2px solid $border-color;
 		}
 		a{
-			padding-left: 40px;
+			//padding-left: 40px;
 			[dir="rtl"] &{
-				padding-left: 20px;
-				padding-right: 40px;
+				//padding-left: 20px;
+				//padding-right: 40px;
 			}
-		}
+		}	
 	}
 }
 
@@ -56,6 +53,6 @@
 
 .widget_categories{
 	ul.children{
-		margin-left: 15px;
+		//margin-left: 15px;
 	}
 }
