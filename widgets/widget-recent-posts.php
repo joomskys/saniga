@@ -3,7 +3,7 @@ defined( 'ABSPATH' ) or exit( -1 );
 /**
  * Recent Posts widgets
  *
- * @package Solatec
+ * @package Saniga
  * @version 1.0
  */
 
