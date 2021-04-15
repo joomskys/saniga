@@ -15,6 +15,14 @@ if(has_post_thumbnail() || saniga_configs('default_post_thumbnail') === '1'){
 } else {
     $padding_class = 'p-20 p-lg-30 p-xl-50';
 }
+if(class_exists('\Elementor\Plugin')){
+    $id = get_the_ID();
+    if ( is_singular() && \Elementor\Plugin::$instance->db->is_built_with_elementor( $id ) ) {
+        $post_content_classes = 'single-elementor-content ml-n20 mr-n20';
+    }
+} else {
+    $post_content_classes = '';
+}
 ?>
 <div <?php post_class('cms-single-post cms-post-layout-1'); ?>>
     <div class="cms-shadow-1">
@@ -69,7 +77,7 @@ if(has_post_thumbnail() || saniga_configs('default_post_thumbnail') === '1'){
             ?>
             <div class="overflow-hidden">
                 
-                <div class="cms-post-content mb-30 ml-n20 mr-n20 text-17 clearfix"><?php
+                <div class="cms-post-content mb-30 text-17 clearfix <?php echo esc_attr($post_content_classes);?>"><?php
                     the_content();
                 ?></div>
                 <?php 
