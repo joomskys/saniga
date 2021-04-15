@@ -285,8 +285,8 @@ if(!function_exists('saniga_socials_share_default')){
             'icon_facebook'     => 'cmsi-facebook-f',
             'icon_twitter'      => 'cmsi-twitter',
             'icon_linkedin'     => 'cmsi-linkedin',
-            'icon_instagram'    => 'cmsi-instagram',
-            'icon_pinterest'    => 'cmsi-pinterest'
+            'icon_instagram'    => '',
+            'icon_pinterest'    => ''
         ]);
         if($args['show_share'] != '1') return;
         $pinterestimage = get_the_post_thumbnail_url( get_the_ID(), 'full' );
@@ -753,14 +753,6 @@ if(!function_exists('saniga_get_user_social')){
             </div>
         </div> <?php
     }
-}
-
-function saniga_social_share_product() { ?>
-    <a class="fb-social hover-effect" title="Facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>"><i class="cmsi-facebook"></i></a>
-    <a class="tw-social hover-effect" title="Twitter" target="_blank" href="https://twitter.com/home?status=<?php the_permalink(); ?>"><i class="cmsi-twitter"></i></a>
-    <a class="g-social hover-effect" title="Google Plus" target="_blank" href="https://plus.google.com/share?url=<?php the_permalink(); ?>"><i class="cmsi-google-plus"></i></a>
-    <a class="pin-social hover-effect" title="Pinterest" target="_blank" href="https://pinterest.com/pin/create/button/?url=<?php echo esc_url(the_post_thumbnail_url( 'full' )); ?>&media=&description=<?php the_title(); ?>"><i class="cmsi-pinterest"></i></a>
-    <?php
 }
 
 function saniga_product_nav() {

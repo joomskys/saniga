@@ -69,7 +69,7 @@ if(has_post_thumbnail() || saniga_configs('default_post_thumbnail') === '1'){
             ?>
             <div class="overflow-hidden">
                 
-                <div class="cms-post-content mb-30 text-17 clearfix"><?php
+                <div class="cms-post-content mb-30 ml-n20 mr-n20 text-17 clearfix"><?php
                     the_content();
                 ?></div>
                 <?php 
