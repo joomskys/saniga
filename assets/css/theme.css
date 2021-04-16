@@ -39845,6 +39845,13 @@ body:not(.elementor-page) #cms-main {
   -o-opacity: 0.2;
   opacity: 0.2; }
 
+@media (min-width: 1201px) and (max-width: 1300px) {
+      .header-layout1 .cms-btn-header .cms-btn-content {
+        display: none; }
+      .header-layout1 .cms-btn-header:before {
+        font-family: "font-cmsi";
+        content: "\f038"; } }
+
 .header-layout2.is-ontop.header-ontop, .header-layout2.is-sticky.header-sticky {
   border-bottom: 1px solid rgba(234, 234, 234, 0.2); }
 
