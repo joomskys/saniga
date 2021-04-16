@@ -14,7 +14,7 @@
 				display: none;
 			}
 			&:before{
-				@include font-cmsi("\f038");
+				@include font-cmsi("\f038", 20px);
 			}
 		}
 	}
