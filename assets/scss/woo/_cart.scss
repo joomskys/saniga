@@ -51,6 +51,14 @@ table.cart {
 }
 .cart-collaterals{
 	padding-top: 30px;
+	@media (min-width: $screen-lg-min){
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		.cart_totals {
+			width: 40%;
+		}
+	}
 }
 
 .cart_totals {

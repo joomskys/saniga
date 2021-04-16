@@ -113,13 +113,16 @@
 		.sub-menu{
 			display: none;
 			font-size: var(--menu-font-size);
-			padding-left: 15px;
-			[dir="rtl"] &{
-				padding-left: 0;
-				padding-right: 15px;
-			}
+			border-bottom: 1px solid $border-color;
 			&.submenu-open{
 				padding-top: 5px;
+			}
+			.sub-menu li{
+				padding-left: 15px;
+				[dir="rtl"] &{
+					padding-left: 0;
+					padding-right: 15px;
+				}
 			}
 		}
 	}

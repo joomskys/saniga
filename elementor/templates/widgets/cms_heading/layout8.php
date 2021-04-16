@@ -6,7 +6,7 @@ if ( $settings['heading_text_animation'] ) {
     $widget->add_render_attribute( 'heading', 'class', 'animated ' . $widget->get_setting('heading_text_animation', ''));
 }
 if ( $settings['heading_text_animation_delay'] !== '') {
-    $widget->add_render_attribute( 'heading', 'style', 'animation-delay:' . $widget->get_setting('heading_text_animation_delay').'ms');
+    $widget->add_render_attribute( 'heading', 'style', 'animation-delay:' . $widget->get_setting('heading_text_animation_delay','0').'ms');
 }
 
 // Description

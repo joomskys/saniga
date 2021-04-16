@@ -259,13 +259,12 @@ table.shop_attributes{
 }
 
 .woocommerce-grouped-product-list-item{
-	.woocommerce-grouped-product-list-item__label{
-		font-size: 16px;
+	.woocommerce-grouped-product-list-item__label,
+	.woocommerce-Price-amount{
+		font-size: 18px;
 		font-weight: 700;
 	}
 	.woocommerce-Price-amount{
-		font-size: 22px;
-		font-weight: 700;
-		color: $accent-color;
+		color: $secondary-color;
 	}
 }

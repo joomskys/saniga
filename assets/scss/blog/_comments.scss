@@ -4,7 +4,14 @@
 .comment-respond{
 	margin-top: 65px;
 }
-
+.cms-no-comments{
+	.comment-respond{
+		margin-top: 0;
+	}
+}
+.cms-no-comments.cms-page-comment{
+	margin-top: 55px;
+}
 .comments-title,
 .comment-reply-title{
 	font-size: 24px;
@@ -21,7 +28,7 @@
 	margin: 0;
 	.comment,
 	.review{
-		margin-top: 30px;
+		margin-top: 40px;
 	}
 	> .comment,
 	> .review{
@@ -70,9 +77,9 @@
 			padding: 0 15px 0 0;
 		}
 		@media (min-width: $screen-lg-min){
-			padding: 0 0 0 calc(#{$comment-avatar-size}px + 30px);
+			padding: 0 0 0 calc(#{$comment-avatar-size}px);
 			[dir="rtl"] &{
-				padding: 0 calc(#{$comment-avatar-size}px + 30px) 0 0;
+				padding: 0 calc(#{$comment-avatar-size}px) 0 0;
 			}
 		}
 	}
@@ -133,7 +140,10 @@
 	}
 }
 .comment-body + .comment-respond{
-	margin-top: 25px;
+	margin-top: 62px;
+	#reply-title{
+		margin-bottom: 15px;
+	}
 	+ ul.children{
 		margin-top: 15px;
 	}

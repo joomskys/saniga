@@ -113,7 +113,7 @@ if(!function_exists('saniga_backtotop')){
     $backtotop_icon = saniga_get_opt('backtotop_icon', 'cmsi-long-arrow-up');
     if ('1' !== $back_totop_on) return;
     ?>
-        <a href="#" class="cms-scroll cms-scroll-top"><span class="cms-scroll-top-arrow cms-scroll-top-icon"><span class="<?php echo esc_attr($backtotop_icon);?>"></span></span></a>
+        <a href="#" class="cms-scroll-top"><span class="cms-scroll-top-arrow cms-scroll-top-icon"><span class="<?php echo esc_attr($backtotop_icon);?>"></span></span></a>
     <?php 
     } 
 }

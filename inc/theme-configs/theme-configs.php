@@ -335,7 +335,7 @@ if(!function_exists('saniga_configs')){
                 ])
             ],
             // google font
-            'google_fonts'          => 'Fira+Sans:Fira+Sans:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Roboto:wght@400;500;700&display=swap',
+            'google_fonts'          => 'Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:wght@400;500;700&display=swap',
             'content_width'         => 1170,          
             // WooCommerce,
             'saniga_product_single_image_w'          => '570',

@@ -11,7 +11,9 @@
 html {
   line-height: $body-line-height; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  scroll-behavior: smooth;
 }
+
 
 /* Sections
    ========================================================================== */
@@ -408,4 +410,11 @@ p{
 [aria-disabled="true"]{
   cursor: not-allowed;
   @include opacity(0.5);
+}
+// Definition List
+dl{
+  dt{
+    font-weight: 500;
+    color: var(--heading-font-color);
+  }
 }

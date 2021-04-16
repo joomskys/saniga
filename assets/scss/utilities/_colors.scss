@@ -49,6 +49,9 @@
 .bg-light-accent {
 	background-color: #e4f2e2;
 }
+.text-616161{
+	color: #616161;
+}
 // Gradient
 @each $name, $gradient in $cms_theme_gradient{
 	.bg-gradient-#{$name},

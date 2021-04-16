@@ -6,7 +6,7 @@ if ( $settings['heading_text_animation'] ) {
     $widget->add_render_attribute( 'heading', 'class', 'animated ' . $widget->get_setting('heading_text_animation', ''));
 }
 if ( $settings['heading_text_animation_delay'] !== '') {
-    $widget->add_render_attribute( 'heading', 'style', 'transition-delay:' . $widget->get_setting('heading_text_animation_delay').'ms');
+    $widget->add_render_attribute( 'heading', 'style', 'transition-delay:' . $widget->get_setting('heading_text_animation_delay','0').'ms');
 }
 // SubHeading
 $widget->add_render_attribute( 'subheading', 'class', 'cms-heading cms-subheading font-700 text-37 pt-10');
@@ -15,7 +15,7 @@ if ( $settings['subheading_text_animation'] ) {
     $widget->add_render_attribute( 'subheading', 'class', 'animated ' . $widget->get_setting('subheading_text_animation', ''));
 }
 if ( $settings['subheading_text_animation_delay'] !== '') {
-    $widget->add_render_attribute( 'heading', 'style', 'transition-delay:' . $widget->get_setting('subheading_text_animation_delay').'ms');
+    $widget->add_render_attribute( 'subheading', 'style', 'transition-delay:' . $widget->get_setting('subheading_text_animation_delay','0').'ms');
 }
 ?>
 <div class="cms-heading-wrapper <?php echo saniga_elementor_align_class($settings,['default' => 'center']);?>">

@@ -17,8 +17,13 @@ if ( post_password_required() ) {
 }
 $comments_number = absint( get_comments_number() );
 $post_comments_form_on = saniga_get_opt( 'post_comments_form_on', true );
+$wrap_class = 'comments-area cms-no-comments';
+if(have_comments()) $wrap_class = 'comments-area';
+
+if(is_page()) $wrap_class .= ' cms-page-comment';
+
 if($post_comments_form_on) : ?>
-    <div id="comments" class="comments-area">
+    <div id="comments" class="<?php echo esc_attr($wrap_class);?>">
         <?php
         // You can start editing here -- including this comment!
         if ( have_comments() ) : ?>

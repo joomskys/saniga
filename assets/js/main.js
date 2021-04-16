@@ -28,7 +28,7 @@
         // background image moving
         saniga_background_moving();
         // Smooth Scroll
-        saniga_smooth_scroll()
+        //saniga_smooth_scroll()
         // full
         saniga_elementor_section_full_width_with_space();
         // gallery load more
@@ -253,14 +253,6 @@
             $(this).parent().addClass('remove').removeClass('open');
             $(this).parents('.cms-modal').addClass('remove').removeClass('open');
             $(this).parents('#page').find('.site-overlay').removeClass('open');
-        });
-        
-        /* ====================
-         Scroll To Top
-         ====================== */
-        $('.cms-scroll').click(function () {
-            $('html, body').animate({scrollTop: 0}, 800);
-            return false;
         });
 
         /* Modal */
@@ -770,7 +762,7 @@
     */
     function saniga_smooth_scroll(){
         'use strict';
-        $('body').on('click', '.cms-scroll-down, .is-one-page', function () {
+        $('body').on('click', '.cms-scroll, .is-one-page', function () {
             var target = $(this.hash),
                 offset = $('.cms-header').innerHeight();
                 target = target.length ? target : '';

@@ -15,11 +15,8 @@ if(has_post_thumbnail() || saniga_configs('default_post_thumbnail') === '1'){
 } else {
     $padding_class = 'p-20 p-lg-30 p-xl-50';
 }
-if(class_exists('\Elementor\Plugin')){
-    $id = get_the_ID();
-    if ( is_singular() && \Elementor\Plugin::$instance->db->is_built_with_elementor( $id ) ) {
-        $post_content_classes = 'single-elementor-content ml-n20 mr-n20';
-    }
+if(class_exists('\Elementor\Plugin') && \Elementor\Plugin::$instance->db->is_built_with_elementor( get_the_ID() )){
+    $post_content_classes = 'single-elementor-content ml-n20 mr-n20';
 } else {
     $post_content_classes = '';
 }
@@ -82,7 +79,7 @@ if(class_exists('\Elementor\Plugin')){
                 ?></div>
                 <?php 
                     // post page
-                    saniga_post_link_pages(['class' => 'mb-30']);
+                    saniga_post_link_pages(['class' => 'pb-30']);
                 ?>
                 <div class="cms-post-tags-share row gutters-20 gutters-grid justify-content-between empty-none"><?php
                     // Post tag

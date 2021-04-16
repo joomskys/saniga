@@ -396,13 +396,13 @@ if(!function_exists('saniga_posts_nav_link')) {
     ?>
         <div class="<?php echo trim(implode(' ', ['cms-single-next-prev-navigation row gutters-10 justify-content-between align-items-center', $args['class']])); ?>">
             <?php if(!empty($previous_post)) { ?>
-            <div class="cms-single-next-prev cms-single-prev col-lg-6 relative text-start">
+            <div class="cms-single-next-prev cms-single-prev col-6 relative text-start">
                 <div class="cms-single-next-prev-inner cms-single-prev-inner cms-single-nav-inner">
                     <?php 
                         // overlay link
                         previous_post_link('%link',''); 
                     ?>
-                    <div class="row align-items-center gutters-20">
+                    <div class="row align-items-center gutters-20 gutters-grid">
                         <?php if('1' === $args['show_thumbnail']):
                             saniga_post_thumbnail([
                                 'id'             => $previous_post->ID, 
@@ -414,7 +414,7 @@ if(!function_exists('saniga_posts_nav_link')) {
                             ]);
                         endif;
                             if('1' !== $args['show_thumbnail'] && !empty($args['prev_icon'])){
-                                echo '<div class="col-auto"><span class="cms-nav-icon '.$args['prev_icon'].'"></span></div>';
+                                echo '<div class="col-12 col-sm-auto"><span class="cms-nav-icon '.$args['prev_icon'].'"></span></div>';
                             }
                          ?>
                         <div class="col"><?php 
@@ -426,15 +426,17 @@ if(!function_exists('saniga_posts_nav_link')) {
                     </div>
                 </div>
             </div>
-            <?php } else { echo '<div class="col-auto col-lg-6 relative text-start"></div>'; }
+            <?php } else { 
+                echo '<div class="col-6 relative text-start"></div>'; 
+            }
             if(!empty($next_post)) : ?>
-            <div class="cms-single-next-prev cms-single-next col-lg-6 relative text-end">
+            <div class="cms-single-next-prev cms-single-next col-6 relative text-end">
                 <div class="cms-single-next-prev-inner cms-single-next-inner cms-single-nav-inner">
                     <?php 
                         // overlay link
                         next_post_link('%link','');
                     ?>
-                    <div class="row align-items-center gutters-20">
+                    <div class="row align-items-center gutters-20 gutters-grid">
                         <div class="col"><?php
                             // label
                             if(!empty($args['prev_title'])) printf('<div class="cms-nav-label text-15 font-700 text-primary">%s</div>', esc_html($args['next_title']));
@@ -452,7 +454,7 @@ if(!function_exists('saniga_posts_nav_link')) {
                             ]); 
                         endif;
                             if('1' !== $args['show_thumbnail'] && !empty($args['next_icon'])){
-                                echo '<div class="col-auto"><span class="cms-nav-icon '.$args['next_icon'].'"></span></div>';
+                                echo '<div class="col-12 col-sm-auto order-first order-sm-last"><span class="cms-nav-icon '.$args['next_icon'].'"></span></div>';
                             }
                         ?>
                     </div>

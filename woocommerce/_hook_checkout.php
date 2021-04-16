@@ -50,6 +50,6 @@ if(!function_exists('saniga_woocommerce_order_button_html')){
 	add_filter('woocommerce_order_button_html', 'saniga_woocommerce_order_button_html');
 	function saniga_woocommerce_order_button_html(){
 		$order_button_text = apply_filters( 'woocommerce_order_button_text', esc_html__( 'Place order', 'saniga' ) );
-		return '<button type="submit" class="button btn-lg btn-accent" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( $order_button_text ) . '" data-value="' . esc_attr( $order_button_text ) . '">' . esc_html( $order_button_text ) . '</button>';
+		return '<div class="cms-checkout-place-order text-end"><button type="submit" class="button btn-lg btn-accent btn-hover-secondary" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( $order_button_text ) . '" data-value="' . esc_attr( $order_button_text ) . '">' . esc_html( $order_button_text ) . '</button></div>';
 	}
 }

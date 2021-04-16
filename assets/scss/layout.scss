@@ -2,6 +2,10 @@ body:not(.elementor-page) #cms-main{
 	padding: 100px 0;
 }
 
+#cms-page{
+	overflow-x: hidden;
+}
+
 // Container
 .container-wide{
 	padding-left: $grid-gutters/2;
