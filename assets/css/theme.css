@@ -39031,7 +39031,7 @@ ul.cms-slick-dot li.slick-active button:before, ul.cms-slick-dot li:hover button
 body:not(.elementor-page) #cms-main {
   padding: 100px 0; }
 
-#cms-page {
+#cms-main {
   overflow-x: hidden; }
 
 .container-wide {
@@ -40007,10 +40007,6 @@ body:not(.elementor-page) #cms-main {
         font-size: 75px; }
       .cms-page-title-layout12 .cms-breadcrumb {
         margin-top: -13px; } }
-
-.error404 .cms-content-area {
-  background: url('../images/bg-404.png') 50% -214px no-repeat;
-  padding-top: 30px; }
 
 .cms-featured-inner .cms-post-date-on-media {
   position: absolute;
