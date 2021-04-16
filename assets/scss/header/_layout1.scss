@@ -6,3 +6,16 @@
 		@include opacity(0.2);
 	}
 }
+
+.header-layout1{
+	.cms-btn-header{
+		@media (min-width: 1201px) and (max-width: 1300px ){
+			.cms-btn-content{
+				display: none;
+			}
+			&:before{
+				@include font-cmsi("\f038");
+			}
+		}
+	}
+}

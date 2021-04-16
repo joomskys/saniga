@@ -36,7 +36,7 @@ if ( $settings['heading_text_animation'] ) {
     $widget->add_render_attribute( 'heading', 'class', 'animated ' . $widget->get_setting('heading_text_animation', ''));
 }
 if ( $settings['heading_text_animation_delay'] !== '') {
-    $widget->add_render_attribute( 'heading', 'style', 'transition-delay:' . $widget->get_setting('heading_text_animation_delay').'ms');
+    $widget->add_render_attribute( 'heading', 'style', 'transition-delay:' . $widget->get_setting('heading_text_animation_delay','0').'ms');
 }
 ?>
 <div <?php etc_print_html($widget->get_render_attribute_string( 'heading' )); ?>><?php 
