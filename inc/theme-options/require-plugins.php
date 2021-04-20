@@ -79,8 +79,9 @@ function saniga_register_required_plugins() {
             'force_deactivation' => $auto_active,
         ),
         array(
-            'name'               => esc_html__('Contact Form 7', 'saniga'),
+            'name'               => esc_html__('Contact Form 7 Cost Calculator', 'saniga'),
             'slug'               => 'contact-form-7-cost-calculator',
+            'source'             => esc_url('https://cmssuperheroes.com/plugins/contact-form-7-cost-calculator.zip'),
             'required'           => false,
             'force_activation'   => $auto_active,
             'force_deactivation' => $auto_active,

@@ -371,7 +371,10 @@ if(!function_exists('saniga_remove_styles')){
             'woocommerce-smallscreen',
             'woocommerce-general',
             'woocommerce-layout',
-            
+            'wp-block-library',
+            'oc-css',
+            'etc-main-css',
+            'progressbar-lib-css'
         ];
         $styles = array_merge($styles, $_styles);
         return $styles;
@@ -410,3 +413,5 @@ if(!function_exists('saniga_elementor_base_scripts')){
 remove_action( 'set_comment_cookies', 'wp_set_comment_cookies' );
 // remove lazy load 
 add_filter( 'wp_lazy_loading_enabled', '__return_false' );
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
