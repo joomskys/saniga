@@ -9,7 +9,8 @@ extract(etc_get_posts_of_grid($settings['post_type'], [
     'source'   => $source,
     'orderby'  => $orderby,
     'order'    => $order,
-    'limit'    => $limit
+    'limit'    => $limit,
+    //'post_ids' => [],
 ]));
 $filter_default_title = $widget->get_setting('filter_default_title', 'All');
 
@@ -23,16 +24,19 @@ $filter_alignment           = $widget->get_setting('filter_alignment', 'center')
 $pagination_type            = $widget->get_setting('pagination_type', 'false');
 
 $load_more = array(
+    'post_type'                  => $settings['post_type'],   
     'layout'                     => $settings['layout'],
     'startPage'                  => $paged,
     'maxPages'                   => $max,
     'total'                      => $total,
-    'perpage'                    => $limit,
+    'perpage'                    => $limit, 
     'nextLink'                   => $next_link,
     'source'                     => $source,
     'orderby'                    => $orderby,
     'order'                      => $order,
     'limit'                      => $limit,
+    //'post_ids'                   => $post_ids, 
+    'pagination_type'            => $pagination_type,
     // Element settings
     'col_xl'                     => $widget->get_setting('col_xl', '4'),
     'col_lg'                     => $widget->get_setting('col_lg', '3'),
@@ -44,7 +48,7 @@ $load_more = array(
     'thumbnail_custom_dimension' => $widget->get_setting('thumbnail_custom_dimension', ''),
     // excerpt
     'excerpt_lenght'             => $widget->get_setting('excerpt_lenght', '25'),
-    'excerpt_more_text'          => $widget->get_setting('excerpt_more_text', '...'),
+    'excerpt_more_text'          => $widget->get_setting('excerpt_more_text', ''),
     // Read more
     'readmore_text'              => $widget->get_setting('readmore_text', ''),
     // Socical
@@ -52,7 +56,7 @@ $load_more = array(
     'show_tw'                    => $widget->get_setting('show_tw', ''),     
     'show_insta'                 => $widget->get_setting('show_insta', ''),     
     'show_email'                 => $widget->get_setting('show_email', ''),     
-    'show_phone'                 => $widget->get_setting('show_phone', ''), 
+    'show_phone'                 => $widget->get_setting('show_phone', ''),
 );
 
 ?>
@@ -74,7 +78,7 @@ $load_more = array(
         </div>
     <?php endif; ?>
     <div class="<?php echo esc_attr($grid_class); ?> animation-time relative" data-layout="<?php echo esc_attr($masonry_mode); ?>" style="margin: <?php echo esc_attr($settings['gap']/-2);?>px">
-        <div class="cms-grid-sizer col-1"></div>
+        <div class="cms-grid-sizer"></div>
         <?php 
             $load_more['tax'] = $tax;
             saniga_get_post_grid($posts, $load_more);
@@ -82,12 +86,12 @@ $load_more = array(
         <div class="cms-grid-overlay"></div>
     </div>
     <?php if ($pagination_type == 'pagination') { ?>
-        <div class="cms-post-pagination cms-grid-pagination" data-loadmore="<?php echo esc_attr(json_encode($load_more)); ?>" data-query="<?php echo esc_attr(json_encode($args)); ?>">
+        <div class="cms-post-pagination cms-grid-pagination mt-20" data-loadmore="<?php echo esc_attr(json_encode($load_more)); ?>" data-query="<?php echo esc_attr(json_encode($args)); ?>">
             <?php saniga_posts_pagination($query, true); ?>
         </div>
     <?php } ?>
     <?php if (!empty($next_link) && $pagination_type == 'loadmore') { ?>
-        <div class="cms-post-pagination cms-load-more text-center" data-loadmore="<?php echo esc_attr(json_encode($load_more)); ?>" data-loading-text="Loading">
+        <div class="cms-post-pagination cms-load-more text-center mt-20" data-loadmore="<?php echo esc_attr(json_encode($load_more)); ?>" data-loading-text="Loading">
             <span class="btn btn-lg btn-fill btn-accent">
                 <span class="cms-btn-content">
                     <span class="cms-btn-icon text-20 cmsi-arrow-circle-right"></span>

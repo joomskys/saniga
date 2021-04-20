@@ -11,6 +11,7 @@ $menu_item_icon_rtl: "\f107";
 	list-style: none;
 	li{
 		position: relative;
+		padding: 0;
 	}
 	ul, ol{
 		list-style: none;
@@ -26,7 +27,7 @@ $menu_item_icon_rtl: "\f107";
 				}
 			}
 		}
-		a{
+		a:not(.menu-heading){
 			display: block;
 			font-size: var(--dropdown-font-size);
 			padding: 5px 0;
@@ -115,7 +116,7 @@ $menu_item_icon_rtl: "\f107";
 		> li {
 			flex: 0 0 auto;
 			width: auto;
-			padding: 0 $menu-item-space /2;
+			margin: 0 $menu-item-space /2;
 			//separator
 			&.cms-separator{
 				padding-right: 70px;
@@ -138,8 +139,8 @@ $menu_item_icon_rtl: "\f107";
 			&:before{
 				content: '';
 				position: absolute;
-				left: $menu-item-space /2;
-				right: $menu-item-space /2;
+				left: 0;
+				right: 0;
 				bottom: 0;
 				height: 4px;
 				@include css3-prefix('transform-origin', 'right center');

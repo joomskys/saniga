@@ -3,10 +3,17 @@
 	// Heading
 	$widget->add_render_attribute( 'heading', 'class', 'cms-heading text-16 font-700 mb-15');
 	$widget->add_render_attribute( 'heading', 'class', 'text-'.$widget->get_setting('heading_color','primary'));
+	// Heading link
+	$heading_link = saniga_get_link_by_slug($settings['heading_link_page'], 'page');
+	if(!empty($heading_link)){
+		$heading = '<a class="menu-heading" href="'.esc_url($heading_link).'">'.$heading_text.'</a>';
+	} else {
+		$heading = $heading_text;
+	}
 ?>
 <div class="cms-menu-wraps relative">
 	<?php if(!empty($heading_text)){ ?>
-		<div <?php etc_print_html($widget->get_render_attribute_string( 'heading' )); ?>><?php echo esc_html($heading_text); ?></div>
+		<div <?php etc_print_html($widget->get_render_attribute_string( 'heading' )); ?>><?php etc_print_html($heading); ?></div>
 	<?php } 
 		wp_nav_menu(array(
 			'fallback_cb'          => '',

@@ -5,7 +5,7 @@ $widget->add_render_attribute('wrap', [
 ]);
 // Counter Number
 $widget->add_render_attribute( 'counter', [
-    'class' => 'cms-counter-number-wrap cms-heading font-400 text-60 lh-60 pt-20 text-'.$widget->get_setting('number_color','accent').' pb-5'
+    'class' => 'cms-counter-number-wrap cms-heading font-400 text-60 lh-60 pt-15 text-'.$widget->get_setting('number_color','accent').' pb-5'
 ] );
 $widget->add_render_attribute( 'counter-number', [
     'class'          => 'cms-counter-number',
@@ -27,7 +27,7 @@ $widget->add_render_attribute( 'title', [
                 saniga_elementor_icon_render($settings, [
                     'id'         => 'counter_icon',
                     'wrap_class' => 'cms-counter-icon',
-                    'class'      => 'text-64 '.$icon_color,   
+                    'class'      => 'text-64 lh-64 '.$icon_color,   
                     'default_icon'    => [
                         'value'   => 'flaticon-030-facemask',
                         'library' => 'flaticon'

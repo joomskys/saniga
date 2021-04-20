@@ -91,6 +91,16 @@ etc_add_custom_widget(
                             ]
                         ),
                         array(
+                            'name'        => 'heading_link_page',
+                            'label'       => esc_html__( 'Heading Link', 'saniga' ),
+                            'type'        => \Elementor\Controls_Manager::SELECT,
+                            'default'     => '',
+                            'options'     => saniga_elementor_list_page_opts(),
+                            'condition'   => [
+                                'layout' => ['5']
+                            ]
+                        ), 
+                        array(
                             'name'      => 'menu',
                             'label'     => esc_html__('Select Menu', 'saniga'),
                             'type'      => \Elementor\Controls_Manager::SELECT,

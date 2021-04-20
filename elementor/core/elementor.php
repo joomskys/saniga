@@ -129,6 +129,10 @@ if(!function_exists('saniga_elementor_post_layout')){
             '4' => [
                 'label' => esc_html__( 'Layout 4', 'saniga' ),
                 'image' => get_template_directory_uri() . '/elementor/templates/layouts/posts/4.png'
+            ],
+            '5' => [
+                'label' => esc_html__( 'Layout 5', 'saniga' ),
+                'image' => get_template_directory_uri() . '/elementor/templates/layouts/posts/5.png'
             ]
         ];
     }

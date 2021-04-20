@@ -31,6 +31,8 @@
         //saniga_smooth_scroll()
         // full
         saniga_elementor_section_full_width_with_space();
+        // elementor section carousel
+        //saniga_elementor_section_carousel();
         // gallery load more
         saniga_galleries_loadmore();
         // widget
@@ -691,6 +693,28 @@
         // allow direction v, d
         $('.cms-bg-moving-h').bgscroll({scrollSpeed:20 , direction:'h' });
     }
+
+    /**
+     * Elementor Section Carousel
+    */
+    function saniga_elementor_section_carousel(){
+        'use strict';
+        var carousel = $('.cms-elementor-carousel >.elementor-container');
+        if(carousel.length == 0) return;
+        carousel.each(function(){
+            $(this).slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                arrows: true,
+                //appendArrows: carousel.parent().find('.cms-slide-arrows'),
+                prevArrow : '<div class="cms-slick-prev cms-slick-arrow"><span class="cms-slick-arrow-icon prev"></span></div>',
+                nextArrow : '<div class="cms-slick-next cms-slick-arrow"><span class="cms-slick-arrow-icon next"></span></div>',
+                dots: false
+            });
+        });
+    }
     /** ====================================================
      Elementer Section Full Width with Left/ Right Spacing
     ======================================================== **/
@@ -789,5 +813,6 @@
             }
         });
     };
+    
 })(jQuery);
 

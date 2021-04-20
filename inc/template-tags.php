@@ -282,9 +282,9 @@ if(!function_exists('saniga_socials_share_default')){
             'social_item_class' => '',
             'before'            => '',
             'after'             => '',
-            'icon_facebook'     => 'cmsi-facebook-f',
-            'icon_twitter'      => 'cmsi-twitter',
-            'icon_linkedin'     => 'cmsi-linkedin',
+            'icon_facebook'     => 'cmsi-facebook-1',
+            'icon_twitter'      => 'cmsi-twitter-1',
+            'icon_linkedin'     => 'cmsi-linkedin-1',
             'icon_instagram'    => '',
             'icon_pinterest'    => ''
         ]);

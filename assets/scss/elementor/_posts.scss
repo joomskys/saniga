@@ -62,6 +62,9 @@
 		bottom: 0;
 		background-color: $accent-color;
 	}
+	.cms-slick-dots{
+		margin-top: 20px;
+	}
 }
 // Layout 3
 .cms-post-layout-3{
@@ -71,6 +74,7 @@
 		bottom: 0;
 		left: 0;
 		@include background-gradient-top(transparent,  #222222);
+		@include transition();
 	}
 	.cms-item-content-excerpt{
 		max-height: 67px;
@@ -81,6 +85,9 @@
 			@include transform(translateY(55px));
 		}
 		.cms-item-content:hover{
+			.cms-item-content-inner{
+				@include background-gradient-top(transparent,  #000);
+			}
 			.cms-item--content{
 				@include transform(translateY(0));
 			}
@@ -166,5 +173,8 @@
 			background-color: $primary-color;
 			@include transition();
 		}
+	}
+	.cms-slick-dots{
+		margin-top: 20px;
 	}
 }

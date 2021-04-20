@@ -260,10 +260,30 @@
                 dotsClass: 'cms-slick-dot'
             }).on( 'afterChange', function( event, slick, currentSlide ) {
               $.each(slick.$dots, (i, el) => {
-                $(el).find('li').eq(currentSlide).addClass('slick-active fuck');
+                $(el).find('li').eq(currentSlide).addClass('slick-active');
               })
             });
         });     
+    };
+    // Elementor section Carousel 
+    var CMSElementorSectionCarousel = function($scope, $){
+        var carousel = $scope.find('.cms-elementor-carousel >.elementor-container');
+        if(carousel.length == 0) return;
+        carousel.each(function() {
+            $(this).slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                arrows: false,
+                appendArrows: carousel.parent().find('.cms-elementor-section-carousel-arrows empty-none'),
+                prevArrow : '<div class="cms-slick-prev cms-slick-arrow"><span class="cms-slick-arrow-icon prev"></span></div>',
+                nextArrow : '<div class="cms-slick-next cms-slick-arrow"><span class="cms-slick-arrow-icon next"></span></div>',
+                dots: true,
+                appendDots: carousel.parent().find('.cms-elementor-section-carousel-dots empty-none'),
+                dotsClass: 'cms-slick-dot'
+            });
+        });
     };
     // Make sure you run this code under Elementor.
     $( window ).on( 'elementor/frontend/init', function() {
@@ -277,5 +297,7 @@
         elementorFrontend.hooks.addAction( 'frontend/element_ready/cms_howitwork.default', CMSSlickSliderHowItWork );
         elementorFrontend.hooks.addAction( 'frontend/element_ready/cms_pricing_table_slide.default', CMSPricingSlider );
         elementorFrontend.hooks.addAction( 'frontend/element_ready/cms_slider.default', CMSSliderHandler );
+        // elementor section carousel
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/section', CMSElementorSectionCarousel );
     } );
 } )( jQuery );

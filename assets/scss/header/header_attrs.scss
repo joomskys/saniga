@@ -36,10 +36,6 @@
 .h-btn-cart {
 	> span:not(.cart-count){
 		padding-right: 15px;
-		[dir="rtl"] &{
-			padding-right: 0;
-			padding-left: 15px;
-		}
 	}
 	> .menu-text {
 		padding-right: 5px;

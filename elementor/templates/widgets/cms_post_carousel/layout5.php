@@ -58,24 +58,22 @@ if ( $settings['heading_text_animation_delay'] !== '') {
     saniga_slick_slider_dots($settings); 
     saniga_slick_slider_arrows($settings);
     saniga_slick_slider_arrows_side($settings);
-    saniga_slick_slider_arrows_bottom($settings);
     if(!empty($settings['other_text'])) { 
     ?>
-        <div class="row justify-content-start mt-lg-n45">
-            <div class="col-auto other-text font-700 <?php echo 'text-'.$widget->get_setting('other_text_color','body');?> pt-25">
+        <div class="row empty-none">
+            <div class="col-12 col-md-6 col-lg-8 empty-none"><?php saniga_slick_slider_arrows_bottom($settings); ?></div>
+            <div class="col-md-6 col-lg-4 order-md-first other-text font-700 <?php echo 'text-'.$settings['other_text_color'];?> pt-30">
                 <?php 
-                    echo esc_html($widget->get_setting('other_text')); 
+                    echo esc_html($settings['other_text']); 
                     if(!empty($settings['other_link_text'])){
                         ?>
-                            <a data-other-link="other-link" <?php echo implode(' ', $link_attrs); ?>><?php echo esc_html($settings['other_link_text']); ?></a>
+                            <a data-other-link="other-link" <?php echo implode(' ', $link_attrs); ?>><?php echo esc_html($settings['other_link_text']); ?> <span class="cmsi-arrow-right2 ml-5 text-12"></span></a>
                         <?php
                     }
                 ?>
             </div>
         </div>
-    <?php } 
-        saniga_elementor_button_render($settings, [
-            'class' => 'mt-30'
-        ]);
-    ?>
+    <?php } else {
+        saniga_slick_slider_arrows_bottom($settings);
+    } ?>
 </div>

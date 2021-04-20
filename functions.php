@@ -307,12 +307,25 @@ if(!function_exists('saniga_admin_style')){
  *
 */
 function saniga_fonts_url() {
-    $font_url = add_query_arg( 
-        'family', 
-        urlencode(saniga_configs('google_fonts')), 
-        "//fonts.googleapis.com/css"
-    );
-    return $font_url;
+    $fonts_url = '';
+    $fonts     = array();
+    $subsets   = 'latin,latin-ext';
+
+    if ( 'off' !== _x( 'on', 'Fira Sans font: on or off', 'saniga' ) ) {
+        $fonts[] = 'Fira Sans:400,400i,500,500i,600,600i,700,700i';
+    }
+    
+    if ( 'off' !== _x( 'on', 'Roboto font: on or off', 'saniga' ) ) {
+        $fonts[] = 'Roboto:400,400i,500,500i,700,700i';
+    }
+    if ( $fonts ) {
+        $fonts_url = add_query_arg( array(
+            'family' => urlencode( implode( '|', $fonts ) ),
+            'subset' => urlencode( $subsets ),
+        ), 'https://fonts.googleapis.com/css' );
+    }
+
+    return $fonts_url;
 }
 /**
  * Incudes file
@@ -357,7 +370,8 @@ if(!function_exists('saniga_remove_styles')){
             'newsletter',
             'woocommerce-smallscreen',
             'woocommerce-general',
-            'woocommerce-layout'
+            'woocommerce-layout',
+            
         ];
         $styles = array_merge($styles, $_styles);
         return $styles;

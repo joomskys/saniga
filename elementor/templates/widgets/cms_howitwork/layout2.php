@@ -5,7 +5,7 @@
             $count++;
     ?>
     <div class="cms-howitwork-item col-lg-3 col-md-6">
-        <div class="text-center bg-white h-100">
+        <div class="text-center bg-white h-100 cms-shadow-1">
             <div class="cms-howitwork-item-inner pt-70 pb-50 p-lr-20 p-lr-lg-30">
                 <?php 
                     echo '<div class="box-icon bg-white text-16 font-700 text-primary">'.esc_html($count).'</div>';

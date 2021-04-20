@@ -46,6 +46,25 @@ function saniga_service_options_register( $metabox ) {
 			)
 		)
 	));
+	// Job Type
+	$metabox->add_section( 'cms-service', array(
+		'title'      => esc_html__( 'Job Type', 'saniga' ),
+		'subsection' => false,
+		'fields'     => array(
+			array(
+				'id'       => 'cms_post_job_type',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Job Type', 'saniga' ),
+				'subtitle' => esc_html__( 'Full time/Part time/Other', 'saniga' )
+			),
+			array(
+				'id'       => 'cms_post_job_address',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Job Address', 'saniga' ),
+				'subtitle' => esc_html__( 'Job address', 'saniga' )
+			)
+		)
+	));
 	// Page title
 	$metabox->add_section( 'cms-service', saniga_page_title_opts(['default' => true, 'default_value' => '0']));
 }

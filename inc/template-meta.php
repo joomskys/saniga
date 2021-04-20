@@ -331,3 +331,51 @@ if(!function_exists('saniga_post_saleoff')){
         }
     }
 }
+// Get Post Job Type
+if(!function_exists('saniga_post_job_type')){
+    function saniga_post_job_type($args = []){
+        $args = wp_parse_args($args, [
+            'id'         => get_the_ID(),
+            'class'      => '',     
+            'before'     => '',
+            'after'      => '',
+            'echo'       => true    
+        ]);
+        $job_type     = saniga_get_post_format_value($args['id'], 'cms_post_job_type', '');
+        ob_start();
+        ?>
+            <div class="<?php echo trim(implode(' ', ['cms-post-job-type', $args['class']]));?>"><?php 
+                printf('%1$s %2$s %3$s', $args['before'], $job_type, $args['after'] ); 
+            ?></div>
+        <?php
+        if($args['echo']){
+            echo ob_get_clean();
+        } else {
+            return ob_get_clean();
+        }
+    }
+}
+// Get Post Job Address
+if(!function_exists('saniga_post_job_address')){
+    function saniga_post_job_address($args = []){
+        $args = wp_parse_args($args, [
+            'id'         => get_the_ID(),
+            'class'      => '',     
+            'before'     => '',
+            'after'      => '',
+            'echo'       => true    
+        ]);
+        $job_address     = saniga_get_post_format_value($args['id'], 'cms_post_job_address', '');
+        ob_start();
+        ?>
+            <div class="<?php echo trim(implode(' ', ['cms-post-job-address', $args['class']]));?>"><?php 
+                printf('%1$s %2$s %3$s', $args['before'], $job_address, $args['after'] ); 
+            ?></div>
+        <?php
+        if($args['echo']){
+            echo ob_get_clean();
+        } else {
+            return ob_get_clean();
+        }
+    }
+}

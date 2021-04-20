@@ -235,9 +235,6 @@ p.demo_store,
 	form.login,
 	form.checkout_coupon,
 	form.register {
-		border: 1px solid var(--border-main-color);
-		background: var(--border-main-color);
-		padding: 20px;
 		margin: 30px 0;
 	}
 
@@ -646,16 +643,16 @@ ul.product_list_widget {
 }
 // Messages
 .woocommerce-message {
-	border-top-color: #8fae1b;
+	border-top-color: #282828;
 	&::before {
 		@include font-cmsi('\f038');
-		color: #8fae1b;
+		color: #282828;
 	}
 }
 .woocommerce-info {
-	border-top-color: #1e85be;
+	border-top-color: #282828;
 	&::before {
-		color: #1e85be;
+		color: #282828;
 	}
 }
 .woocommerce-error {

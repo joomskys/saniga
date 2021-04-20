@@ -5,6 +5,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   .elementor-container{
     flex-wrap: wrap;
     justify-content: center;
@@ -99,5 +100,34 @@ body{
   .elementor-row{
     //padding-top: 0;
     //padding-bottom: 0;
+  }
+}
+// Overlay background
+.elementor-background-overlay:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0.95;
+}
+// Elementor Section Carousel
+.elementor-section.cms-elementor-carousel {
+  .elementor-container.slick-slider{
+    .slick-list{
+      margin: -100px;
+      padding: 100px;
+    }
+    .elementor-column{
+      padding: 0 20px;
+      visibility: hidden;
+      opacity: 0;
+      &.slick-active{
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+  .cms-elementor-section-carousel-dots{
+    margin-top: 40px;
   }
 }

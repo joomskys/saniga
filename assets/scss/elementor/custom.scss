@@ -41,8 +41,8 @@ $alignment : (
 		left: 80px;
 		right: 80px;
 	}
-
-	&:before{
+	&:before,
+	&:after{
 		content: '';
 		position: absolute;
 		top: 0;

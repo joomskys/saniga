@@ -81,6 +81,48 @@ if(!function_exists('saniga_get_post_grid')){
             ?>
             <div class="<?php echo esc_attr($item_class . ' ' . $filter_class); ?>" style="padding: <?php echo esc_attr($settings['gap']/2);?>px; margin-bottom: <?php echo esc_attr($settings['gap_extra']);?>px">
                 <?php switch ($settings['layout']) {
+                    case '5':
+                ?>
+                    <div class="cms-item-content bg-white cms-shadow-1 p-20 p-lg-40">
+                        <div class="row gutters-20 empty-none mb-30"><?php
+                            saniga_post_job_type([
+                                'id'     => $post->ID,
+                                'class'  => 'col-auto',
+                                'before' => '<span class="bg-secondary p-lr-10 p-tb-8 text-white text-13">',
+                                'after'  => '</span>'
+                            ]);
+                            saniga_post_job_address([
+                                'id'    => $post->ID,
+                                'class' => 'col-auto text-1e4873'
+                            ]);
+                        ?></div>
+                        <div class="cms-item-content-title cms-heading font-600 text-20 lh-30 mb-20">
+                            <a href="<?php echo esc_url(get_permalink( $post->ID )); ?>"><?php echo get_the_title($post->ID); ?></a>
+                        </div>
+                        <div class="cms-item-content-excerpt mb-n8"><?php
+                            if(!empty($post->post_excerpt)){
+                                echo wp_trim_words( $post->post_excerpt, $settings['excerpt_lenght'], $settings['excerpt_more_text'] );
+                            }
+                            else{
+                                $content = strip_shortcodes( $post->post_content );
+                                $content = apply_filters( 'the_content', $content );
+                                $content = str_replace(']]>', ']]&gt;', $content);
+                                echo wp_trim_words( $content, $settings['excerpt_lenght'], $settings['excerpt_more_text'] );
+                            }
+                        ?></div>
+                        <?php  if(!empty($settings['readmore_text'])){ ?>
+                            <div class="cms-btn-wraps cms-post-item-readmore mt-40">
+                                <a href="<?php echo esc_url(get_permalink( $post->ID )); ?>" class="btn btn-primary btn-outline btn-hover-accent btn-md">
+                                    <span class="cms-btn-content">
+                                        <span class="cms-btn-icon text-20 cmsi-arrow-circle-<?php echo is_rtl() ? 'left' : 'right';?>"></span>
+                                        <span class="cms-btn-text"><?php echo esc_html($settings['readmore_text']); ?></span>
+                                    </span>
+                                </a>
+                            </div>
+                        <?php } ?>
+                    </div>
+                <?php
+                        break;
                     case '4':
                 ?>
                     <div class="cms-item-content bg-white cms-hover-img-scale cms-transition clearfix relative">
@@ -213,7 +255,7 @@ if(!function_exists('saniga_get_post_grid')){
                             if(!empty($settings['readmore_text'])){ 
                                 ob_start(); ?>
                                 <div class="cms-btn-wraps cms-post-item-readmore cms-transition">
-                                    <a href="<?php echo esc_url(get_permalink( $post->ID )); ?>" class="cms-readmore btn btn-accent btn-hover-secondary btn-lg cms-blog-readmore2">
+                                    <a href="<?php echo esc_url(get_permalink( $post->ID )); ?>" class="cms-readmore btn btn-accent btn-hover-accent btn-lg cms-blog-readmore2">
                                         <span class="cms-btn-content">
                                             <span class="cms-btn-icon text-20 cmsi-arrow-circle-<?php echo is_rtl() ? 'left' : 'right';?>"></span>
                                             <span class="cms-btn-text"><?php echo esc_html($settings['readmore_text']); ?></span>

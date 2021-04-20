@@ -79,6 +79,13 @@ function saniga_register_required_plugins() {
             'force_deactivation' => $auto_active,
         ),
         array(
+            'name'               => esc_html__('Contact Form 7', 'saniga'),
+            'slug'               => 'contact-form-7-cost-calculator',
+            'required'           => false,
+            'force_activation'   => $auto_active,
+            'force_deactivation' => $auto_active,
+        ),
+        array(
             'name'               => esc_html__('Newslettes', 'saniga'),
             'slug'               => 'newsletter',
             'required'           => false,

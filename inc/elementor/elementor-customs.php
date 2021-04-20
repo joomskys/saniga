@@ -87,8 +87,24 @@ if(!function_exists('saniga_custom_section_params')){
                             ], 
                         ),
                         array(
+                            'name'           => 'cms_boxed_overlay_gradient',
+                            'label'          => esc_html__( 'Overlay Gradient Color','saniga' ),
+                            'type'           => \Elementor\Group_Control_Background::get_type(),
+                            'control_type'   => 'group',
+                            'types'          => [ 'gradient' ],
+                            'fields_options' => [
+                                'background' => [
+                                    'frontend_available' => true,
+                                ],
+                            ],
+                            'selector' => '{{WRAPPER}} > .cms-section-boxed-bg:after',
+                            'condition' => [
+                                'cms_boxed_bg' => 'true'
+                            ]
+                        ),
+                        array(
                             'name'         => 'cms_boxed_bg_background',
-                            'title'        => esc_html__( 'Boxed Background Type', 'saniga' ),
+                            'title'        => esc_html__( 'Boxed Background', 'saniga' ),
                             'type'         => \Elementor\Group_Control_Background::get_type(),
                             'control_type' => 'group',
                             'types'         => [ 'classic' ],
@@ -156,6 +172,48 @@ if(!function_exists('saniga_custom_section_params')){
                             ] 
                         )
                     )
+                ),
+                array(
+                    'name'     => 'cms_custom_layout_background_overlay',
+                    'label'    => esc_html__( 'Custom Background Overlay', 'saniga' ),
+                    'tab'      => \Elementor\Controls_Manager::TAB_STYLE,
+                    'controls' => array(
+                        array(
+                            'name'      => 'cms_overlay_background_color',
+                            'label'     => esc_html__( 'Background Overlay Color','saniga' ),
+                            'type'      => \Elementor\Controls_Manager::COLOR,
+                            'default'   => '',
+                            'selectors' => [
+                                '{{WRAPPER}} > .elementor-background-overlay:before' => 'background-color: {{VALUE}};',
+                            ],
+                            'condition' => [
+                                'background_overlay_background' => [ 'classic', 'gradient' ],
+                            ],
+                        ),
+                        array(
+                            'name'    => 'cms_overlay_background_color_opacity',
+                            'label'   => esc_html__( 'Opacity', 'saniga' ),
+                            'type'    => \Elementor\Controls_Manager::SLIDER,
+                            'default' => [
+                                'size' => 0.85,
+                            ],
+                            'range' => [
+                                'px' => [
+                                    'max' => 1,
+                                    'step' => 0.01,
+                                ],
+                            ],
+                            'selectors' => [
+                                '{{WRAPPER}} > .elementor-background-overlay:before' => 'opacity: {{SIZE}};',
+                            ],
+                            'condition' => [
+                                'background_overlay_background' => [ 'classic', 'gradient' ],
+                            ]
+                        )
+                    ),
+                    'condition' => [
+                        'background_overlay_background' => [ 'classic', 'gradient' ],
+                    ]
                 )
             )
         );
@@ -174,6 +232,15 @@ if(!function_exists('saniga_boxed_divider')){
     add_filter('etc-custom-section/before-elementor-row', 'saniga_boxed_divider', 11 , 2);
     function saniga_boxed_divider( $html, $widget){
         $html .= '<div class="cms-section-boxed-divider"></div>';
+        return $html;
+    }
+}
+// add html to after row
+if(!function_exists('saniga_elementor_section_carousel_arrows')){
+    add_filter('etc-custom-section/after-elementor-row', 'saniga_elementor_section_carousel_arrows', 11 , 2);
+    function saniga_elementor_section_carousel_arrows( $html, $widget){
+        $html .= '<div class="cms-elementor-section-carousel-arrows"></div>';
+        $html .= '<div class="cms-elementor-section-carousel-dots"></div>';
         return $html;
     }
 }

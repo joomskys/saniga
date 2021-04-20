@@ -1,11 +1,11 @@
-$slick-slider-outer-space: 0;
+$slick-slider-outer-space: 100px;
 .cms-slick-sliders{
 	position: relative;
 	.slick-list{
-		//margin: $slick-slider-outer-space*-1;
-		//padding: $slick-slider-outer-space;
+		margin: $slick-slider-outer-space*-1;
+		padding: $slick-slider-outer-space;
 		z-index: 0;
-		//overflow: visible;
+		overflow: visible;
 	}
 	.slick-track{
 		display: flex;

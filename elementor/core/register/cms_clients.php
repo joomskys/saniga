@@ -167,8 +167,7 @@ etc_add_custom_widget(
                         array(
                             'name'        => 'hover_style',
                             'label'       => esc_html__( 'Hover Style', 'saniga' ),
-                            'type'        => \Elementor\Controls_Manager::COLOR,
-                            'label_block' => true,
+                            'type'        => \Elementor\Controls_Manager::SELECT,
                             'options'     => [
                                 ''      => esc_html__('Default', 'saniga')
                             ]

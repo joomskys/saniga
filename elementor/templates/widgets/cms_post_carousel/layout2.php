@@ -62,7 +62,7 @@ if ( $settings['heading_text_animation_delay'] !== '') {
     if(!empty($settings['other_text'])) { 
     ?>
         <div class="row justify-content-center mt-lg-n45">
-            <div class="col-auto other-text font-700 <?php echo 'text-'.$widget->get_setting('other_text_color','body');?> pt-30">
+            <div class="col-auto other-text font-700 <?php echo 'text-'.$widget->get_setting('other_text_color','body');?> pt-25">
                 <?php 
                     echo esc_html($widget->get_setting('other_text')); 
                     if(!empty($settings['other_link_text'])){

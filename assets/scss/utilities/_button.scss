@@ -24,7 +24,7 @@ input[type="button"],
   @include border-radius($button-radius);
   @include transition();
   .cms-btn-icon{
-    font-size: 12px;
+    //font-size: 12px;
     //@include transform(translateY(3px));
   }
   &:hover, 
@@ -55,6 +55,11 @@ input[type="button"],
         color: $primary-color!important;
       }
     }
+    &.btn-hover-secondary{
+      &:hover{
+        color: $white!important;
+      }
+    }
   }
   @each $name, $color in $cms_theme_colors{
     &.btn-hover-#{$name}{
@@ -73,6 +78,7 @@ input[type="button"],
   [dir="rtl"] &{
     @include border-radius($button-radius-rtl);
   }
+
   // Alignment
   &.text-justify{
     display: block;
@@ -216,7 +222,6 @@ $cms_theme_btn_font_sizes : (
   height: 68px;
   display: block;
   line-height: 68px;
-  font-size: 20px;
   text-align: center;
   background: $white;
   color: $primary-color;
@@ -225,5 +230,9 @@ $cms_theme_btn_font_sizes : (
   &:hover{
     background-color: $secondary-color;
     color: $primary-color;
+  }
+  > span{
+    padding-top: 3px;
+    display: inline-block;
   }
 }

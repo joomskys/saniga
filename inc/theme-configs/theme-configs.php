@@ -20,6 +20,7 @@ if(!function_exists('saniga_configs')){
                 'rating' => ['title' => esc_html__('Rating (#16bae1)', 'saniga'), 'value' => saniga_get_opts('rating_color', '#16bae1')],
                 'body'     => ['title' => esc_html__('Body (#9b9b9b)', 'saniga'), 'value' => '#9b9b9b'],
                 'white'     => ['title' => esc_html__('White (#ffffff)', 'saniga'), 'value' => '#ffffff'],
+                '1e4873'     => ['title' => esc_html__('1e4873 (#1e4873)', 'saniga'), 'value' => '#1e4873'],
             ],
             'link_color'  => [
                 'regular' => 'var(--color-primary)',

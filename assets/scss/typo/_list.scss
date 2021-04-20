@@ -41,6 +41,9 @@ ul, ol{
 		.cms-icon{
 			transform: translateY(-3px);
 		    display: inline-block;
+		    &.far{
+		    	transform: translateY(5px);
+		    }
 		}
 	}
 }

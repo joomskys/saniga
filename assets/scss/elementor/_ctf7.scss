@@ -38,6 +38,12 @@
             @include box-shadow(0 0 0 2px #efefef);
         }
     }
+    input[name*="calculated"]{
+        background: #dcf5fb!important;
+        color: $accent-color!important;
+        font-weight: 700;
+        @include box-shadow(0 0 0 2px #dcf5fb!important);
+    }
 }
 .cms-cf7-separator{
     //border-top: 2px solid $border-color;
