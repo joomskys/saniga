@@ -408,10 +408,10 @@ if(!function_exists('saniga_elementor_base_scripts')){
         }
     }
 }
-
 // remove comment cookies
 remove_action( 'set_comment_cookies', 'wp_set_comment_cookies' );
 // remove lazy load 
 add_filter( 'wp_lazy_loading_enabled', '__return_false' );
+// Remove Emoji
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );

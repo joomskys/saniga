@@ -653,7 +653,7 @@ if(!function_exists('saniga_elementor_slick_slider_settings')){
                         'name'         => 'gap',
                         'label'        => esc_html__('Item Gap', 'saniga'),
                         'type'         => \Elementor\Controls_Manager::NUMBER,
-                        'default'      => 30,
+                        'default'      => 40,
                     ),
                     array(
                         'name'         => 'gap_extra',
@@ -1854,7 +1854,9 @@ if(!function_exists('saniga_elementor_button_render')){
         }
 
         $button_class[] = $args['btn_class'];
+        if(empty($settings[$args['prefix'].'btn_icon']['value'])) $button_class[] = 'btn-no-icon';
         $button_class[] = $settings[$args['prefix'].'btn_css_class'];
+        
         $button_attrs[] = 'class="'.trim(implode(' ', $button_class)).'"';
 
         $is_new = \Elementor\Icons_Manager::is_migration_allowed();

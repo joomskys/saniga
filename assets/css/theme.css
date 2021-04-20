@@ -20605,6 +20605,10 @@ blockquote {
     padding: 26.5px; }
   .btn-xxl {
     padding: 30px; }
+
+.btn-lg.btn-no-icon {
+  padding-top: 24px;
+  padding-bottom: 24px; }
   .btn-xs {
     font-size: 12px; }
   .btn-sm {
@@ -43292,7 +43296,6 @@ p.stars.selected a:not(.active)::before {
   font-size: 14px;
   font-weight: 700;
   color: var(--color-primary);
-  font-family: 'Fira Sans', sans-serif;
   padding-bottom: 7px; }
 
 .wpcf7 label + br {
