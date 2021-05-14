@@ -252,11 +252,6 @@ if(!function_exists('saniga_scripts')){
         // magnific-popup
         wp_register_script( 'magnific-popup', get_template_directory_uri() . '/assets/js/magnific-popup.min.js', array( 'jquery' ), '1.0.0', true );
         wp_register_style( 'magnific-popup', get_template_directory_uri() . '/assets/css/magnific-popup.css', array(), '1.0.0' );
-        // smoothscroll
-        $smoothscroll = saniga_get_opt( 'smoothscroll', false );
-        if ( isset( $smoothscroll ) && $smoothscroll ) {
-            wp_enqueue_script( 'smoothscroll', get_template_directory_uri() . '/assets/js/smoothscroll.min.js', array( 'jquery' ), 'all', true );
-        }
         // Slick Slider 
         wp_register_script( 'jquery-slick', get_template_directory_uri() . '/assets/js/slick/slick.min.js', array( 'jquery' ), '1.8.1', true );
         // Theme JS

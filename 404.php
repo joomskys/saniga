@@ -16,7 +16,7 @@ get_header();
             <div class="cms-heading text-100 lh-100 text-md-200 lh-md-200 text-accent"><?php echo esc_html__('404','saniga') ?></div>
             <div class="cms-heading text-xl-75 text-lg-45 text-25 empty-none"><?php echo esc_html($heading); ?></div>
             <div class="cms-heading text-xl-45 text-lg-30 text-20 empty-none"><?php echo esc_html($subheading); ?></div>
-            <div class="cms-heading text-18 text-md-30 m-b20"><?php 
+            <div class="cms-heading text-18 font-400 m-b20"><?php 
                 printf('%s', $content_404_page);
             ?></div>
             <div class="mt-20">

@@ -208,12 +208,6 @@ Redux::setSection($opt_name, array(
             'default'  => '0'
         ),
         array(
-            'id'       => 'smoothscroll',
-            'type'     => 'switch',
-            'title'    => esc_html__('Smooth Scroll', 'saniga'),
-            'default'  => '0'
-        ),
-        array(
             'id'       => 'back_totop_on',
             'type'     => 'switch',
             'title'    => esc_html__('Enable Back To Top', 'saniga'),

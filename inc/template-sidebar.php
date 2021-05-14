@@ -45,7 +45,7 @@ function saniga_sidebar_css_class($args=[]){
     if( in_array($sidebar_position, ['0', 'none', 'bottom']) ){
         $classes[] = 'col-12';
     } else {
-        $content_grid_class = (int) saniga_get_opts($args['content_col'], saniga_configs('blog')['archive_content_col']);
+        $content_grid_class = (int) saniga_get_opt($args['content_col'], saniga_configs('blog')['archive_content_col']);
         $sidebar_grid_class = 12 - $content_grid_class;
         $classes[] = 'col-lg-'.$sidebar_grid_class; 
     }

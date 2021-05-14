@@ -683,7 +683,7 @@ if(!function_exists('saniga_page_title_opts')){
 		$args = wp_parse_args($args, [
 			'prefix'		 => '',	
 			'default'        => '',
-			'default_value'  => '',
+			'default_value'  => '1',
 			'default_layout' => '',
 			'subsection'     => ''
 		]);		
@@ -875,6 +875,26 @@ if(!function_exists('saniga_page_layout_opts')){
 			'subsection'    => true,
 			'fields_only'   => false
 		]);
+		
+		if($args['default']){
+			$custom_sidebar_width = [];
+		} else {
+			$custom_sidebar_width = [
+				'id'            => 'page_content_col',
+	            'title'         => esc_html__('Content Columns', 'saniga'),
+	            'subtitle'      => esc_html__('Choose content Columns', 'saniga'),
+	            'type'          => 'slider',
+	            'default'       => saniga_configs('blog')['single_content_col'],
+	            'min'           => 1,
+	            'step'          => 1,
+	            'max'           => 11,
+	            'display_value' => 'label',
+	            'required'      => [ 
+	                [$args['name'], '!=', '0'],
+	                [$args['name'], '!=', 'bottom']
+	            ]
+			];
+		}
 		return array(
 		    'title'      => $args['title'],
 		    'icon'       => 'el-icon-file-edit',
@@ -887,21 +907,7 @@ if(!function_exists('saniga_page_layout_opts')){
 		            'subsection'    => $args['subsection'],
 		            'fields_only'   => $args['fields_only']
 		        ]),
-		        array(
-		            'id'            => 'page_content_col',
-		            'title'         => esc_html__('Content Columns', 'saniga'),
-		            'subtitle'      => esc_html__('Choose content Columns', 'saniga'),
-		            'type'          => 'slider',
-		            'default'       => saniga_configs('blog')['single_content_col'],
-		            'min'           => 1,
-		            'step'          => 1,
-		            'max'           => 11,
-		            'display_value' => 'label',
-		            'required'      => [ 
-		                [$args['name'], '!=', '0'],
-		                [$args['name'], '!=', 'bottom']
-		            ],
-		        )
+		        $custom_sidebar_width
 		    )
 		);
 	}
