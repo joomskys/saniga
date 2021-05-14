@@ -419,7 +419,7 @@ if(!function_exists('saniga_get_image_url_by_size')){
     function saniga_get_image_url_by_size($args = []) {
         $args = wp_parse_args($args,[
             'id'            => null,
-            'post_id'       => get_the_ID(),
+            'post_id'       => '',
             'size'          => 'thumbnail', 
             'default_thumb' => false,
             'class'         => '',
@@ -427,7 +427,12 @@ if(!function_exists('saniga_get_image_url_by_size')){
         ]);
         extract($args);
         global $_wp_additional_image_sizes;
-        if($id === null) $id = get_post_thumbnail_id();
+        /*if($id === null) {
+            $id = get_post_thumbnail_id();
+        } else {
+            $id = get_post_thumbnail_id($post_id);
+        }*/
+        $id = get_post_thumbnail_id($id);
         if(empty($id) && $default_thumb){
             $img_url = saniga_default_image_thumbnail_url(['size' => $size, 'class' => $args['class'], 'default_img' => $args['default_img']]);
         } elseif ( is_string( $size ) && ( ( ! empty( $_wp_additional_image_sizes[ $size ] ) && is_array( $_wp_additional_image_sizes[ $size ] ) ) || in_array( $size, array(
@@ -441,7 +446,7 @@ if(!function_exists('saniga_get_image_url_by_size')){
                     'full',
                 ) ) )
         ) {
-            $p_img = wp_get_attachment_image_src( get_post_thumbnail_id($id), $size );
+            $p_img = wp_get_attachment_image_src($id, $size );
             $img_url = $p_img[0];
         } else {
             if ( is_string( $size ) ) {

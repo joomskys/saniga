@@ -87,6 +87,7 @@ if(!function_exists('saniga_get_post_grid')){
                         <div class="row gutters-20 empty-none mb-30"><?php
                             saniga_post_job_type([
                                 'id'     => $post->ID,
+                                'post_id' => $post->ID,
                                 'class'  => 'col-auto',
                                 'before' => '<span class="bg-secondary p-lr-10 p-tb-8 text-white text-13">',
                                 'after'  => '</span>'
@@ -135,6 +136,7 @@ if(!function_exists('saniga_get_post_grid')){
                         $media_icon = ob_get_clean();
                         saniga_post_media([
                             'id'             => $post->ID, 
+                            'post_id' => $post->ID,
                             'default_thumb'  => '1',
                             'thumbnail_size' => $img_size,
                             'wrap_class'     => 'relative',
@@ -179,7 +181,8 @@ if(!function_exists('saniga_get_post_grid')){
                     <div class="cms-item-content cms-hover-img-scale relative overflow-hidden">
                         <?php 
                         saniga_post_media([
-                            'id'             => $post->ID, 
+                            'id'             => $post->ID,
+                            'post_id' => $post->ID,
                             'default_thumb'  => '1',
                             'thumbnail_size' => $img_size,
                             'wrap_class'     => '',
@@ -269,6 +272,7 @@ if(!function_exists('saniga_get_post_grid')){
                         <?php 
                         saniga_post_media([
                             'id'             => $post->ID, 
+                            'post_id' => $post->ID,
                             'default_thumb'  => '1',
                             'thumbnail_size' => $img_size,
                             'wrap_class'     => 'relative overflow-hidden',
@@ -282,6 +286,7 @@ if(!function_exists('saniga_get_post_grid')){
                     <div class="cms-item-content bg-white cms-hover-img-scale cms-hover-readmore cms-transition clearfix"><?php 
                         saniga_post_media([
                             'id'             => $post->ID, 
+                            'post_id' => $post->ID,
                             'default_thumb'  => '1',
                             'thumbnail_size' => $img_size,
                             'wrap_class'     => '',
