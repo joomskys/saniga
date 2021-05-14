@@ -2,7 +2,7 @@
 	position: absolute;
 	left: 0;
 	right: 0;
-	background: var(--ontop-bg);
+	background: transparent; //var(--ontop-bg);
 	//  menu
 	@media (min-width: $desktop-screen){
 		.cms-primary-menu{

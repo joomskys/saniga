@@ -1,3 +1,15 @@
+// Header Main
+//--------------------------------------------------
+.cms-header-wraps{
+	z-index: 10;
+	position: relative;
+}
+.cms-header{
+	background: $white;
+	@include transition(all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) 0s);
+	@include box-shadow(0px 5px 83px 0px rgba(27, 26, 26, 0.12));
+}
+
 @import 'header_top';
 @import 'header_logo';
 @import 'header_mega_menu';
@@ -13,14 +25,3 @@
 @import 'layout1';
 @import 'layout2';
 @import 'layout3';
-// Header Main
-//--------------------------------------------------
-.cms-header-wraps{
-	z-index: 2;
-	position: relative;
-}
-#cms-header{
-	background: $white;
-	@include transition(all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) 0s);
-	@include box-shadow(0px 5px 83px 0px rgba(27, 26, 26, 0.12));
-}

@@ -66,7 +66,7 @@ etc_add_custom_widget(
 											'fa4compatibility' => 'social',
 											'default'          => [],
 				                        )
-		                            ),
+		                            )
 	                            ),
 	                            'default' => [
 	                                [

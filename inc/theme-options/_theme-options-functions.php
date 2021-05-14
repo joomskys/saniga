@@ -150,13 +150,13 @@ if(!function_exists('saniga_header_logo_opts')){
 		            'id'       => 'logo_size',
 		            'type'     => 'dimensions',
 		            'title'    => esc_html__('Logo Size', 'saniga'),
-		            'subtitle' => esc_html__('Enter demensions for your logo, just in case the logo is too large. Leave blank to use default size from theme', 'saniga'),
+		            'subtitle' => esc_html__('Enter dimensions for your logo, just in case the logo is too large. Leave blank to use default size from theme', 'saniga'),
 		            'unit'     => 'px'
 		        ),
 		        array(
 		            'id'       => 'logo_size_sm',
 		            'type'     => 'dimensions',
-		            'title'    => esc_html__('Enter demensions for your logo on Tablet & Mobile', 'saniga'),
+		            'title'    => esc_html__('Enter dimensions for your logo on Tablet & Mobile', 'saniga'),
 		            'unit'     => 'px'
 		        ),
 		    )
@@ -245,7 +245,7 @@ if(!function_exists('saniga_header_sticky_opts')){
 					'id'       => 'header_sticky_bg',
 					'type'     => 'background',
 					'title'    => esc_html__('Background', 'saniga'),
-					'output'   => array('.cms-header.is-sticky.header-sticky'),
+					'output'   => array('#cms-header.is-sticky.header-sticky'),
 					'required' => array( 0 => 'sticky_on', 1 => 'equals', 2 => '1' ),
 					'force_output' => true
 		        ),

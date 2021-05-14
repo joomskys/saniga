@@ -202,7 +202,7 @@ etc_add_custom_widget(
 										'custom_name'     => 'contact_list_link_color_custom',
 										'custom_label'    => esc_html__('Custom Link Color','saniga'),
 										'custom_selector' => '.cms-qc-list a'
-									]),
+									])
 	                            ),
 	                            'default' => [
 	                                [
@@ -410,10 +410,7 @@ etc_add_custom_widget(
 								'label'       => esc_html__( 'Phone Number', 'saniga' ),
 								'type'        => \Elementor\Controls_Manager::TEXT,
 								'placeholder' => '+02 01061245741',
-								'label_block' => true,
-								'condition'   => [
-									'layout' => ['0']
-								]
+								'label_block' => true
 	                        ),
 	                        array(
 								'name'        => 'phone_bg',
@@ -621,13 +618,12 @@ etc_add_custom_widget(
 						'layout' => ['0']
 					]
                 ),
-				
 				array(
 					'name'     => 'button_section',
 					'label'    => esc_html__( 'Button Settings', 'saniga' ),
 					'tab'      => \Elementor\Controls_Manager::TAB_CONTENT,
 					'controls' => array_merge(
-						saniga_elementor_button_settings(),
+						saniga_elementor_button_settings()
 					),
 					'condition'   => [
 						'layout' => ['0']
@@ -645,7 +641,7 @@ etc_add_custom_widget(
 							'btn_color'		   => 'white',
 							'btn_hover_color'  => 'white',
 							'btn_size'		   => 'lg'		 
-						]),
+						])
 					),
 					'condition'   => [
 						'layout' => ['0']

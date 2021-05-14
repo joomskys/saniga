@@ -5,9 +5,9 @@
 		padding: 34px 0;
 		a,
 		.breadcrumb-divider{
-			color: $primary-color;
+			//color: $primary-color;
 			&:hover{
-				color: $accent-color;
+				//color: $accent-color;
 			}
 		}
 		+ #cms-main{
@@ -19,6 +19,6 @@
 		opacity: 0;
 	}
 	.cms-pagetitle-breadcrumb{
-		color: $body-color;
+		//color: $body-color;
 	}
 }
