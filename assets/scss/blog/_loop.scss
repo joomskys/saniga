@@ -12,9 +12,12 @@
 		}
 	}
 }
-.thumbnai-is-bg .cms-img{
-	@include opacity(0);
-	visibility: hidden;
+.thumbnai-is-bg {
+	background-size: cover;
+	.cms-img{
+		@include opacity(0);
+		visibility: hidden;
+	}
 }
 .cms-post-image{
 	overflow: hidden;

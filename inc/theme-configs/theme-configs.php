@@ -315,6 +315,11 @@ if(!function_exists('saniga_configs')){
                     'background-size'       => 'cover',
                     'background-attachment' => 'scroll',
                     'background-position'   => 'center'
+                ]),
+                saniga_get_opts('ptitle_breadcrumb_link_color',[
+                    'regular' => 'var(--color-primary)',
+                    'hover'   => 'var(--color-accent)',
+                    'active'  => 'var(--color-body)'
                 ])
             ),
             'ptitle_overlay' => saniga_get_opts('ptitle_overlay_color', [

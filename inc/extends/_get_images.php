@@ -418,7 +418,8 @@ if(!function_exists('saniga_image_by_size')){
 if(!function_exists('saniga_get_image_url_by_size')){
     function saniga_get_image_url_by_size($args = []) {
         $args = wp_parse_args($args,[
-            'id'            => null, 
+            'id'            => null,
+            'post_id'       => get_the_ID(),
             'size'          => 'thumbnail', 
             'default_thumb' => false,
             'class'         => '',
@@ -440,7 +441,7 @@ if(!function_exists('saniga_get_image_url_by_size')){
                     'full',
                 ) ) )
         ) {
-            $p_img = wp_get_attachment_image_src( $id, $size );
+            $p_img = wp_get_attachment_image_src( get_post_thumbnail_id($id), $size );
             $img_url = $p_img[0];
         } else {
             if ( is_string( $size ) ) {

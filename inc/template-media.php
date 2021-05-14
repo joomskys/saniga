@@ -6,6 +6,7 @@ if(!function_exists('saniga_post_thumbnail')){
     function saniga_post_thumbnail($args=[]){
         $args = wp_parse_args($args,[
             'id'              => null,
+            'post_id'         => get_the_ID(),  
             'thumbnail_size'  => is_single() ? 'large' : 'medium',
             'echo'            => true,
             'default_thumb'   => saniga_configs('default_post_thumbnail'),
@@ -27,7 +28,13 @@ if(!function_exists('saniga_post_thumbnail')){
         $thumbnail_atts[] = 'class="'.implode(' ', $thumbnail_atts_class).'"';
         // style
         $thumbnail_atts_style = [];
-        if($thumbnail_is_bg) $thumbnail_atts_style[] = 'background-image: url('.saniga_get_image_url_by_size(['id'=>$id,'size'=> 'full', 'default_thumb' => $default_thumb]).')';
+        if($thumbnail_is_bg) $thumbnail_atts_style[] = 'background-image: url('.saniga_get_image_url_by_size([
+                'id'            => $id,
+                'post_id'       => get_the_ID(),
+                'size'          => 'full', 
+                'default_thumb' => $default_thumb
+            ])
+        .')';
         if(!empty($thumbnail_atts_style)) $thumbnail_atts[] = 'style="'.implode(';',$thumbnail_atts_style).'"';
 
         ob_start();
@@ -59,6 +66,7 @@ if(!function_exists('saniga_post_gallery')){
     function saniga_post_gallery($args=[]){
         $args = wp_parse_args($args, array(
             'id'             => null,
+            'post_id'        => get_the_ID(),
             'show_media'     => '1',
             'thumbnail_size' => 'large',
             'show_author'    => is_singular() ? saniga_get_opts('archive_author_on','1') : saniga_get_opts('post_author_on','1'),
@@ -120,6 +128,7 @@ if(!function_exists('saniga_post_video')){
             'video_file'     => 'post-video-file',
             'video_html'     => 'post-video-html',
             'id'             => null,
+            'post_id'        => get_the_ID(),
             'thumbnail_size' => is_single() ? 'large' : 'medium',
             'echo'           => true,
             'default_thumb'  => saniga_configs('default_post_thumbnail')
@@ -194,6 +203,7 @@ if(!function_exists('saniga_post_audio')){
             'audio_url'      => 'post-audio-url',
             'audio_file'     => 'post-audio-file',
             'id'             => null,
+            'post_id'        => get_the_ID(),
             'thumbnail_size' => is_single() ? 'large' : 'medium',
             'echo'           => true,
             'default_thumb'  => saniga_configs('default_post_thumbnail')
@@ -265,6 +275,7 @@ if(!function_exists('saniga_post_quote')){
     function saniga_post_quote($args = []){
         $args = wp_parse_args($args, [
             'id'             => null,
+            'post_id'        => get_the_ID(),
             'thumbnail_size' => is_single() ? 'large' : 'medium',
             'echo'           => true,
             'default_thumb'  => saniga_configs('default_post_thumbnail')
@@ -306,6 +317,7 @@ if(!function_exists('saniga_post_link')){
     function saniga_post_link($args = []){
         $args = wp_parse_args($args, [
             'id'             => null,
+            'post_id'        => get_the_ID(),
             'thumbnail_size' => is_single() ? 'large' : 'medium',
             'echo'           => true,
             'default_thumb'  => saniga_configs('default_post_thumbnail')
@@ -359,6 +371,7 @@ if(!function_exists('saniga_post_image')){
     function saniga_post_image($args = []){
         $args = wp_parse_args($args, [
             'id'             => null,
+            'post_id'        => get_the_ID(),
             'thumbnail_size' => is_single() ? 'large' : 'medium',
             'echo'           => true,
             'default_thumb'  => saniga_configs('default_post_thumbnail')
@@ -388,6 +401,7 @@ if(!function_exists('saniga_post_media')){
         $args = wp_parse_args($args, [
             'show_media'     => '1',
             'id'             => null,
+            'post_id'        => get_the_ID(),
             'thumbnail_size' => is_single() ? 'large' : 'medium',
             'echo'           => true,
             'default_thumb'  => saniga_configs('default_post_thumbnail'),
