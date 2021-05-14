@@ -39,7 +39,7 @@ if(!function_exists('saniga_content_css_class')){
         $sidebar            = saniga_get_sidebar();
         $sidebar_position   = saniga_sidebar_position(['sidebar_pos' => $args['sidebar_pos']]);
         $content_grid_class = saniga_get_opts($args['content_col'], saniga_configs('blog')['archive_content_col']);
-        var_dump($content_grid_class);
+        var_dump($args['content_col']);
         if( $sidebar_position === 'bottom' || $sidebar_position === '0' ){
             $classes[] = 'col-12';
         } else {
