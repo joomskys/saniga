@@ -23,90 +23,67 @@ function saniga_register_required_plugins() {
      * If the source is NOT from the .org repo, then source is also required.
      */
     $default_path = 'https://cmssuperheroes.com/plugins/elementor/';
-    $auto_active = false;
     $plugins = array(
         /* CMS Plugin */
         array(
             'name'               => esc_html__('Redux Framework', 'saniga'),
             'slug'               => 'redux-framework',
-            'required'           => true,
-            'force_activation'   => $auto_active,
-            'force_deactivation' => $auto_active,
+            'required'           => true
         ),
         array(
             'name'               => esc_html__('Elementor', 'saniga'),
             'slug'               => 'elementor',
-            'required'           => true,
-            'force_activation'   => $auto_active,
-            'force_deactivation' => $auto_active,
+            'required'           => true
         ),
         array(
             'name'               => esc_html__('Theme Core', 'saniga'),
             'slug'               => 'elementor-theme-core',
             'source'             => 'elementor-theme-core.zip',
-            'required'           => true,
-            'force_activation'   => $auto_active,
-            'force_deactivation' => $auto_active,
+            'required'           => true
         ),
         array(
             'name'               => esc_html__('SWA Import Export', 'saniga'),
             'slug'               => 'swa-import-export',
             'source'             => 'swa-import-export.zip',
-            'required'           => true,
-            'force_activation'   => $auto_active,
-            'force_deactivation' => $auto_active,
+            'required'           => true
         ),
         array(
             'name'               => esc_html__('Revolution Slider', 'saniga'),
             'slug'               => 'revslider',
             'source'             => esc_url('https://cmssuperheroes.com/plugins/revslider.zip'),
-            'required'           => true,
-            'force_activation'   => $auto_active,
-            'force_deactivation' => $auto_active,
+            'required'           => true
         ),
         array(
             'name'               => esc_html__('WooCommerce', 'saniga'),
             'slug'               => 'woocommerce',
-            'required'           => false,
-            'force_activation'   => false,
-            'force_deactivation' => false,
+            'required'           => false
         ),
         array(
             'name'               => esc_html__('Contact Form 7', 'saniga'),
             'slug'               => 'contact-form-7',
-            'required'           => false,
-            'force_activation'   => $auto_active,
-            'force_deactivation' => $auto_active,
+            'required'           => false
         ),
         array(
             'name'               => esc_html__('Contact Form 7 Cost Calculator', 'saniga'),
             'slug'               => 'contact-form-7-cost-calculator',
             'source'             => esc_url('https://cmssuperheroes.com/plugins/contact-form-7-cost-calculator.zip'),
-            'required'           => false,
-            'force_activation'   => $auto_active,
-            'force_deactivation' => $auto_active,
+            'required'           => false
         ),
         array(
             'name'               => esc_html__('Newslettes', 'saniga'),
             'slug'               => 'newsletter',
-            'required'           => false,
-            'force_activation'   => $auto_active,
-            'force_deactivation' => $auto_active,
+            'required'           => false
         ),
         
         array(
             'name'               => esc_html__('WP User Avatar', 'saniga'),
             'slug'               => 'wp-user-avatar',
-            'required'           => false,
-            'force_activation'   => $auto_active,
-            'force_deactivation' => $auto_active,
+            'required'           => false
         ),
         array(
             'name'               => esc_html__('Translatepress Multilingual', 'saniga'),
             'slug'               => 'translatepress-multilingual',
-            'required'           => false,
-            'force_activation'   => $auto_active,
-            'force_deactivation' => $auto_active,
+            'required'           => false
         )
     );
 
@@ -120,7 +97,7 @@ function saniga_register_required_plugins() {
     $config = array(
         'default_path' => $default_path,                      // Default absolute path to pre-packaged plugins.
         'menu'         => 'tgmpa-install-plugins', // Menu slug.
-
+        'is_automatic' => true
     );
 
     tgmpa( $plugins, $config );
