@@ -174,15 +174,23 @@
         if(carousel.length == 0){
             return false;
         }
+        console.log(breakpoints);
         carousel.each(function() {
             $(this).slick({
-                slidesToShow: 4,
-                slidesToScroll: 4,
+                slidesToShow: 1,
+                slidesToScroll: 1,
                 arrows: false,
                 dots: true,
                 appendDots: '.cms-slick--dots',
                 dotsClass: 'cms-slick-dot',
                 responsive: [
+                    {
+                        breakpoint: breakpoints.xl,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 4
+                        }
+                    },
                     {
                         breakpoint: breakpoints.lg,
                         settings: {
@@ -192,6 +200,13 @@
                     },
                     {
                         breakpoint: breakpoints.md,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                        }
+                    },
+                    {
+                        breakpoint: breakpoints.sm,
                         settings: {
                             slidesToShow: 1,
                             slidesToScroll: 1,
@@ -209,7 +224,6 @@
         if(carousel.length == 0){
             return false;
         }
-        console.log(data.rtl);
         $settings = {
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -221,7 +235,6 @@
             //adaptiveHeight: true,
             rtl: data.rtl
         };
-        console.log($settings);
         carousel.each(function() {
             $(this).slick({
                 //fade: true,
@@ -257,7 +270,7 @@
                 nextArrow : '<div class="cms-slick-next cms-slick-arrow"><span class="cms-slick-arrow-icon next"></span></div>',
                 dots: true,
                 appendDots: carousel.parent().find('.cms-slide-dots'),
-                dotsClass: 'cms-slick-dot'
+                dotsClass: 'cms-slick-dot',
             }).on( 'afterChange', function( event, slick, currentSlide ) {
               $.each(slick.$dots, (i, el) => {
                 $(el).find('li').eq(currentSlide).addClass('slick-active');
@@ -268,6 +281,8 @@
     // Elementor section Carousel 
     var CMSElementorSectionCarousel = function($scope, $){
         var carousel = $scope.find('.cms-elementor-carousel >.elementor-container');
+        var breakpoints = elementorFrontend.config.breakpoints;
+        console.log(breakpoints);
         if(carousel.length == 0) return;
         carousel.each(function() {
             $(this).slick({
@@ -281,7 +296,23 @@
                 nextArrow : '<div class="cms-slick-next cms-slick-arrow"><span class="cms-slick-arrow-icon next"></span></div>',
                 dots: true,
                 appendDots: carousel.parent().find('.cms-elementor-section-carousel-dots empty-none'),
-                dotsClass: 'cms-slick-dot'
+                dotsClass: 'cms-slick-dot',
+                responsive: [
+                    {
+                        breakpoint: breakpoints.lg,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3
+                        }
+                    },
+                    {
+                        breakpoint: breakpoints.md,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                        }
+                    }
+                ]
             });
         });
     };

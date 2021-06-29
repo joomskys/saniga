@@ -8094,6 +8094,10 @@ body .elementor-section.cms-section-padding {
     height: 2px;
     background-color: #eaeaea; }
 
+.trp-language-switcher {
+  position: relative;
+  z-index: 1; }
+
 .cms-language-switcher .trp-language-switcher {
   margin: -15px;
   vertical-align: top; }
@@ -39159,6 +39163,10 @@ ul.cms-slick-dot li.slick-active button:before, ul.cms-slick-dot li:hover button
 
 body:not(.elementor-page) #cms-main {
   padding: 100px 0; }
+
+@media (max-width: 1024px) {
+    #cms-page {
+      overflow-x: hidden; } }
 
 .container-wide {
   padding-left: 20px;

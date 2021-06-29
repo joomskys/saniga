@@ -26,24 +26,24 @@ saniga_require_folder('inc/theme-configs');
 saniga_require_folder('inc/extends');
 
 if ( ! function_exists( 'saniga_setup' ) ) {
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
-	 */
+    /**
+     * Sets up theme defaults and registers support for various WordPress features.
+     *
+     * Note that this function is hooked into the after_setup_theme hook, which
+     * runs before the init hook. The init hook is too late for some features, such
+     * as indicating support for post thumbnails.
+     */
     add_action( 'after_setup_theme', 'saniga_setup' );
-	function saniga_setup() {
-		// Make theme available for translation.
-		load_theme_textdomain( 'saniga', get_template_directory() . '/languages' );
-		// Custom Header
-		add_theme_support( "custom-header" );
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
-		// Let WordPress manage the document title.
-		add_theme_support( 'title-tag' );
-		/*
+    function saniga_setup() {
+        // Make theme available for translation.
+        load_theme_textdomain( 'saniga', get_template_directory() . '/languages' );
+        // Custom Header
+        add_theme_support( "custom-header" );
+        // Add default posts and comments RSS feed links to head.
+        add_theme_support( 'automatic-feed-links' );
+        // Let WordPress manage the document title.
+        add_theme_support( 'title-tag' );
+        /*
          * Enable support for Post Thumbnails on posts and pages.
          *
          * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
@@ -52,53 +52,53 @@ if ( ! function_exists( 'saniga_setup' ) ) {
         // Set post thumbnail size.
         set_post_thumbnail_size( saniga_configs('thumbnail')['post_thumbnail_size_w'], saniga_configs('thumbnail')['post_thumbnail_size_h'] );
 
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'primary' => esc_html__( 'Saniga Primary', 'saniga' ),
-		) );
+        // This theme uses wp_nav_menu() in one location.
+        register_nav_menus( array(
+            'primary' => esc_html__( 'Saniga Primary', 'saniga' ),
+        ) );
 
-		/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
-		add_theme_support( 'html5', array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
+        /*
+         * Switch default core markup for search form, comment form, and comments
+         * to output valid HTML5.
+         */
+        add_theme_support( 'html5', array(
+            'search-form',
+            'comment-form',
+            'comment-list',
+            'gallery',
+            'caption',
             'script',
             'style'
-		) );
+        ) );
 
-		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'saniga_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
+        // Set up the WordPress core custom background feature.
+        add_theme_support( 'custom-background', apply_filters( 'saniga_custom_background_args', array(
+            'default-color' => 'ffffff',
+            'default-image' => '',
+        ) ) );
 
-		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
+        // Add theme support for selective refresh for widgets.
+        add_theme_support( 'customize-selective-refresh-widgets' );
 
-		// Add support for core custom logo.
-		add_theme_support( 'custom-logo', array(
-			'height'      => saniga_configs('logo')['width'],
-			'width'       => saniga_configs('logo')['height'],
-			'flex-width'  => true,
-			'flex-height' => true,
-		) );
-		add_theme_support( 'post-formats', array(
-			'gallery',
-			'video',
-		) );
+        // Add support for core custom logo.
+        add_theme_support( 'custom-logo', array(
+            'height'      => saniga_configs('logo')['width'],
+            'width'       => saniga_configs('logo')['height'],
+            'flex-width'  => true,
+            'flex-height' => true,
+        ) );
+        add_theme_support( 'post-formats', array(
+            'gallery',
+            'video',
+        ) );
         // Add support for full and wide align images.
         add_theme_support( 'align-wide' );
         // Enable support for WooCommerce.
-		add_theme_support( 'woocommerce' );
-		add_theme_support( 'wc-product-gallery-zoom' );
-		add_theme_support( 'wc-product-gallery-lightbox' );
-		add_theme_support( 'wc-product-gallery-slider' );
-	}
+        add_theme_support( 'woocommerce' );
+        add_theme_support( 'wc-product-gallery-zoom' );
+        add_theme_support( 'wc-product-gallery-lightbox' );
+        add_theme_support( 'wc-product-gallery-slider' );
+    }
 }
 /* Display Custom Image Sizes */
 if(!function_exists('saniga_custom_sizes')){
@@ -153,7 +153,7 @@ if(!function_exists('saniga_content_width')){
 // Add new menu Locations
 add_action( 'cms_locations', function ( $cms_locations ) {
     //$cms_locations['cms-test'] ='Test Menu';
-	return $cms_locations;
+    return $cms_locations;
 } );
 /**
  * Register widget area.
@@ -161,7 +161,7 @@ add_action( 'cms_locations', function ( $cms_locations ) {
 if(!function_exists('saniga_widgets_init')){
     add_action( 'widgets_init', 'saniga_widgets_init' );
     function saniga_widgets_init() {
-    	if(class_exists('Elementor_Theme_Core')){
+        if(class_exists('Elementor_Theme_Core')){
             $all_post_type = saniga_all_post_types();
             foreach ($all_post_type as $key => $value) {
                 register_sidebar( array(
@@ -227,9 +227,9 @@ if(!function_exists('saniga_widgets_title')){
  * Enqueue scripts and styles.
  */
 if(!function_exists('saniga_scripts')){
-    add_action( 'wp_enqueue_scripts', 'saniga_scripts', 10000);
+    add_action( 'wp_enqueue_scripts', 'saniga_scripts', 10);
     function saniga_scripts() {
-    	$theme = wp_get_theme( get_template() );
+        $theme = wp_get_theme( get_template() );
         $dev_mode   = saniga_get_opt('dev_mode', false);
         if($dev_mode === '' || $dev_mode === '0' || $dev_mode === false){
             $min = '.min';
@@ -255,8 +255,8 @@ if(!function_exists('saniga_scripts')){
         // Slick Slider 
         wp_register_script( 'jquery-slick', get_template_directory_uri() . '/assets/js/slick/slick.min.js', array( 'jquery' ), '1.8.1', true );
         // Theme JS
-    	wp_enqueue_script( 'saniga', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery' ), $theme->get( 'Version' ), true );
-    	wp_localize_script( 'saniga', 'main_data', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+        wp_enqueue_script( 'saniga', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery' ), $theme->get( 'Version' ), true );
+        wp_localize_script( 'saniga', 'main_data', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
         /*
          * Elementor Widget JS
          */
@@ -270,7 +270,6 @@ if(!function_exists('saniga_scripts')){
         wp_register_script( 'cms-progressbar', get_template_directory_uri() . '/elementor/js/cms-progressbar.js', [ 'jquery' ], $theme->get( 'Version' ) );
         // Slick Slider
         wp_register_script('cms-jquery-slick', get_template_directory_uri() . '/elementor/js/cms-slick-slider.js', [ 'jquery' ], $theme->get( 'Version' ), true);
-        wp_enqueue_script( 'cms-jquery-slick');
         // Elementor Custom
         wp_enqueue_script('cms-elementor-custom-js', get_template_directory_uri() . '/elementor/js/elementor-custom.js', [ 'jquery' ], $theme->get( 'Version' ), true);
     }
@@ -280,7 +279,7 @@ if(!function_exists('saniga_scripts')){
 if(!function_exists('saniga_add_editor_styles')){
     add_action( 'admin_init', 'saniga_add_editor_styles' );
     function saniga_add_editor_styles() {
-    	add_editor_style( 'editor-style.css' );
+        add_editor_style( 'editor-style.css' );
     }
 }
 
@@ -288,8 +287,8 @@ if(!function_exists('saniga_add_editor_styles')){
 if(!function_exists('saniga_admin_style')){
     add_action( 'admin_enqueue_scripts', 'saniga_admin_style' );
     function saniga_admin_style() {
-    	$theme = wp_get_theme( get_template() );
-    	wp_enqueue_style( 'saniga-admin-style', get_template_directory_uri() . '/assets/css/admin.css' );
+        $theme = wp_get_theme( get_template() );
+        wp_enqueue_style( 'saniga-admin-style', get_template_directory_uri() . '/assets/css/admin.css' );
         wp_enqueue_script('saniga-main-admin', get_template_directory_uri() . '/assets/js/main-admin.js', array( 'jquery' ), $theme->get('Version'), true);
     }
 }
@@ -362,14 +361,29 @@ if(!function_exists('saniga_remove_styles')){
     add_filter('etc_remove_styles', 'saniga_remove_styles');
     function saniga_remove_styles($styles){
         $_styles = [
+            // gutenberg
+            'wp-block-library',
+            // newsletter
             'newsletter',
+            // elementor
+            'elementor-frontend-legacy',
+            // woo
             'woocommerce-smallscreen',
             'woocommerce-general',
             'woocommerce-layout',
-            'wp-block-library',
+            'wc-block-vendors-style',
+            'wc-block-style',
+            // theme core
             'oc-css',
             'etc-main-css',
-            'progressbar-lib-css'
+            'progressbar-lib-css',
+            // language switcher
+            'trp-floater-language-switcher-style',
+            'trp-language-switcher-style',
+            // Profile Press 
+            'ppress-frontend',
+            'ppress-flatpickr',
+            'ppress-select2',
         ];
         $styles = array_merge($styles, $_styles);
         return $styles;
@@ -388,14 +402,9 @@ if(!function_exists('etc_remove_styles')){
         }
     }
 }
-if(!function_exists('elementor_frontend_custom_css')){
-    add_action('wp_enqueue_scripts','elementor_frontend_custom_css', 2);
-    function elementor_frontend_custom_css(){
-        wp_enqueue_style( 'elementor-frontend-legacy', get_template_directory_uri() . '/assets/css/elementor-frontend-legacy.css', array('saniga'), '1.0' );
-    }
-}
+
 if(!function_exists('saniga_elementor_base_scripts')){
-    add_action( 'wp_enqueue_scripts', 'saniga_elementor_base_scripts', 10000);
+    //add_action( 'wp_enqueue_scripts', 'saniga_elementor_base_scripts', 10000);
     function saniga_elementor_base_scripts() {
         // elementor font awesome
         if(function_exists('elementor_load_plugin_textdomain')){

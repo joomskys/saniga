@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Saniga\n"
-"POT-Creation-Date: 2021-04-20 17:39+0700\n"
+"POT-Creation-Date: 2021-06-12 00:24+0700\n"
 "PO-Revision-Date: 2020-12-04 09:44+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -141,7 +141,7 @@ msgstr ""
 #: elementor/core/register/cms_teams.php:63
 #: elementor/core/register/cms_testimonial.php:44
 #: elementor/core/register/cms_video.php:174
-#: inc/theme-options/theme-options.php:665
+#: inc/theme-options/theme-options.php:659
 msgid "Heading"
 msgstr ""
 
@@ -174,10 +174,10 @@ msgstr ""
 #: elementor/core/register/cms_slider.php:426
 #: elementor/core/register/cms_slider.php:462
 #: elementor/core/register/cms_slider.php:497
-#: inc/theme-options/theme-options.php:666
-#: inc/theme-options/theme-options.php:674
-#: inc/theme-options/theme-options.php:682
-#: inc/theme-options/theme-options.php:690
+#: inc/theme-options/theme-options.php:660
+#: inc/theme-options/theme-options.php:668
+#: inc/theme-options/theme-options.php:676
+#: inc/theme-options/theme-options.php:684
 msgid "Enter your text"
 msgstr ""
 
@@ -189,7 +189,7 @@ msgstr ""
 #: elementor/core/elementor.php:1336 elementor/core/elementor.php:1641
 #: elementor/core/register/cms_pricing_table.php:400
 #: elementor/core/register/cms_pricing_table_slide.php:52
-#: elementor/core/register/cms_quickcontact.php:605
+#: elementor/core/register/cms_quickcontact.php:602
 #: elementor/core/register/cms_slider.php:156
 #: elementor/core/register/cms_slider.php:192
 #: elementor/core/register/cms_slider.php:227
@@ -203,7 +203,7 @@ msgid "Color"
 msgstr ""
 
 #: elementor/core/elementor.php:207 elementor/core/elementor.php:267
-#: elementor/core/register/cms_quickcontact.php:612
+#: elementor/core/register/cms_quickcontact.php:609
 #: elementor/core/register/cms_slider.php:162
 #: elementor/core/register/cms_slider.php:198
 #: elementor/core/register/cms_slider.php:233
@@ -357,7 +357,7 @@ msgstr ""
 #: elementor/core/register/cms_page_title.php:356
 #: elementor/core/register/cms_products.php:66
 #: elementor/core/register/cms_products.php:76
-#: elementor/core/register/cms_quickcontact.php:530
+#: elementor/core/register/cms_quickcontact.php:527
 #: elementor/core/register/cms_slider.php:64
 #: elementor/core/register/cms_socials.php:116
 #: elementor/core/register/cms_teams.php:385
@@ -377,12 +377,12 @@ msgstr ""
 #: inc/theme-options/_theme-options-functions.php:441
 #: inc/theme-options/_theme-options-functions.php:709
 #: inc/theme-options/_theme-options-functions.php:750
-#: inc/theme-options/_theme-options-functions.php:921
-#: inc/theme-options/_theme-options-functions.php:948
-#: inc/theme-options/_theme-options-functions.php:1019
-#: inc/theme-options/theme-options.php:252
-#: inc/theme-options/theme-options.php:272
-#: inc/theme-options/theme-options.php:342
+#: inc/theme-options/_theme-options-functions.php:927
+#: inc/theme-options/_theme-options-functions.php:954
+#: inc/theme-options/_theme-options-functions.php:1025
+#: inc/theme-options/theme-options.php:246
+#: inc/theme-options/theme-options.php:266
+#: inc/theme-options/theme-options.php:336
 #: widgets/widget-recent-posts.php:222
 msgid "Default"
 msgstr ""
@@ -634,7 +634,7 @@ msgstr ""
 #: elementor/core/register/cms_page_title.php:358
 #: inc/theme-options/_theme-options-functions.php:429
 #: inc/theme-options/_theme-options-functions.php:456
-#: inc/theme-options/theme-options.php:253
+#: inc/theme-options/theme-options.php:247
 msgid "Custom"
 msgstr ""
 
@@ -709,7 +709,7 @@ msgstr ""
 #: elementor/core/register/cms_pricing_table.php:210
 #: elementor/core/register/cms_pricing_table.php:331
 #: elementor/core/register/cms_quickcontact.php:179
-#: elementor/core/register/cms_quickcontact.php:581
+#: elementor/core/register/cms_quickcontact.php:578
 #: elementor/core/register/cms_socials.php:64
 #: elementor/core/register/cms_teams.php:50
 #: elementor/core/register/cms_testimonial.php:50
@@ -748,7 +748,7 @@ msgstr ""
 
 #: elementor/core/elementor.php:1482
 #: elementor/core/register/cms_post_carousel.php:134
-#: elementor/core/register/cms_post_grid.php:130 inc/template-tags.php:145
+#: elementor/core/register/cms_post_grid.php:130 inc/template-tags.php:144
 msgid "Read More"
 msgstr ""
 
@@ -756,7 +756,7 @@ msgstr ""
 #: elementor/core/register/cms_newsletter.php:76
 #: inc/theme-options/_theme-options-functions.php:525
 #: inc/theme-options/_theme-options-functions.php:581
-#: inc/theme-options/theme-options.php:689
+#: inc/theme-options/theme-options.php:683
 msgid "Button Text"
 msgstr ""
 
@@ -843,27 +843,27 @@ msgstr ""
 msgid "Custom CSS Class"
 msgstr ""
 
-#: elementor/core/elementor.php:2157
+#: elementor/core/elementor.php:2159
 msgid "Zocdoc"
 msgstr ""
 
-#: elementor/core/elementor.php:2158
+#: elementor/core/elementor.php:2160
 msgid "Overall Rating"
 msgstr ""
 
-#: elementor/core/elementor.php:2159
+#: elementor/core/elementor.php:2161
 msgid ", based on."
 msgstr ""
 
-#: elementor/core/elementor.php:2160
+#: elementor/core/elementor.php:2162
 msgid "reviews."
 msgstr ""
 
-#: elementor/core/elementor.php:2186 inc/theme-options/theme-options.php:13
+#: elementor/core/elementor.php:2188 inc/theme-options/theme-options.php:13
 msgid "Default Form"
 msgstr ""
 
-#: elementor/core/elementor.php:2194 inc/theme-options/theme-options.php:21
+#: elementor/core/elementor.php:2196 inc/theme-options/theme-options.php:21
 #, php-format
 msgid "Form %s"
 msgstr ""
@@ -898,7 +898,7 @@ msgstr ""
 #: inc/theme-options/_theme-options-functions.php:34
 #: inc/theme-options/_theme-options-functions.php:89
 #: inc/theme-options/_theme-options-functions.php:778
-#: inc/theme-options/_theme-options-functions.php:945
+#: inc/theme-options/_theme-options-functions.php:951
 #: widgets/widget-recent-posts.php:220
 msgid "Layout"
 msgstr ""
@@ -982,8 +982,8 @@ msgstr ""
 
 #: elementor/core/register/cms_accordion.php:83
 #: elementor/core/register/cms_newsletter.php:35
-#: inc/theme-options/theme-options.php:423
-#: inc/theme-options/theme-options.php:681
+#: inc/theme-options/theme-options.php:417
+#: inc/theme-options/theme-options.php:675
 msgid "Content"
 msgstr ""
 
@@ -998,16 +998,16 @@ msgstr ""
 #: elementor/core/register/cms_accordion.php:103
 #: elementor/core/register/cms_heading.php:88
 #: elementor/core/register/cms_image_gallery.php:137
-#: inc/theme-options/_theme-options-functions.php:1021
-#: inc/theme-options/_theme-options-functions.php:1029
+#: inc/theme-options/_theme-options-functions.php:1027
+#: inc/theme-options/_theme-options-functions.php:1035
 msgid "Left"
 msgstr ""
 
 #: elementor/core/register/cms_accordion.php:104
 #: elementor/core/register/cms_heading.php:89
 #: elementor/core/register/cms_image_gallery.php:145
-#: inc/theme-options/_theme-options-functions.php:1022
-#: inc/theme-options/_theme-options-functions.php:1030
+#: inc/theme-options/_theme-options-functions.php:1028
+#: inc/theme-options/_theme-options-functions.php:1036
 msgid "Right"
 msgstr ""
 
@@ -1026,7 +1026,7 @@ msgstr ""
 #: elementor/core/register/cms_teams.php:102
 #: elementor/core/register/cms_teams.php:108
 #: elementor/core/register/cms_testimonial.php:72
-#: inc/theme-options/theme-options.php:350
+#: inc/theme-options/theme-options.php:344
 msgid "Sub Heading"
 msgstr ""
 
@@ -1095,7 +1095,7 @@ msgstr ""
 #: elementor/core/register/cms_quickcontact.php:245
 #: elementor/core/register/cms_quickcontact.php:339
 #: elementor/core/register/cms_quickcontact.php:359
-#: elementor/core/register/cms_quickcontact.php:432
+#: elementor/core/register/cms_quickcontact.php:429
 msgid "Text Color"
 msgstr ""
 
@@ -1329,10 +1329,10 @@ msgstr ""
 
 #: elementor/core/register/cms_download.php:137
 #: elementor/core/register/cms_fancy_box.php:548
-#: elementor/core/register/cms_quickcontact.php:541
+#: elementor/core/register/cms_quickcontact.php:538
 #: elementor/core/register/cms_socials.php:188
 #: elementor/core/register/cms_video.php:207
-#: inc/theme-options/theme-options.php:429
+#: inc/theme-options/theme-options.php:423
 msgid "Background Color"
 msgstr ""
 
@@ -1482,7 +1482,7 @@ msgstr ""
 #: elementor/core/register/cms_page_title.php:340
 #: inc/theme-options/_theme-options-functions.php:247
 #: inc/theme-options/_theme-options-functions.php:787
-#: inc/theme-options/theme-options.php:697
+#: inc/theme-options/theme-options.php:691
 msgid "Background"
 msgstr ""
 
@@ -1583,7 +1583,7 @@ msgid "Feature Type"
 msgstr ""
 
 #: elementor/core/register/cms_heading.php:426
-#: inc/theme-options/theme-options.php:641
+#: inc/theme-options/theme-options.php:635
 msgid "Feature Image"
 msgstr ""
 
@@ -1752,7 +1752,7 @@ msgstr ""
 #: elementor/core/register/cms_menu.php:83
 #: elementor/core/register/cms_page_title.php:88
 #: elementor/core/register/cms_quickcontact.php:92
-#: elementor/core/register/cms_quickcontact.php:500
+#: elementor/core/register/cms_quickcontact.php:497
 #: elementor/core/register/cms_teams.php:81
 msgid "Custom Heading Color"
 msgstr ""
@@ -1861,10 +1861,10 @@ msgstr ""
 #: inc/theme-options/_theme-options-functions.php:449
 #: inc/theme-options/_theme-options-functions.php:710
 #: inc/theme-options/_theme-options-functions.php:717
-#: inc/theme-options/_theme-options-functions.php:922
-#: inc/theme-options/_theme-options-functions.php:929
-#: inc/theme-options/theme-options.php:462
-#: inc/theme-options/theme-options.php:472
+#: inc/theme-options/_theme-options-functions.php:928
+#: inc/theme-options/_theme-options-functions.php:935
+#: inc/theme-options/theme-options.php:456
+#: inc/theme-options/theme-options.php:466
 msgid "Yes"
 msgstr ""
 
@@ -1881,10 +1881,10 @@ msgstr ""
 #: inc/theme-options/_theme-options-functions.php:450
 #: inc/theme-options/_theme-options-functions.php:711
 #: inc/theme-options/_theme-options-functions.php:718
-#: inc/theme-options/_theme-options-functions.php:923
-#: inc/theme-options/_theme-options-functions.php:930
-#: inc/theme-options/theme-options.php:463
-#: inc/theme-options/theme-options.php:473
+#: inc/theme-options/_theme-options-functions.php:929
+#: inc/theme-options/_theme-options-functions.php:936
+#: inc/theme-options/theme-options.php:457
+#: inc/theme-options/theme-options.php:467
 msgid "No"
 msgstr ""
 
@@ -1907,7 +1907,7 @@ msgid "Buttons 03"
 msgstr ""
 
 #: elementor/core/register/cms_page_title.php:345
-#: elementor/core/register/cms_quickcontact.php:520
+#: elementor/core/register/cms_quickcontact.php:517
 msgid "Background Image"
 msgstr ""
 
@@ -1916,12 +1916,12 @@ msgid "Choose Background. Default is post feature image"
 msgstr ""
 
 #: elementor/core/register/cms_page_title.php:352
-#: elementor/core/register/cms_quickcontact.php:527
+#: elementor/core/register/cms_quickcontact.php:524
 msgid "Background Overlay"
 msgstr ""
 
 #: elementor/core/register/cms_page_title.php:357
-#: elementor/core/register/cms_quickcontact.php:531
+#: elementor/core/register/cms_quickcontact.php:528
 #: inc/elementor/elementor-customs.php:42 inc/theme-options/_functions.php:27
 #: inc/theme-options/_functions.php:80
 msgid "None"
@@ -2029,9 +2029,9 @@ msgstr ""
 #: elementor/core/register/cms_post_carousel.php:64
 #: elementor/core/register/cms_post_grid.php:54
 #: elementor/core/register/cms_products.php:77
-#: elementor/core/register/cms_quickcontact.php:565
-#: inc/theme-options/theme-options.php:517
-#: inc/theme-options/theme-options.php:580
+#: elementor/core/register/cms_quickcontact.php:562
+#: inc/theme-options/theme-options.php:511
+#: inc/theme-options/theme-options.php:574
 msgid "Date"
 msgstr ""
 
@@ -2043,8 +2043,8 @@ msgstr ""
 
 #: elementor/core/register/cms_post_carousel.php:66
 #: elementor/core/register/cms_post_grid.php:56 inc/template-comments.php:136
-#: inc/theme-options/theme-options.php:510
-#: inc/theme-options/theme-options.php:566
+#: inc/theme-options/theme-options.php:504
+#: inc/theme-options/theme-options.php:560
 msgid "Author"
 msgstr ""
 
@@ -2237,9 +2237,9 @@ msgstr ""
 
 #: elementor/core/register/cms_pricing_table.php:351
 #: elementor/core/register/cms_pricing_table.php:369
-#: elementor/core/register/cms_quickcontact.php:627
-#: elementor/core/register/cms_quickcontact.php:638
-#: elementor/core/register/cms_quickcontact.php:719
+#: elementor/core/register/cms_quickcontact.php:623
+#: elementor/core/register/cms_quickcontact.php:634
+#: elementor/core/register/cms_quickcontact.php:715
 msgid "Button Settings"
 msgstr ""
 
@@ -2383,99 +2383,99 @@ msgstr ""
 msgid "Choose phone icon"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:420
+#: elementor/core/register/cms_quickcontact.php:417
 msgid "Icon Phone Background"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:443
+#: elementor/core/register/cms_quickcontact.php:440
 msgid "Text Hover Color"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:460
+#: elementor/core/register/cms_quickcontact.php:457
 msgid "Email Settings"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:466
+#: elementor/core/register/cms_quickcontact.php:463
 #: inc/template-comments.php:140
 msgid "Email"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:479
+#: elementor/core/register/cms_quickcontact.php:476
 msgid "Dropdown Heading Settings"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:485
+#: elementor/core/register/cms_quickcontact.php:482
 msgid "Dropdown Heading"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:488
+#: elementor/core/register/cms_quickcontact.php:485
 msgid "24/7 Emergency"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:493
+#: elementor/core/register/cms_quickcontact.php:490
 msgid "Dropdown Heading Color"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:514
+#: elementor/core/register/cms_quickcontact.php:511
 msgid "Background Settings"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:532
+#: elementor/core/register/cms_quickcontact.php:529
 msgid "Gradient 1"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:533
+#: elementor/core/register/cms_quickcontact.php:530
 msgid "Gradient 2"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:534
+#: elementor/core/register/cms_quickcontact.php:531
 msgid "Gradient 3"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:535
+#: elementor/core/register/cms_quickcontact.php:532
 msgid "Gradient 4"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:554
-#: elementor/core/register/cms_quickcontact.php:560
+#: elementor/core/register/cms_quickcontact.php:551
+#: elementor/core/register/cms_quickcontact.php:557
 msgid "Timetable"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:567
-#: elementor/core/register/cms_quickcontact.php:568
+#: elementor/core/register/cms_quickcontact.php:564
+#: elementor/core/register/cms_quickcontact.php:565
 msgid "Enter your date"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:573
+#: elementor/core/register/cms_quickcontact.php:570
 msgid "Time"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:575
-#: elementor/core/register/cms_quickcontact.php:576
+#: elementor/core/register/cms_quickcontact.php:572
+#: elementor/core/register/cms_quickcontact.php:573
 msgid "Enter your time"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:656
+#: elementor/core/register/cms_quickcontact.php:652
 msgid "Map Settings"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:662
+#: elementor/core/register/cms_quickcontact.php:658
 msgid "Map Image"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:672
+#: elementor/core/register/cms_quickcontact.php:668
 msgid "Map Address"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:682
+#: elementor/core/register/cms_quickcontact.php:678
 msgid "Map Link"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:693
+#: elementor/core/register/cms_quickcontact.php:689
 msgid "Map Link Color"
 msgstr ""
 
-#: elementor/core/register/cms_quickcontact.php:703
+#: elementor/core/register/cms_quickcontact.php:699
 msgid "Map Link Hover Color"
 msgstr ""
 
@@ -2628,8 +2628,8 @@ msgstr ""
 msgid "Position"
 msgstr ""
 
-#: elementor/core/register/cms_teams.php:181 inc/template-tags.php:556
-#: inc/theme-options/_theme-options-functions.php:992
+#: elementor/core/register/cms_teams.php:181 inc/template-tags.php:555
+#: inc/theme-options/_theme-options-functions.php:998
 msgid "Social"
 msgstr ""
 
@@ -2851,12 +2851,12 @@ msgstr ""
 msgid "Add widgets here to show on woocommerce page"
 msgstr ""
 
-#: functions.php:314
+#: functions.php:308
 msgctxt "Fira Sans font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:318
+#: functions.php:312
 msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr ""
@@ -3008,8 +3008,8 @@ msgid "Top"
 msgstr ""
 
 #: inc/elementor/elementor-customs.php:136
-#: inc/theme-options/_theme-options-functions.php:1023
-#: inc/theme-options/_theme-options-functions.php:1031
+#: inc/theme-options/_theme-options-functions.php:1029
+#: inc/theme-options/_theme-options-functions.php:1037
 msgid "Bottom"
 msgstr ""
 
@@ -3532,7 +3532,7 @@ msgstr ""
 msgid "Comment"
 msgstr ""
 
-#: inc/template-elementor.php:27 inc/template-elementor.php:369
+#: inc/template-elementor.php:27 inc/template-elementor.php:374
 msgid "Something went wrong while requesting. Please try again!"
 msgstr ""
 
@@ -3540,7 +3540,7 @@ msgstr ""
 msgid "Load Pagination Successfully!"
 msgstr ""
 
-#: inc/template-elementor.php:386
+#: inc/template-elementor.php:391
 msgid "Load Post Grid Successfully!"
 msgstr ""
 
@@ -3567,16 +3567,16 @@ msgctxt "submit button"
 msgid "Search"
 msgstr ""
 
-#: inc/template-media.php:314
+#: inc/template-media.php:326
 msgid "View Our Portfolio"
 msgstr ""
 
-#: inc/template-media.php:494
+#: inc/template-media.php:508
 msgid "By"
 msgstr ""
 
-#: inc/template-meta.php:90 inc/theme-options/theme-options.php:531
-#: inc/theme-options/theme-options.php:601
+#: inc/template-meta.php:90 inc/theme-options/theme-options.php:525
+#: inc/theme-options/theme-options.php:595
 msgid "Comments"
 msgstr ""
 
@@ -3588,76 +3588,76 @@ msgstr ""
 msgid "Comment: "
 msgstr ""
 
-#: inc/template-tags.php:175
+#: inc/template-tags.php:174
 msgid "Edit"
 msgstr ""
 
-#: inc/template-tags.php:280 template-parts/content-single/content.php:99
+#: inc/template-tags.php:279 template-parts/content-single/content.php:99
 msgid "Share:"
 msgstr ""
 
 #. Theme Name of the plugin/theme
-#: inc/template-tags.php:353
+#: inc/template-tags.php:352
 msgid "Saniga"
 msgstr ""
 
-#: inc/template-tags.php:382
+#: inc/template-tags.php:381
 msgid "Previous"
 msgstr ""
 
-#: inc/template-tags.php:383 template-parts/content-single/content.php:117
+#: inc/template-tags.php:382 template-parts/content-single/content.php:117
 msgid "Next"
 msgstr ""
 
-#: inc/template-tags.php:479
+#: inc/template-tags.php:478
 msgid "Related Posts"
 msgstr ""
 
-#: inc/template-tags.php:559
+#: inc/template-tags.php:558
 msgid "Facebook"
 msgstr ""
 
-#: inc/template-tags.php:565
+#: inc/template-tags.php:564
 msgid "Twitter"
 msgstr ""
 
-#: inc/template-tags.php:571
+#: inc/template-tags.php:570
 msgid "Linkedin"
 msgstr ""
 
-#: inc/template-tags.php:577
+#: inc/template-tags.php:576
 msgid "Skype"
 msgstr ""
 
-#: inc/template-tags.php:583
+#: inc/template-tags.php:582
 msgid "Google"
 msgstr ""
 
-#: inc/template-tags.php:589
+#: inc/template-tags.php:588
 msgid "Youtube"
 msgstr ""
 
-#: inc/template-tags.php:595
+#: inc/template-tags.php:594
 msgid "Vimeo"
 msgstr ""
 
-#: inc/template-tags.php:601
+#: inc/template-tags.php:600
 msgid "Tumblr"
 msgstr ""
 
-#: inc/template-tags.php:607
+#: inc/template-tags.php:606
 msgid "Rss"
 msgstr ""
 
-#: inc/template-tags.php:613
+#: inc/template-tags.php:612
 msgid "Pinterest"
 msgstr ""
 
-#: inc/template-tags.php:619
+#: inc/template-tags.php:618
 msgid "Instagram"
 msgstr ""
 
-#: inc/template-tags.php:625
+#: inc/template-tags.php:624
 msgid "Yelp"
 msgstr ""
 
@@ -3810,12 +3810,12 @@ msgstr ""
 
 #: inc/theme-options/_theme-options-functions.php:153
 msgid ""
-"Enter demensions for your logo, just in case the logo is too large. Leave "
+"Enter dimensions for your logo, just in case the logo is too large. Leave "
 "blank to use default size from theme"
 msgstr ""
 
 #: inc/theme-options/_theme-options-functions.php:159
-msgid "Enter demensions for your logo on Tablet & Mobile"
+msgid "Enter dimensions for your logo on Tablet & Mobile"
 msgstr ""
 
 #: inc/theme-options/_theme-options-functions.php:191
@@ -4030,77 +4030,77 @@ msgstr ""
 msgid "Single Page"
 msgstr ""
 
-#: inc/theme-options/_theme-options-functions.php:892
-#: inc/theme-options/theme-options.php:495
-#: inc/theme-options/theme-options.php:551
-#: inc/theme-options/theme-options.php:721
-#: inc/theme-options/theme-options.php:775
+#: inc/theme-options/_theme-options-functions.php:884
+#: inc/theme-options/theme-options.php:489
+#: inc/theme-options/theme-options.php:545
+#: inc/theme-options/theme-options.php:715
+#: inc/theme-options/theme-options.php:769
 msgid "Content Columns"
 msgstr ""
 
-#: inc/theme-options/_theme-options-functions.php:893
-#: inc/theme-options/theme-options.php:496
-#: inc/theme-options/theme-options.php:552
-#: inc/theme-options/theme-options.php:722
-#: inc/theme-options/theme-options.php:776
+#: inc/theme-options/_theme-options-functions.php:885
+#: inc/theme-options/theme-options.php:490
+#: inc/theme-options/theme-options.php:546
+#: inc/theme-options/theme-options.php:716
+#: inc/theme-options/theme-options.php:770
 msgid "Choose content Columns"
 msgstr ""
 
-#: inc/theme-options/_theme-options-functions.php:938
+#: inc/theme-options/_theme-options-functions.php:944
 msgid "Footer"
 msgstr ""
 
-#: inc/theme-options/_theme-options-functions.php:946
+#: inc/theme-options/_theme-options-functions.php:952
 msgid "Select a layout for upper footer area."
 msgstr ""
 
-#: inc/theme-options/_theme-options-functions.php:947
+#: inc/theme-options/_theme-options-functions.php:953
 #, php-format
 msgid "%sClick Here%s to add your custom footer layout."
 msgstr ""
 
-#: inc/theme-options/_theme-options-functions.php:955
+#: inc/theme-options/_theme-options-functions.php:961
 msgid "Footer Fixed"
 msgstr ""
 
-#: inc/theme-options/_theme-options-functions.php:956
+#: inc/theme-options/_theme-options-functions.php:962
 msgid "Make footer fixed at bottom?"
 msgstr ""
 
-#: inc/theme-options/_theme-options-functions.php:969
+#: inc/theme-options/_theme-options-functions.php:975
 msgid "Footer Bottom"
 msgstr ""
 
-#: inc/theme-options/_theme-options-functions.php:976
+#: inc/theme-options/_theme-options-functions.php:982
 msgid "Copyright"
 msgstr ""
 
-#: inc/theme-options/_theme-options-functions.php:1020
-#: inc/theme-options/_theme-options-functions.php:1028
+#: inc/theme-options/_theme-options-functions.php:1026
+#: inc/theme-options/_theme-options-functions.php:1034
 msgid "No Sidebar"
 msgstr ""
 
-#: inc/theme-options/_theme-options-functions.php:1037
+#: inc/theme-options/_theme-options-functions.php:1043
 msgid "Sidebar Position"
 msgstr ""
 
-#: inc/theme-options/_theme-options-functions.php:1038
+#: inc/theme-options/_theme-options-functions.php:1044
 msgid "Choose position for sidebar"
 msgstr ""
 
-#: inc/theme-options/_theme-options-functions.php:1055
+#: inc/theme-options/_theme-options-functions.php:1061
 msgid "Show Cart"
 msgstr ""
 
-#: inc/theme-options/_theme-options-functions.php:1056
+#: inc/theme-options/_theme-options-functions.php:1062
 msgid "Show/Hide cart icon"
 msgstr ""
 
-#: inc/theme-options/_theme-options-functions.php:1073
+#: inc/theme-options/_theme-options-functions.php:1079
 msgid "Show Language Switcher"
 msgstr ""
 
-#: inc/theme-options/_theme-options-functions.php:1074
+#: inc/theme-options/_theme-options-functions.php:1080
 msgid "Show/Hide Language Switcher"
 msgstr ""
 
@@ -4128,7 +4128,7 @@ msgid "Gallery"
 msgstr ""
 
 #: inc/theme-options/post-options.php:92
-#: inc/theme-options/theme-options.php:442
+#: inc/theme-options/theme-options.php:436
 msgid "Content Padding"
 msgstr ""
 
@@ -4217,14 +4217,18 @@ msgid "Contact Form 7"
 msgstr ""
 
 #: inc/theme-options/require-plugins.php:82
-msgid "Newslettes"
+msgid "Contact Form 7 Cost Calculator"
 msgstr ""
 
 #: inc/theme-options/require-plugins.php:90
+msgid "Newslettes"
+msgstr ""
+
+#: inc/theme-options/require-plugins.php:98
 msgid "WP User Avatar"
 msgstr ""
 
-#: inc/theme-options/require-plugins.php:97
+#: inc/theme-options/require-plugins.php:105
 msgid "Translatepress Multilingual"
 msgstr ""
 
@@ -4265,420 +4269,416 @@ msgid "Enable page loading effect when you load site."
 msgstr ""
 
 #: inc/theme-options/theme-options.php:213
-msgid "Smooth Scroll"
-msgstr ""
-
-#: inc/theme-options/theme-options.php:219
 msgid "Enable Back To Top"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:225
+#: inc/theme-options/theme-options.php:219
 msgid "Choose your Back To Top icon"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:234
+#: inc/theme-options/theme-options.php:228
 msgid "Dev Mode (not recommended)"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:244
+#: inc/theme-options/theme-options.php:238
 msgid "Typography"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:250
+#: inc/theme-options/theme-options.php:244
 msgid "Body Typography"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:260
+#: inc/theme-options/theme-options.php:254
 msgid "Body Google Font"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:261
+#: inc/theme-options/theme-options.php:255
 msgid "This will be the default font of your website."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:270
+#: inc/theme-options/theme-options.php:264
 msgid "Heading Typography"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:273
-#: inc/theme-options/theme-options.php:343
+#: inc/theme-options/theme-options.php:267
+#: inc/theme-options/theme-options.php:337
 msgid "Google Font"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:280
+#: inc/theme-options/theme-options.php:274
 msgid "H1"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:281
+#: inc/theme-options/theme-options.php:275
 msgid "This will be the default font for all H1 tags of your website."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:290
+#: inc/theme-options/theme-options.php:284
 msgid "H2"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:291
+#: inc/theme-options/theme-options.php:285
 msgid "This will be the default font for all H2 tags of your website."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:300
+#: inc/theme-options/theme-options.php:294
 msgid "H3"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:301
+#: inc/theme-options/theme-options.php:295
 msgid "This will be the default font for all H3 tags of your website."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:310
+#: inc/theme-options/theme-options.php:304
 msgid "H4"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:311
+#: inc/theme-options/theme-options.php:305
 msgid "This will be the default font for all H4 tags of your website."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:320
+#: inc/theme-options/theme-options.php:314
 msgid "H5"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:321
+#: inc/theme-options/theme-options.php:315
 msgid "This will be the default font for all H5 tags of your website."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:330
+#: inc/theme-options/theme-options.php:324
 msgid "H6"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:331
+#: inc/theme-options/theme-options.php:325
 msgid "This will be the default font for all H6 tags of your website."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:340
+#: inc/theme-options/theme-options.php:334
 msgid "Sub Heading Default Font"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:351
+#: inc/theme-options/theme-options.php:345
 msgid "This will be the default font for sub heading of your website."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:361
+#: inc/theme-options/theme-options.php:355
 msgid "Custom Fonts"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:368
+#: inc/theme-options/theme-options.php:362
 msgid "Custom Font"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:369
+#: inc/theme-options/theme-options.php:363
 msgid "This will be the font that applies to the class selector."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:377
+#: inc/theme-options/theme-options.php:371
 msgid "CSS Selectors"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:378
+#: inc/theme-options/theme-options.php:372
 msgid "Add class selectors to apply above font."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:406
+#: inc/theme-options/theme-options.php:400
 msgid "Social Link"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:430
+#: inc/theme-options/theme-options.php:424
 msgid "Content background color."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:443
+#: inc/theme-options/theme-options.php:437
 msgid "Default: Top-90px, Bottom-90px"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:453
+#: inc/theme-options/theme-options.php:447
 msgid "Search Form - Text Placeholder"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:455
+#: inc/theme-options/theme-options.php:449
 msgid "Default: Search Keywords..."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:460
+#: inc/theme-options/theme-options.php:454
 msgid "Use Placeholder Image for post have not featured image?"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:470
+#: inc/theme-options/theme-options.php:464
 msgid "Use Featured Image as Background"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:484
+#: inc/theme-options/theme-options.php:478
 msgid "Archive"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:511
+#: inc/theme-options/theme-options.php:505
 msgid "Show author name on each post."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:518
+#: inc/theme-options/theme-options.php:512
 msgid "Show date posted on each post."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:524
-#: inc/theme-options/theme-options.php:587
+#: inc/theme-options/theme-options.php:518
+#: inc/theme-options/theme-options.php:581
 msgid "Categories"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:525
+#: inc/theme-options/theme-options.php:519
 msgid "Show category names on each post."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:532
+#: inc/theme-options/theme-options.php:526
 msgid "Show comments count on each post."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:540
+#: inc/theme-options/theme-options.php:534
 msgid "Single Post"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:567
+#: inc/theme-options/theme-options.php:561
 msgid "Show author name on single post."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:573
+#: inc/theme-options/theme-options.php:567
 msgid "Author Info"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:574
+#: inc/theme-options/theme-options.php:568
 msgid "Show author info name on single post."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:581
+#: inc/theme-options/theme-options.php:575
 msgid "Show date on single post."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:588
+#: inc/theme-options/theme-options.php:582
 msgid "Show category names on single post."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:594
+#: inc/theme-options/theme-options.php:588
 msgid "Tags"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:595
+#: inc/theme-options/theme-options.php:589
 msgid "Show tag names on single post."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:602
+#: inc/theme-options/theme-options.php:596
 msgid "Show comments count on single post."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:608
-#: inc/theme-options/theme-options.php:790
+#: inc/theme-options/theme-options.php:602
+#: inc/theme-options/theme-options.php:784
 msgid "Social Share"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:609
+#: inc/theme-options/theme-options.php:603
 msgid "Show social share on single post."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:615
+#: inc/theme-options/theme-options.php:609
 msgid "Post Navigation"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:616
+#: inc/theme-options/theme-options.php:610
 msgid "Show next/preview Navigation."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:622
+#: inc/theme-options/theme-options.php:616
 msgid "Comments Form"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:623
+#: inc/theme-options/theme-options.php:617
 msgid "Show comments form on single post."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:629
+#: inc/theme-options/theme-options.php:623
 msgid "Comments Rating"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:630
+#: inc/theme-options/theme-options.php:624
 msgid "Show comments rating field on single post."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:642
+#: inc/theme-options/theme-options.php:636
 msgid "Show feature image on single post."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:648
+#: inc/theme-options/theme-options.php:642
 msgid "Related Post"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:649
+#: inc/theme-options/theme-options.php:643
 msgid "Show related on single post."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:658
+#: inc/theme-options/theme-options.php:652
 msgid "404 Page"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:667
-#: inc/theme-options/theme-options.php:675
-#: inc/theme-options/theme-options.php:683
-#: inc/theme-options/theme-options.php:692
+#: inc/theme-options/theme-options.php:661
+#: inc/theme-options/theme-options.php:669
+#: inc/theme-options/theme-options.php:677
+#: inc/theme-options/theme-options.php:686
 msgid "Leave blank to use default text"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:673
+#: inc/theme-options/theme-options.php:667
 msgid "SubHeading"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:698
+#: inc/theme-options/theme-options.php:692
 msgid "Choose your Background"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:699
+#: inc/theme-options/theme-options.php:693
 msgid "Leave blank to use default background"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:711
+#: inc/theme-options/theme-options.php:705
 msgid "Shop"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:735
+#: inc/theme-options/theme-options.php:729
 msgid "Products displayed per row"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:738
+#: inc/theme-options/theme-options.php:732
 msgid "Number product to show per row"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:746
+#: inc/theme-options/theme-options.php:740
 msgid "Products displayed per page"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:749
+#: inc/theme-options/theme-options.php:743
 msgid "Number product to show"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:759
+#: inc/theme-options/theme-options.php:753
 msgid "Single Products"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:791
+#: inc/theme-options/theme-options.php:785
 msgid "Show social share on single product."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:807
+#: inc/theme-options/theme-options.php:801
 msgid "API Key"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:813
+#: inc/theme-options/theme-options.php:807
 msgid "Google Maps"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:815
+#: inc/theme-options/theme-options.php:809
 msgid "Register a Google Maps Api key then put it in here."
 msgstr ""
 
-#: inc/theme-options/theme-options.php:823
+#: inc/theme-options/theme-options.php:817
 msgid "Social Links"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:829
+#: inc/theme-options/theme-options.php:823
 msgid "Facebook Icon"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:834
+#: inc/theme-options/theme-options.php:828
 msgid "Facebook URL"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:840
+#: inc/theme-options/theme-options.php:834
 msgid "Twitter Icon"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:845
+#: inc/theme-options/theme-options.php:839
 msgid "Twitter URL"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:851
+#: inc/theme-options/theme-options.php:845
 msgid "LinkedIn Icon"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:856
+#: inc/theme-options/theme-options.php:850
 msgid "Inkedin URL"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:862
+#: inc/theme-options/theme-options.php:856
 msgid "Instagram Icon"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:867
+#: inc/theme-options/theme-options.php:861
 msgid "Instagram URL"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:873
+#: inc/theme-options/theme-options.php:867
 msgid "Google Icon"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:878
+#: inc/theme-options/theme-options.php:872
 msgid "Google URL"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:884
+#: inc/theme-options/theme-options.php:878
 msgid "Skype Icon"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:889
+#: inc/theme-options/theme-options.php:883
 msgid "Skype URL"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:895
+#: inc/theme-options/theme-options.php:889
 msgid "Pinterest Icon"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:900
+#: inc/theme-options/theme-options.php:894
 msgid "Pinterest URL"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:906
+#: inc/theme-options/theme-options.php:900
 msgid "Vimeo Icon"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:911
+#: inc/theme-options/theme-options.php:905
 msgid "Vimeo URL"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:917
+#: inc/theme-options/theme-options.php:911
 msgid "Youtube Icon"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:922
+#: inc/theme-options/theme-options.php:916
 msgid "Youtube URL"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:928
+#: inc/theme-options/theme-options.php:922
 msgid "Yelp Icon"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:933
+#: inc/theme-options/theme-options.php:927
 msgid "Yelp URL"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:939
+#: inc/theme-options/theme-options.php:933
 msgid "Tumblr Icon"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:944
+#: inc/theme-options/theme-options.php:938
 msgid "Tumblr URL"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:950
+#: inc/theme-options/theme-options.php:944
 msgid "Tripadvisor Icon"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:955
+#: inc/theme-options/theme-options.php:949
 msgid "Tripadvisor URL"
 msgstr ""
 
-#: inc/theme-options/theme-options.php:963
+#: inc/theme-options/theme-options.php:957
 msgid "Widget Social"
 msgstr ""
 

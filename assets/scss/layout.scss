@@ -6,6 +6,12 @@ body:not(.elementor-page) #cms-main{
 	//overflow-x: hidden;
 }
 
+#cms-page{
+	@media (max-width: $screen-md-max){
+		overflow-x: hidden;
+	}
+}
+
 // Container
 .container-wide{
 	padding-left: $grid-gutters/2;
